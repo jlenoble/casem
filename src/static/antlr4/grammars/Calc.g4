@@ -1,20 +1,26 @@
 grammar Calc;
 
-prog : stat+ ;
+prog : header ;
 
-stat : expr NEWLINE
-     | ID '=' expr NEWLINE
-     | NEWLINE
-     ;
+header      : headerStart headerEntry+ ;
+headerStart : HEADER_RECORD NEWLINE ;
+headerEntry : entryName ':' entryExpr ;
+entryName   : 'Format'
+            | 'Communication SW'
+            | 'Data Type'
+            | 'Capacity'
+            | 'File Name'
+            | 'Group Name'
+            | 'Password'
+            | 'Option1'
+            | 'Option2'
+            | 'Option3'
+            | 'Option4'
+            ;
+entryExpr   : ENTRY_VALUE NEWLINE
+            | NEWLINE
+            ;
 
-expr : expr ('*'|'/') expr
-     | expr ('+'|'-') expr
-     | INT
-     | ID
-     | '(' expr ')'
-     ;
-
-ID : [a-zA-Z]+ ;
-INT : [0-9]+ ;
-NEWLINE : '\r'? '\n' ;
-WS : [ \t]+ -> skip ;
+HEADER_RECORD : '%Header Record' ;
+ENTRY_VALUE   : [a-zA-Z0-9]+ ;
+NEWLINE       : '\r'? '\n' ;
