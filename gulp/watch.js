@@ -5,12 +5,12 @@ import {makeParser, parse} from './parse';
 
 const allSrcGlob = [
   'src/**/*.js',
-  'test/**/*.js'
+  'test/**/*.js',
+  '!src/static/antlr4/parsers/**/*.js'
 ];
 const allBuildGlob = [
   'build/src/**/*.js',
-  'build/test/**/*.js',
-  '!build/src/static/antlr4/parsers/**/*.js'
+  'build/test/**/*.js'
 ];
 const grammarGlob = [
   'src/static/antlr4/grammars/**/*.g4'

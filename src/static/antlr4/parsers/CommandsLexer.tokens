@@ -1,0 +1,12 @@
+GOTOA=1
+LBL=2
+PROG=3
+RETURN=4
+ID=5
+NUM=6
+STRING=7
+NEWLINE=8
+'\\GotoA'=1
+'\\Lbl'=2
+'\\Prog'=3
+'\\Return'=4

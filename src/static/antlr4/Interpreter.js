@@ -7,6 +7,6 @@ const {CalcVisitor} = require(path.join(base, rel,
 
 export class Interpreter extends CalcVisitor {
   visitExpr () {
-    process.stdout.write('hello, bye');
+    // Do nothing
   }
 }

@@ -10,6 +10,8 @@ const dataGlob = [
 ];
 const grammar = 'Calc';
 const rule = 'prog';
+const listener = 'Translator';
+const listenerDir = 'src/static/antlr4';
 const visitor = 'Interpreter';
 const visitorDir = 'src/static/antlr4';
 
@@ -23,15 +25,22 @@ export const makeParser = () => {
     });
   }
 
-  return gulp.src(grammarGlob, {
-    since: gulp.lastRun(makeParser),
-  })
+  return gulp.src(grammarGlob)
     .pipe(antlr4({
-      'listener': false,
+      'listener': true,
       'parserDir': 'src/static/antlr4/parsers',
       'visitor': true
     }));
 };
+
+export const translate = () => {
+  return gulp.src(dataGlob)
+    .pipe(antlr4({
+      grammar, parserDir, listener, listenerDir, rule,
+    }));
+};
+
+gulp.task('translate', gulp.series(makeParser, translate));
 
 export const interprete = () => {
   return gulp.src(dataGlob)
@@ -42,7 +51,7 @@ export const interprete = () => {
 
 gulp.task('interprete', gulp.series(makeParser, interprete));
 
-export const parse = interprete;
+export const parse = gulp.parallel(translate, interprete);
 
-gulp.task('parse', gulp.series(makeParser, interprete));
+gulp.task('parse', gulp.series(makeParser, parse));
 
