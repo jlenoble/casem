@@ -14,6 +14,7 @@ evalExpr: MINUS evalExpr # negate
         | variable # evaluate
         | number # parseFloat
         | '(' evalExpr ')' # parens
+        | func evalExpr # compute
         ;
 
 printExpr : STRING # print
@@ -27,6 +28,7 @@ additiveOp      : PLUS | MINUS;
 multiplicativeOp: STAR | SLASH;
 
 variable: ID;
-number: NATNUM;
+number: NATNUM | PI | ZERO;
+func: COS | SIN | TAN;
 
 endStatement: NEWLINE;

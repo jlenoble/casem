@@ -30,6 +30,12 @@ CalcVisitor.prototype.visitExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#compute.
+CalcVisitor.prototype.visitCompute = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#add.
 CalcVisitor.prototype.visitAdd = function(ctx) {
   return this.visitChildren(ctx);
@@ -110,6 +116,12 @@ CalcVisitor.prototype.visitVariable = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#number.
 CalcVisitor.prototype.visitNumber = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#func.
+CalcVisitor.prototype.visitFunc = function(ctx) {
   return this.visitChildren(ctx);
 };
 

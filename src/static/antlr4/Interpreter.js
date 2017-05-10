@@ -36,9 +36,27 @@ export class Interpreter extends CalcVisitor {
     this.variables[id] = value;
   }
 
+  visitCompute (ctx) {
+    const func = this.visit(ctx.func());
+    const arg = this.visit(ctx.evalExpr());
+    return func(arg);
+  }
+
   visitEvaluate (ctx) {
     const id = this.visit(ctx.variable());
     return this.variables[id];
+  }
+
+  visitFunc (ctx) {
+    if (ctx.COS()) {
+      return Math.cos;
+    }
+    if (ctx.SIN()) {
+      return Math.sin;
+    }
+    if (ctx.TAN()) {
+      return Math.tan;
+    }
   }
 
   visitMultiplicativeOp (ctx) {
@@ -64,7 +82,10 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitNumber (ctx) {
-    return ctx.NATNUM().getText();
+    if (ctx.PI()) {
+      return Math.PI;
+    }
+    return parseFloat(ctx.getText(), 10);
   }
 
   visitParens (ctx) {

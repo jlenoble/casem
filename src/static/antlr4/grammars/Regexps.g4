@@ -8,3 +8,4 @@ PLUS    : '+';
 SLASH   : '/';
 STAR    : '*';
 STRING  : '"' .*? '"';
+ZERO    : '0';
