@@ -96,18 +96,6 @@ CalcVisitor.prototype.visitStoExpr = function(ctx) {
 };
 
 
-// Visit a parse tree produced by CalcParser#additiveOp.
-CalcVisitor.prototype.visitAdditiveOp = function(ctx) {
-  return this.visitChildren(ctx);
-};
-
-
-// Visit a parse tree produced by CalcParser#multiplicativeOp.
-CalcVisitor.prototype.visitMultiplicativeOp = function(ctx) {
-  return this.visitChildren(ctx);
-};
-
-
 // Visit a parse tree produced by CalcParser#variable.
 CalcVisitor.prototype.visitVariable = function(ctx) {
   return this.visitChildren(ctx);
@@ -128,6 +116,18 @@ CalcVisitor.prototype.visitEndStatement = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#func.
 CalcVisitor.prototype.visitFunc = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#additiveOp.
+CalcVisitor.prototype.visitAdditiveOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#multiplicativeOp.
+CalcVisitor.prototype.visitMultiplicativeOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

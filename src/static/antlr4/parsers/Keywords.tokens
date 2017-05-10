@@ -1,6 +1,4 @@
-ARROW=1
-LOCATE=2
-PI=3
-'\\->'=1
-'\\Locate '=2
-'\\Pi'=3
+LOCATE=1
+PI=2
+'\\Locate '=1
+'\\Pi'=2

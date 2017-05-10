@@ -1,5 +1,5 @@
 grammar Calc;
-import Functions, Keywords, Regexps;
+import Functions, Operators, Keywords, Regexps;
 
 prog: statement+;
 statement: expr endStatement;
@@ -23,9 +23,6 @@ printExpr : STRING # print
 
 assignExpr: evalExpr ARROW stoExpr;
 stoExpr: variable;
-
-additiveOp      : PLUS | MINUS;
-multiplicativeOp: STAR | SLASH;
 
 variable: ID;
 number: NATNUM | PI | ZERO;

@@ -1,14 +1,6 @@
 ID=1
 NATNUM=2
 NEWLINE=3
-MINUS=4
-PLUS=5
-SLASH=6
-STAR=7
-STRING=8
-ZERO=9
-'-'=4
-'+'=5
-'/'=6
-'*'=7
-'0'=9
+STRING=4
+ZERO=5
+'0'=5
