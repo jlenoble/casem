@@ -30,10 +30,41 @@ export class Interpreter extends CalcVisitor {
     return (ctx.ADD() || ctx.SUB()).symbol.type;
   }
 
-  visitAssignExpr (ctx) {
+  visitAssignStat (ctx) {
     const id = this.visit(ctx.stoExpr());
     const value = this.visit(ctx.evalExpr());
     this.variables[id] = value;
+  }
+
+  visitBoolExpr (ctx) {
+    const left = this.visit(ctx.evalExpr(0));
+    const right = this.visit(ctx.evalExpr(1));
+    const operator = this.visit(ctx.compOp());
+
+    switch (operator) {
+    case CalcParser.EQ:
+      return left === right;
+
+    case CalcParser.NE:
+      return left !== right;
+
+    case CalcParser.GT:
+      return left > right;
+
+    case CalcParser.GE:
+      return left >= right;
+
+    case CalcParser.LT:
+      return left < right;
+
+    case CalcParser.LE:
+      return left <= right;
+    }
+  }
+
+  visitCompOp (ctx) {
+    return (ctx.EQ() || ctx.NE() || ctx.GT() || ctx.GE() || ctx.LT() ||
+      ctx.LE()).symbol.type;
   }
 
   visitCompute (ctx) {
@@ -48,6 +79,9 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitFunc (ctx) {
+    if (ctx.SQRT()) {
+      return Math.sqrt;
+    }
     if (ctx.COS()) {
       return Math.cos;
     }
@@ -56,6 +90,27 @@ export class Interpreter extends CalcVisitor {
     }
     if (ctx.TAN()) {
       return Math.tan;
+    }
+    if (ctx.ACOS()) {
+      return Math.acos;
+    }
+    if (ctx.ASIN()) {
+      return Math.asin;
+    }
+    if (ctx.ATAN()) {
+      return Math.atan;
+    }
+  }
+
+  visitIfStat (ctx) {
+    const bool = this.visit(ctx.boolExpr());
+
+    if (bool) {
+      this.visit(ctx.block(0));
+    } else {
+      if (ctx.ELSE()) {
+        this.visit(ctx.block(1));
+      }
     }
   }
 

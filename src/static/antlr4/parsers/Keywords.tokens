@@ -1,4 +1,12 @@
-LOCATE=1
-PI=2
-'\\Locate '=1
-'\\Pi'=2
+ELSE=1
+IF=2
+IFEND=3
+LOCATE=4
+PI=5
+THEN=6
+'\\Else '=1
+'\\If '=2
+'\\IfEnd'=3
+'\\Locate '=4
+'\\Pi'=5
+'\\Then '=6

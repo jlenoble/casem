@@ -1,0 +1,16 @@
+\cos 1*\cos 1\->X
+\sin 1*\cos 1\->Y
+\sin 1\->Z
+\sqrt(X*X+Y*Y+Z*Z)\->R
+\If R=0:\Then 0\->T:0\->P
+\Else \asin (Z/R)\->P:R*\cos P\->A
+\If A=0:\Then 0\->T
+\Else \acos (X/A)\->T
+\If Y<0:\Then -T\->T
+\IfEnd
+\IfEnd
+\IfEnd
+"Result cart->pol"
+\Locate 1,1,R
+\Locate 1,1,T
+\Locate 1,1,P

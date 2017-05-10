@@ -29,5 +29,23 @@ OperatorsListener.prototype.exitMultOp = function(ctx) {
 };
 
 
+// Enter a parse tree produced by OperatorsParser#compOp.
+OperatorsListener.prototype.enterCompOp = function(ctx) {
+};
+
+// Exit a parse tree produced by OperatorsParser#compOp.
+OperatorsListener.prototype.exitCompOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by OperatorsParser#boolOP.
+OperatorsListener.prototype.enterBoolOP = function(ctx) {
+};
+
+// Exit a parse tree produced by OperatorsParser#boolOP.
+OperatorsListener.prototype.exitBoolOP = function(ctx) {
+};
+
+
 
 exports.OperatorsListener = OperatorsListener;
