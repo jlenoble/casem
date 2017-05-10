@@ -59,6 +59,10 @@ export class Interpreter extends CalcVisitor {
     }
   }
 
+  visitNegate (ctx) {
+    return -this.visit(ctx.evalExpr());
+  }
+
   visitNumber (ctx) {
     return ctx.NATNUM().getText();
   }
@@ -74,7 +78,7 @@ export class Interpreter extends CalcVisitor {
 
   visitPrintAt (ctx) {
     const txt = this.visit(ctx.evalExpr(2)).toString();
-    process.stdout.write(txt);
+    console.log(txt);
   }
 
   visitStoExpr (ctx) {

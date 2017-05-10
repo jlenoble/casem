@@ -8,7 +8,8 @@ expr: evalExpr
     | assignExpr
     ;
 
-evalExpr: evalExpr multiplicativeOp evalExpr # multiply
+evalExpr: MINUS evalExpr # negate
+        | evalExpr multiplicativeOp evalExpr # multiply
         | evalExpr additiveOp evalExpr # add
         | variable # evaluate
         | number # parseFloat
