@@ -56,6 +56,15 @@ CalcListener.prototype.exitParseFloat = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#parens.
+CalcListener.prototype.enterParens = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#parens.
+CalcListener.prototype.exitParens = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#negate.
 CalcListener.prototype.enterNegate = function(ctx) {
 };

@@ -13,6 +13,7 @@ evalExpr: MINUS evalExpr # negate
         | evalExpr additiveOp evalExpr # add
         | variable # evaluate
         | number # parseFloat
+        | '(' evalExpr ')' # parens
         ;
 
 printExpr : STRING # print

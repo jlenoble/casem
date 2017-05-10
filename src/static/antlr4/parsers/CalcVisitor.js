@@ -42,6 +42,12 @@ CalcVisitor.prototype.visitParseFloat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#parens.
+CalcVisitor.prototype.visitParens = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#negate.
 CalcVisitor.prototype.visitNegate = function(ctx) {
   return this.visitChildren(ctx);

@@ -67,6 +67,10 @@ export class Interpreter extends CalcVisitor {
     return ctx.NATNUM().getText();
   }
 
+  visitParens (ctx) {
+    return this.visit(ctx.evalExpr());
+  }
+
   visitParseFloat (ctx) {
     const number = this.visit(ctx.number());
     return parseFloat(number, 10);
