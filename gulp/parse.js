@@ -19,7 +19,9 @@ export const makeParser = () => {
   if (require && require.cache) {
     // Remove parser files from Babel cache
     Object.keys(require.cache).filter(key => {
-      return key.includes(parserDir);
+      return key.includes(parserDir) ||
+        key.includes(listenerDir) ||
+        key.includes(visitorDir);
     }).forEach(key => {
       delete require.cache[key];
     });
@@ -54,4 +56,3 @@ gulp.task('interprete', gulp.series(makeParser, interprete));
 export const parse = gulp.parallel(translate, interprete);
 
 gulp.task('parse', gulp.series(makeParser, parse));
-
