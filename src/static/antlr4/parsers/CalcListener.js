@@ -173,21 +173,21 @@ CalcListener.prototype.exitNumber = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#func.
-CalcListener.prototype.enterFunc = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#func.
-CalcListener.prototype.exitFunc = function(ctx) {
-};
-
-
 // Enter a parse tree produced by CalcParser#endStatement.
 CalcListener.prototype.enterEndStatement = function(ctx) {
 };
 
 // Exit a parse tree produced by CalcParser#endStatement.
 CalcListener.prototype.exitEndStatement = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#func.
+CalcListener.prototype.enterFunc = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#func.
+CalcListener.prototype.exitFunc = function(ctx) {
 };
 
 

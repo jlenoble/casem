@@ -1,5 +1,5 @@
 grammar Calc;
-import Keywords, Regexps;
+import Functions, Keywords, Regexps;
 
 prog: statement+;
 statement: expr endStatement;
@@ -29,6 +29,5 @@ multiplicativeOp: STAR | SLASH;
 
 variable: ID;
 number: NATNUM | PI | ZERO;
-func: COS | SIN | TAN;
 
 endStatement: NEWLINE;

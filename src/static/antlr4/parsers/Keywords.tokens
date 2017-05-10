@@ -1,12 +1,6 @@
 ARROW=1
-COS=2
-LOCATE=3
-PI=4
-SIN=5
-TAN=6
+LOCATE=2
+PI=3
 '\\->'=1
-'\\cos '=2
-'\\Locate '=3
-'\\Pi'=4
-'\\sin '=5
-'\\tan '=6
+'\\Locate '=2
+'\\Pi'=3

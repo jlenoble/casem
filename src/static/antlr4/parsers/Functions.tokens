@@ -1,0 +1,14 @@
+SQRT=1
+COS=2
+SIN=3
+TAN=4
+ACOS=5
+ASIN=6
+ATAN=7
+'\\sqrt'=1
+'\\cos '=2
+'\\sin '=3
+'\\tan '=4
+'\\acos '=5
+'\\asin '=6
+'\\atan '=7
