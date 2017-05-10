@@ -8,9 +8,9 @@ expr: evalExpr
     | assignExpr
     ;
 
-evalExpr: MINUS evalExpr # negate
-        | evalExpr multiplicativeOp evalExpr # multiply
-        | evalExpr additiveOp evalExpr # add
+evalExpr: '-' evalExpr # negate
+        | evalExpr multOp evalExpr # multiply
+        | evalExpr addOp evalExpr # add
         | variable # evaluate
         | number # parseFloat
         | '(' evalExpr ')' # parens

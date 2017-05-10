@@ -37,29 +37,29 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0003\u0002\u0002\u0002$(\u0005\b\u0005\u0002%(\u0005\n\u0006\u0002",
     "&(\u0005\f\u0007\u0002\'$\u0003\u0002\u0002\u0002\'%\u0003\u0002\u0002",
     "\u0002\'&\u0003\u0002\u0002\u0002(\u0007\u0003\u0002\u0002\u0002)*\b",
-    "\u0005\u0001\u0002*+\u0007\r\u0002\u0002+6\u0005\b\u0005\t,6\u0005\u0010",
-    "\t\u0002-6\u0005\u0012\n\u0002./\u0007\u0003\u0002\u0002/0\u0005\b\u0005",
-    "\u000201\u0007\u0004\u0002\u000216\u0003\u0002\u0002\u000223\u0005\u0016",
-    "\f\u000234\u0005\b\u0005\u000346\u0003\u0002\u0002\u00025)\u0003\u0002",
-    "\u0002\u00025,\u0003\u0002\u0002\u00025-\u0003\u0002\u0002\u00025.\u0003",
-    "\u0002\u0002\u000252\u0003\u0002\u0002\u00026A\u0003\u0002\u0002\u0002",
-    "78\f\b\u0002\u000289\u0005\u001a\u000e\u00029:\u0005\b\u0005\t:@\u0003",
-    "\u0002\u0002\u0002;<\f\u0007\u0002\u0002<=\u0005\u0018\r\u0002=>\u0005",
-    "\b\u0005\b>@\u0003\u0002\u0002\u0002?7\u0003\u0002\u0002\u0002?;\u0003",
-    "\u0002\u0002\u0002@C\u0003\u0002\u0002\u0002A?\u0003\u0002\u0002\u0002",
-    "AB\u0003\u0002\u0002\u0002B\t\u0003\u0002\u0002\u0002CA\u0003\u0002",
-    "\u0002\u0002DM\u0007\u0017\u0002\u0002EF\u0007\u0012\u0002\u0002FG\u0005",
-    "\b\u0005\u0002GH\u0007\u0005\u0002\u0002HI\u0005\b\u0005\u0002IJ\u0007",
-    "\u0005\u0002\u0002JK\u0005\b\u0005\u0002KM\u0003\u0002\u0002\u0002L",
-    "D\u0003\u0002\u0002\u0002LE\u0003\u0002\u0002\u0002M\u000b\u0003\u0002",
-    "\u0002\u0002NO\u0005\b\u0005\u0002OP\u0007\u0011\u0002\u0002PQ\u0005",
-    "\u000e\b\u0002Q\r\u0003\u0002\u0002\u0002RS\u0005\u0010\t\u0002S\u000f",
-    "\u0003\u0002\u0002\u0002TU\u0007\u0014\u0002\u0002U\u0011\u0003\u0002",
-    "\u0002\u0002VW\t\u0002\u0002\u0002W\u0013\u0003\u0002\u0002\u0002XY",
-    "\u0007\u0016\u0002\u0002Y\u0015\u0003\u0002\u0002\u0002Z[\t\u0003\u0002",
-    "\u0002[\u0017\u0003\u0002\u0002\u0002\\]\t\u0004\u0002\u0002]\u0019",
-    "\u0003\u0002\u0002\u0002^_\t\u0005\u0002\u0002_\u001b\u0003\u0002\u0002",
-    "\u0002\b\u001f\'5?AL"].join("");
+    "\u0005\u0001\u0002*+\u0007\u000e\u0002\u0002+6\u0005\b\u0005\t,6\u0005",
+    "\u0010\t\u0002-6\u0005\u0012\n\u0002./\u0007\u0003\u0002\u0002/0\u0005",
+    "\b\u0005\u000201\u0007\u0004\u0002\u000216\u0003\u0002\u0002\u00022",
+    "3\u0005\u0016\f\u000234\u0005\b\u0005\u000346\u0003\u0002\u0002\u0002",
+    "5)\u0003\u0002\u0002\u00025,\u0003\u0002\u0002\u00025-\u0003\u0002\u0002",
+    "\u00025.\u0003\u0002\u0002\u000252\u0003\u0002\u0002\u00026A\u0003\u0002",
+    "\u0002\u000278\f\b\u0002\u000289\u0005\u001a\u000e\u00029:\u0005\b\u0005",
+    "\t:@\u0003\u0002\u0002\u0002;<\f\u0007\u0002\u0002<=\u0005\u0018\r\u0002",
+    "=>\u0005\b\u0005\b>@\u0003\u0002\u0002\u0002?7\u0003\u0002\u0002\u0002",
+    "?;\u0003\u0002\u0002\u0002@C\u0003\u0002\u0002\u0002A?\u0003\u0002\u0002",
+    "\u0002AB\u0003\u0002\u0002\u0002B\t\u0003\u0002\u0002\u0002CA\u0003",
+    "\u0002\u0002\u0002DM\u0007\u0017\u0002\u0002EF\u0007\u0012\u0002\u0002",
+    "FG\u0005\b\u0005\u0002GH\u0007\u0005\u0002\u0002HI\u0005\b\u0005\u0002",
+    "IJ\u0007\u0005\u0002\u0002JK\u0005\b\u0005\u0002KM\u0003\u0002\u0002",
+    "\u0002LD\u0003\u0002\u0002\u0002LE\u0003\u0002\u0002\u0002M\u000b\u0003",
+    "\u0002\u0002\u0002NO\u0005\b\u0005\u0002OP\u0007\u0011\u0002\u0002P",
+    "Q\u0005\u000e\b\u0002Q\r\u0003\u0002\u0002\u0002RS\u0005\u0010\t\u0002",
+    "S\u000f\u0003\u0002\u0002\u0002TU\u0007\u0014\u0002\u0002U\u0011\u0003",
+    "\u0002\u0002\u0002VW\t\u0002\u0002\u0002W\u0013\u0003\u0002\u0002\u0002",
+    "XY\u0007\u0016\u0002\u0002Y\u0015\u0003\u0002\u0002\u0002Z[\t\u0003",
+    "\u0002\u0002[\u0017\u0003\u0002\u0002\u0002\\]\t\u0004\u0002\u0002]",
+    "\u0019\u0003\u0002\u0002\u0002^_\t\u0005\u0002\u0002_\u001b\u0003\u0002",
+    "\u0002\u0002\b\u001f\'5?AL"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -70,17 +70,17 @@ var sharedContextCache = new antlr4.PredictionContextCache();
 
 var literalNames = [ null, "'('", "')'", "','", "'\\sqrt'", "'\\cos '", 
                      "'\\sin '", "'\\tan '", "'\\acos '", "'\\asin '", "'\\atan '", 
-                     "'-'", "'+'", "'/'", "'*'", "'\\->'", "'\\Locate '", 
+                     "'+'", "'-'", "'*'", "'/'", "'\\->'", "'\\Locate '", 
                      "'\\Pi'", null, null, null, null, "'0'" ];
 
 var symbolicNames = [ null, null, null, null, "SQRT", "COS", "SIN", "TAN", 
-                      "ACOS", "ASIN", "ATAN", "MINUS", "PLUS", "SLASH", 
-                      "STAR", "ARROW", "LOCATE", "PI", "ID", "NATNUM", "NEWLINE", 
+                      "ACOS", "ASIN", "ATAN", "ADD", "SUB", "MUL", "DIV", 
+                      "ARROW", "LOCATE", "PI", "ID", "NATNUM", "NEWLINE", 
                       "STRING", "ZERO" ];
 
 var ruleNames =  [ "prog", "statement", "expr", "evalExpr", "printExpr", 
                    "assignExpr", "stoExpr", "variable", "number", "endStatement", 
-                   "func", "additiveOp", "multiplicativeOp" ];
+                   "func", "addOp", "multOp" ];
 
 function CalcParser (input) {
 	antlr4.Parser.call(this, input);
@@ -111,10 +111,10 @@ CalcParser.TAN = 7;
 CalcParser.ACOS = 8;
 CalcParser.ASIN = 9;
 CalcParser.ATAN = 10;
-CalcParser.MINUS = 11;
-CalcParser.PLUS = 12;
-CalcParser.SLASH = 13;
-CalcParser.STAR = 14;
+CalcParser.ADD = 11;
+CalcParser.SUB = 12;
+CalcParser.MUL = 13;
+CalcParser.DIV = 14;
 CalcParser.ARROW = 15;
 CalcParser.LOCATE = 16;
 CalcParser.PI = 17;
@@ -135,8 +135,8 @@ CalcParser.RULE_variable = 7;
 CalcParser.RULE_number = 8;
 CalcParser.RULE_endStatement = 9;
 CalcParser.RULE_func = 10;
-CalcParser.RULE_additiveOp = 11;
-CalcParser.RULE_multiplicativeOp = 12;
+CalcParser.RULE_addOp = 11;
+CalcParser.RULE_multOp = 12;
 
 function ProgContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -206,7 +206,7 @@ CalcParser.prototype.prog = function() {
             this.state = 29; 
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << CalcParser.T__0) | (1 << CalcParser.SQRT) | (1 << CalcParser.COS) | (1 << CalcParser.SIN) | (1 << CalcParser.TAN) | (1 << CalcParser.ACOS) | (1 << CalcParser.ASIN) | (1 << CalcParser.ATAN) | (1 << CalcParser.MINUS) | (1 << CalcParser.LOCATE) | (1 << CalcParser.PI) | (1 << CalcParser.ID) | (1 << CalcParser.NATNUM) | (1 << CalcParser.STRING) | (1 << CalcParser.ZERO))) !== 0));
+        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << CalcParser.T__0) | (1 << CalcParser.SQRT) | (1 << CalcParser.COS) | (1 << CalcParser.SIN) | (1 << CalcParser.TAN) | (1 << CalcParser.ACOS) | (1 << CalcParser.ASIN) | (1 << CalcParser.ATAN) | (1 << CalcParser.SUB) | (1 << CalcParser.LOCATE) | (1 << CalcParser.PI) | (1 << CalcParser.ID) | (1 << CalcParser.NATNUM) | (1 << CalcParser.STRING) | (1 << CalcParser.ZERO))) !== 0));
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -472,8 +472,8 @@ AddContext.prototype.evalExpr = function(i) {
     }
 };
 
-AddContext.prototype.additiveOp = function() {
-    return this.getTypedRuleContext(AdditiveOpContext,0);
+AddContext.prototype.addOp = function() {
+    return this.getTypedRuleContext(AddOpContext,0);
 };
 AddContext.prototype.enterRule = function(listener) {
     if(listener instanceof CalcListener ) {
@@ -577,10 +577,6 @@ NegateContext.prototype.constructor = NegateContext;
 
 CalcParser.NegateContext = NegateContext;
 
-NegateContext.prototype.MINUS = function() {
-    return this.getToken(CalcParser.MINUS, 0);
-};
-
 NegateContext.prototype.evalExpr = function() {
     return this.getTypedRuleContext(EvalExprContext,0);
 };
@@ -627,8 +623,8 @@ MultiplyContext.prototype.evalExpr = function(i) {
     }
 };
 
-MultiplyContext.prototype.multiplicativeOp = function() {
-    return this.getTypedRuleContext(MultiplicativeOpContext,0);
+MultiplyContext.prototype.multOp = function() {
+    return this.getTypedRuleContext(MultOpContext,0);
 };
 MultiplyContext.prototype.enterRule = function(listener) {
     if(listener instanceof CalcListener ) {
@@ -702,13 +698,13 @@ CalcParser.prototype.evalExpr = function(_p) {
         this.state = 51;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
-        case CalcParser.MINUS:
+        case CalcParser.SUB:
             localctx = new NegateContext(this, localctx);
             this._ctx = localctx;
             _prevctx = localctx;
 
             this.state = 40;
-            this.match(CalcParser.MINUS);
+            this.match(CalcParser.SUB);
             this.state = 41;
             this.evalExpr(7);
             break;
@@ -779,7 +775,7 @@ CalcParser.prototype.evalExpr = function(_p) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 6)");
                     }
                     this.state = 54;
-                    this.multiplicativeOp();
+                    this.multOp();
                     this.state = 55;
                     this.evalExpr(7);
                     break;
@@ -792,7 +788,7 @@ CalcParser.prototype.evalExpr = function(_p) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 5)");
                     }
                     this.state = 58;
-                    this.additiveOp();
+                    this.addOp();
                     this.state = 59;
                     this.evalExpr(6);
                     break;
@@ -1434,7 +1430,7 @@ CalcParser.prototype.func = function() {
     return localctx;
 };
 
-function AdditiveOpContext(parser, parent, invokingState) {
+function AddOpContext(parser, parent, invokingState) {
 	if(parent===undefined) {
 	    parent = null;
 	}
@@ -1443,36 +1439,36 @@ function AdditiveOpContext(parser, parent, invokingState) {
 	}
 	antlr4.ParserRuleContext.call(this, parent, invokingState);
     this.parser = parser;
-    this.ruleIndex = CalcParser.RULE_additiveOp;
+    this.ruleIndex = CalcParser.RULE_addOp;
     return this;
 }
 
-AdditiveOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
-AdditiveOpContext.prototype.constructor = AdditiveOpContext;
+AddOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+AddOpContext.prototype.constructor = AddOpContext;
 
-AdditiveOpContext.prototype.PLUS = function() {
-    return this.getToken(CalcParser.PLUS, 0);
+AddOpContext.prototype.ADD = function() {
+    return this.getToken(CalcParser.ADD, 0);
 };
 
-AdditiveOpContext.prototype.MINUS = function() {
-    return this.getToken(CalcParser.MINUS, 0);
+AddOpContext.prototype.SUB = function() {
+    return this.getToken(CalcParser.SUB, 0);
 };
 
-AdditiveOpContext.prototype.enterRule = function(listener) {
+AddOpContext.prototype.enterRule = function(listener) {
     if(listener instanceof CalcListener ) {
-        listener.enterAdditiveOp(this);
+        listener.enterAddOp(this);
 	}
 };
 
-AdditiveOpContext.prototype.exitRule = function(listener) {
+AddOpContext.prototype.exitRule = function(listener) {
     if(listener instanceof CalcListener ) {
-        listener.exitAdditiveOp(this);
+        listener.exitAddOp(this);
 	}
 };
 
-AdditiveOpContext.prototype.accept = function(visitor) {
+AddOpContext.prototype.accept = function(visitor) {
     if ( visitor instanceof CalcVisitor ) {
-        return visitor.visitAdditiveOp(this);
+        return visitor.visitAddOp(this);
     } else {
         return visitor.visitChildren(this);
     }
@@ -1481,18 +1477,18 @@ AdditiveOpContext.prototype.accept = function(visitor) {
 
 
 
-CalcParser.AdditiveOpContext = AdditiveOpContext;
+CalcParser.AddOpContext = AddOpContext;
 
-CalcParser.prototype.additiveOp = function() {
+CalcParser.prototype.addOp = function() {
 
-    var localctx = new AdditiveOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 22, CalcParser.RULE_additiveOp);
+    var localctx = new AddOpContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 22, CalcParser.RULE_addOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 90;
         _la = this._input.LA(1);
-        if(!(_la===CalcParser.MINUS || _la===CalcParser.PLUS)) {
+        if(!(_la===CalcParser.ADD || _la===CalcParser.SUB)) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -1513,7 +1509,7 @@ CalcParser.prototype.additiveOp = function() {
     return localctx;
 };
 
-function MultiplicativeOpContext(parser, parent, invokingState) {
+function MultOpContext(parser, parent, invokingState) {
 	if(parent===undefined) {
 	    parent = null;
 	}
@@ -1522,36 +1518,36 @@ function MultiplicativeOpContext(parser, parent, invokingState) {
 	}
 	antlr4.ParserRuleContext.call(this, parent, invokingState);
     this.parser = parser;
-    this.ruleIndex = CalcParser.RULE_multiplicativeOp;
+    this.ruleIndex = CalcParser.RULE_multOp;
     return this;
 }
 
-MultiplicativeOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
-MultiplicativeOpContext.prototype.constructor = MultiplicativeOpContext;
+MultOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+MultOpContext.prototype.constructor = MultOpContext;
 
-MultiplicativeOpContext.prototype.STAR = function() {
-    return this.getToken(CalcParser.STAR, 0);
+MultOpContext.prototype.MUL = function() {
+    return this.getToken(CalcParser.MUL, 0);
 };
 
-MultiplicativeOpContext.prototype.SLASH = function() {
-    return this.getToken(CalcParser.SLASH, 0);
+MultOpContext.prototype.DIV = function() {
+    return this.getToken(CalcParser.DIV, 0);
 };
 
-MultiplicativeOpContext.prototype.enterRule = function(listener) {
+MultOpContext.prototype.enterRule = function(listener) {
     if(listener instanceof CalcListener ) {
-        listener.enterMultiplicativeOp(this);
+        listener.enterMultOp(this);
 	}
 };
 
-MultiplicativeOpContext.prototype.exitRule = function(listener) {
+MultOpContext.prototype.exitRule = function(listener) {
     if(listener instanceof CalcListener ) {
-        listener.exitMultiplicativeOp(this);
+        listener.exitMultOp(this);
 	}
 };
 
-MultiplicativeOpContext.prototype.accept = function(visitor) {
+MultOpContext.prototype.accept = function(visitor) {
     if ( visitor instanceof CalcVisitor ) {
-        return visitor.visitMultiplicativeOp(this);
+        return visitor.visitMultOp(this);
     } else {
         return visitor.visitChildren(this);
     }
@@ -1560,18 +1556,18 @@ MultiplicativeOpContext.prototype.accept = function(visitor) {
 
 
 
-CalcParser.MultiplicativeOpContext = MultiplicativeOpContext;
+CalcParser.MultOpContext = MultOpContext;
 
-CalcParser.prototype.multiplicativeOp = function() {
+CalcParser.prototype.multOp = function() {
 
-    var localctx = new MultiplicativeOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 24, CalcParser.RULE_multiplicativeOp);
+    var localctx = new MultOpContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 24, CalcParser.RULE_multOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 92;
         _la = this._input.LA(1);
-        if(!(_la===CalcParser.SLASH || _la===CalcParser.STAR)) {
+        if(!(_la===CalcParser.MUL || _la===CalcParser.DIV)) {
         this._errHandler.recoverInline(this);
         }
         else {

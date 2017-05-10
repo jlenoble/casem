@@ -67,9 +67,9 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0002XY\u0007p\u0002\u0002YZ\u0007\"\u0002\u0002Z\u0014\u0003\u0002",
     "\u0002\u0002[\\\u0007^\u0002\u0002\\]\u0007c\u0002\u0002]^\u0007v\u0002",
     "\u0002^_\u0007c\u0002\u0002_`\u0007p\u0002\u0002`a\u0007\"\u0002\u0002",
-    "a\u0016\u0003\u0002\u0002\u0002bc\u0007/\u0002\u0002c\u0018\u0003\u0002",
-    "\u0002\u0002de\u0007-\u0002\u0002e\u001a\u0003\u0002\u0002\u0002fg\u0007",
-    "1\u0002\u0002g\u001c\u0003\u0002\u0002\u0002hi\u0007,\u0002\u0002i\u001e",
+    "a\u0016\u0003\u0002\u0002\u0002bc\u0007-\u0002\u0002c\u0018\u0003\u0002",
+    "\u0002\u0002de\u0007/\u0002\u0002e\u001a\u0003\u0002\u0002\u0002fg\u0007",
+    ",\u0002\u0002g\u001c\u0003\u0002\u0002\u0002hi\u00071\u0002\u0002i\u001e",
     "\u0003\u0002\u0002\u0002jk\u0007^\u0002\u0002kl\u0007/\u0002\u0002l",
     "m\u0007@\u0002\u0002m \u0003\u0002\u0002\u0002no\u0007^\u0002\u0002",
     "op\u0007N\u0002\u0002pq\u0007q\u0002\u0002qr\u0007e\u0002\u0002rs\u0007",
@@ -116,10 +116,10 @@ CalcLexer.TAN = 7;
 CalcLexer.ACOS = 8;
 CalcLexer.ASIN = 9;
 CalcLexer.ATAN = 10;
-CalcLexer.MINUS = 11;
-CalcLexer.PLUS = 12;
-CalcLexer.SLASH = 13;
-CalcLexer.STAR = 14;
+CalcLexer.ADD = 11;
+CalcLexer.SUB = 12;
+CalcLexer.MUL = 13;
+CalcLexer.DIV = 14;
 CalcLexer.ARROW = 15;
 CalcLexer.LOCATE = 16;
 CalcLexer.PI = 17;
@@ -136,21 +136,21 @@ CalcLexer.prototype.modeNames = [ "DEFAULT_MODE" ];
 CalcLexer.prototype.literalNames = [ null, "'('", "')'", "','", "'\\sqrt'", 
                                      "'\\cos '", "'\\sin '", "'\\tan '", 
                                      "'\\acos '", "'\\asin '", "'\\atan '", 
-                                     "'-'", "'+'", "'/'", "'*'", "'\\->'", 
+                                     "'+'", "'-'", "'*'", "'/'", "'\\->'", 
                                      "'\\Locate '", "'\\Pi'", null, null, 
                                      null, null, "'0'" ];
 
 CalcLexer.prototype.symbolicNames = [ null, null, null, null, "SQRT", "COS", 
                                       "SIN", "TAN", "ACOS", "ASIN", "ATAN", 
-                                      "MINUS", "PLUS", "SLASH", "STAR", 
-                                      "ARROW", "LOCATE", "PI", "ID", "NATNUM", 
-                                      "NEWLINE", "STRING", "ZERO" ];
+                                      "ADD", "SUB", "MUL", "DIV", "ARROW", 
+                                      "LOCATE", "PI", "ID", "NATNUM", "NEWLINE", 
+                                      "STRING", "ZERO" ];
 
 CalcLexer.prototype.ruleNames = [ "T__0", "T__1", "T__2", "SQRT", "COS", 
                                   "SIN", "TAN", "ACOS", "ASIN", "ATAN", 
-                                  "MINUS", "PLUS", "SLASH", "STAR", "ARROW", 
-                                  "LOCATE", "PI", "ID", "NATNUM", "NEWLINE", 
-                                  "STRING", "ZERO" ];
+                                  "ADD", "SUB", "MUL", "DIV", "ARROW", "LOCATE", 
+                                  "PI", "ID", "NATNUM", "NEWLINE", "STRING", 
+                                  "ZERO" ];
 
 CalcLexer.prototype.grammarFileName = "Calc.g4";
 

@@ -120,14 +120,14 @@ CalcVisitor.prototype.visitFunc = function(ctx) {
 };
 
 
-// Visit a parse tree produced by CalcParser#additiveOp.
-CalcVisitor.prototype.visitAdditiveOp = function(ctx) {
+// Visit a parse tree produced by CalcParser#addOp.
+CalcVisitor.prototype.visitAddOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 
 
-// Visit a parse tree produced by CalcParser#multiplicativeOp.
-CalcVisitor.prototype.visitMultiplicativeOp = function(ctx) {
+// Visit a parse tree produced by CalcParser#multOp.
+CalcVisitor.prototype.visitMultOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

@@ -12,14 +12,14 @@ function OperatorsVisitor() {
 OperatorsVisitor.prototype = Object.create(antlr4.tree.ParseTreeVisitor.prototype);
 OperatorsVisitor.prototype.constructor = OperatorsVisitor;
 
-// Visit a parse tree produced by OperatorsParser#additiveOp.
-OperatorsVisitor.prototype.visitAdditiveOp = function(ctx) {
+// Visit a parse tree produced by OperatorsParser#addOp.
+OperatorsVisitor.prototype.visitAddOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 
 
-// Visit a parse tree produced by OperatorsParser#multiplicativeOp.
-OperatorsVisitor.prototype.visitMultiplicativeOp = function(ctx) {
+// Visit a parse tree produced by OperatorsParser#multOp.
+OperatorsVisitor.prototype.visitMultOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

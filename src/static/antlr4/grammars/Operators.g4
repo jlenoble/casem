@@ -1,11 +1,11 @@
 grammar Operators;
 
-additiveOp      : PLUS | MINUS;
-multiplicativeOp: STAR | SLASH;
+addOp   : ADD | SUB;
+multOp  : MUL | DIV;
 
-MINUS   : '-';
-PLUS    : '+';
-SLASH   : '/';
-STAR    : '*';
+ADD     : '+';
+SUB     : '-';
+MUL     : '*';
+DIV     : '/';
 
 ARROW   : '\\->';

@@ -15,19 +15,19 @@ export class Interpreter extends CalcVisitor {
   visitAdd (ctx) {
     const left = this.visit(ctx.evalExpr(0));
     const right = this.visit(ctx.evalExpr(1));
-    const operator = this.visit(ctx.additiveOp());
+    const operator = this.visit(ctx.addOp());
 
     switch (operator) {
-    case CalcParser.PLUS:
+    case CalcParser.ADD:
       return left + right;
 
-    case CalcParser.MINUS:
+    case CalcParser.SUB:
       return left - right;
     }
   }
 
-  visitAdditiveOp (ctx) {
-    return (ctx.PLUS() || ctx.MINUS()).symbol.type;
+  visitAddOp (ctx) {
+    return (ctx.ADD() || ctx.SUB()).symbol.type;
   }
 
   visitAssignExpr (ctx) {
@@ -59,20 +59,20 @@ export class Interpreter extends CalcVisitor {
     }
   }
 
-  visitMultiplicativeOp (ctx) {
-    return (ctx.STAR() || ctx.SLASH()).symbol.type;
+  visitMultOp (ctx) {
+    return (ctx.MUL() || ctx.DIV()).symbol.type;
   }
 
   visitMultiply (ctx) {
     const left = this.visit(ctx.evalExpr(0));
     const right = this.visit(ctx.evalExpr(1));
-    const operator = this.visit(ctx.multiplicativeOp());
+    const operator = this.visit(ctx.multOp());
 
     switch (operator) {
-    case CalcParser.STAR:
+    case CalcParser.MUL:
       return left * right;
 
-    case CalcParser.SLASH:
+    case CalcParser.DIV:
       return left / right;
     }
   }

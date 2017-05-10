@@ -11,21 +11,21 @@ function OperatorsListener() {
 OperatorsListener.prototype = Object.create(antlr4.tree.ParseTreeListener.prototype);
 OperatorsListener.prototype.constructor = OperatorsListener;
 
-// Enter a parse tree produced by OperatorsParser#additiveOp.
-OperatorsListener.prototype.enterAdditiveOp = function(ctx) {
+// Enter a parse tree produced by OperatorsParser#addOp.
+OperatorsListener.prototype.enterAddOp = function(ctx) {
 };
 
-// Exit a parse tree produced by OperatorsParser#additiveOp.
-OperatorsListener.prototype.exitAdditiveOp = function(ctx) {
+// Exit a parse tree produced by OperatorsParser#addOp.
+OperatorsListener.prototype.exitAddOp = function(ctx) {
 };
 
 
-// Enter a parse tree produced by OperatorsParser#multiplicativeOp.
-OperatorsListener.prototype.enterMultiplicativeOp = function(ctx) {
+// Enter a parse tree produced by OperatorsParser#multOp.
+OperatorsListener.prototype.enterMultOp = function(ctx) {
 };
 
-// Exit a parse tree produced by OperatorsParser#multiplicativeOp.
-OperatorsListener.prototype.exitMultiplicativeOp = function(ctx) {
+// Exit a parse tree produced by OperatorsParser#multOp.
+OperatorsListener.prototype.exitMultOp = function(ctx) {
 };
 
 

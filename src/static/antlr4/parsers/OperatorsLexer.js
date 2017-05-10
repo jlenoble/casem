@@ -14,10 +14,10 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0002\u0002\u0002\u0002\u000b\u0003\u0002\u0002\u0002\u0003\r\u0003",
     "\u0002\u0002\u0002\u0005\u000f\u0003\u0002\u0002\u0002\u0007\u0011\u0003",
     "\u0002\u0002\u0002\t\u0013\u0003\u0002\u0002\u0002\u000b\u0015\u0003",
-    "\u0002\u0002\u0002\r\u000e\u0007/\u0002\u0002\u000e\u0004\u0003\u0002",
-    "\u0002\u0002\u000f\u0010\u0007-\u0002\u0002\u0010\u0006\u0003\u0002",
-    "\u0002\u0002\u0011\u0012\u00071\u0002\u0002\u0012\b\u0003\u0002\u0002",
-    "\u0002\u0013\u0014\u0007,\u0002\u0002\u0014\n\u0003\u0002\u0002\u0002",
+    "\u0002\u0002\u0002\r\u000e\u0007-\u0002\u0002\u000e\u0004\u0003\u0002",
+    "\u0002\u0002\u000f\u0010\u0007/\u0002\u0002\u0010\u0006\u0003\u0002",
+    "\u0002\u0002\u0011\u0012\u0007,\u0002\u0002\u0012\b\u0003\u0002\u0002",
+    "\u0002\u0013\u0014\u00071\u0002\u0002\u0014\n\u0003\u0002\u0002\u0002",
     "\u0015\u0016\u0007^\u0002\u0002\u0016\u0017\u0007/\u0002\u0002\u0017",
     "\u0018\u0007@\u0002\u0002\u0018\f\u0003\u0002\u0002\u0002\u0003\u0002",
     "\u0002"].join("");
@@ -37,24 +37,23 @@ OperatorsLexer.prototype = Object.create(antlr4.Lexer.prototype);
 OperatorsLexer.prototype.constructor = OperatorsLexer;
 
 OperatorsLexer.EOF = antlr4.Token.EOF;
-OperatorsLexer.MINUS = 1;
-OperatorsLexer.PLUS = 2;
-OperatorsLexer.SLASH = 3;
-OperatorsLexer.STAR = 4;
+OperatorsLexer.ADD = 1;
+OperatorsLexer.SUB = 2;
+OperatorsLexer.MUL = 3;
+OperatorsLexer.DIV = 4;
 OperatorsLexer.ARROW = 5;
 
 OperatorsLexer.prototype.channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
 
 OperatorsLexer.prototype.modeNames = [ "DEFAULT_MODE" ];
 
-OperatorsLexer.prototype.literalNames = [ null, "'-'", "'+'", "'/'", "'*'", 
+OperatorsLexer.prototype.literalNames = [ null, "'+'", "'-'", "'*'", "'/'", 
                                           "'\\->'" ];
 
-OperatorsLexer.prototype.symbolicNames = [ null, "MINUS", "PLUS", "SLASH", 
-                                           "STAR", "ARROW" ];
+OperatorsLexer.prototype.symbolicNames = [ null, "ADD", "SUB", "MUL", "DIV", 
+                                           "ARROW" ];
 
-OperatorsLexer.prototype.ruleNames = [ "MINUS", "PLUS", "SLASH", "STAR", 
-                                       "ARROW" ];
+OperatorsLexer.prototype.ruleNames = [ "ADD", "SUB", "MUL", "DIV", "ARROW" ];
 
 OperatorsLexer.prototype.grammarFileName = "Operators.g4";
 
