@@ -42,8 +42,14 @@ CalcVisitor.prototype.visitParseFloat = function(ctx) {
 };
 
 
-// Visit a parse tree produced by CalcParser#eval.
-CalcVisitor.prototype.visitEval = function(ctx) {
+// Visit a parse tree produced by CalcParser#multiply.
+CalcVisitor.prototype.visitMultiply = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#evaluate.
+CalcVisitor.prototype.visitEvaluate = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -74,6 +80,12 @@ CalcVisitor.prototype.visitStoExpr = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#additiveOp.
 CalcVisitor.prototype.visitAdditiveOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#multiplicativeOp.
+CalcVisitor.prototype.visitMultiplicativeOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

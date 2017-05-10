@@ -8,8 +8,9 @@ expr: evalExpr
     | assignExpr
     ;
 
-evalExpr: evalExpr additiveOp evalExpr # add
-        | variable # eval
+evalExpr: evalExpr multiplicativeOp evalExpr # multiply
+        | evalExpr additiveOp evalExpr # add
+        | variable # evaluate
         | number # parseFloat
         ;
 
@@ -20,7 +21,8 @@ printExpr : STRING # print
 assignExpr: evalExpr ARROW stoExpr;
 stoExpr: variable;
 
-additiveOp: PLUS | MINUS;
+additiveOp      : PLUS | MINUS;
+multiplicativeOp: STAR | SLASH;
 
 variable: ID;
 number: NATNUM;

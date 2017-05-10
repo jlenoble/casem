@@ -56,12 +56,21 @@ CalcListener.prototype.exitParseFloat = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#eval.
-CalcListener.prototype.enterEval = function(ctx) {
+// Enter a parse tree produced by CalcParser#multiply.
+CalcListener.prototype.enterMultiply = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#eval.
-CalcListener.prototype.exitEval = function(ctx) {
+// Exit a parse tree produced by CalcParser#multiply.
+CalcListener.prototype.exitMultiply = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#evaluate.
+CalcListener.prototype.enterEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#evaluate.
+CalcListener.prototype.exitEvaluate = function(ctx) {
 };
 
 
@@ -107,6 +116,15 @@ CalcListener.prototype.enterAdditiveOp = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#additiveOp.
 CalcListener.prototype.exitAdditiveOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#multiplicativeOp.
+CalcListener.prototype.enterMultiplicativeOp = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#multiplicativeOp.
+CalcListener.prototype.exitMultiplicativeOp = function(ctx) {
 };
 
 

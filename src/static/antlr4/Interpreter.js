@@ -36,9 +36,27 @@ export class Interpreter extends CalcVisitor {
     this.variables[id] = value;
   }
 
-  visitEval (ctx) {
+  visitEvaluate (ctx) {
     const id = this.visit(ctx.variable());
     return this.variables[id];
+  }
+
+  visitMultiplicativeOp (ctx) {
+    return (ctx.STAR() || ctx.SLASH()).symbol.type;
+  }
+
+  visitMultiply (ctx) {
+    const left = this.visit(ctx.evalExpr(0));
+    const right = this.visit(ctx.evalExpr(1));
+    const operator = this.visit(ctx.multiplicativeOp());
+
+    switch (operator) {
+    case CalcParser.STAR:
+      return left * right;
+
+    case CalcParser.SLASH:
+      return left / right;
+    }
   }
 
   visitNumber (ctx) {
