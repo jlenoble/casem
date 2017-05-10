@@ -1,4 +1,5 @@
 grammar Calc;
+import Keywords, Regexps;
 
 prog: statement+;
 statement: expr endStatement;
@@ -25,13 +26,3 @@ variable: ID;
 number: NATNUM;
 
 endStatement: NEWLINE;
-
-ARROW   : '\\->';
-LOCATE  : '\\Locate ';
-MINUS   : '-';
-PLUS    : '+';
-
-STRING  : '"' .*? '"';
-ID      : [A-Z];
-NATNUM  : [1-9][0-9]*;
-NEWLINE : '\r'? '\n';

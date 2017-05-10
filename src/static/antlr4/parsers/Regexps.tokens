@@ -1,0 +1,8 @@
+ID=1
+NATNUM=2
+NEWLINE=3
+MINUS=4
+PLUS=5
+STRING=6
+'-'=4
+'+'=5

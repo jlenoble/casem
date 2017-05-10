@@ -19,34 +19,34 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\n\u0006\u0003\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0003\b\u0003",
     "\b\u0003\t\u0003\t\u0003\n\u0003\n\u0003\u000b\u0003\u000b\u0003\f\u0003",
     "\f\u0003\f\u0002\u0003\b\r\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012",
-    "\u0014\u0016\u0002\u0003\u0003\u0002\u0006\u0007\u0002F\u0002\u0019",
-    "\u0003\u0002\u0002\u0002\u0004\u001d\u0003\u0002\u0002\u0002\u0006#",
-    "\u0003\u0002\u0002\u0002\b(\u0003\u0002\u0002\u0002\n;\u0003\u0002\u0002",
-    "\u0002\f=\u0003\u0002\u0002\u0002\u000eA\u0003\u0002\u0002\u0002\u0010",
-    "C\u0003\u0002\u0002\u0002\u0012E\u0003\u0002\u0002\u0002\u0014G\u0003",
-    "\u0002\u0002\u0002\u0016I\u0003\u0002\u0002\u0002\u0018\u001a\u0005",
-    "\u0004\u0003\u0002\u0019\u0018\u0003\u0002\u0002\u0002\u001a\u001b\u0003",
-    "\u0002\u0002\u0002\u001b\u0019\u0003\u0002\u0002\u0002\u001b\u001c\u0003",
-    "\u0002\u0002\u0002\u001c\u0003\u0003\u0002\u0002\u0002\u001d\u001e\u0005",
-    "\u0006\u0004\u0002\u001e\u001f\u0005\u0016\f\u0002\u001f\u0005\u0003",
-    "\u0002\u0002\u0002 $\u0005\b\u0005\u0002!$\u0005\n\u0006\u0002\"$\u0005",
-    "\f\u0007\u0002# \u0003\u0002\u0002\u0002#!\u0003\u0002\u0002\u0002#",
-    "\"\u0003\u0002\u0002\u0002$\u0007\u0003\u0002\u0002\u0002%&\b\u0005",
-    "\u0001\u0002&)\u0005\u0012\n\u0002\')\u0005\u0014\u000b\u0002(%\u0003",
-    "\u0002\u0002\u0002(\'\u0003\u0002\u0002\u0002)0\u0003\u0002\u0002\u0002",
-    "*+\f\u0005\u0002\u0002+,\u0005\u0010\t\u0002,-\u0005\b\u0005\u0006-",
-    "/\u0003\u0002\u0002\u0002.*\u0003\u0002\u0002\u0002/2\u0003\u0002\u0002",
-    "\u00020.\u0003\u0002\u0002\u000201\u0003\u0002\u0002\u00021\t\u0003",
-    "\u0002\u0002\u000220\u0003\u0002\u0002\u00023<\u0007\b\u0002\u00024",
-    "5\u0007\u0005\u0002\u000256\u0005\b\u0005\u000267\u0007\u0003\u0002",
-    "\u000278\u0005\b\u0005\u000289\u0007\u0003\u0002\u00029:\u0005\b\u0005",
-    "\u0002:<\u0003\u0002\u0002\u0002;3\u0003\u0002\u0002\u0002;4\u0003\u0002",
-    "\u0002\u0002<\u000b\u0003\u0002\u0002\u0002=>\u0005\b\u0005\u0002>?",
-    "\u0007\u0004\u0002\u0002?@\u0005\u000e\b\u0002@\r\u0003\u0002\u0002",
-    "\u0002AB\u0005\u0012\n\u0002B\u000f\u0003\u0002\u0002\u0002CD\t\u0002",
-    "\u0002\u0002D\u0011\u0003\u0002\u0002\u0002EF\u0007\t\u0002\u0002F\u0013",
-    "\u0003\u0002\u0002\u0002GH\u0007\n\u0002\u0002H\u0015\u0003\u0002\u0002",
-    "\u0002IJ\u0007\u000b\u0002\u0002J\u0017\u0003\u0002\u0002\u0002\u0007",
+    "\u0014\u0016\u0002\u0003\u0003\u0002\t\n\u0002F\u0002\u0019\u0003\u0002",
+    "\u0002\u0002\u0004\u001d\u0003\u0002\u0002\u0002\u0006#\u0003\u0002",
+    "\u0002\u0002\b(\u0003\u0002\u0002\u0002\n;\u0003\u0002\u0002\u0002\f",
+    "=\u0003\u0002\u0002\u0002\u000eA\u0003\u0002\u0002\u0002\u0010C\u0003",
+    "\u0002\u0002\u0002\u0012E\u0003\u0002\u0002\u0002\u0014G\u0003\u0002",
+    "\u0002\u0002\u0016I\u0003\u0002\u0002\u0002\u0018\u001a\u0005\u0004",
+    "\u0003\u0002\u0019\u0018\u0003\u0002\u0002\u0002\u001a\u001b\u0003\u0002",
+    "\u0002\u0002\u001b\u0019\u0003\u0002\u0002\u0002\u001b\u001c\u0003\u0002",
+    "\u0002\u0002\u001c\u0003\u0003\u0002\u0002\u0002\u001d\u001e\u0005\u0006",
+    "\u0004\u0002\u001e\u001f\u0005\u0016\f\u0002\u001f\u0005\u0003\u0002",
+    "\u0002\u0002 $\u0005\b\u0005\u0002!$\u0005\n\u0006\u0002\"$\u0005\f",
+    "\u0007\u0002# \u0003\u0002\u0002\u0002#!\u0003\u0002\u0002\u0002#\"",
+    "\u0003\u0002\u0002\u0002$\u0007\u0003\u0002\u0002\u0002%&\b\u0005\u0001",
+    "\u0002&)\u0005\u0012\n\u0002\')\u0005\u0014\u000b\u0002(%\u0003\u0002",
+    "\u0002\u0002(\'\u0003\u0002\u0002\u0002)0\u0003\u0002\u0002\u0002*+",
+    "\f\u0005\u0002\u0002+,\u0005\u0010\t\u0002,-\u0005\b\u0005\u0006-/\u0003",
+    "\u0002\u0002\u0002.*\u0003\u0002\u0002\u0002/2\u0003\u0002\u0002\u0002",
+    "0.\u0003\u0002\u0002\u000201\u0003\u0002\u0002\u00021\t\u0003\u0002",
+    "\u0002\u000220\u0003\u0002\u0002\u00023<\u0007\u000b\u0002\u000245\u0007",
+    "\u0005\u0002\u000256\u0005\b\u0005\u000267\u0007\u0003\u0002\u00027",
+    "8\u0005\b\u0005\u000289\u0007\u0003\u0002\u00029:\u0005\b\u0005\u0002",
+    ":<\u0003\u0002\u0002\u0002;3\u0003\u0002\u0002\u0002;4\u0003\u0002\u0002",
+    "\u0002<\u000b\u0003\u0002\u0002\u0002=>\u0005\b\u0005\u0002>?\u0007",
+    "\u0004\u0002\u0002?@\u0005\u000e\b\u0002@\r\u0003\u0002\u0002\u0002",
+    "AB\u0005\u0012\n\u0002B\u000f\u0003\u0002\u0002\u0002CD\t\u0002\u0002",
+    "\u0002D\u0011\u0003\u0002\u0002\u0002EF\u0007\u0006\u0002\u0002F\u0013",
+    "\u0003\u0002\u0002\u0002GH\u0007\u0007\u0002\u0002H\u0015\u0003\u0002",
+    "\u0002\u0002IJ\u0007\b\u0002\u0002J\u0017\u0003\u0002\u0002\u0002\u0007",
     "\u001b#(0;"].join("");
 
 
@@ -56,10 +56,11 @@ var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new a
 
 var sharedContextCache = new antlr4.PredictionContextCache();
 
-var literalNames = [ null, "','", "'\\->'", "'\\Locate '", "'-'", "'+'" ];
+var literalNames = [ null, "','", "'\\->'", "'\\Locate '", null, null, null, 
+                     "'-'", "'+'" ];
 
-var symbolicNames = [ null, null, "ARROW", "LOCATE", "MINUS", "PLUS", "STRING", 
-                      "ID", "NATNUM", "NEWLINE" ];
+var symbolicNames = [ null, null, "ARROW", "LOCATE", "ID", "NATNUM", "NEWLINE", 
+                      "MINUS", "PLUS", "STRING" ];
 
 var ruleNames =  [ "prog", "statement", "expr", "evalExpr", "printExpr", 
                    "assignExpr", "stoExpr", "additiveOp", "variable", "number", 
@@ -87,12 +88,12 @@ CalcParser.EOF = antlr4.Token.EOF;
 CalcParser.T__0 = 1;
 CalcParser.ARROW = 2;
 CalcParser.LOCATE = 3;
-CalcParser.MINUS = 4;
-CalcParser.PLUS = 5;
-CalcParser.STRING = 6;
-CalcParser.ID = 7;
-CalcParser.NATNUM = 8;
-CalcParser.NEWLINE = 9;
+CalcParser.ID = 4;
+CalcParser.NATNUM = 5;
+CalcParser.NEWLINE = 6;
+CalcParser.MINUS = 7;
+CalcParser.PLUS = 8;
+CalcParser.STRING = 9;
 
 CalcParser.RULE_prog = 0;
 CalcParser.RULE_statement = 1;
@@ -174,7 +175,7 @@ CalcParser.prototype.prog = function() {
             this.state = 25; 
             this._errHandler.sync(this);
             _la = this._input.LA(1);
-        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << CalcParser.LOCATE) | (1 << CalcParser.STRING) | (1 << CalcParser.ID) | (1 << CalcParser.NATNUM))) !== 0));
+        } while((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << CalcParser.LOCATE) | (1 << CalcParser.ID) | (1 << CalcParser.NATNUM) | (1 << CalcParser.STRING))) !== 0));
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
