@@ -6,11 +6,5 @@ const {CalcListener} = require(path.join(base, rel,
   'CalcListener'));
 
 export class Translator extends CalcListener {
-  enterExpr () {
-    process.stdout.write('hello');
-  }
-
-  exitExpr () {
-    process.stdout.write('bye');
-  }
+  enterAdditiveExpr (ctx) {}
 }

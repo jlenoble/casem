@@ -20,30 +20,12 @@ CalcListener.prototype.exitProg = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#file.
-CalcListener.prototype.enterFile = function(ctx) {
+// Enter a parse tree produced by CalcParser#statement.
+CalcListener.prototype.enterStatement = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#file.
-CalcListener.prototype.exitFile = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#data.
-CalcListener.prototype.enterData = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#data.
-CalcListener.prototype.exitData = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#cmd.
-CalcListener.prototype.enterCmd = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#cmd.
-CalcListener.prototype.exitCmd = function(ctx) {
+// Exit a parse tree produced by CalcParser#statement.
+CalcListener.prototype.exitStatement = function(ctx) {
 };
 
 
@@ -56,6 +38,51 @@ CalcListener.prototype.exitExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#add.
+CalcListener.prototype.enterAdd = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#add.
+CalcListener.prototype.exitAdd = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#parseFloat.
+CalcListener.prototype.enterParseFloat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#parseFloat.
+CalcListener.prototype.exitParseFloat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#eval.
+CalcListener.prototype.enterEval = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#eval.
+CalcListener.prototype.exitEval = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#print.
+CalcListener.prototype.enterPrint = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#print.
+CalcListener.prototype.exitPrint = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#printAt.
+CalcListener.prototype.enterPrintAt = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#printAt.
+CalcListener.prototype.exitPrintAt = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#assignExpr.
 CalcListener.prototype.enterAssignExpr = function(ctx) {
 };
@@ -65,246 +92,48 @@ CalcListener.prototype.exitAssignExpr = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#boolExpr.
-CalcListener.prototype.enterBoolExpr = function(ctx) {
+// Enter a parse tree produced by CalcParser#stoExpr.
+CalcListener.prototype.enterStoExpr = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#boolExpr.
-CalcListener.prototype.exitBoolExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#confExpr.
-CalcListener.prototype.enterConfExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#confExpr.
-CalcListener.prototype.exitConfExpr = function(ctx) {
+// Exit a parse tree produced by CalcParser#stoExpr.
+CalcListener.prototype.exitStoExpr = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#doExpr.
-CalcListener.prototype.enterDoExpr = function(ctx) {
+// Enter a parse tree produced by CalcParser#additiveOp.
+CalcListener.prototype.enterAdditiveOp = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#doExpr.
-CalcListener.prototype.exitDoExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#evalExpr.
-CalcListener.prototype.enterEvalExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#evalExpr.
-CalcListener.prototype.exitEvalExpr = function(ctx) {
+// Exit a parse tree produced by CalcParser#additiveOp.
+CalcListener.prototype.exitAdditiveOp = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#flowExpr.
-CalcListener.prototype.enterFlowExpr = function(ctx) {
+// Enter a parse tree produced by CalcParser#variable.
+CalcListener.prototype.enterVariable = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#flowExpr.
-CalcListener.prototype.exitFlowExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#forExpr.
-CalcListener.prototype.enterForExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#forExpr.
-CalcListener.prototype.exitForExpr = function(ctx) {
+// Exit a parse tree produced by CalcParser#variable.
+CalcListener.prototype.exitVariable = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#graphExpr.
-CalcListener.prototype.enterGraphExpr = function(ctx) {
+// Enter a parse tree produced by CalcParser#number.
+CalcListener.prototype.enterNumber = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#graphExpr.
-CalcListener.prototype.exitGraphExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#ifExpr.
-CalcListener.prototype.enterIfExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#ifExpr.
-CalcListener.prototype.exitIfExpr = function(ctx) {
+// Exit a parse tree produced by CalcParser#number.
+CalcListener.prototype.exitNumber = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#printExpr.
-CalcListener.prototype.enterPrintExpr = function(ctx) {
+// Enter a parse tree produced by CalcParser#endStatement.
+CalcListener.prototype.enterEndStatement = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#printExpr.
-CalcListener.prototype.exitPrintExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#readExpr.
-CalcListener.prototype.enterReadExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#readExpr.
-CalcListener.prototype.exitReadExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#storExpr.
-CalcListener.prototype.enterStorExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#storExpr.
-CalcListener.prototype.exitStorExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#valueExpr.
-CalcListener.prototype.enterValueExpr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#valueExpr.
-CalcListener.prototype.exitValueExpr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#lbl.
-CalcListener.prototype.enterLbl = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#lbl.
-CalcListener.prototype.exitLbl = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#func.
-CalcListener.prototype.enterFunc = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#func.
-CalcListener.prototype.exitFunc = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#matrElt.
-CalcListener.prototype.enterMatrElt = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#matrElt.
-CalcListener.prototype.exitMatrElt = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#matr.
-CalcListener.prototype.enterMatr = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#matr.
-CalcListener.prototype.exitMatr = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#list.
-CalcListener.prototype.enterList = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#list.
-CalcListener.prototype.exitList = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#cmdEnd.
-CalcListener.prototype.enterCmdEnd = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#cmdEnd.
-CalcListener.prototype.exitCmdEnd = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#dataBeg.
-CalcListener.prototype.enterDataBeg = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#dataBeg.
-CalcListener.prototype.exitDataBeg = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#fileEnd.
-CalcListener.prototype.enterFileEnd = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#fileEnd.
-CalcListener.prototype.exitFileEnd = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#header.
-CalcListener.prototype.enterHeader = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#header.
-CalcListener.prototype.exitHeader = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#entry.
-CalcListener.prototype.enterEntry = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#entry.
-CalcListener.prototype.exitEntry = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#label.
-CalcListener.prototype.enterLabel = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#label.
-CalcListener.prototype.exitLabel = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#option.
-CalcListener.prototype.enterOption = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#option.
-CalcListener.prototype.exitOption = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#value.
-CalcListener.prototype.enterValue = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#value.
-CalcListener.prototype.exitValue = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#headerBeg.
-CalcListener.prototype.enterHeaderBeg = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#headerBeg.
-CalcListener.prototype.exitHeaderBeg = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#boolOp.
-CalcListener.prototype.enterBoolOp = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#boolOp.
-CalcListener.prototype.exitBoolOp = function(ctx) {
+// Exit a parse tree produced by CalcParser#endStatement.
+CalcListener.prototype.exitEndStatement = function(ctx) {
 };
 
 
