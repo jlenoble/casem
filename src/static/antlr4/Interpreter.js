@@ -9,7 +9,19 @@ export class Interpreter extends CalcVisitor {
   constructor (...args) {
     super(...args);
 
-    this.variables = {};
+    const variables = {};
+    this.hasVariable = function (name) {
+      return name in variables;
+    };
+    this.setVariable = function (name, value) {
+      variables[name] = value;
+    };
+    this.getVariable = function (name) {
+      if (!this.hasVariable(name)) {
+        throw new ReferenceError('Never initialized variable ' + name);
+      }
+      return variables[name];
+    };
   }
 
   visitAdd (ctx) {
@@ -33,7 +45,7 @@ export class Interpreter extends CalcVisitor {
   visitAssignStat (ctx) {
     const id = this.visit(ctx.stoExpr());
     const value = this.visit(ctx.evalExpr());
-    this.variables[id] = value;
+    this.setVariable(id, value);
   }
 
   visitBoolExpr (ctx) {
@@ -79,7 +91,7 @@ export class Interpreter extends CalcVisitor {
 
   visitEvaluate (ctx) {
     const id = this.visit(ctx.variable());
-    return this.variables[id];
+    return this.getVariable(id);
   }
 
   visitFunc (ctx) {
