@@ -74,6 +74,33 @@ CalcListener.prototype.exitIfStat = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#implyStat.
+CalcListener.prototype.enterImplyStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#implyStat.
+CalcListener.prototype.exitImplyStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#jumpStat.
+CalcListener.prototype.enterJumpStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#jumpStat.
+CalcListener.prototype.exitJumpStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#routineStat.
+CalcListener.prototype.enterRoutineStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#routineStat.
+CalcListener.prototype.exitRoutineStat = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#compute.
 CalcListener.prototype.enterCompute = function(ctx) {
 };
@@ -164,6 +191,15 @@ CalcListener.prototype.exitVariable = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#lbl.
+CalcListener.prototype.enterLbl = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#lbl.
+CalcListener.prototype.exitLbl = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#number.
 CalcListener.prototype.enterNumber = function(ctx) {
 };
@@ -179,6 +215,15 @@ CalcListener.prototype.enterEndStat = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#endStat.
 CalcListener.prototype.exitEndStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#endProg.
+CalcListener.prototype.enterEndProg = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#endProg.
+CalcListener.prototype.exitEndProg = function(ctx) {
 };
 
 

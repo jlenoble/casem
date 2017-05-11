@@ -73,6 +73,10 @@ export class Interpreter extends CalcVisitor {
     return func(arg);
   }
 
+  visitEndProg (ctx) {
+    console.log('END PROG');
+  }
+
   visitEvaluate (ctx) {
     const id = this.visit(ctx.variable());
     return this.variables[id];
@@ -112,6 +116,23 @@ export class Interpreter extends CalcVisitor {
         this.visit(ctx.block(1));
       }
     }
+  }
+
+  visitImplyStat (ctx) {
+    const bool = this.visit(ctx.boolExpr());
+
+    if (bool) {
+      this.visit(ctx.stat());
+    }
+  }
+
+  visitJumpStat (ctx) {
+    if (ctx.endProg()) {
+      this.visit(ctx.endProg());
+      return;
+    }
+
+    console.log('JUMP');
   }
 
   visitMultOp (ctx) {
@@ -159,6 +180,12 @@ export class Interpreter extends CalcVisitor {
   visitPrintAt (ctx) {
     const txt = this.visit(ctx.evalExpr(2)).toString();
     console.log(txt);
+  }
+
+  visitRoutineStat (ctx) {
+    console.log('ROUTINE');
+    this.visit(ctx.block());
+    this.visit(ctx.jumpStat());
   }
 
   visitStoExpr (ctx) {

@@ -6,13 +6,16 @@ prog
 ;
 
 block
-: stat+
+: (stat endStat)+
 ;
 
 stat
-: assignStat endStat
-| printStat endStat
-| ifStat endStat
+: assignStat
+| printStat
+| ifStat
+| implyStat
+| jumpStat
+| routineStat
 ;
 
 assignStat
@@ -26,6 +29,19 @@ printStat
 
 ifStat
 : IF boolExpr endStat THEN block (ELSE block)? IFEND
+;
+
+implyStat
+: boolExpr FATARROW stat
+;
+
+jumpStat
+: GOTO lbl
+| endProg
+;
+
+routineStat
+: LBL lbl endStat block jumpStat
 ;
 
 evalExpr
@@ -50,6 +66,10 @@ variable
 : ID
 ;
 
+lbl
+: ID
+;
+
 number
 : NATNUM
 | PI
@@ -59,4 +79,8 @@ number
 endStat
 : NEWLINE
 | ':'
+;
+
+endProg
+: RETURN
 ;

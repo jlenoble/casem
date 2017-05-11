@@ -1,0 +1,17 @@
+2\->A
+"Result Goto"
+A=1\=>\GotoA
+A=2\=>\GotoB
+"No jump: BAD"
+A=3\=>\GotoC
+"After A=3: BAD"
+\Return
+\Lbl A
+"A=1: BAD"
+\Return
+\Lbl B
+"A=2: GOOD"
+\Return
+\Lbl C
+"A=3: BAD"
+\Return

@@ -54,6 +54,24 @@ CalcVisitor.prototype.visitIfStat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#implyStat.
+CalcVisitor.prototype.visitImplyStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#jumpStat.
+CalcVisitor.prototype.visitJumpStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#routineStat.
+CalcVisitor.prototype.visitRoutineStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#compute.
 CalcVisitor.prototype.visitCompute = function(ctx) {
   return this.visitChildren(ctx);
@@ -114,6 +132,12 @@ CalcVisitor.prototype.visitVariable = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#lbl.
+CalcVisitor.prototype.visitLbl = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#number.
 CalcVisitor.prototype.visitNumber = function(ctx) {
   return this.visitChildren(ctx);
@@ -122,6 +146,12 @@ CalcVisitor.prototype.visitNumber = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#endStat.
 CalcVisitor.prototype.visitEndStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#endProg.
+CalcVisitor.prototype.visitEndProg = function(ctx) {
   return this.visitChildren(ctx);
 };
 
