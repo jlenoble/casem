@@ -9,16 +9,11 @@ block
 : (stat endStat)+
 ;
 
-nonGreedyBlock
-: (stat endStat)+?
-;
-
 stat
 : assignStat
 | printStat
 | ifStat
 | implyStat
-| routineStat
 | jumpStat
 | labelStat
 ;
@@ -43,10 +38,6 @@ implyStat
 jumpStat
 : GOTO lbl
 | endProg
-;
-
-routineStat
-: labelStat endStat nonGreedyBlock jumpStat
 ;
 
 labelStat

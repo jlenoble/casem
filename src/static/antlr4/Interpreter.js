@@ -23,28 +23,15 @@ export class Interpreter extends CalcVisitor {
       return variables[name];
     };
 
-    const labels = {};
     let jumpingTo = '';
-    this.hasLabel = function (label) {
-      return label in labels;
-    };
-    this.setLabel = function (label, ctx) {
-      if (this.hasLabel(label)) {
-        return;
-      }
-      labels[label] = ctx;
-    };
-    this.goTo = function (label) {
-      if (!this.hasLabel(label)) {
-        throw new Error('Undefined label ', label);
-      }
-      this.visit(labels[label]);
-    };
     this.isJumping = function () {
       return jumpingTo !== '';
     };
     this.isJumpingTo = function (label) {
       return jumpingTo === label;
+    };
+    this.isFinished = function () {
+      return jumpingTo === 'EOF';
     };
     this.startJumping = function (label) {
       if (this.isJumping()) {
@@ -54,9 +41,11 @@ export class Interpreter extends CalcVisitor {
       jumpingTo = label;
     };
     this.stopJumping = function (label) {
-      if (this.isJumpingTo(label)) {
-        jumpingTo = '';
+      if (!this.isJumpingTo(label)) {
+        throw new Error('Can\'t jumping to ' + label +
+          ' because jumping to ' + jumpingTo);
       }
+      jumpingTo = '';
     };
   }
 
@@ -182,15 +171,13 @@ export class Interpreter extends CalcVisitor {
 
     const label = ctx.lbl().getText();
     this.startJumping(label);
-
-    if (this.hasLabel(label)) {
-      this.goTo(label);
-    }
   }
 
   visitLabelStat (ctx) {
     const label = ctx.lbl().getText();
-    this.setLabel(label, ctx);
+    if (!this.isJumpingTo(label)) {
+      return;
+    }
     this.stopJumping(label);
   }
 
@@ -246,25 +233,14 @@ export class Interpreter extends CalcVisitor {
     console.log(txt);
   }
 
-  visitRoutineStat (ctx) {
-    const label = ctx.labelStat().lbl().getText();
-    this.setLabel(label, ctx); // Preempt setting in visitLabelStat, otherwise
-    // visitNonGreedyBlock will never be called
-    super.visitRoutineStat(ctx);
+  visitProg (ctx) {
+    do {
+      super.visitProg(ctx);
+    } while (!this.isFinished() && this.isJumping());
   }
 
   visitStat (ctx) {
-    if (this.isJumping()) {
-      const routine = ctx.routineStat();
-      const lbl = routine ? routine.labelStat() : ctx.labelStat();
-      if (lbl) {
-        const label = lbl.lbl().getText();
-        if (this.isJumpingTo(label)) {
-          this.visit(routine || lbl);
-        } else {
-          this.setLabel(label, routine || lbl);
-        }
-      }
+    if (this.isJumping() && !ctx.labelStat()) {
       return;
     }
 

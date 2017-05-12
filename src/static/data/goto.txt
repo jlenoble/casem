@@ -1,4 +1,4 @@
-4\->A
+6\->A
 "Result Goto"
 A=1\=>\GotoA
 A=2\=>\GotoB
@@ -17,7 +17,7 @@ A=6\=>\GotoF
 "C"
 \Lbl D
 "D"
-\GotoF
+\GotoA
 \Lbl E
 "E"
 \Lbl F
