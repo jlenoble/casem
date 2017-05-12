@@ -1,4 +1,5 @@
 import path from 'path';
+import File from './file';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
@@ -23,29 +24,21 @@ export class Interpreter extends CalcVisitor {
       return variables[name];
     };
 
-    let jumpingTo = '';
+    this.currentFile = null;
     this.isJumping = function () {
-      return jumpingTo !== '';
+      return this.currentFile.isJumping();
     };
     this.isJumpingTo = function (label) {
-      return jumpingTo === label;
+      return this.currentFile.isJumpingTo(label);
     };
     this.isFinished = function () {
-      return jumpingTo === 'EOF';
+      return this.currentFile.isFinished();
     };
     this.startJumping = function (label) {
-      if (this.isJumping()) {
-        throw new Error('Already jumping to ' + jumpingTo +
-          '; Can\'t go to ' + label);
-      }
-      jumpingTo = label;
+      this.currentFile.startJumping(label);
     };
     this.stopJumping = function (label) {
-      if (!this.isJumpingTo(label)) {
-        throw new Error('Can\'t jumping to ' + label +
-          ' because jumping to ' + jumpingTo);
-      }
-      jumpingTo = '';
+      this.currentFile.stopJumping(label);
     };
   }
 
@@ -234,6 +227,8 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitProg (ctx) {
+    this.currentFile = new File(ctx);
+
     do {
       super.visitProg(ctx);
     } while (!this.isFinished() && this.isJumping());
