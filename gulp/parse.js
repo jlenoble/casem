@@ -53,6 +53,6 @@ export const interprete = () => {
 
 gulp.task('interprete', gulp.series(makeParser, interprete));
 
-export const parse = gulp.parallel(translate, interprete);
+export const parse = interprete;
 
 gulp.task('parse', gulp.series(makeParser, parse));

@@ -18,9 +18,45 @@ export class Interpreter extends CalcVisitor {
     };
     this.getVariable = function (name) {
       if (!this.hasVariable(name)) {
-        throw new ReferenceError('Never initialized variable ' + name);
+        throw new Error('Never initialized variable ' + name);
       }
       return variables[name];
+    };
+
+    const labels = {};
+    let jumpingTo = '';
+    this.hasLabel = function (label) {
+      return label in labels;
+    };
+    this.setLabel = function (label, ctx) {
+      if (this.hasLabel(label)) {
+        return;
+      }
+      labels[label] = ctx;
+    };
+    this.goTo = function (label) {
+      if (!this.hasLabel(label)) {
+        throw new Error('Undefined label ', label);
+      }
+      this.visit(labels[label]);
+    };
+    this.isJumping = function () {
+      return jumpingTo !== '';
+    };
+    this.isJumpingTo = function (label) {
+      return jumpingTo === label;
+    };
+    this.startJumping = function (label) {
+      if (this.isJumping()) {
+        throw new Error('Already jumping to ' + jumpingTo +
+          '; Can\'t go to ' + label);
+      }
+      jumpingTo = label;
+    };
+    this.stopJumping = function (label) {
+      if (this.isJumpingTo(label)) {
+        jumpingTo = '';
+      }
     };
   }
 
@@ -86,7 +122,7 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitEndProg (ctx) {
-    console.log('END PROG');
+    this.startJumping('EOF');
   }
 
   visitEvaluate (ctx) {
@@ -144,7 +180,18 @@ export class Interpreter extends CalcVisitor {
       return;
     }
 
-    console.log('JUMP');
+    const label = ctx.lbl().getText();
+    this.startJumping(label);
+
+    if (this.hasLabel(label)) {
+      this.goTo(label);
+    }
+  }
+
+  visitLabelStat (ctx) {
+    const label = ctx.lbl().getText();
+    this.setLabel(label, ctx);
+    this.stopJumping(label);
   }
 
   visitMultOp (ctx) {
@@ -190,14 +237,38 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitPrintAt (ctx) {
-    const txt = this.visit(ctx.evalExpr(2)).toString();
+    let txt;
+    if (ctx.STRING()) {
+      txt = ctx.STRING().getText();
+    } else {
+      txt = this.visit(ctx.evalExpr(2)).toString();
+    }
     console.log(txt);
   }
 
   visitRoutineStat (ctx) {
-    console.log('ROUTINE');
-    this.visit(ctx.block());
-    this.visit(ctx.jumpStat());
+    const label = ctx.labelStat().lbl().getText();
+    this.setLabel(label, ctx); // Preempt setting in visitLabelStat, otherwise
+    // visitNonGreedyBlock will never be called
+    super.visitRoutineStat(ctx);
+  }
+
+  visitStat (ctx) {
+    if (this.isJumping()) {
+      const routine = ctx.routineStat();
+      const lbl = routine ? routine.labelStat() : ctx.labelStat();
+      if (lbl) {
+        const label = lbl.lbl().getText();
+        if (this.isJumpingTo(label)) {
+          this.visit(routine || lbl);
+        } else {
+          this.setLabel(label, routine || lbl);
+        }
+      }
+      return;
+    }
+
+    super.visitStat(ctx);
   }
 
   visitStoExpr (ctx) {

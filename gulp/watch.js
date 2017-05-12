@@ -10,7 +10,8 @@ const allSrcGlob = [
 ];
 const allBuildGlob = [
   'build/src/**/*.js',
-  'build/test/**/*.js'
+  'build/test/**/*.js',
+  '!build/src/static/antlr4/parsers/**/*.js'
 ];
 const grammarGlob = [
   'src/static/antlr4/grammars/**/*.g4',

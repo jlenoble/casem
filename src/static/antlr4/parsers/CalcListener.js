@@ -29,6 +29,15 @@ CalcListener.prototype.exitBlock = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#nonGreedyBlock.
+CalcListener.prototype.enterNonGreedyBlock = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#nonGreedyBlock.
+CalcListener.prototype.exitNonGreedyBlock = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#stat.
 CalcListener.prototype.enterStat = function(ctx) {
 };
@@ -98,6 +107,15 @@ CalcListener.prototype.enterRoutineStat = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#routineStat.
 CalcListener.prototype.exitRoutineStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#labelStat.
+CalcListener.prototype.enterLabelStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#labelStat.
+CalcListener.prototype.exitLabelStat = function(ctx) {
 };
 
 

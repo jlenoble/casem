@@ -9,13 +9,18 @@ block
 : (stat endStat)+
 ;
 
+nonGreedyBlock
+: (stat endStat)+?
+;
+
 stat
 : assignStat
 | printStat
 | ifStat
 | implyStat
-| jumpStat
 | routineStat
+| jumpStat
+| labelStat
 ;
 
 assignStat
@@ -23,8 +28,8 @@ assignStat
 ;
 
 printStat
-: STRING                                    # print
-| LOCATE evalExpr ',' evalExpr ',' evalExpr # printAt
+: STRING                                              # print
+| LOCATE evalExpr ',' evalExpr ',' (evalExpr|STRING)  # printAt
 ;
 
 ifStat
@@ -41,7 +46,11 @@ jumpStat
 ;
 
 routineStat
-: LBL lbl endStat block jumpStat
+: labelStat endStat nonGreedyBlock jumpStat
+;
+
+labelStat
+: LBL lbl
 ;
 
 evalExpr
