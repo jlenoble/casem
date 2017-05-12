@@ -112,6 +112,10 @@ export class Interpreter extends CalcVisitor {
     return this.getVariable(id);
   }
 
+  visitFile () {
+
+  }
+
   visitFunc (ctx) {
     if (ctx.SQRT()) {
       return Math.sqrt;
@@ -163,6 +167,8 @@ export class Interpreter extends CalcVisitor {
     }
 
     if (ctx.PROG()) {
+      const file = ctx.STRING().getText();
+      console.log('calling', file);
       return;
     }
 

@@ -5,7 +5,7 @@ import {interprete} from '../src/casem';
 describe('Testing Casem', function () {
   const muter = Muter(process);
 
-  /* it('Testing addition', muted(muter, function () {
+  it('Testing addition', muted(muter, function () {
     return interprete('src/static/data/additive-expr.txt')
       .then(() => {
         expect(muter.getLogs()).to.equal('"Result ()+()"203\n');
@@ -60,12 +60,12 @@ describe('Testing Casem', function () {
       .then(() => {
         expect(muter.getLogs()).to.equal('"Result Goto""B""E""F"\n');
       });
-  }));*/
+  }));
 
   it('Testing calls to programs', muted(muter, function () {
     return interprete('src/static/data/prog.txt')
       .then(() => {
-        //expect(muter.getLogs()).to.equal('\n');
+        // expect(muter.getLogs()).to.equal('\n');
       });
   }));
 });

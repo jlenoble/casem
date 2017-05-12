@@ -83,7 +83,7 @@ number
 ;
 
 endStat
-: NEWLINE
+: NEWLINE+
 | ':'
 ;
 
