@@ -1,4 +1,4 @@
-6\->A
+2\->A
 "Result Goto"
 A=1\=>\GotoA
 A=2\=>\GotoB

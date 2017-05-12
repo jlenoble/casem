@@ -25,9 +25,8 @@ const dataGlob = [
 
 export const watch = done => {
   gulp.watch(allSrcGlob, build);
-  gulp.watch(allBuildGlob, test);
+  gulp.watch(allBuildGlob.concat(dataGlob), test);
   gulp.watch(grammarGlob, makeParser);
-  gulp.watch(dataGlob, parse);
   done();
 };
 
