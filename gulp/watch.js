@@ -16,7 +16,7 @@ const allBuildGlob = [
 const grammarGlob = [
   'src/static/antlr4/grammars/**/*.g4',
   'build/src/static/antlr4/Translator.js',
-  'build/src/static/antlr4/Interpreter.js'
+  'build/src/Interpreter.js'
 ];
 const dataGlob = [
   'src/static/data/**/*.*',

@@ -13,7 +13,7 @@ const rule = 'prog';
 const listener = 'Translator';
 const listenerDir = 'src/static/antlr4';
 const visitor = 'Interpreter';
-const visitorDir = 'src/static/antlr4';
+const visitorDir = 'src';
 
 export const makeParser = () => {
   if (require && require.cache) {
