@@ -1,8 +1,13 @@
 grammar Calc;
-import Functions, Operators, Keywords, Regexps;
+import File, Functions, Operators, Keywords, Regexps;
 
 prog
 : block*
+| block? file+
+;
+
+file
+: header block* endFile
 ;
 
 block
@@ -37,6 +42,7 @@ implyStat
 
 jumpStat
 : GOTO lbl
+| PROG STRING
 | endProg
 ;
 

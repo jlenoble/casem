@@ -162,6 +162,10 @@ export class Interpreter extends CalcVisitor {
       return;
     }
 
+    if (ctx.PROG()) {
+      return;
+    }
+
     const label = ctx.lbl().getText();
     this.startJumping(label);
   }

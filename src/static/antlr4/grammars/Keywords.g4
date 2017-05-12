@@ -7,5 +7,6 @@ IFEND   : '\\IfEnd';
 LBL     : '\\Lbl ';
 LOCATE  : '\\Locate ';
 PI      : '\\Pi';
+PROG    : '\\Prog ';
 RETURN  : '\\Return';
 THEN    : '\\Then ';

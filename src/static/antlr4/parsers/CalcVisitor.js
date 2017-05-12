@@ -18,6 +18,12 @@ CalcVisitor.prototype.visitProg = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#file.
+CalcVisitor.prototype.visitFile = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#block.
 CalcVisitor.prototype.visitBlock = function(ctx) {
   return this.visitChildren(ctx);
@@ -152,6 +158,54 @@ CalcVisitor.prototype.visitEndStat = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#endProg.
 CalcVisitor.prototype.visitEndProg = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#header.
+CalcVisitor.prototype.visitHeader = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#attributes.
+CalcVisitor.prototype.visitAttributes = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#headerAttr.
+CalcVisitor.prototype.visitHeaderAttr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#headerValue.
+CalcVisitor.prototype.visitHeaderValue = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#fileName.
+CalcVisitor.prototype.visitFileName = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#startHeader.
+CalcVisitor.prototype.visitStartHeader = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#endHeader.
+CalcVisitor.prototype.visitEndHeader = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#endFile.
+CalcVisitor.prototype.visitEndFile = function(ctx) {
   return this.visitChildren(ctx);
 };
 
