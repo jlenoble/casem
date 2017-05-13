@@ -1,5 +1,5 @@
 2\->A
-"Result Goto"
+"Result:"
 A=1\=>\GotoA
 A=2\=>\GotoB
 A=3\=>\GotoC
@@ -8,7 +8,7 @@ A=5\=>\GotoE
 A=6\=>\GotoF
 \GotoE
 \Lbl A
-\Locate 1,1,"A"
+"A"
 \Return
 \Lbl B
 "B"
@@ -21,4 +21,4 @@ A=6\=>\GotoF
 \Lbl E
 "E"
 \Lbl F
-\Locate 1,1,"F"
+"F"

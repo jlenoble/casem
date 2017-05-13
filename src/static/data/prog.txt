@@ -1,5 +1,5 @@
 \Prog "ROOT"
-\Locate 1,1,"back to main"
+"back to main"
 \Prog "ONE"
 
 %Header Record
@@ -16,7 +16,7 @@ Format:TXT
 Data Type:PG
 File Name:ONE
 %Data Record
-\Locate 1,1,"In ONE"
+"In ONE"
 \Prog "TWO"
 %End
 
@@ -25,9 +25,9 @@ Format:TXT
 Data Type:PG
 File Name:TWO
 %Data Record
-\Locate 1,1,"In TWO"
+"In TWO"
 \Return
-\Locate 1,1,"Inaccessible in TWO"
+"Inaccessible in TWO"
 %End
 
 %Header Record
@@ -35,8 +35,8 @@ Format:TXT
 Data Type:PG
 File Name:THREE
 %Data Record
-\Locate 1,1,"In THREE"
+"In THREE"
 \Prog "TWO"
 \Return
-\Locate 1,1,"Inaccesible in THREE"
+"Inaccesible in THREE"
 %End

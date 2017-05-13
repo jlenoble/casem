@@ -4,7 +4,7 @@
 R*\cos T*\cos P\->X
 R*\sin T*\cos P\->Y
 R*\sin P\->Z
-"Result pol->cart"
-\Locate 1,1,X
-\Locate 1,1,Y
-\Locate 1,1,Z
+"Result:"
+\Locate 1,2,X
+\Locate 1,3,Y
+\Locate 1,4,Z

@@ -1,5 +1,6 @@
 import path from 'path';
 import File from './file';
+import Screen from './screen';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
@@ -12,6 +13,7 @@ export class Interpreter extends CalcVisitor {
 
     const variables = {};
     this.currentFile = null;
+    this.screen = new Screen();
     const files = {};
 
     this.hasVariable = function (name) {
@@ -54,11 +56,9 @@ export class Interpreter extends CalcVisitor {
       return this.stopJumping('REGISTERING');
     };
     this.registerFile = function (file, ctx) {
-      console.log('registering', file);
       files[file] = new File(ctx);
     };
     this.callFile = function (file) {
-      console.log('calling', file);
       files[file].exec(this);
     };
   }
@@ -255,17 +255,22 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitPrint (ctx) {
-    process.stdout.write(ctx.STRING().getText());
+    let txt = ctx.STRING().getText();
+    this.screen.print(txt);
   }
 
   visitPrintAt (ctx) {
+    let x = this.visit(ctx.evalExpr(0));
+    let y = this.visit(ctx.evalExpr(1));
     let txt;
+
     if (ctx.STRING()) {
       txt = ctx.STRING().getText();
     } else {
       txt = this.visit(ctx.evalExpr(2)).toString();
     }
-    console.log(txt);
+
+    this.screen.printAt(x, y, txt);
   }
 
   visitProg (ctx) {
