@@ -21,6 +21,16 @@ class File {
     });
   }
 
+  exec (visitor) {
+    const prevFile = visitor.currentFile;
+    visitor.currentFile = this; // eslint-disable-line no-param-reassign
+
+    visitor.visit(this.ctx.block());
+    this.jumpingTo = ''; // Reset any early return
+
+    visitor.currentFile = prevFile; // eslint-disable-line no-param-reassign
+  }
+
   isJumping () {
     return this.jumpingTo !== '';
   }

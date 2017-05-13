@@ -1,4 +1,4 @@
-import Muter, {muted} from 'muter';
+import Muter, {muted, captured} from 'muter';
 import {expect} from 'chai';
 import {interprete} from '../src/casem';
 
@@ -65,7 +65,25 @@ describe('Testing Casem', function () {
   it('Testing calls to programs', muted(muter, function () {
     return interprete('src/static/data/prog.txt')
       .then(() => {
-        // expect(muter.getLogs()).to.equal('\n');
+        expect(muter.getLogs()).to.equal(`registering "ROOT"
+registering "ONE"
+registering "TWO"
+registering "THREE"
+calling "ROOT"
+calling "ONE"
+"In ONE"
+calling "TWO"
+"In TWO"
+calling "THREE"
+"In THREE"
+calling "TWO"
+"In TWO"
+"back to main"
+calling "ONE"
+"In ONE"
+calling "TWO"
+"In TWO"
+`);
       });
   }));
 });

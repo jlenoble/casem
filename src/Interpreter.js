@@ -11,6 +11,9 @@ export class Interpreter extends CalcVisitor {
     super(...args);
 
     const variables = {};
+    this.currentFile = null;
+    const files = {};
+
     this.hasVariable = function (name) {
       return name in variables;
     };
@@ -24,7 +27,7 @@ export class Interpreter extends CalcVisitor {
       return variables[name];
     };
 
-    this.currentFile = null;
+
     this.isJumping = function () {
       return this.currentFile.isJumping();
     };
@@ -39,6 +42,24 @@ export class Interpreter extends CalcVisitor {
     };
     this.stopJumping = function (label) {
       this.currentFile.stopJumping(label);
+    };
+
+    this.isRegistering = function () {
+      return this.isJumpingTo('REGISTERING');
+    };
+    this.startRegistering = function () {
+      return this.startJumping('REGISTERING');
+    };
+    this.stopRegistering = function () {
+      return this.stopJumping('REGISTERING');
+    };
+    this.registerFile = function (file, ctx) {
+      console.log('registering', file);
+      files[file] = new File(ctx);
+    };
+    this.callFile = function (file) {
+      console.log('calling', file);
+      files[file].exec(this);
     };
   }
 
@@ -112,8 +133,13 @@ export class Interpreter extends CalcVisitor {
     return this.getVariable(id);
   }
 
-  visitFile () {
-
+  visitFile (ctx) {
+    const attributes = ctx.header().attributes();
+    const file = '"' + attributes.fileName(0).getText() + '"';
+    if (this.isRegistering()) {
+      this.registerFile(file, ctx);
+      return;
+    }
   }
 
   visitFunc (ctx) {
@@ -137,6 +163,12 @@ export class Interpreter extends CalcVisitor {
     }
     if (ctx.ATAN()) {
       return Math.atan;
+    }
+  }
+
+  visitHeaderValue (ctx) {
+    if (ctx.getText()) {
+      super.visitHeaderValue(ctx);
     }
   }
 
@@ -168,7 +200,7 @@ export class Interpreter extends CalcVisitor {
 
     if (ctx.PROG()) {
       const file = ctx.STRING().getText();
-      console.log('calling', file);
+      this.callFile(file);
       return;
     }
 
@@ -239,8 +271,15 @@ export class Interpreter extends CalcVisitor {
   visitProg (ctx) {
     this.currentFile = new File(ctx);
 
+    this.startRegistering();
+    let runCount = 0;
+
     do {
+      if (runCount === 1) {
+        this.stopRegistering();
+      }
       super.visitProg(ctx);
+      runCount++;
     } while (!this.isFinished() && this.isJumping());
   }
 
