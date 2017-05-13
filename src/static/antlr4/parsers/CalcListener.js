@@ -110,15 +110,6 @@ CalcListener.prototype.exitLabelStat = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#compute.
-CalcListener.prototype.enterCompute = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#compute.
-CalcListener.prototype.exitCompute = function(ctx) {
-};
-
-
 // Enter a parse tree produced by CalcParser#add.
 CalcListener.prototype.enterAdd = function(ctx) {
 };
@@ -146,21 +137,21 @@ CalcListener.prototype.exitParens = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#evaluateListInitializer.
+CalcListener.prototype.enterEvaluateListInitializer = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#evaluateListInitializer.
+CalcListener.prototype.exitEvaluateListInitializer = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#evaluateMatrix.
 CalcListener.prototype.enterEvaluateMatrix = function(ctx) {
 };
 
 // Exit a parse tree produced by CalcParser#evaluateMatrix.
 CalcListener.prototype.exitEvaluateMatrix = function(ctx) {
-};
-
-
-// Enter a parse tree produced by CalcParser#negate.
-CalcListener.prototype.enterNegate = function(ctx) {
-};
-
-// Exit a parse tree produced by CalcParser#negate.
-CalcListener.prototype.exitNegate = function(ctx) {
 };
 
 
@@ -173,12 +164,48 @@ CalcListener.prototype.exitEvaluateMatrixInitializer = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#evaluateList.
+CalcListener.prototype.enterEvaluateList = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#evaluateList.
+CalcListener.prototype.exitEvaluateList = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#evaluateMatrixElement.
 CalcListener.prototype.enterEvaluateMatrixElement = function(ctx) {
 };
 
 // Exit a parse tree produced by CalcParser#evaluateMatrixElement.
 CalcListener.prototype.exitEvaluateMatrixElement = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#evaluateListElement.
+CalcListener.prototype.enterEvaluateListElement = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#evaluateListElement.
+CalcListener.prototype.exitEvaluateListElement = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#compute.
+CalcListener.prototype.enterCompute = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#compute.
+CalcListener.prototype.exitCompute = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#negate.
+CalcListener.prototype.enterNegate = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#negate.
+CalcListener.prototype.exitNegate = function(ctx) {
 };
 
 
@@ -251,6 +278,24 @@ CalcListener.prototype.enterMatrixRow = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#matrixRow.
 CalcListener.prototype.exitMatrixRow = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#listElement.
+CalcListener.prototype.enterListElement = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#listElement.
+CalcListener.prototype.exitListElement = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#listInitializer.
+CalcListener.prototype.enterListInitializer = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#listInitializer.
+CalcListener.prototype.exitListInitializer = function(ctx) {
 };
 
 
@@ -332,6 +377,15 @@ CalcListener.prototype.enterMatrix = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#matrix.
 CalcListener.prototype.exitMatrix = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#list.
+CalcListener.prototype.enterList = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#list.
+CalcListener.prototype.exitList = function(ctx) {
 };
 
 

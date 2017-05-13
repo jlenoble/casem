@@ -59,6 +59,9 @@ evalExpr
 | matrixElement             # evaluateMatrixElement
 | matrix                    # evaluateMatrix
 | matrixInitializer         # evaluateMatrixInitializer
+| listElement               # evaluateListElement
+| list                      # evaluateList
+| listInitializer           # evaluateListInitializer
 | variable                  # evaluate
 | number                    # parseFloat
 ;
@@ -66,6 +69,8 @@ evalExpr
 stoExpr
 : matrixElement
 | matrix
+| listElement
+| list
 | variable
 ;
 
@@ -84,4 +89,12 @@ matrixInitializer
 
 matrixRow
 : '[' evalExpr (',' evalExpr)* ']'
+;
+
+listElement
+: LIST NATNUM '[' evalExpr ']'
+;
+
+listInitializer
+: '{' evalExpr (',' evalExpr)* '}'
 ;

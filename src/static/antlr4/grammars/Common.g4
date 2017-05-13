@@ -5,6 +5,10 @@ matrix
 : MATRIX ID
 ;
 
+list
+: LIST NATNUM
+;
+
 variable
 : ID
 ;

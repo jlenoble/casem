@@ -2,6 +2,7 @@ import path from 'path';
 import File from './file';
 import Screen from './screen';
 import Matrix from './matrix';
+import List from './list';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
@@ -14,6 +15,7 @@ export class Interpreter extends CalcVisitor {
 
     const variables = {};
     const matrices = {};
+    const lists = {};
     this.currentFile = null;
     this.screen = new Screen();
     const files = {};
@@ -48,6 +50,25 @@ export class Interpreter extends CalcVisitor {
     };
     this.getMatrixElement = function (name, i, j) {
       return this.getMatrix(name).array[i][j];
+    };
+
+    this.hasList = function (name) {
+      return name in lists;
+    };
+    this.setList = function (name, value) {
+      lists[name] = new List(value);
+    };
+    this.setListElement = function ({name, i}, value) {
+      this.getList(name).array[i] = value;
+    };
+    this.getList = function (name) {
+      if (!this.hasList(name)) {
+        throw new Error('Never initialized matrix ' + name);
+      }
+      return lists[name];
+    };
+    this.getListElement = function (name, i) {
+      return this.getList(name).array[i];
     };
 
     this.isJumping = function () {
@@ -179,6 +200,24 @@ export class Interpreter extends CalcVisitor {
     }));
   }
 
+  visitEvaluateList (ctx) {
+    const id = this.visit(ctx.list());
+    return this.getList(id);
+  }
+
+  visitEvaluateListElement (ctx) {
+    const {name, i} = this.visit(ctx.listElement());
+    return this.getListElement(name, i);
+  }
+
+  visitEvaluateListInitializer (ctx) {
+    const exprs = ctx.listInitializer().evalExpr();
+    return new List(Object.keys(exprs).map(key => {
+      return this.visit(exprs[key]);
+    }));
+  }
+
+
   visitFile (ctx) {
     const attributes = ctx.header().attributes();
     const file = '"' + attributes.fileName(0).getText() + '"';
@@ -260,6 +299,17 @@ export class Interpreter extends CalcVisitor {
       return;
     }
     this.stopJumping(label);
+  }
+
+  visitList (ctx) {
+    return ctx.NATNUM().getText();
+  }
+
+  visitListElement (ctx) {
+    return {
+      name: ctx.NATNUM().getText(),
+      i: this.visit(ctx.evalExpr()) - 1,
+    };
   }
 
   visitMatrix (ctx) {
@@ -387,6 +437,20 @@ export class Interpreter extends CalcVisitor {
       return {
         set: 'setMatrixElement',
         id: this.visit(ctx.matrixElement()),
+      };
+    }
+
+    if (ctx.list()) {
+      return {
+        set: 'setList',
+        id: this.visit(ctx.list()),
+      };
+    }
+
+    if (ctx.listElement()) {
+      return {
+        set: 'setListElement',
+        id: this.visit(ctx.listElement()),
       };
     }
   }

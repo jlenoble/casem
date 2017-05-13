@@ -77,4 +77,11 @@ describe('Testing Casem', function () {
         expect(muter.getLogs()).to.match(/Calculation Ok\n/);
       });
   }));
+
+  it('Testing lists', muted(muter, function () {
+    return interprete('src/static/data/list-expr.txt')
+      .then(() => {
+        expect(muter.getLogs()).to.match(/Calculation Ok\n/);
+      });
+  }));
 });

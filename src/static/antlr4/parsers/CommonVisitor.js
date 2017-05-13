@@ -18,6 +18,12 @@ CommonVisitor.prototype.visitMatrix = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CommonParser#list.
+CommonVisitor.prototype.visitList = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CommonParser#variable.
 CommonVisitor.prototype.visitVariable = function(ctx) {
   return this.visitChildren(ctx);

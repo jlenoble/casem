@@ -20,6 +20,15 @@ CommonListener.prototype.exitMatrix = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CommonParser#list.
+CommonListener.prototype.enterList = function(ctx) {
+};
+
+// Exit a parse tree produced by CommonParser#list.
+CommonListener.prototype.exitList = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CommonParser#variable.
 CommonListener.prototype.enterVariable = function(ctx) {
 };

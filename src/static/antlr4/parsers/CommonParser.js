@@ -7,35 +7,36 @@ var CommonVisitor = require('./CommonVisitor').CommonVisitor;
 var grammarFileName = "Common.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003)6\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
+    "\u0003*;\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
     "\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004\b",
-    "\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0003\u0002",
-    "\u0003\u0002\u0003\u0002\u0003\u0003\u0003\u0003\u0003\u0004\u0003\u0004",
-    "\u0003\u0005\u0003\u0005\u0003\u0006\u0006\u0006#\n\u0006\r\u0006\u000e",
-    "\u0006$\u0003\u0006\u0005\u0006(\n\u0006\u0003\u0007\u0003\u0007\u0003",
-    "\b\u0003\b\u0003\t\u0003\t\u0003\n\u0003\n\u0003\u000b\u0003\u000b\u0003",
-    "\f\u0003\f\u0003\f\u0002\u0002\r\u0002\u0004\u0006\b\n\f\u000e\u0010",
-    "\u0012\u0014\u0016\u0002\b\u0005\u0002  %%))\u0003\u0002\u0004\n\u0003",
-    "\u0002\u000b\f\u0003\u0002\r\u000e\u0003\u0002\u000f\u0014\u0003\u0002",
-    "\u0015\u0016\u0002,\u0002\u0018\u0003\u0002\u0002\u0002\u0004\u001b",
-    "\u0003\u0002\u0002\u0002\u0006\u001d\u0003\u0002\u0002\u0002\b\u001f",
-    "\u0003\u0002\u0002\u0002\n\'\u0003\u0002\u0002\u0002\f)\u0003\u0002",
-    "\u0002\u0002\u000e+\u0003\u0002\u0002\u0002\u0010-\u0003\u0002\u0002",
-    "\u0002\u0012/\u0003\u0002\u0002\u0002\u00141\u0003\u0002\u0002\u0002",
-    "\u00163\u0003\u0002\u0002\u0002\u0018\u0019\u0007\u001f\u0002\u0002",
-    "\u0019\u001a\u0007$\u0002\u0002\u001a\u0003\u0003\u0002\u0002\u0002",
-    "\u001b\u001c\u0007$\u0002\u0002\u001c\u0005\u0003\u0002\u0002\u0002",
-    "\u001d\u001e\u0007$\u0002\u0002\u001e\u0007\u0003\u0002\u0002\u0002",
-    "\u001f \t\u0002\u0002\u0002 \t\u0003\u0002\u0002\u0002!#\u0007\'\u0002",
-    "\u0002\"!\u0003\u0002\u0002\u0002#$\u0003\u0002\u0002\u0002$\"\u0003",
-    "\u0002\u0002\u0002$%\u0003\u0002\u0002\u0002%(\u0003\u0002\u0002\u0002",
-    "&(\u0007\u0003\u0002\u0002\'\"\u0003\u0002\u0002\u0002\'&\u0003\u0002",
-    "\u0002\u0002(\u000b\u0003\u0002\u0002\u0002)*\u0007\"\u0002\u0002*\r",
-    "\u0003\u0002\u0002\u0002+,\t\u0003\u0002\u0002,\u000f\u0003\u0002\u0002",
-    "\u0002-.\t\u0004\u0002\u0002.\u0011\u0003\u0002\u0002\u0002/0\t\u0005",
-    "\u0002\u00020\u0013\u0003\u0002\u0002\u000212\t\u0006\u0002\u00022\u0015",
-    "\u0003\u0002\u0002\u000234\t\u0007\u0002\u00024\u0017\u0003\u0002\u0002",
-    "\u0002\u0004$\'"].join("");
+    "\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0004\r",
+    "\t\r\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0003\u0003\u0003\u0003",
+    "\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0006\u0003",
+    "\u0006\u0003\u0007\u0006\u0007(\n\u0007\r\u0007\u000e\u0007)\u0003\u0007",
+    "\u0005\u0007-\n\u0007\u0003\b\u0003\b\u0003\t\u0003\t\u0003\n\u0003",
+    "\n\u0003\u000b\u0003\u000b\u0003\f\u0003\f\u0003\r\u0003\r\u0003\r\u0002",
+    "\u0002\u000e\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018",
+    "\u0002\b\u0005\u0002!!&&**\u0003\u0002\u0004\n\u0003\u0002\u000b\f\u0003",
+    "\u0002\r\u000e\u0003\u0002\u000f\u0014\u0003\u0002\u0015\u0016\u0002",
+    "0\u0002\u001a\u0003\u0002\u0002\u0002\u0004\u001d\u0003\u0002\u0002",
+    "\u0002\u0006 \u0003\u0002\u0002\u0002\b\"\u0003\u0002\u0002\u0002\n",
+    "$\u0003\u0002\u0002\u0002\f,\u0003\u0002\u0002\u0002\u000e.\u0003\u0002",
+    "\u0002\u0002\u00100\u0003\u0002\u0002\u0002\u00122\u0003\u0002\u0002",
+    "\u0002\u00144\u0003\u0002\u0002\u0002\u00166\u0003\u0002\u0002\u0002",
+    "\u00188\u0003\u0002\u0002\u0002\u001a\u001b\u0007 \u0002\u0002\u001b",
+    "\u001c\u0007%\u0002\u0002\u001c\u0003\u0003\u0002\u0002\u0002\u001d",
+    "\u001e\u0007\u001e\u0002\u0002\u001e\u001f\u0007&\u0002\u0002\u001f",
+    "\u0005\u0003\u0002\u0002\u0002 !\u0007%\u0002\u0002!\u0007\u0003\u0002",
+    "\u0002\u0002\"#\u0007%\u0002\u0002#\t\u0003\u0002\u0002\u0002$%\t\u0002",
+    "\u0002\u0002%\u000b\u0003\u0002\u0002\u0002&(\u0007(\u0002\u0002\'&",
+    "\u0003\u0002\u0002\u0002()\u0003\u0002\u0002\u0002)\'\u0003\u0002\u0002",
+    "\u0002)*\u0003\u0002\u0002\u0002*-\u0003\u0002\u0002\u0002+-\u0007\u0003",
+    "\u0002\u0002,\'\u0003\u0002\u0002\u0002,+\u0003\u0002\u0002\u0002-\r",
+    "\u0003\u0002\u0002\u0002./\u0007#\u0002\u0002/\u000f\u0003\u0002\u0002",
+    "\u000201\t\u0003\u0002\u00021\u0011\u0003\u0002\u0002\u000223\t\u0004",
+    "\u0002\u00023\u0013\u0003\u0002\u0002\u000245\t\u0005\u0002\u00025\u0015",
+    "\u0003\u0002\u0002\u000267\t\u0006\u0002\u00027\u0017\u0003\u0002\u0002",
+    "\u000289\t\u0007\u0002\u00029\u0019\u0003\u0002\u0002\u0002\u0004),"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -49,18 +50,19 @@ var literalNames = [ null, "':'", "'\\sqrt'", "'\\cos '", "'\\sin '", "'\\tan '"
                      "'*'", "'/'", "'='", "'\\<>'", "'>'", "'\\>='", "'<'", 
                      "'\\<='", "'\\ And '", "'\\ Or '", "'\\->'", "'\\=>'", 
                      "'\\Else '", "'\\Goto'", "'\\If '", "'\\IfEnd'", "'\\Lbl '", 
-                     "'\\Locate '", "'\\Mat '", "'\\Pi'", "'\\Prog '", "'\\Return'", 
-                     "'\\Then '", null, null, null, null, null, "'0'" ];
+                     "'\\List '", "'\\Locate '", "'\\Mat '", "'\\Pi'", "'\\Prog '", 
+                     "'\\Return'", "'\\Then '", null, null, null, null, 
+                     null, "'0'" ];
 
 var symbolicNames = [ null, null, "SQRT", "COS", "SIN", "TAN", "ACOS", "ASIN", 
                       "ATAN", "ADD", "SUB", "MUL", "DIV", "EQ", "NE", "GT", 
                       "GE", "LT", "LE", "AND", "OR", "ARROW", "FATARROW", 
-                      "ELSE", "GOTO", "IF", "IFEND", "LBL", "LOCATE", "MATRIX", 
-                      "PI", "PROG", "RETURN", "THEN", "ID", "NATNUM", "TEXT", 
-                      "NEWLINE", "STRING", "ZERO" ];
+                      "ELSE", "GOTO", "IF", "IFEND", "LBL", "LIST", "LOCATE", 
+                      "MATRIX", "PI", "PROG", "RETURN", "THEN", "ID", "NATNUM", 
+                      "TEXT", "NEWLINE", "STRING", "ZERO" ];
 
-var ruleNames =  [ "matrix", "variable", "lbl", "number", "endStat", "endProg", 
-                   "func", "addOp", "multOp", "compOp", "boolOp" ];
+var ruleNames =  [ "matrix", "list", "variable", "lbl", "number", "endStat", 
+                   "endProg", "func", "addOp", "multOp", "compOp", "boolOp" ];
 
 function CommonParser (input) {
 	antlr4.Parser.call(this, input);
@@ -108,30 +110,32 @@ CommonParser.GOTO = 24;
 CommonParser.IF = 25;
 CommonParser.IFEND = 26;
 CommonParser.LBL = 27;
-CommonParser.LOCATE = 28;
-CommonParser.MATRIX = 29;
-CommonParser.PI = 30;
-CommonParser.PROG = 31;
-CommonParser.RETURN = 32;
-CommonParser.THEN = 33;
-CommonParser.ID = 34;
-CommonParser.NATNUM = 35;
-CommonParser.TEXT = 36;
-CommonParser.NEWLINE = 37;
-CommonParser.STRING = 38;
-CommonParser.ZERO = 39;
+CommonParser.LIST = 28;
+CommonParser.LOCATE = 29;
+CommonParser.MATRIX = 30;
+CommonParser.PI = 31;
+CommonParser.PROG = 32;
+CommonParser.RETURN = 33;
+CommonParser.THEN = 34;
+CommonParser.ID = 35;
+CommonParser.NATNUM = 36;
+CommonParser.TEXT = 37;
+CommonParser.NEWLINE = 38;
+CommonParser.STRING = 39;
+CommonParser.ZERO = 40;
 
 CommonParser.RULE_matrix = 0;
-CommonParser.RULE_variable = 1;
-CommonParser.RULE_lbl = 2;
-CommonParser.RULE_number = 3;
-CommonParser.RULE_endStat = 4;
-CommonParser.RULE_endProg = 5;
-CommonParser.RULE_func = 6;
-CommonParser.RULE_addOp = 7;
-CommonParser.RULE_multOp = 8;
-CommonParser.RULE_compOp = 9;
-CommonParser.RULE_boolOp = 10;
+CommonParser.RULE_list = 1;
+CommonParser.RULE_variable = 2;
+CommonParser.RULE_lbl = 3;
+CommonParser.RULE_number = 4;
+CommonParser.RULE_endStat = 5;
+CommonParser.RULE_endProg = 6;
+CommonParser.RULE_func = 7;
+CommonParser.RULE_addOp = 8;
+CommonParser.RULE_multOp = 9;
+CommonParser.RULE_compOp = 10;
+CommonParser.RULE_boolOp = 11;
 
 function MatrixContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -188,10 +192,83 @@ CommonParser.prototype.matrix = function() {
     this.enterRule(localctx, 0, CommonParser.RULE_matrix);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 22;
+        this.state = 24;
         this.match(CommonParser.MATRIX);
-        this.state = 23;
+        this.state = 25;
         this.match(CommonParser.ID);
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+function ListContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = CommonParser.RULE_list;
+    return this;
+}
+
+ListContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+ListContext.prototype.constructor = ListContext;
+
+ListContext.prototype.LIST = function() {
+    return this.getToken(CommonParser.LIST, 0);
+};
+
+ListContext.prototype.NATNUM = function() {
+    return this.getToken(CommonParser.NATNUM, 0);
+};
+
+ListContext.prototype.enterRule = function(listener) {
+    if(listener instanceof CommonListener ) {
+        listener.enterList(this);
+	}
+};
+
+ListContext.prototype.exitRule = function(listener) {
+    if(listener instanceof CommonListener ) {
+        listener.exitList(this);
+	}
+};
+
+ListContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof CommonVisitor ) {
+        return visitor.visitList(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+CommonParser.ListContext = ListContext;
+
+CommonParser.prototype.list = function() {
+
+    var localctx = new ListContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 2, CommonParser.RULE_list);
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 27;
+        this.match(CommonParser.LIST);
+        this.state = 28;
+        this.match(CommonParser.NATNUM);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -254,10 +331,10 @@ CommonParser.VariableContext = VariableContext;
 CommonParser.prototype.variable = function() {
 
     var localctx = new VariableContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 2, CommonParser.RULE_variable);
+    this.enterRule(localctx, 4, CommonParser.RULE_variable);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 25;
+        this.state = 30;
         this.match(CommonParser.ID);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -321,10 +398,10 @@ CommonParser.LblContext = LblContext;
 CommonParser.prototype.lbl = function() {
 
     var localctx = new LblContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 4, CommonParser.RULE_lbl);
+    this.enterRule(localctx, 6, CommonParser.RULE_lbl);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 27;
+        this.state = 32;
         this.match(CommonParser.ID);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -396,13 +473,13 @@ CommonParser.NumberContext = NumberContext;
 CommonParser.prototype.number = function() {
 
     var localctx = new NumberContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 6, CommonParser.RULE_number);
+    this.enterRule(localctx, 8, CommonParser.RULE_number);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 29;
+        this.state = 34;
         _la = this._input.LA(1);
-        if(!(((((_la - 30)) & ~0x1f) == 0 && ((1 << (_la - 30)) & ((1 << (CommonParser.PI - 30)) | (1 << (CommonParser.NATNUM - 30)) | (1 << (CommonParser.ZERO - 30)))) !== 0))) {
+        if(!(((((_la - 31)) & ~0x1f) == 0 && ((1 << (_la - 31)) & ((1 << (CommonParser.PI - 31)) | (1 << (CommonParser.NATNUM - 31)) | (1 << (CommonParser.ZERO - 31)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -479,28 +556,28 @@ CommonParser.EndStatContext = EndStatContext;
 CommonParser.prototype.endStat = function() {
 
     var localctx = new EndStatContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 8, CommonParser.RULE_endStat);
+    this.enterRule(localctx, 10, CommonParser.RULE_endStat);
     var _la = 0; // Token type
     try {
-        this.state = 37;
+        this.state = 42;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case CommonParser.NEWLINE:
             this.enterOuterAlt(localctx, 1);
-            this.state = 32; 
+            this.state = 37; 
             this._errHandler.sync(this);
             _la = this._input.LA(1);
             do {
-                this.state = 31;
+                this.state = 36;
                 this.match(CommonParser.NEWLINE);
-                this.state = 34; 
+                this.state = 39; 
                 this._errHandler.sync(this);
                 _la = this._input.LA(1);
             } while(_la===CommonParser.NEWLINE);
             break;
         case CommonParser.T__0:
             this.enterOuterAlt(localctx, 2);
-            this.state = 36;
+            this.state = 41;
             this.match(CommonParser.T__0);
             break;
         default:
@@ -568,10 +645,10 @@ CommonParser.EndProgContext = EndProgContext;
 CommonParser.prototype.endProg = function() {
 
     var localctx = new EndProgContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 10, CommonParser.RULE_endProg);
+    this.enterRule(localctx, 12, CommonParser.RULE_endProg);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 39;
+        this.state = 44;
         this.match(CommonParser.RETURN);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -659,11 +736,11 @@ CommonParser.FuncContext = FuncContext;
 CommonParser.prototype.func = function() {
 
     var localctx = new FuncContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 12, CommonParser.RULE_func);
+    this.enterRule(localctx, 14, CommonParser.RULE_func);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 41;
+        this.state = 46;
         _la = this._input.LA(1);
         if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << CommonParser.SQRT) | (1 << CommonParser.COS) | (1 << CommonParser.SIN) | (1 << CommonParser.TAN) | (1 << CommonParser.ACOS) | (1 << CommonParser.ASIN) | (1 << CommonParser.ATAN))) !== 0))) {
         this._errHandler.recoverInline(this);
@@ -738,11 +815,11 @@ CommonParser.AddOpContext = AddOpContext;
 CommonParser.prototype.addOp = function() {
 
     var localctx = new AddOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 14, CommonParser.RULE_addOp);
+    this.enterRule(localctx, 16, CommonParser.RULE_addOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 43;
+        this.state = 48;
         _la = this._input.LA(1);
         if(!(_la===CommonParser.ADD || _la===CommonParser.SUB)) {
         this._errHandler.recoverInline(this);
@@ -817,11 +894,11 @@ CommonParser.MultOpContext = MultOpContext;
 CommonParser.prototype.multOp = function() {
 
     var localctx = new MultOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 16, CommonParser.RULE_multOp);
+    this.enterRule(localctx, 18, CommonParser.RULE_multOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 45;
+        this.state = 50;
         _la = this._input.LA(1);
         if(!(_la===CommonParser.MUL || _la===CommonParser.DIV)) {
         this._errHandler.recoverInline(this);
@@ -912,11 +989,11 @@ CommonParser.CompOpContext = CompOpContext;
 CommonParser.prototype.compOp = function() {
 
     var localctx = new CompOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 18, CommonParser.RULE_compOp);
+    this.enterRule(localctx, 20, CommonParser.RULE_compOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 47;
+        this.state = 52;
         _la = this._input.LA(1);
         if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << CommonParser.EQ) | (1 << CommonParser.NE) | (1 << CommonParser.GT) | (1 << CommonParser.GE) | (1 << CommonParser.LT) | (1 << CommonParser.LE))) !== 0))) {
         this._errHandler.recoverInline(this);
@@ -991,11 +1068,11 @@ CommonParser.BoolOpContext = BoolOpContext;
 CommonParser.prototype.boolOp = function() {
 
     var localctx = new BoolOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 20, CommonParser.RULE_boolOp);
+    this.enterRule(localctx, 22, CommonParser.RULE_boolOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 49;
+        this.state = 54;
         _la = this._input.LA(1);
         if(!(_la===CommonParser.AND || _la===CommonParser.OR)) {
         this._errHandler.recoverInline(this);
