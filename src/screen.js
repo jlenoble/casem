@@ -84,6 +84,24 @@ class Screen {
     console.log(this.toString());
   }
 
+  writeCasio (txt, append = true) {
+    const rows = txt.split('\n');
+
+    if (!append) {
+      console.log('\\ClrText');
+    }
+
+    rows.forEach((row, i) => {
+      if (row) {
+        if (append) {
+          console.log(`"${row}"`);
+        } else {
+          console.log(`\\Locate 1,${i + 1},"${row}"`);
+        }
+      }
+    });
+  }
+
   toString () {
     let txt = '';
 

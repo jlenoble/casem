@@ -1,7 +1,6 @@
-import Muter, {muted, captured} from 'muter';
+import Muter, {muted} from 'muter';
 import {expect} from 'chai';
 import {interprete} from '../src/casem';
-import Screen from '../src/screen';
 
 describe('Testing Casem', function () {
   const muter = Muter(process);
