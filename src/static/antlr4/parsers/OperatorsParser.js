@@ -33,7 +33,7 @@ var literalNames = [ null, "'+'", "'-'", "'*'", "'/'", "'='", "'\\<>'",
 var symbolicNames = [ null, "ADD", "SUB", "MUL", "DIV", "EQ", "NE", "GT", 
                       "GE", "LT", "LE", "AND", "OR", "ARROW", "FATARROW" ];
 
-var ruleNames =  [ "addOp", "multOp", "compOp", "boolOP" ];
+var ruleNames =  [ "addOp", "multOp", "compOp", "boolOp" ];
 
 function OperatorsParser (input) {
 	antlr4.Parser.call(this, input);
@@ -72,7 +72,7 @@ OperatorsParser.FATARROW = 14;
 OperatorsParser.RULE_addOp = 0;
 OperatorsParser.RULE_multOp = 1;
 OperatorsParser.RULE_compOp = 2;
-OperatorsParser.RULE_boolOP = 3;
+OperatorsParser.RULE_boolOp = 3;
 
 function AddOpContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -327,7 +327,7 @@ OperatorsParser.prototype.compOp = function() {
     return localctx;
 };
 
-function BoolOPContext(parser, parent, invokingState) {
+function BoolOpContext(parser, parent, invokingState) {
 	if(parent===undefined) {
 	    parent = null;
 	}
@@ -336,36 +336,36 @@ function BoolOPContext(parser, parent, invokingState) {
 	}
 	antlr4.ParserRuleContext.call(this, parent, invokingState);
     this.parser = parser;
-    this.ruleIndex = OperatorsParser.RULE_boolOP;
+    this.ruleIndex = OperatorsParser.RULE_boolOp;
     return this;
 }
 
-BoolOPContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
-BoolOPContext.prototype.constructor = BoolOPContext;
+BoolOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+BoolOpContext.prototype.constructor = BoolOpContext;
 
-BoolOPContext.prototype.AND = function() {
+BoolOpContext.prototype.AND = function() {
     return this.getToken(OperatorsParser.AND, 0);
 };
 
-BoolOPContext.prototype.OR = function() {
+BoolOpContext.prototype.OR = function() {
     return this.getToken(OperatorsParser.OR, 0);
 };
 
-BoolOPContext.prototype.enterRule = function(listener) {
+BoolOpContext.prototype.enterRule = function(listener) {
     if(listener instanceof OperatorsListener ) {
-        listener.enterBoolOP(this);
+        listener.enterBoolOp(this);
 	}
 };
 
-BoolOPContext.prototype.exitRule = function(listener) {
+BoolOpContext.prototype.exitRule = function(listener) {
     if(listener instanceof OperatorsListener ) {
-        listener.exitBoolOP(this);
+        listener.exitBoolOp(this);
 	}
 };
 
-BoolOPContext.prototype.accept = function(visitor) {
+BoolOpContext.prototype.accept = function(visitor) {
     if ( visitor instanceof OperatorsVisitor ) {
-        return visitor.visitBoolOP(this);
+        return visitor.visitBoolOp(this);
     } else {
         return visitor.visitChildren(this);
     }
@@ -374,12 +374,12 @@ BoolOPContext.prototype.accept = function(visitor) {
 
 
 
-OperatorsParser.BoolOPContext = BoolOPContext;
+OperatorsParser.BoolOpContext = BoolOpContext;
 
-OperatorsParser.prototype.boolOP = function() {
+OperatorsParser.prototype.boolOp = function() {
 
-    var localctx = new BoolOPContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 6, OperatorsParser.RULE_boolOP);
+    var localctx = new BoolOpContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 6, OperatorsParser.RULE_boolOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);

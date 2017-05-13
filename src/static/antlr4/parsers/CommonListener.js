@@ -101,12 +101,12 @@ CommonListener.prototype.exitCompOp = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CommonParser#boolOP.
-CommonListener.prototype.enterBoolOP = function(ctx) {
+// Enter a parse tree produced by CommonParser#boolOp.
+CommonListener.prototype.enterBoolOp = function(ctx) {
 };
 
-// Exit a parse tree produced by CommonParser#boolOP.
-CommonListener.prototype.exitBoolOP = function(ctx) {
+// Exit a parse tree produced by CommonParser#boolOp.
+CommonListener.prototype.exitBoolOp = function(ctx) {
 };
 
 

@@ -71,9 +71,10 @@ describe('Testing Casem', function () {
       });
   }));
 
-  it('Testing matrices', captured(muter, function () {
+  it('Testing matrices', muted(muter, function () {
     return interprete('src/static/data/matrix-expr.txt')
       .then(() => {
+        expect(muter.getLogs()).to.match(/Calculation Ok\n/);
       });
   }));
 });

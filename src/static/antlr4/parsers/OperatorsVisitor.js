@@ -30,8 +30,8 @@ OperatorsVisitor.prototype.visitCompOp = function(ctx) {
 };
 
 
-// Visit a parse tree produced by OperatorsParser#boolOP.
-OperatorsVisitor.prototype.visitBoolOP = function(ctx) {
+// Visit a parse tree produced by OperatorsParser#boolOp.
+OperatorsVisitor.prototype.visitBoolOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

@@ -72,8 +72,8 @@ CommonVisitor.prototype.visitCompOp = function(ctx) {
 };
 
 
-// Visit a parse tree produced by CommonParser#boolOP.
-CommonVisitor.prototype.visitBoolOP = function(ctx) {
+// Visit a parse tree produced by CommonParser#boolOp.
+CommonVisitor.prototype.visitBoolOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

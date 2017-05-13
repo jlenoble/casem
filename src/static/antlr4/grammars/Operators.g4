@@ -3,7 +3,7 @@ grammar Operators;
 addOp     : ADD | SUB;
 multOp    : MUL | DIV;
 compOp    : EQ  | NE | GT | GE | LT | LE;
-boolOP    : AND | OR;
+boolOp    : AND | OR;
 
 ADD       : '+' ;
 SUB       : '-' ;

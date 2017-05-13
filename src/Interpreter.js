@@ -1,6 +1,7 @@
 import path from 'path';
 import File from './file';
 import Screen from './screen';
+import Matrix from './matrix';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
@@ -34,13 +35,19 @@ export class Interpreter extends CalcVisitor {
       return name in matrices;
     };
     this.setMatrix = function (name, value) {
-      matrices[name] = value;
+      matrices[name] = new Matrix(value);
+    };
+    this.setMatrixElement = function ({name, i, j}, value) {
+      this.getMatrix(name).array[i][j] = value;
     };
     this.getMatrix = function (name) {
       if (!this.hasMatrix(name)) {
         throw new Error('Never initialized matrix ' + name);
       }
       return matrices[name];
+    };
+    this.getMatrixElement = function (name, i, j) {
+      return this.getMatrix(name).array[i][j];
     };
 
     this.isJumping = function () {
@@ -83,10 +90,10 @@ export class Interpreter extends CalcVisitor {
 
     switch (operator) {
     case CalcParser.ADD:
-      return left + right;
+      return left.add ? left.add(right) : left + right;
 
     case CalcParser.SUB:
-      return left - right;
+      return left.add ? left.sub(right) : left - right;
     }
   }
 
@@ -94,7 +101,18 @@ export class Interpreter extends CalcVisitor {
     return (ctx.ADD() || ctx.SUB()).symbol.type;
   }
 
-  visitBoolExpr (ctx) {
+  visitAssignStat (ctx) {
+    const {id, set} = this.visit(ctx.stoExpr());
+    const value = this.visit(ctx.evalExpr());
+    this[set](id, value);
+  }
+
+  visitBoolOp (ctx) {
+    return (ctx.AND() || ctx.OR()).symbol.type;
+  }
+
+
+  visitCompare (ctx) {
     const left = this.visit(ctx.evalExpr(0));
     const right = this.visit(ctx.evalExpr(1));
     const operator = this.visit(ctx.compOp());
@@ -138,6 +156,27 @@ export class Interpreter extends CalcVisitor {
   visitEvaluate (ctx) {
     const id = this.visit(ctx.variable());
     return this.getVariable(id);
+  }
+
+  visitEvaluateMatrix (ctx) {
+    const id = this.visit(ctx.matrix());
+    return this.getMatrix(id);
+  }
+
+  visitEvaluateMatrixElement (ctx) {
+    const {name, i, j} = this.visit(ctx.matrixElement());
+    return this.getMatrixElement(name, i, j);
+  }
+
+  visitEvaluateMatrixInitializer (ctx) {
+    const rows = ctx.matrixInitializer().matrixRow();
+
+    return new Matrix(Object.keys(rows).map(key => {
+      const exprs = rows[key].evalExpr();
+      return Object.keys(exprs).map(key => {
+        return this.visit(exprs[key]);
+      });
+    }));
   }
 
   visitFile (ctx) {
@@ -223,6 +262,18 @@ export class Interpreter extends CalcVisitor {
     this.stopJumping(label);
   }
 
+  visitMatrix (ctx) {
+    return ctx.ID().getText();
+  }
+
+  visitMatrixElement (ctx) {
+    return {
+      name: ctx.ID().getText(),
+      i: this.visit(ctx.evalExpr(0)) - 1,
+      j: this.visit(ctx.evalExpr(1)) - 1,
+    };
+  }
+
   visitMultOp (ctx) {
     return (ctx.MUL() || ctx.DIV()).symbol.type;
   }
@@ -295,24 +346,18 @@ export class Interpreter extends CalcVisitor {
     } while (!this.isFinished() && this.isJumping());
   }
 
-  visitSetMatrix (ctx) {
-    const id = ctx.matrix().ID().getText();
-    const rows = ctx.matrixInitializer().matrixRow();
+  visitReduceBoolExpr (ctx) {
+    const left = this.visit(ctx.boolExpr(0));
+    const right = this.visit(ctx.boolExpr(1));
+    const operator = this.visit(ctx.boolOp());
 
-    const array = Object.keys(rows).map(key => {
-      const exprs = rows[key].evalExpr();
-      return Object.keys(exprs).map(key => {
-        return this.visit(exprs[key]);
-      });
-    });
+    switch (operator) {
+    case CalcParser.AND:
+      return left && right;
 
-    this.setMatrix(id, array);
-  }
-
-  visitSetStoExpr (ctx) {
-    const id = this.visit(ctx.stoExpr());
-    const value = this.visit(ctx.evalExpr());
-    this.setVariable(id, value);
+    case CalcParser.OR:
+      return left || right;
+    }
   }
 
   visitStat (ctx) {
@@ -324,7 +369,26 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitStoExpr (ctx) {
-    return this.visit(ctx.variable());
+    if (ctx.variable()) {
+      return {
+        set: 'setVariable',
+        id: this.visit(ctx.variable()),
+      };
+    }
+
+    if (ctx.matrix()) {
+      return {
+        set: 'setMatrix',
+        id: this.visit(ctx.matrix()),
+      };
+    }
+
+    if (ctx.matrixElement()) {
+      return {
+        set: 'setMatrixElement',
+        id: this.visit(ctx.matrixElement()),
+      };
+    }
   }
 
   visitVariable (ctx) {
