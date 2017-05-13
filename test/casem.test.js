@@ -1,4 +1,4 @@
-import Muter, {muted} from 'muter';
+import Muter, {captured, muted} from 'muter';
 import {expect} from 'chai';
 import {interprete} from '../src/casem';
 
@@ -68,6 +68,12 @@ describe('Testing Casem', function () {
       .then(() => {
         expect(muter.getLogs()).to.match(
           /In ONE\s+In TWO\s+In THREE\s+In TWO\s+back to main\s+In ONE\s+In TWO\n/);
+      });
+  }));
+
+  it('Testing matrices', captured(muter, function () {
+    return interprete('src/static/data/matrix-expr.txt')
+      .then(() => {
       });
   }));
 });

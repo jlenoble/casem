@@ -12,6 +12,7 @@ export class Interpreter extends CalcVisitor {
     super(...args);
 
     const variables = {};
+    const matrices = {};
     this.currentFile = null;
     this.screen = new Screen();
     const files = {};
@@ -29,6 +30,18 @@ export class Interpreter extends CalcVisitor {
       return variables[name];
     };
 
+    this.hasMatrix = function (name) {
+      return name in matrices;
+    };
+    this.setMatrix = function (name, value) {
+      matrices[name] = value;
+    };
+    this.getMatrix = function (name) {
+      if (!this.hasMatrix(name)) {
+        throw new Error('Never initialized matrix ' + name);
+      }
+      return matrices[name];
+    };
 
     this.isJumping = function () {
       return this.currentFile.isJumping();
@@ -79,12 +92,6 @@ export class Interpreter extends CalcVisitor {
 
   visitAddOp (ctx) {
     return (ctx.ADD() || ctx.SUB()).symbol.type;
-  }
-
-  visitAssignStat (ctx) {
-    const id = this.visit(ctx.stoExpr());
-    const value = this.visit(ctx.evalExpr());
-    this.setVariable(id, value);
   }
 
   visitBoolExpr (ctx) {
@@ -286,6 +293,26 @@ export class Interpreter extends CalcVisitor {
       super.visitProg(ctx);
       runCount++;
     } while (!this.isFinished() && this.isJumping());
+  }
+
+  visitSetMatrix (ctx) {
+    const id = ctx.matrix().ID().getText();
+    const rows = ctx.matrixInitializer().matrixRow();
+
+    const array = Object.keys(rows).map(key => {
+      const exprs = rows[key].evalExpr();
+      return Object.keys(exprs).map(key => {
+        return this.visit(exprs[key]);
+      });
+    });
+
+    this.setMatrix(id, array);
+  }
+
+  visitSetStoExpr (ctx) {
+    const id = this.visit(ctx.stoExpr());
+    const value = this.visit(ctx.evalExpr());
+    this.setVariable(id, value);
   }
 
   visitStat (ctx) {

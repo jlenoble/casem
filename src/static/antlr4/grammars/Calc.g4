@@ -1,5 +1,5 @@
 grammar Calc;
-import File, Functions, Operators, Keywords, Regexps;
+import File, Common;
 
 prog
 : block*
@@ -24,7 +24,8 @@ stat
 ;
 
 assignStat
-: evalExpr ARROW stoExpr
+: evalExpr ARROW stoExpr          # setStoExpr
+| matrixInitializer ARROW matrix  # setMatrix
 ;
 
 printStat
@@ -56,37 +57,28 @@ evalExpr
 | func evalExpr             # compute
 | evalExpr multOp evalExpr  # multiply
 | evalExpr addOp evalExpr   # add
+| matrixElement             # evaluateMatrixElement
 | variable                  # evaluate
 | number                    # parseFloat
 ;
 
 stoExpr
-: variable
+: matrixElement
+| variable
 ;
 
 boolExpr
 : evalExpr compOp evalExpr
 ;
 
-variable
-: ID
+matrixElement
+: MATRIX ID '[' evalExpr ']' '[' evalExpr ']'
 ;
 
-lbl
-: ID
+matrixInitializer
+: '[' matrixRow (',' matrixRow)* ']'
 ;
 
-number
-: NATNUM
-| PI
-| ZERO
-;
-
-endStat
-: NEWLINE+
-| ':'
-;
-
-endProg
-: RETURN
+matrixRow
+: '[' evalExpr (',' evalExpr)* ']'
 ;
