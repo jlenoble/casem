@@ -72,6 +72,12 @@ CommonVisitor.prototype.visitMultOp = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CommonParser#powOp.
+CommonVisitor.prototype.visitPowOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CommonParser#compOp.
 CommonVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);

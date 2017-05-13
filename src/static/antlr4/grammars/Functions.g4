@@ -2,7 +2,9 @@ grammar Functions;
 
 func  : SQRT
       | COS   | SIN   | TAN
-      | ACOS  | ASIN  | ATAN;
+      | ACOS  | ASIN  | ATAN
+      | ABS   | INT
+      ;
 
 SQRT  : '\\sqrt';
 
@@ -13,3 +15,6 @@ TAN   : '\\tan ';
 ACOS  : '\\acos ';
 ASIN  : '\\asin ';
 ATAN  : '\\atan ';
+
+ABS   : '\\Abs ';
+INT   : '\\Int ';

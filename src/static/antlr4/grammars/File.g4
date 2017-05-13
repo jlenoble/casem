@@ -15,6 +15,8 @@ attributes
 
 headerAttr
 : TEXT
+| TEXT NATNUM
+| TEXT WS TEXT
 ;
 
 headerValue
@@ -25,7 +27,8 @@ headerValue
 ;
 
 fileName
-: headerValue '-'* TEXT
+: (TEXT|ID|NATNUM|ZERO)+
+| fileName ('-'|'+')+ fileName?
 ;
 
 startHeader

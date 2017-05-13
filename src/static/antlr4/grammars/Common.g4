@@ -2,7 +2,7 @@ grammar Common;
 import Functions, Operators, Keywords, Regexps;
 
 matrix
-: MATRIX ID
+: MATRIX (ID|ANS)
 ;
 
 list
@@ -15,12 +15,15 @@ variable
 
 lbl
 : ID
+| NATNUM
 ;
 
 number
 : NATNUM
 | PI
 | ZERO
+| number '.' ZERO* number
+| '.' ZERO* number
 ;
 
 endStat

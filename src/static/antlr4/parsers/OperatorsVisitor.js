@@ -24,6 +24,12 @@ OperatorsVisitor.prototype.visitMultOp = function(ctx) {
 };
 
 
+// Visit a parse tree produced by OperatorsParser#powOp.
+OperatorsVisitor.prototype.visitPowOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by OperatorsParser#compOp.
 OperatorsVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);

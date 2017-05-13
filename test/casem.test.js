@@ -1,8 +1,10 @@
-import Muter, {captured, muted} from 'muter';
+import Muter, {muted} from 'muter';
 import {expect} from 'chai';
 import {interprete} from '../src/casem';
 
 describe('Testing Casem', function () {
+  this.timeout(20000); // eslint-disable-line no-invalid-this
+
   const muter = Muter(process);
 
   it('Testing addition', muted(muter, function () {

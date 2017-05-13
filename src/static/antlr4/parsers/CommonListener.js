@@ -101,6 +101,15 @@ CommonListener.prototype.exitMultOp = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CommonParser#powOp.
+CommonListener.prototype.enterPowOp = function(ctx) {
+};
+
+// Exit a parse tree produced by CommonParser#powOp.
+CommonListener.prototype.exitPowOp = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CommonParser#compOp.
 CommonListener.prototype.enterCompOp = function(ctx) {
 };

@@ -11,16 +11,27 @@ file
 ;
 
 block
-: (stat endStat)+
+: (
+    stat endStat
+    | dispExpr DISP
+    | boolExpr FATARROW dispExpr DISP
+    | NEWLINE+
+  )+
 ;
 
 stat
 : assignStat
 | printStat
+| confStat
+| readStat
+| graphStat
 | ifStat
+| forStat
+| doStat
 | implyStat
 | jumpStat
 | labelStat
+| LISTMAT '(' list (',' list)* ')'
 ;
 
 assignStat
@@ -30,10 +41,39 @@ assignStat
 printStat
 : STRING                                              # print
 | LOCATE evalExpr ',' evalExpr ',' (evalExpr|STRING)  # printAt
+| CLRTXT                                              # clearText
+;
+
+confStat
+: NORM
+| FIX (NATNUM|ZERO)
+| GRA
+;
+
+readStat
+: STRING '?' ARROW stoExpr
+| GETKEY ARROW ID
+;
+
+graphStat
+: AXESOFF
+| AXESON
+| CLRGRPH
+| VIEWWINDOW evalExpr ',' evalExpr ',' evalExpr ',' evalExpr ',' evalExpr ',' evalExpr
+| FLINE evalExpr ',' evalExpr ',' evalExpr ',' evalExpr
+| PLOTON evalExpr ',' evalExpr
 ;
 
 ifStat
 : IF boolExpr endStat THEN block (ELSE block)? IFEND
+;
+
+forStat
+: FOR assignStat TO evalExpr endStat block NEXT
+;
+
+doStat
+: DO endStat block LPWHILE boolExpr
 ;
 
 implyStat
@@ -44,6 +84,7 @@ jumpStat
 : GOTO lbl
 | PROG STRING
 | endProg
+| STOP
 ;
 
 labelStat
@@ -51,19 +92,29 @@ labelStat
 ;
 
 evalExpr
-: '(' evalExpr ')'          # parens
-| '-' evalExpr              # negate
-| func evalExpr             # compute
-| evalExpr multOp evalExpr  # multiply
-| evalExpr addOp evalExpr   # add
-| matrixElement             # evaluateMatrixElement
-| matrix                    # evaluateMatrix
-| matrixInitializer         # evaluateMatrixInitializer
-| listElement               # evaluateListElement
-| list                      # evaluateList
-| listInitializer           # evaluateListInitializer
-| variable                  # evaluate
-| number                    # parseFloat
+: '(' evalExpr ')'                      # parens
+| '-' evalExpr                          # negate
+| func evalExpr                         # compute
+| evalExpr '!'                          # factorial
+| evalExpr powOp evalExpr               # power
+| EXPNT evalExpr                        # exponent
+| evalExpr multOp evalExpr              # multiply
+| evalExpr addOp evalExpr               # add
+| matrixElement                         # evaluateMatrixElement
+| matrix                                # evaluateMatrix
+| matrixInitializer                     # evaluateMatrixInitializer
+| listElement                           # evaluateListElement
+| list                                  # evaluateList
+| listInitializer                       # evaluateListInitializer
+| SEQ '(' evalExpr (',' evalExpr)+ ')'  # evaluateSeq
+| variable                              # evaluate
+| number                                # parseFloat
+;
+
+dispExpr
+: evalExpr
+| STRING
+| matrix
 ;
 
 stoExpr
@@ -76,6 +127,7 @@ stoExpr
 
 boolExpr
 : evalExpr compOp evalExpr  # compare
+| GETKEY compOp evalExpr    # getKey
 | boolExpr boolOp boolExpr  # reduceBoolExpr
 ;
 
