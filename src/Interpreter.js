@@ -387,6 +387,12 @@ export class Interpreter extends CalcVisitor {
     return parseFloat(number, 10);
   }
 
+  visitPower (ctx) {
+    const left = this.visit(ctx.evalExpr(0));
+    const right = this.visit(ctx.evalExpr(1));
+    return left**right;
+  }
+
   visitPrint (ctx) {
     let txt = ctx.STRING().getText().replace(/^"(.*)"$/, '$1');
     this.screen.print(txt);

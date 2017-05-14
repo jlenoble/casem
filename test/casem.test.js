@@ -92,6 +92,9 @@ describe('Testing Casem', function () {
       .then(() => {
         expect(muter.getLogs()).to.match(/A\+B=4:4/);
         expect(muter.getLogs()).to.match(/A\+2B=7:7/);
+        expect(muter.getLogs()).to.match(/A\^B=8:8/);
+        expect(muter.getLogs()).to.match(/B!=6:6/);
+        expect(muter.getLogs()).to.match(/C\\sin \\(\\Pi\/2\\)=-8:-8/);
       });
   }));
 });
