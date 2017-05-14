@@ -85,7 +85,8 @@ export class Interpreter extends CalcVisitor {
       return this.currentFile.isJumpingTo(label);
     };
     this.isFinished = function () {
-      return this.currentFile.isFinished();
+      return this.currentFile.isFinished() ||
+        this.isJumpingTo('STOP');
     };
     this.startJumping = function (label) {
       this.currentFile.startJumping(label);
@@ -106,8 +107,12 @@ export class Interpreter extends CalcVisitor {
     this.registerFile = function (file, ctx) {
       files[file] = new File(ctx);
     };
+
     this.callFile = function (file) {
       files[file].exec(this);
+    };
+    this.stop = function () {
+      this.isJumpingTo('STOP');
     };
   }
 
@@ -327,6 +332,11 @@ export class Interpreter extends CalcVisitor {
     if (ctx.PROG()) {
       const file = ctx.STRING().getText();
       this.callFile(file);
+      return;
+    }
+
+    if (ctx.STOP()) {
+      this.stop();
       return;
     }
 
