@@ -109,7 +109,7 @@ describe('Testing Casem', function () {
   }));
 
   it('dummy', captured(muter, function () {
-    return interprete('src/static/data/G35_V10.cat2')
+    return interprete('src/static/data/init-matrix.txt2')
       .then(() => {
       });
   }));

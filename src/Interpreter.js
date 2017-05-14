@@ -274,6 +274,12 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitFunc (ctx) {
+    if (ctx.INT()) {
+      return Math.trunc;
+    }
+    if (ctx.ABS()) {
+      return Math.abs;
+    }
     if (ctx.SQRT()) {
       return Math.sqrt;
     }
