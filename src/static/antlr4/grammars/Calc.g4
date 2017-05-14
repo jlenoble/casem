@@ -31,7 +31,7 @@ stat
 | implyStat
 | jumpStat
 | labelStat
-| LISTMAT '(' list (',' list)* ')'
+| miscStat
 ;
 
 assignStat
@@ -89,6 +89,10 @@ jumpStat
 
 labelStat
 : LBL lbl
+;
+
+miscStat
+: LISTMAT '(' list (',' list)* ')'      # listToMatrix 
 ;
 
 evalExpr

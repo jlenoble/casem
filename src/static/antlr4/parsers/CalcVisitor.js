@@ -114,6 +114,12 @@ CalcVisitor.prototype.visitLabelStat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#listToMatrix.
+CalcVisitor.prototype.visitListToMatrix = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#add.
 CalcVisitor.prototype.visitAdd = function(ctx) {
   return this.visitChildren(ctx);

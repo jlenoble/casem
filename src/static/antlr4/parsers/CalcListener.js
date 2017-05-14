@@ -164,6 +164,15 @@ CalcListener.prototype.exitLabelStat = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#listToMatrix.
+CalcListener.prototype.enterListToMatrix = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#listToMatrix.
+CalcListener.prototype.exitListToMatrix = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#add.
 CalcListener.prototype.enterAdd = function(ctx) {
 };

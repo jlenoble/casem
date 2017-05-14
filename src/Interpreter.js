@@ -70,7 +70,7 @@ export class Interpreter extends CalcVisitor {
     };
     this.getList = function (name) {
       if (!this.hasList(name)) {
-        throw new Error('Never initialized matrix ' + name);
+        throw new Error('Never initialized list ' + name);
       }
       return lists[name];
     };
@@ -240,7 +240,7 @@ export class Interpreter extends CalcVisitor {
       list.push(this.visit(expr));
     }
 
-    console.log(list);
+    return new List(list);
   }
 
   visitFactorial (ctx) {
@@ -351,6 +351,13 @@ export class Interpreter extends CalcVisitor {
       name: ctx.NATNUM().getText(),
       i: this.visit(ctx.evalExpr()) - 1,
     };
+  }
+
+  visitListToMatrix (ctx) {
+    const rows = ctx.list().map(list => {
+      return this.getList(this.visit(list)).array;
+    });
+    return new Matrix(rows);
   }
 
   visitMatrix (ctx) {

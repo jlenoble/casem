@@ -159,10 +159,10 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0002\u0095\u023c\u0003\u0002\u0002\u0002\u0097\u0243\u0003\u0002\u0002",
     "\u0002\u0099\u024b\u0003\u0002\u0002\u0002\u009b\u0250\u0003\u0002\u0002",
     "\u0002\u009d\u0256\u0003\u0002\u0002\u0002\u009f\u025d\u0003\u0002\u0002",
-    "\u0002\u00a1\u0263\u0003\u0002\u0002\u0002\u00a3\u00a4\u0007*\u0002",
-    "\u0002\u00a4\u0004\u0003\u0002\u0002\u0002\u00a5\u00a6\u0007.\u0002",
-    "\u0002\u00a6\u0006\u0003\u0002\u0002\u0002\u00a7\u00a8\u0007+\u0002",
-    "\u0002\u00a8\b\u0003\u0002\u0002\u0002\u00a9\u00aa\u0007A\u0002\u0002",
+    "\u0002\u00a1\u0263\u0003\u0002\u0002\u0002\u00a3\u00a4\u0007.\u0002",
+    "\u0002\u00a4\u0004\u0003\u0002\u0002\u0002\u00a5\u00a6\u0007A\u0002",
+    "\u0002\u00a6\u0006\u0003\u0002\u0002\u0002\u00a7\u00a8\u0007*\u0002",
+    "\u0002\u00a8\b\u0003\u0002\u0002\u0002\u00a9\u00aa\u0007+\u0002\u0002",
     "\u00aa\n\u0003\u0002\u0002\u0002\u00ab\u00ac\u0007#\u0002\u0002\u00ac",
     "\f\u0003\u0002\u0002\u0002\u00ad\u00ae\u0007]\u0002\u0002\u00ae\u000e",
     "\u0003\u0002\u0002\u0002\u00af\u00b0\u0007_\u0002\u0002\u00b0\u0010",
@@ -480,7 +480,7 @@ CalcLexer.prototype.channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
 
 CalcLexer.prototype.modeNames = [ "DEFAULT_MODE" ];
 
-CalcLexer.prototype.literalNames = [ null, "'('", "','", "')'", "'?'", "'!'", 
+CalcLexer.prototype.literalNames = [ null, "','", "'?'", "'('", "')'", "'!'", 
                                      "'['", "']'", "'{'", "'}'", "':'", 
                                      "'File Name'", "'%Header Record'", 
                                      "'%Data Record'", "'%End'", "'.'", 

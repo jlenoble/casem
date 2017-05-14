@@ -87,7 +87,7 @@ describe('Testing Casem', function () {
       });
   }));
 
-  it('Testing various computations', captured(muter, function () {
+  it('Testing various computations', muted(muter, function () {
     return interprete('src/static/data/various-computations.txt')
       .then(() => {
         // Chaining
@@ -105,6 +105,12 @@ describe('Testing Casem', function () {
         // Factorial
         expect(muter.getLogs()).to.match(/B!=6:6/);
         expect(muter.getLogs()).to.match(/B!!=720:720/);
+      });
+  }));
+
+  it('Testing various computations', captured(muter, function () {
+    return interprete('src/static/data/init-matrix.txt2')
+      .then(() => {
       });
   }));
 });
