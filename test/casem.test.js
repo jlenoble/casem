@@ -86,10 +86,4 @@ describe('Testing Casem', function () {
         expect(muter.getLogs()).to.match(/Calculation Ok/);
       });
   }));
-
-  it('dummy', captured(muter, function () {
-    return interprete('src/static/data/init-matrix.txt2')
-      .then(() => {
-      });
-  }));
 });

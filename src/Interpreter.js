@@ -3,6 +3,7 @@ import File from './file';
 import Screen from './screen';
 import Matrix from './matrix';
 import List from './list';
+import {getKeyCode} from './keys';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
@@ -13,12 +14,18 @@ export class Interpreter extends CalcVisitor {
   constructor (...args) {
     super(...args);
 
-    const variables = {};
+    const variables = {
+      GETKEY: getKeyCode('EXE'), // Programs are started by pressing EXE
+    };
     const matrices = {};
     const lists = {};
     this.currentFile = null;
     this.screen = new Screen();
     const files = {};
+
+    this.readCharacter = function () {
+      return variables['GETKEY'];
+    };
 
     this.hasVariable = function (name) {
       return name in variables;
@@ -220,6 +227,21 @@ export class Interpreter extends CalcVisitor {
     }));
   }
 
+  visitEvaluateSeq (ctx) {
+    const expr = ctx.evalExpr(0);
+    const variable = ctx.evalExpr(1).getText();
+    const start = this.visit(ctx.evalExpr(2));
+    const end = this.visit(ctx.evalExpr(3));
+    const step = this.visit(ctx.evalExpr(4));
+
+    const list = [];
+    for (let X = start; X <= end; X += step) {
+      this.setVariable(variable, X);
+      list.push(this.visit(expr));
+    }
+
+    console.log(list);
+  }
 
   visitFile (ctx) {
     const attributes = ctx.header().attributes();
@@ -397,6 +419,14 @@ export class Interpreter extends CalcVisitor {
       super.visitProg(ctx);
       runCount++;
     } while (!this.isFinished() && this.isJumping());
+  }
+
+  visitReadStat (ctx) {
+    if (ctx.GETKEY()) {
+      const {id, set} = this.visit(ctx.stoExpr());
+      const value = this.readCharacter();
+      this[set](id, value);
+    }
   }
 
   visitReduceBoolExpr (ctx) {

@@ -52,7 +52,7 @@ confStat
 
 readStat
 : STRING '?' ARROW stoExpr
-| GETKEY ARROW ID
+| GETKEY ARROW stoExpr
 ;
 
 graphStat
