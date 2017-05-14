@@ -12,10 +12,11 @@ class Matrix {
   set (array) {
     const arr = this.array;
     const arr2 = (array.array || array);
+
+    arr.length = arr2.length;
+
     for (let i = 0, l = arr.length; i < l; i++) {
-      for (let j = 0, m = arr[i].length; j < m; j++) {
-        arr[i][j] = arr2[i][j];
-      }
+      arr[i] = arr2[i].map(elt => elt);
     }
   }
 

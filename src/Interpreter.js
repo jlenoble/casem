@@ -357,11 +357,20 @@ export class Interpreter extends CalcVisitor {
     const rows = ctx.list().map(list => {
       return this.getList(this.visit(list)).array;
     });
+
+    this.setMatrix('Ans', rows);
+
     return new Matrix(rows);
   }
 
   visitMatrix (ctx) {
-    return ctx.ID().getText();
+    if (ctx.ID()) {
+      return ctx.ID().getText();
+    }
+
+    if (ctx.ANS()) {
+      return 'Ans';
+    }
   }
 
   visitMatrixElement (ctx) {
