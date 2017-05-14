@@ -37,13 +37,20 @@ class Screen {
       },
     });
 
-    for (let i = 0; i < height; i++) {
-      this.pixels.push(new Row(width));
-    }
+    this.clear();
   }
 
   set (x, y, value) {
     this.pixels[y].set(x, value);
+  }
+
+  clear () {
+    this.pixels.length = 0;
+    this.offset = 0;
+
+    for (let i = 0; i < this.height; i++) {
+      this.pixels.push(new Row(this.width));
+    }
   }
 
   print (txt) {

@@ -132,6 +132,9 @@ export class Interpreter extends CalcVisitor {
     return (ctx.AND() || ctx.OR()).symbol.type;
   }
 
+  visitClearText (ctx) {
+    this.screen.clear();
+  }
 
   visitCompare (ctx) {
     const left = this.visit(ctx.evalExpr(0));

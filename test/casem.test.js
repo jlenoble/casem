@@ -46,7 +46,7 @@ describe('Testing Casem', function () {
     return interprete('src/static/data/polcart.txt')
       .then(() => {
         expect(muter.getLogs()).to.match(
-          /Result:(\s|\|)+0.43301270189221946(\s|\|)+0.75(\s|\|)+0.49999999999999994/);
+          /Result:(\s|[─-╿])+0.43301270189221946(\s|[─-╿])+0.75(\s|[─-╿])+0.49999999999999994/);
       });
   }));
 
@@ -54,14 +54,14 @@ describe('Testing Casem', function () {
     return interprete('src/static/data/cartpol.txt')
       .then(() => {
         expect(muter.getLogs()).to.match(
-          /Result:(\s|\|)+1(\s|\|)+1(\s|\|)+1/);
+          /Result:(\s|[─-╿])+1(\s|[─-╿])+1(\s|[─-╿])+1/);
       });
   }));
 
   it('Testing Goto', muted(muter, function () {
     return interprete('src/static/data/goto.txt')
       .then(() => {
-        expect(muter.getLogs()).to.match(/Result:(\s|\|)+B(\s|\|)+E(\s|\|)+F/);
+        expect(muter.getLogs()).to.match(/Result:(\s|[─-╿])+B(\s|[─-╿])+E(\s|[─-╿])+F/);
       });
   }));
 
@@ -69,7 +69,7 @@ describe('Testing Casem', function () {
     return interprete('src/static/data/prog.txt')
       .then(() => {
         expect(muter.getLogs()).to.match(
-          /In ONE(\s|\|)+In TWO(\s|\|)+In THREE(\s|\|)+In TWO(\s|\|)+back to main(\s|\|)+In ONE(\s|\|)+In TWO/);
+          /In ONE(\s|[─-╿])+In TWO(\s|[─-╿])+In THREE(\s|[─-╿])+In TWO(\s|[─-╿])+back to main(\s|[─-╿])+In ONE(\s|[─-╿])+In TWO/);
       });
   }));
 
@@ -84,6 +84,12 @@ describe('Testing Casem', function () {
     return interprete('src/static/data/list-expr.txt')
       .then(() => {
         expect(muter.getLogs()).to.match(/Calculation Ok/);
+      });
+  }));
+
+  it('dummy', captured(muter, function () {
+    return interprete('src/static/data/init-matrix.txt2')
+      .then(() => {
       });
   }));
 });
