@@ -243,6 +243,22 @@ export class Interpreter extends CalcVisitor {
     console.log(list);
   }
 
+  visitFactorial (ctx) {
+    let n = this.visit(ctx.evalExpr());
+    if (n === 0 || n === 1) {
+      return 1;
+    }
+    if (n !== parseInt(n, 10)) {
+      throw new Error('Not a natural number:', n);
+    }
+    let fact = n;
+    while (n > 2) {
+      n--;
+      fact *= n;
+    }
+    return fact;
+  }
+
   visitFile (ctx) {
     const attributes = ctx.header().attributes();
     const file = '"' + attributes.fileName(0).getText() + '"';

@@ -8,3 +8,7 @@
 \Locate 8,2,A+2B
 "D^B=8:"
 \Locate 7,3,D^B
+"B!=6:"
+\Locate 6,4,B!
+"C\sin (\Pi/2)=-8:"
+\Locate 18,5,C\sin (\Pi/2)
