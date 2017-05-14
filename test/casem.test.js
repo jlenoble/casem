@@ -90,11 +90,21 @@ describe('Testing Casem', function () {
   it('Testing various computations', captured(muter, function () {
     return interprete('src/static/data/various-computations.txt')
       .then(() => {
-        expect(muter.getLogs()).to.match(/A\+B=4:4/);
+        // Chaining
+        expect(muter.getLogs()).to.match(/A\+B\+C+\+D=-2:-2/);
+
+        // Scalar multiplication
         expect(muter.getLogs()).to.match(/A\+2B=7:7/);
-        expect(muter.getLogs()).to.match(/D\^B=8:8/);
-        expect(muter.getLogs()).to.match(/B!=6:6/);
         expect(muter.getLogs()).to.match(/C\\sin \(\\Pi\/2\)=-8:-8/);
+
+        // Casio doesn't respect ^ right-associativity
+        expect(muter.getLogs()).to.match(/D\^B=8:8/);
+        expect(muter.getLogs()).to.match(/D\^D\^B=64:64/);
+        expect(muter.getLogs()).to.match(/D\^B\^D=64:64/);
+
+        // Factorial
+        expect(muter.getLogs()).to.match(/B!=6:6/);
+        expect(muter.getLogs()).to.match(/B!!=720:720/);
       });
   }));
 });
