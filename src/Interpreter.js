@@ -443,6 +443,12 @@ export class Interpreter extends CalcVisitor {
     }
   }
 
+  visitScalarMult (ctx) {
+    const left = this.visit(ctx.evalExpr());
+    const right = this.visit(ctx.vectorExpr());
+    return left * right;
+  }
+
   visitStat (ctx) {
     if (this.isJumping() && !ctx.labelStat()) {
       return;
@@ -490,5 +496,19 @@ export class Interpreter extends CalcVisitor {
 
   visitVariable (ctx) {
     return ctx.ID().getText();
+  }
+
+  visitVectorExpr (ctx) {
+    if (ctx.variable()) {
+      return this.visitEvaluate(ctx);
+    }
+
+    if (ctx.func()) {
+      return this.visitCompute(ctx);
+    }
+
+    if (ctx.evalExpr()) {
+      return this.visitParens(ctx);
+    }
   }
 }

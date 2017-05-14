@@ -98,6 +98,7 @@ evalExpr
 | evalExpr '!'                          # factorial
 | evalExpr powOp evalExpr               # power
 | EXPNT evalExpr                        # exponent
+| evalExpr vectorExpr                   # scalarMult
 | evalExpr multOp evalExpr              # multiply
 | evalExpr addOp evalExpr               # add
 | matrixElement                         # evaluateMatrixElement
@@ -109,6 +110,12 @@ evalExpr
 | SEQ '(' evalExpr (',' evalExpr)+ ')'  # evaluateSeq
 | variable                              # evaluate
 | number                                # parseFloat
+;
+
+vectorExpr
+:'(' evalExpr ')'
+| func evalExpr
+| variable
 ;
 
 dispExpr

@@ -209,6 +209,15 @@ CalcListener.prototype.exitEvaluateMatrix = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#scalarMult.
+CalcListener.prototype.enterScalarMult = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#scalarMult.
+CalcListener.prototype.exitScalarMult = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#factorial.
 CalcListener.prototype.enterFactorial = function(ctx) {
 };
@@ -314,6 +323,15 @@ CalcListener.prototype.enterExponent = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#exponent.
 CalcListener.prototype.exitExponent = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#vectorExpr.
+CalcListener.prototype.enterVectorExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#vectorExpr.
+CalcListener.prototype.exitVectorExpr = function(ctx) {
 };
 
 

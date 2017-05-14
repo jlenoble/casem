@@ -144,6 +144,12 @@ CalcVisitor.prototype.visitEvaluateMatrix = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#scalarMult.
+CalcVisitor.prototype.visitScalarMult = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#factorial.
 CalcVisitor.prototype.visitFactorial = function(ctx) {
   return this.visitChildren(ctx);
@@ -212,6 +218,12 @@ CalcVisitor.prototype.visitEvaluate = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#exponent.
 CalcVisitor.prototype.visitExponent = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#vectorExpr.
+CalcVisitor.prototype.visitVectorExpr = function(ctx) {
   return this.visitChildren(ctx);
 };
 

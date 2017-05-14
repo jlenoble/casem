@@ -86,4 +86,12 @@ describe('Testing Casem', function () {
         expect(muter.getLogs()).to.match(/Calculation Ok/);
       });
   }));
+
+  it('Testing various computations', captured(muter, function () {
+    return interprete('src/static/data/various-computations.txt')
+      .then(() => {
+        expect(muter.getLogs()).to.match(/A\+B=4:4/);
+        expect(muter.getLogs()).to.match(/A\+2B=7:7/);
+      });
+  }));
 });
