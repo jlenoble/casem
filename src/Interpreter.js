@@ -364,9 +364,12 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitListToMatrix (ctx) {
-    const rows = ctx.list().map(list => {
+    const cols = ctx.list().map(list => {
       return this.getList(this.visit(list)).array;
     });
+
+    const matrix = new Matrix(cols);
+    const rows = matrix.transpose().array;
 
     this.setMatrix('Ans', rows);
 

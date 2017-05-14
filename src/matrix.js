@@ -46,6 +46,22 @@ class Matrix {
       });
     });
   }
+
+  transpose () {
+    const arr = [];
+    const arr2 = this.array;
+
+    arr.length = arr2[0].length;
+
+    for (let j = 0, m = arr2[0].length; j < m; j++) {
+      arr[j] = Array(arr2.length);
+      for (let i = 0, l = arr2.length; i < l; i++) {
+        arr[j][i] = arr2[i][j];
+      }
+    }
+
+    return new Matrix(arr);
+  }
 }
 
 export default Matrix;
