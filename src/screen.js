@@ -102,13 +102,20 @@ class Screen {
   }
 
   toString () {
-    let txt = '_______________________\n';
+    let txt = '┏━━━━━━━━━━━━━━━━━━━━━┓\n';
+    let i = 0;
 
     this.pixels.forEach(row => {
-      txt += '|' + row.toString() + '|\n';
+      txt += '┃' + row.toString() + '┃\n';
+      i++;
+      if (i%8 === 0 && i !== this.pixels.length) {
+        txt += '┠┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┨\n';
+      }
     });
 
-    return txt.trim();
+    txt += '┗━━━━━━━━━━━━━━━━━━━━━┛\n';
+
+    return txt;
   }
 
   preprocessCoord (x, size) {
