@@ -363,7 +363,7 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitPrint (ctx) {
-    let txt = ctx.STRING().getText();
+    let txt = ctx.STRING().getText().replace(/^"(.*)"$/, '$1');
     this.screen.print(txt);
   }
 
@@ -373,7 +373,7 @@ export class Interpreter extends CalcVisitor {
     let txt;
 
     if (ctx.STRING()) {
-      txt = ctx.STRING().getText();
+      txt = ctx.STRING().getText().replace(/^"(.*)"$/, '$1');
     } else {
       txt = this.visit(ctx.evalExpr(2)).toString();
     }

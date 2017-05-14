@@ -57,8 +57,7 @@ class Screen {
       }
     }
 
-    const _txt = txt.replace(/^"(.*)"$/, '$1');
-    this.printAt(1, this.offset + 1, _txt);
+    this.printAt(1, this.offset + 1, txt);
     this.offset += ySpan;
   }
 
@@ -103,10 +102,10 @@ class Screen {
   }
 
   toString () {
-    let txt = '';
+    let txt = '_______________________\n';
 
     this.pixels.forEach(row => {
-      txt += row.toString() + '\n';
+      txt += '|' + row.toString() + '|\n';
     });
 
     return txt.trim();
