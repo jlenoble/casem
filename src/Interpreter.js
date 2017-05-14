@@ -185,6 +185,18 @@ export class Interpreter extends CalcVisitor {
     return func(arg);
   }
 
+  visitDoStat (ctx) {
+    while (true) {
+      const bool = this.visit(ctx.boolExpr());
+
+      if (!bool) {
+        break;
+      }
+
+      this.visit(ctx.block());
+    }
+  }
+
   visitEndProg (ctx) {
     this.startJumping('EOF');
   }
