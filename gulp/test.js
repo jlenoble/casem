@@ -12,4 +12,4 @@ export const test = () => {
     .pipe(mocha());
 };
 
-gulp.task('test', gulp.series(gulp.parallel(makeParser, 'build'), test));
+gulp.task('test', gulp.series(gulp.series(makeParser, 'build'), test));
