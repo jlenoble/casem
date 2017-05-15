@@ -1,6 +1,0 @@
-{0,0,0,0}\->\List 1
-{1,2,3,4}\->\List 2
-{0,1,0,5}+\List 1+\List 2\->\List 3
-\If \List 3[1]=1\ And \List 3[2]=3\ And \List 3[3]=3\ And \List 3[4]=9
-\Then "Calculation Ok"
-\IfEnd

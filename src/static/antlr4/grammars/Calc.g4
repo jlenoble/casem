@@ -1,163 +1,55 @@
 grammar Calc;
-import File, Common;
 
 prog
-: block*
-| block? file+
-;
-
-file
-: header block* endFile
+: block
 ;
 
 block
-: (
-    stat endStat
-    | dispExpr DISP
-    | boolExpr FATARROW dispExpr DISP
-    | NEWLINE+
-  )+
+: (stat endStat)*
 ;
 
 stat
-: assignStat
-| printStat
-| confStat
-| readStat
-| graphStat
-| ifStat
-| forStat
+: printStat
 | doStat
-| implyStat
-| jumpStat
-| labelStat
-| miscStat
-;
-
-assignStat
-: evalExpr ARROW stoExpr
 ;
 
 printStat
-: STRING                                              # print
-| LOCATE evalExpr ',' evalExpr ',' (evalExpr|STRING)  # printAt
-| CLRTXT                                              # clearText
-;
-
-confStat
-: NORM
-| FIX (NATNUM|ZERO)
-| GRA
-;
-
-readStat
-: STRING '?' ARROW stoExpr
-| GETKEY ARROW stoExpr
-;
-
-graphStat
-: AXESOFF
-| AXESON
-| CLRGRPH
-| VIEWWINDOW evalExpr ',' evalExpr ',' evalExpr ',' evalExpr ',' evalExpr ',' evalExpr
-| FLINE evalExpr ',' evalExpr ',' evalExpr ',' evalExpr
-| PLOTON evalExpr ',' evalExpr
-;
-
-ifStat
-: IF boolExpr endStat THEN block (ELSE block)? IFEND
-;
-
-forStat
-: FOR assignStat TO evalExpr endStat block NEXT
+: STRING
 ;
 
 doStat
-: DO endStat block LPWHILE boolExpr
+: '\\Do ' endStat block '\\lpWhile ' boolExpr
 ;
 
-implyStat
-: boolExpr FATARROW stat
-;
-
-jumpStat
-: GOTO lbl
-| PROG STRING
-| endProg
-| STOP
-;
-
-labelStat
-: LBL lbl
-;
-
-miscStat
-: LISTMAT '(' list (',' list)* ')'      # listToMatrix 
-;
-
-evalExpr
-: '(' evalExpr ')'                      # parens
-| '-' evalExpr                          # negate
-| func evalExpr                         # compute
-| evalExpr '!'                          # factorial
-| evalExpr powOp evalExpr               # power
-| EXPNT evalExpr                        # exponent
-| evalExpr vectorExpr                   # scalarMult
-| evalExpr multOp evalExpr              # multiply
-| evalExpr addOp evalExpr               # add
-| matrixElement                         # evaluateMatrixElement
-| matrix                                # evaluateMatrix
-| matrixInitializer                     # evaluateMatrixInitializer
-| listElement                           # evaluateListElement
-| list                                  # evaluateList
-| listInitializer                       # evaluateListInitializer
-| SEQ '(' evalExpr (',' evalExpr)+ ')'  # evaluateSeq
-| variable                              # evaluate
-| number                                # parseFloat
-;
-
-vectorExpr
-:'(' evalExpr ')'
-| func evalExpr
-| variable
-;
-
-dispExpr
-: evalExpr
-| STRING
-| matrix
-;
-
-stoExpr
-: matrixElement
-| matrix
-| listElement
-| list
-| variable
+endStat
+: NEWLINE
+| ':'
 ;
 
 boolExpr
-: evalExpr compOp evalExpr  # compare
-| GETKEY compOp evalExpr    # getKey
-| boolExpr boolOp boolExpr  # reduceBoolExpr
+: numExpr compOp numExpr
 ;
 
-matrixElement
-: MATRIX ID '[' evalExpr ',' evalExpr ']'
+numExpr
+: number
 ;
 
-matrixInitializer
-: '[' matrixRow+ ']'
+compOp
+: '='
 ;
 
-matrixRow
-: '[' evalExpr (',' evalExpr)* ']'
+number
+: UINT
 ;
 
-listElement
-: LIST NATNUM '[' evalExpr ']'
+UINT
+: ('0'|[1-9][0-9]*)
 ;
 
-listInitializer
-: '{' evalExpr (',' evalExpr)* '}'
+STRING
+: '"' .*? '"'
+;
+
+NEWLINE
+: '\r'? '\n'
 ;
