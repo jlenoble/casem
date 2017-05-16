@@ -9,16 +9,26 @@ block
 ;
 
 stat
-: printStat
+: assignStat
+| printStat
+| readStat
 | doStat
+;
+
+assignStat
+: numExpr '\\->' variable
 ;
 
 printStat
 : STRING
 ;
 
+readStat
+: '\\Getkey' '\\->' variable
+;
+
 doStat
-: '\\Do ' endStat block '\\lpWhile ' boolExpr
+: '\\Do' endStat block '\\LpWhile ' boolExpr
 ;
 
 endStat
@@ -31,15 +41,24 @@ boolExpr
 ;
 
 numExpr
-: number
+: variable
+| number
 ;
 
 compOp
 : '='
 ;
 
+variable
+: ID
+;
+
 number
 : UINT
+;
+
+ID
+: [a-zA-Z][a-zA-Z0-9]*
 ;
 
 UINT

@@ -1,16 +1,56 @@
-import Muter, {captured, muted} from 'muter';
+import Muter, {captured} from 'muter';
 import {expect} from 'chai';
-import {interprete} from '../src/casem';
+import {spawn} from 'child_process';
+import childProcessData, {makeSingleTest} from 'child-process-data';
 
 describe('Testing Casem', function () {
-  this.timeout(1200000); // eslint-disable-line no-invalid-this
+  it('Testing Getkey loop', function () {
+    const test = makeSingleTest({
+      debug: true,
+      spawnTest () {
+        const p = spawn('node', [
+          'build/src/casem.js',
+          'src/static/data/getkey.txt',
+        ], {stdio: 'pipe'});
 
-  const muter = Muter(process);
+        this.childProcess = p;
 
-  it('Testing', captured(muter, function () {
-    return interprete('src/static/data/casem.txt')
-      .then(() => {
-        expect(muter.getLogs()).to.match(/Hello world/);
-      });
-  }));
+        childProcessData(p);
+      },
+      checkResults () {
+        const muter = new Muter(process);
+
+        const doCheck = () => {
+          const logs = muter.getLogs();
+
+          try {
+            expect(logs).to.match(/Entering loop\n/);
+          } catch (err) {
+            return new Promise(resolve => {
+              setTimeout(() => {
+                resolve(doCheck());
+              }, 10);
+            });
+          }
+
+          this.childProcess.stdin.write('Hello\r');
+
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              try {
+                expect(muter.getLogs()).to.match(/Leaving loop\n/);
+                resolve();
+              } catch (err) {
+                reject(err);
+              }
+            }, 10);
+          });
+        };
+
+        return captured(muter, doCheck)();
+      },
+    });
+
+    return test();
+  });
 });

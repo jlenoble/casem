@@ -2,10 +2,15 @@ T__0=1
 T__1=2
 T__2=3
 T__3=4
-UINT=5
-STRING=6
-NEWLINE=7
-'\\Do '=1
-'\\lpWhile '=2
-':'=3
-'='=4
+T__4=5
+T__5=6
+ID=7
+UINT=8
+STRING=9
+NEWLINE=10
+'\\->'=1
+'\\Getkey'=2
+'\\Do'=3
+'\\LpWhile '=4
+':'=5
+'='=6

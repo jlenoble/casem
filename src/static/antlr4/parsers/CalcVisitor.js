@@ -30,8 +30,20 @@ CalcVisitor.prototype.visitStat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#assignStat.
+CalcVisitor.prototype.visitAssignStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#printStat.
 CalcVisitor.prototype.visitPrintStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#readStat.
+CalcVisitor.prototype.visitReadStat = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -62,6 +74,12 @@ CalcVisitor.prototype.visitNumExpr = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#compOp.
 CalcVisitor.prototype.visitCompOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#variable.
+CalcVisitor.prototype.visitVariable = function(ctx) {
   return this.visitChildren(ctx);
 };
 

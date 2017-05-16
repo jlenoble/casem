@@ -1,0 +1,6 @@
+0\->T
+"Entering loop"
+\Do
+\Getkey\->T
+\LpWhile T=0
+"Leaving loop"
