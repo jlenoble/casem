@@ -74,7 +74,7 @@ export class Interpreter extends CalcVisitor {
       statQueue.push(onResume);
     };
 
-    const flush = () => {
+    const flush = resolve => {
        // Unqueuing may generate more postponed stats so we will use
        // the reset main queue to register them while only flushing a copy
       const queue = statQueue;
@@ -88,22 +88,14 @@ export class Interpreter extends CalcVisitor {
 
       if (!queue.length && !statQueue.length) { // No stat left unprocessed
         console.log('Good bye!');
-        return; // Final return
+        return resolve();
       }
 
       // **Prepend** new postponed stats to old ones
       statQueue = statQueue.concat(queue);
 
-      // Flush again until all is done
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          try {
-            resolve(flush());
-          } catch (err) {
-            reject(err);
-          }
-        }, 0);
-      });
+      // Flush again until promise is resolved
+      setTimeout(flush, 0, resolve);
     };
 
     // let statCounter = 0;
@@ -129,9 +121,14 @@ export class Interpreter extends CalcVisitor {
       }
     };
 
-    super.visitProg(ctx);
-
-    return flush();
+    return new Promise((resolve, reject) => {
+      try {
+        super.visitProg(ctx);
+        flush(resolve);
+      } catch (err) {
+        reject(err);
+      }
+    });
   }
 
   visitReadStat (ctx) {
