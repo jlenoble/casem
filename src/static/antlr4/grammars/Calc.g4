@@ -1,4 +1,5 @@
 grammar Calc;
+import CommonLexerRules;
 
 prog
 : block
@@ -55,20 +56,4 @@ variable
 
 number
 : UINT
-;
-
-ID
-: [a-zA-Z][a-zA-Z0-9]*
-;
-
-UINT
-: ('0'|[1-9][0-9]*)
-;
-
-STRING
-: '"' .*? '"'
-;
-
-NEWLINE
-: '\r'? '\n'
 ;
