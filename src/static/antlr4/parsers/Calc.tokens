@@ -8,9 +8,9 @@ ID=7
 UINT=8
 STRING=9
 NEWLINE=10
-'\\->'=1
-'\\Getkey'=2
-'\\Do'=3
-'\\LpWhile '=4
+'\\Do'=1
+'\\LpWhile '=2
+'\\->'=3
+'\\Getkey'=4
 ':'=5
 '='=6

@@ -1,5 +1,5 @@
 grammar Calc;
-import Exprs;
+import Stats;
 
 prog
 : block*
@@ -14,29 +14,6 @@ blockStat
 : doStat
 ;
 
-stat
-: assignStat
-| printStat
-| readStat
-;
-
-assignStat
-: numExpr '\\->' variable
-;
-
-printStat
-: STRING
-;
-
-readStat
-: '\\Getkey' '\\->' variable
-;
-
 doStat
 : '\\Do' endStat block '\\LpWhile ' boolExpr
-;
-
-endStat
-: NEWLINE
-| ':'
 ;
