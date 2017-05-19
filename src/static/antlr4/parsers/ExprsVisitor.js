@@ -24,6 +24,12 @@ ExprsVisitor.prototype.visitNumExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by ExprsParser#stoExpr.
+ExprsVisitor.prototype.visitStoExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#compOp.
 ExprsVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);

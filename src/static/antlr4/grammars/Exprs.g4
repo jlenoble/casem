@@ -10,6 +10,10 @@ numExpr
 | number
 ;
 
+stoExpr
+: variable
+;
+
 compOp
 : EQUAL
 ;

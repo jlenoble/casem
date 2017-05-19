@@ -110,6 +110,15 @@ CalcListener.prototype.exitNumExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#stoExpr.
+CalcListener.prototype.enterStoExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#stoExpr.
+CalcListener.prototype.exitStoExpr = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#compOp.
 CalcListener.prototype.enterCompOp = function(ctx) {
 };

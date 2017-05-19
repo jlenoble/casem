@@ -74,6 +74,15 @@ StatsListener.prototype.exitNumExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#stoExpr.
+StatsListener.prototype.enterStoExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#stoExpr.
+StatsListener.prototype.exitStoExpr = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#compOp.
 StatsListener.prototype.enterCompOp = function(ctx) {
 };

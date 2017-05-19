@@ -78,6 +78,12 @@ CalcVisitor.prototype.visitNumExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#stoExpr.
+CalcVisitor.prototype.visitStoExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#compOp.
 CalcVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);

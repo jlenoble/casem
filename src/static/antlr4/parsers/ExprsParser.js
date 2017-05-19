@@ -7,22 +7,24 @@ var ExprsVisitor = require('./ExprsVisitor').ExprsVisitor;
 var grammarFileName = "Exprs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\f\u001b\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
-    "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0003\u0002\u0003\u0002",
-    "\u0003\u0002\u0003\u0002\u0003\u0003\u0003\u0003\u0005\u0003\u0013\n",
-    "\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0006\u0003",
-    "\u0006\u0003\u0006\u0002\u0002\u0007\u0002\u0004\u0006\b\n\u0002\u0002",
-    "\u0002\u0016\u0002\f\u0003\u0002\u0002\u0002\u0004\u0012\u0003\u0002",
-    "\u0002\u0002\u0006\u0014\u0003\u0002\u0002\u0002\b\u0016\u0003\u0002",
-    "\u0002\u0002\n\u0018\u0003\u0002\u0002\u0002\f\r\u0005\u0004\u0003\u0002",
-    "\r\u000e\u0005\u0006\u0004\u0002\u000e\u000f\u0005\u0004\u0003\u0002",
-    "\u000f\u0003\u0003\u0002\u0002\u0002\u0010\u0013\u0005\b\u0005\u0002",
-    "\u0011\u0013\u0005\n\u0006\u0002\u0012\u0010\u0003\u0002\u0002\u0002",
-    "\u0012\u0011\u0003\u0002\u0002\u0002\u0013\u0005\u0003\u0002\u0002\u0002",
-    "\u0014\u0015\u0007\n\u0002\u0002\u0015\u0007\u0003\u0002\u0002\u0002",
-    "\u0016\u0017\u0007\u0003\u0002\u0002\u0017\t\u0003\u0002\u0002\u0002",
-    "\u0018\u0019\u0007\u0004\u0002\u0002\u0019\u000b\u0003\u0002\u0002\u0002",
-    "\u0003\u0012"].join("");
+    "\u0003\f\u001f\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0003",
+    "\u0002\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0003\u0003\u0003\u0005",
+    "\u0003\u0015\n\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005",
+    "\u0003\u0006\u0003\u0006\u0003\u0007\u0003\u0007\u0003\u0007\u0002\u0002",
+    "\b\u0002\u0004\u0006\b\n\f\u0002\u0002\u0002\u0019\u0002\u000e\u0003",
+    "\u0002\u0002\u0002\u0004\u0014\u0003\u0002\u0002\u0002\u0006\u0016\u0003",
+    "\u0002\u0002\u0002\b\u0018\u0003\u0002\u0002\u0002\n\u001a\u0003\u0002",
+    "\u0002\u0002\f\u001c\u0003\u0002\u0002\u0002\u000e\u000f\u0005\u0004",
+    "\u0003\u0002\u000f\u0010\u0005\b\u0005\u0002\u0010\u0011\u0005\u0004",
+    "\u0003\u0002\u0011\u0003\u0003\u0002\u0002\u0002\u0012\u0015\u0005\n",
+    "\u0006\u0002\u0013\u0015\u0005\f\u0007\u0002\u0014\u0012\u0003\u0002",
+    "\u0002\u0002\u0014\u0013\u0003\u0002\u0002\u0002\u0015\u0005\u0003\u0002",
+    "\u0002\u0002\u0016\u0017\u0005\n\u0006\u0002\u0017\u0007\u0003\u0002",
+    "\u0002\u0002\u0018\u0019\u0007\n\u0002\u0002\u0019\t\u0003\u0002\u0002",
+    "\u0002\u001a\u001b\u0007\u0003\u0002\u0002\u001b\u000b\u0003\u0002\u0002",
+    "\u0002\u001c\u001d\u0007\u0004\u0002\u0002\u001d\r\u0003\u0002\u0002",
+    "\u0002\u0003\u0014"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -37,7 +39,8 @@ var literalNames = [ null, null, null, null, null, "'\\->'", "':'", "'\\Do'",
 var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ARROW", 
                       "COLON", "DO", "EQUAL", "GETKEY", "LOOPWHILE" ];
 
-var ruleNames =  [ "boolExpr", "numExpr", "compOp", "variable", "number" ];
+var ruleNames =  [ "boolExpr", "numExpr", "stoExpr", "compOp", "variable", 
+                   "number" ];
 
 function ExprsParser (input) {
 	antlr4.Parser.call(this, input);
@@ -71,9 +74,10 @@ ExprsParser.LOOPWHILE = 10;
 
 ExprsParser.RULE_boolExpr = 0;
 ExprsParser.RULE_numExpr = 1;
-ExprsParser.RULE_compOp = 2;
-ExprsParser.RULE_variable = 3;
-ExprsParser.RULE_number = 4;
+ExprsParser.RULE_stoExpr = 2;
+ExprsParser.RULE_compOp = 3;
+ExprsParser.RULE_variable = 4;
+ExprsParser.RULE_number = 5;
 
 function BoolExprContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -137,11 +141,11 @@ ExprsParser.prototype.boolExpr = function() {
     this.enterRule(localctx, 0, ExprsParser.RULE_boolExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 10;
-        this.numExpr();
-        this.state = 11;
-        this.compOp();
         this.state = 12;
+        this.numExpr();
+        this.state = 13;
+        this.compOp();
+        this.state = 14;
         this.numExpr();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -211,22 +215,89 @@ ExprsParser.prototype.numExpr = function() {
     var localctx = new NumExprContext(this, this._ctx, this.state);
     this.enterRule(localctx, 2, ExprsParser.RULE_numExpr);
     try {
-        this.state = 16;
+        this.state = 18;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case ExprsParser.ID:
             this.enterOuterAlt(localctx, 1);
-            this.state = 14;
+            this.state = 16;
             this.variable();
             break;
         case ExprsParser.UINT:
             this.enterOuterAlt(localctx, 2);
-            this.state = 15;
+            this.state = 17;
             this.number();
             break;
         default:
             throw new antlr4.error.NoViableAltException(this);
         }
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+function StoExprContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = ExprsParser.RULE_stoExpr;
+    return this;
+}
+
+StoExprContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+StoExprContext.prototype.constructor = StoExprContext;
+
+StoExprContext.prototype.variable = function() {
+    return this.getTypedRuleContext(VariableContext,0);
+};
+
+StoExprContext.prototype.enterRule = function(listener) {
+    if(listener instanceof ExprsListener ) {
+        listener.enterStoExpr(this);
+	}
+};
+
+StoExprContext.prototype.exitRule = function(listener) {
+    if(listener instanceof ExprsListener ) {
+        listener.exitStoExpr(this);
+	}
+};
+
+StoExprContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof ExprsVisitor ) {
+        return visitor.visitStoExpr(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+ExprsParser.StoExprContext = StoExprContext;
+
+ExprsParser.prototype.stoExpr = function() {
+
+    var localctx = new StoExprContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 4, ExprsParser.RULE_stoExpr);
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 20;
+        this.variable();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -289,10 +360,10 @@ ExprsParser.CompOpContext = CompOpContext;
 ExprsParser.prototype.compOp = function() {
 
     var localctx = new CompOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 4, ExprsParser.RULE_compOp);
+    this.enterRule(localctx, 6, ExprsParser.RULE_compOp);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 18;
+        this.state = 22;
         this.match(ExprsParser.EQUAL);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -356,10 +427,10 @@ ExprsParser.VariableContext = VariableContext;
 ExprsParser.prototype.variable = function() {
 
     var localctx = new VariableContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 6, ExprsParser.RULE_variable);
+    this.enterRule(localctx, 8, ExprsParser.RULE_variable);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 20;
+        this.state = 24;
         this.match(ExprsParser.ID);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -423,10 +494,10 @@ ExprsParser.NumberContext = NumberContext;
 ExprsParser.prototype.number = function() {
 
     var localctx = new NumberContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 8, ExprsParser.RULE_number);
+    this.enterRule(localctx, 10, ExprsParser.RULE_number);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 22;
+        this.state = 26;
         this.match(ExprsParser.UINT);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {

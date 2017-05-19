@@ -29,6 +29,15 @@ ExprsListener.prototype.exitNumExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by ExprsParser#stoExpr.
+ExprsListener.prototype.enterStoExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#stoExpr.
+ExprsListener.prototype.exitStoExpr = function(ctx) {
+};
+
+
 // Enter a parse tree produced by ExprsParser#compOp.
 ExprsListener.prototype.enterCompOp = function(ctx) {
 };

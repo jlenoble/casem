@@ -7,35 +7,36 @@ var StatsVisitor = require('./StatsVisitor').StatsVisitor;
 var grammarFileName = "Stats.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\f6\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
+    "\u0003\f:\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
     "\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004\b",
-    "\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0003\u0002\u0003\u0002",
-    "\u0003\u0002\u0005\u0002\u001a\n\u0002\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0003\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005\u0003",
-    "\u0005\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0007\u0003\u0007\u0003",
-    "\u0007\u0003\u0007\u0003\b\u0003\b\u0005\b.\n\b\u0003\t\u0003\t\u0003",
-    "\n\u0003\n\u0003\u000b\u0003\u000b\u0003\u000b\u0002\u0002\f\u0002\u0004",
-    "\u0006\b\n\f\u000e\u0010\u0012\u0014\u0002\u0003\u0004\u0002\u0006\u0006",
-    "\b\b\u0002.\u0002\u0019\u0003\u0002\u0002\u0002\u0004\u001b\u0003\u0002",
-    "\u0002\u0002\u0006\u001f\u0003\u0002\u0002\u0002\b!\u0003\u0002\u0002",
-    "\u0002\n%\u0003\u0002\u0002\u0002\f\'\u0003\u0002\u0002\u0002\u000e",
-    "-\u0003\u0002\u0002\u0002\u0010/\u0003\u0002\u0002\u0002\u00121\u0003",
-    "\u0002\u0002\u0002\u00143\u0003\u0002\u0002\u0002\u0016\u001a\u0005",
-    "\u0004\u0003\u0002\u0017\u001a\u0005\u0006\u0004\u0002\u0018\u001a\u0005",
-    "\b\u0005\u0002\u0019\u0016\u0003\u0002\u0002\u0002\u0019\u0017\u0003",
-    "\u0002\u0002\u0002\u0019\u0018\u0003\u0002\u0002\u0002\u001a\u0003\u0003",
-    "\u0002\u0002\u0002\u001b\u001c\u0005\u000e\b\u0002\u001c\u001d\u0007",
-    "\u0007\u0002\u0002\u001d\u001e\u0005\u0012\n\u0002\u001e\u0005\u0003",
-    "\u0002\u0002\u0002\u001f \u0007\u0005\u0002\u0002 \u0007\u0003\u0002",
-    "\u0002\u0002!\"\u0007\u000b\u0002\u0002\"#\u0007\u0007\u0002\u0002#",
-    "$\u0005\u0012\n\u0002$\t\u0003\u0002\u0002\u0002%&\t\u0002\u0002\u0002",
-    "&\u000b\u0003\u0002\u0002\u0002\'(\u0005\u000e\b\u0002()\u0005\u0010",
-    "\t\u0002)*\u0005\u000e\b\u0002*\r\u0003\u0002\u0002\u0002+.\u0005\u0012",
-    "\n\u0002,.\u0005\u0014\u000b\u0002-+\u0003\u0002\u0002\u0002-,\u0003",
-    "\u0002\u0002\u0002.\u000f\u0003\u0002\u0002\u0002/0\u0007\n\u0002\u0002",
-    "0\u0011\u0003\u0002\u0002\u000212\u0007\u0003\u0002\u00022\u0013\u0003",
-    "\u0002\u0002\u000234\u0007\u0004\u0002\u00024\u0015\u0003\u0002\u0002",
-    "\u0002\u0004\u0019-"].join("");
+    "\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0003\u0002",
+    "\u0003\u0002\u0003\u0002\u0005\u0002\u001c\n\u0002\u0003\u0003\u0003",
+    "\u0003\u0003\u0003\u0003\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003",
+    "\u0005\u0003\u0005\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0007\u0003",
+    "\u0007\u0003\u0007\u0003\u0007\u0003\b\u0003\b\u0005\b0\n\b\u0003\t",
+    "\u0003\t\u0003\n\u0003\n\u0003\u000b\u0003\u000b\u0003\f\u0003\f\u0003",
+    "\f\u0002\u0002\r\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016",
+    "\u0002\u0003\u0004\u0002\u0006\u0006\b\b\u00021\u0002\u001b\u0003\u0002",
+    "\u0002\u0002\u0004\u001d\u0003\u0002\u0002\u0002\u0006!\u0003\u0002",
+    "\u0002\u0002\b#\u0003\u0002\u0002\u0002\n\'\u0003\u0002\u0002\u0002",
+    "\f)\u0003\u0002\u0002\u0002\u000e/\u0003\u0002\u0002\u0002\u00101\u0003",
+    "\u0002\u0002\u0002\u00123\u0003\u0002\u0002\u0002\u00145\u0003\u0002",
+    "\u0002\u0002\u00167\u0003\u0002\u0002\u0002\u0018\u001c\u0005\u0004",
+    "\u0003\u0002\u0019\u001c\u0005\u0006\u0004\u0002\u001a\u001c\u0005\b",
+    "\u0005\u0002\u001b\u0018\u0003\u0002\u0002\u0002\u001b\u0019\u0003\u0002",
+    "\u0002\u0002\u001b\u001a\u0003\u0002\u0002\u0002\u001c\u0003\u0003\u0002",
+    "\u0002\u0002\u001d\u001e\u0005\u000e\b\u0002\u001e\u001f\u0007\u0007",
+    "\u0002\u0002\u001f \u0005\u0010\t\u0002 \u0005\u0003\u0002\u0002\u0002",
+    "!\"\u0007\u0005\u0002\u0002\"\u0007\u0003\u0002\u0002\u0002#$\u0007",
+    "\u000b\u0002\u0002$%\u0007\u0007\u0002\u0002%&\u0005\u0010\t\u0002&",
+    "\t\u0003\u0002\u0002\u0002\'(\t\u0002\u0002\u0002(\u000b\u0003\u0002",
+    "\u0002\u0002)*\u0005\u000e\b\u0002*+\u0005\u0012\n\u0002+,\u0005\u000e",
+    "\b\u0002,\r\u0003\u0002\u0002\u0002-0\u0005\u0014\u000b\u0002.0\u0005",
+    "\u0016\f\u0002/-\u0003\u0002\u0002\u0002/.\u0003\u0002\u0002\u00020",
+    "\u000f\u0003\u0002\u0002\u000212\u0005\u0014\u000b\u00022\u0011\u0003",
+    "\u0002\u0002\u000234\u0007\n\u0002\u00024\u0013\u0003\u0002\u0002\u0002",
+    "56\u0007\u0003\u0002\u00026\u0015\u0003\u0002\u0002\u000278\u0007\u0004",
+    "\u0002\u00028\u0017\u0003\u0002\u0002\u0002\u0004\u001b/"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -51,7 +52,8 @@ var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ARROW",
                       "COLON", "DO", "EQUAL", "GETKEY", "LOOPWHILE" ];
 
 var ruleNames =  [ "stat", "assignStat", "printStat", "readStat", "endStat", 
-                   "boolExpr", "numExpr", "compOp", "variable", "number" ];
+                   "boolExpr", "numExpr", "stoExpr", "compOp", "variable", 
+                   "number" ];
 
 function StatsParser (input) {
 	antlr4.Parser.call(this, input);
@@ -90,9 +92,10 @@ StatsParser.RULE_readStat = 3;
 StatsParser.RULE_endStat = 4;
 StatsParser.RULE_boolExpr = 5;
 StatsParser.RULE_numExpr = 6;
-StatsParser.RULE_compOp = 7;
-StatsParser.RULE_variable = 8;
-StatsParser.RULE_number = 9;
+StatsParser.RULE_stoExpr = 7;
+StatsParser.RULE_compOp = 8;
+StatsParser.RULE_variable = 9;
+StatsParser.RULE_number = 10;
 
 function StatContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -152,23 +155,23 @@ StatsParser.prototype.stat = function() {
     var localctx = new StatContext(this, this._ctx, this.state);
     this.enterRule(localctx, 0, StatsParser.RULE_stat);
     try {
-        this.state = 23;
+        this.state = 25;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case StatsParser.ID:
         case StatsParser.UINT:
             this.enterOuterAlt(localctx, 1);
-            this.state = 20;
+            this.state = 22;
             this.assignStat();
             break;
         case StatsParser.STRING:
             this.enterOuterAlt(localctx, 2);
-            this.state = 21;
+            this.state = 23;
             this.printStat();
             break;
         case StatsParser.GETKEY:
             this.enterOuterAlt(localctx, 3);
-            this.state = 22;
+            this.state = 24;
             this.readStat();
             break;
         default:
@@ -212,8 +215,8 @@ AssignStatContext.prototype.ARROW = function() {
     return this.getToken(StatsParser.ARROW, 0);
 };
 
-AssignStatContext.prototype.variable = function() {
-    return this.getTypedRuleContext(VariableContext,0);
+AssignStatContext.prototype.stoExpr = function() {
+    return this.getTypedRuleContext(StoExprContext,0);
 };
 
 AssignStatContext.prototype.enterRule = function(listener) {
@@ -247,12 +250,12 @@ StatsParser.prototype.assignStat = function() {
     this.enterRule(localctx, 2, StatsParser.RULE_assignStat);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 25;
-        this.numExpr();
-        this.state = 26;
-        this.match(StatsParser.ARROW);
         this.state = 27;
-        this.variable();
+        this.numExpr();
+        this.state = 28;
+        this.match(StatsParser.ARROW);
+        this.state = 29;
+        this.stoExpr();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -318,7 +321,7 @@ StatsParser.prototype.printStat = function() {
     this.enterRule(localctx, 4, StatsParser.RULE_printStat);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 29;
+        this.state = 31;
         this.match(StatsParser.STRING);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -358,8 +361,8 @@ ReadStatContext.prototype.ARROW = function() {
     return this.getToken(StatsParser.ARROW, 0);
 };
 
-ReadStatContext.prototype.variable = function() {
-    return this.getTypedRuleContext(VariableContext,0);
+ReadStatContext.prototype.stoExpr = function() {
+    return this.getTypedRuleContext(StoExprContext,0);
 };
 
 ReadStatContext.prototype.enterRule = function(listener) {
@@ -393,12 +396,12 @@ StatsParser.prototype.readStat = function() {
     this.enterRule(localctx, 6, StatsParser.RULE_readStat);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 31;
-        this.match(StatsParser.GETKEY);
-        this.state = 32;
-        this.match(StatsParser.ARROW);
         this.state = 33;
-        this.variable();
+        this.match(StatsParser.GETKEY);
+        this.state = 34;
+        this.match(StatsParser.ARROW);
+        this.state = 35;
+        this.stoExpr();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -469,7 +472,7 @@ StatsParser.prototype.endStat = function() {
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 35;
+        this.state = 37;
         _la = this._input.LA(1);
         if(!(_la===StatsParser.NEWLINE || _la===StatsParser.COLON)) {
         this._errHandler.recoverInline(this);
@@ -554,11 +557,11 @@ StatsParser.prototype.boolExpr = function() {
     this.enterRule(localctx, 10, StatsParser.RULE_boolExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 37;
-        this.numExpr();
-        this.state = 38;
-        this.compOp();
         this.state = 39;
+        this.numExpr();
+        this.state = 40;
+        this.compOp();
+        this.state = 41;
         this.numExpr();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -628,22 +631,89 @@ StatsParser.prototype.numExpr = function() {
     var localctx = new NumExprContext(this, this._ctx, this.state);
     this.enterRule(localctx, 12, StatsParser.RULE_numExpr);
     try {
-        this.state = 43;
+        this.state = 45;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case StatsParser.ID:
             this.enterOuterAlt(localctx, 1);
-            this.state = 41;
+            this.state = 43;
             this.variable();
             break;
         case StatsParser.UINT:
             this.enterOuterAlt(localctx, 2);
-            this.state = 42;
+            this.state = 44;
             this.number();
             break;
         default:
             throw new antlr4.error.NoViableAltException(this);
         }
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+function StoExprContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = StatsParser.RULE_stoExpr;
+    return this;
+}
+
+StoExprContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+StoExprContext.prototype.constructor = StoExprContext;
+
+StoExprContext.prototype.variable = function() {
+    return this.getTypedRuleContext(VariableContext,0);
+};
+
+StoExprContext.prototype.enterRule = function(listener) {
+    if(listener instanceof StatsListener ) {
+        listener.enterStoExpr(this);
+	}
+};
+
+StoExprContext.prototype.exitRule = function(listener) {
+    if(listener instanceof StatsListener ) {
+        listener.exitStoExpr(this);
+	}
+};
+
+StoExprContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof StatsVisitor ) {
+        return visitor.visitStoExpr(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+StatsParser.StoExprContext = StoExprContext;
+
+StatsParser.prototype.stoExpr = function() {
+
+    var localctx = new StoExprContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 14, StatsParser.RULE_stoExpr);
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 47;
+        this.variable();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -706,10 +776,10 @@ StatsParser.CompOpContext = CompOpContext;
 StatsParser.prototype.compOp = function() {
 
     var localctx = new CompOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 14, StatsParser.RULE_compOp);
+    this.enterRule(localctx, 16, StatsParser.RULE_compOp);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 45;
+        this.state = 49;
         this.match(StatsParser.EQUAL);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -773,10 +843,10 @@ StatsParser.VariableContext = VariableContext;
 StatsParser.prototype.variable = function() {
 
     var localctx = new VariableContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 16, StatsParser.RULE_variable);
+    this.enterRule(localctx, 18, StatsParser.RULE_variable);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 47;
+        this.state = 51;
         this.match(StatsParser.ID);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -840,10 +910,10 @@ StatsParser.NumberContext = NumberContext;
 StatsParser.prototype.number = function() {
 
     var localctx = new NumberContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 18, StatsParser.RULE_number);
+    this.enterRule(localctx, 20, StatsParser.RULE_number);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 49;
+        this.state = 53;
         this.match(StatsParser.UINT);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {

@@ -54,6 +54,12 @@ StatsVisitor.prototype.visitNumExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#stoExpr.
+StatsVisitor.prototype.visitStoExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#compOp.
 StatsVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);

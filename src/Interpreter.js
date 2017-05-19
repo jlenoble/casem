@@ -42,7 +42,7 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitAssignStat (ctx) {
-    this.setVariable(ctx.variable().getText(), this.visit(ctx.numExpr()));
+    this.setVariable(ctx.stoExpr().getText(), this.visit(ctx.numExpr()));
   }
 
   visitBoolExpr (ctx) {
@@ -132,7 +132,7 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitReadStat (ctx) {
-    this.setVariable(ctx.variable().getText(), this.getKey());
+    this.setVariable(ctx.stoExpr().getText(), this.getKey());
   }
 
   visitStat (ctx) {

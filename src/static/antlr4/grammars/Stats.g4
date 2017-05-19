@@ -8,7 +8,7 @@ stat
 ;
 
 assignStat
-: numExpr ARROW variable
+: numExpr ARROW stoExpr
 ;
 
 printStat
@@ -16,7 +16,7 @@ printStat
 ;
 
 readStat
-: GETKEY ARROW variable
+: GETKEY ARROW stoExpr
 ;
 
 endStat
