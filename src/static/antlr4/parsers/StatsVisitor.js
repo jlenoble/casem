@@ -48,8 +48,32 @@ StatsVisitor.prototype.visitBoolExpr = function(ctx) {
 };
 
 
-// Visit a parse tree produced by StatsParser#numExpr.
-StatsVisitor.prototype.visitNumExpr = function(ctx) {
+// Visit a parse tree produced by StatsParser#add.
+StatsVisitor.prototype.visitAdd = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#negate.
+StatsVisitor.prototype.visitNegate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#parse.
+StatsVisitor.prototype.visitParse = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#multiply.
+StatsVisitor.prototype.visitMultiply = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#evaluate.
+StatsVisitor.prototype.visitEvaluate = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -62,6 +86,18 @@ StatsVisitor.prototype.visitStoExpr = function(ctx) {
 
 // Visit a parse tree produced by StatsParser#compOp.
 StatsVisitor.prototype.visitCompOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#multOp.
+StatsVisitor.prototype.visitMultOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#addOp.
+StatsVisitor.prototype.visitAddOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

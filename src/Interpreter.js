@@ -67,7 +67,6 @@ export class Interpreter extends CalcVisitor {
       }
 
       if (!queue.length && !statQueue.length) { // No stat left unprocessed
-        console.log('Good bye!');
         return resolve();
       }
 

@@ -13,6 +13,7 @@ assignStat
 
 printStat
 : STRING
+| LOCATE numExpr COMMA numExpr COMMA numExpr
 ;
 
 readStat

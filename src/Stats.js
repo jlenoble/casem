@@ -5,7 +5,11 @@ export const mixWithStats = Interpreter => {
     },
 
     visitPrintStat (ctx) {
-      console.log(ctx.STRING().getText().replace(/^"(.*)"$/, '$1'));
+      if (ctx.LOCATE()) {
+        console.log(this.visit(ctx.numExpr(2)));
+      } else {
+        console.log(ctx.STRING().getText().replace(/^"(.*)"$/, '$1'));
+      }
     },
 
     visitReadStat (ctx) {

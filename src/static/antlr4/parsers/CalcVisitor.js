@@ -72,8 +72,32 @@ CalcVisitor.prototype.visitBoolExpr = function(ctx) {
 };
 
 
-// Visit a parse tree produced by CalcParser#numExpr.
-CalcVisitor.prototype.visitNumExpr = function(ctx) {
+// Visit a parse tree produced by CalcParser#add.
+CalcVisitor.prototype.visitAdd = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#negate.
+CalcVisitor.prototype.visitNegate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#parse.
+CalcVisitor.prototype.visitParse = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#multiply.
+CalcVisitor.prototype.visitMultiply = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#evaluate.
+CalcVisitor.prototype.visitEvaluate = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -86,6 +110,18 @@ CalcVisitor.prototype.visitStoExpr = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#compOp.
 CalcVisitor.prototype.visitCompOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#multOp.
+CalcVisitor.prototype.visitMultOp = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#addOp.
+CalcVisitor.prototype.visitAddOp = function(ctx) {
   return this.visitChildren(ctx);
 };
 

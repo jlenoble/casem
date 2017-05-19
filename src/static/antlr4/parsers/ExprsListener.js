@@ -20,12 +20,48 @@ ExprsListener.prototype.exitBoolExpr = function(ctx) {
 };
 
 
-// Enter a parse tree produced by ExprsParser#numExpr.
-ExprsListener.prototype.enterNumExpr = function(ctx) {
+// Enter a parse tree produced by ExprsParser#add.
+ExprsListener.prototype.enterAdd = function(ctx) {
 };
 
-// Exit a parse tree produced by ExprsParser#numExpr.
-ExprsListener.prototype.exitNumExpr = function(ctx) {
+// Exit a parse tree produced by ExprsParser#add.
+ExprsListener.prototype.exitAdd = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#negate.
+ExprsListener.prototype.enterNegate = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#negate.
+ExprsListener.prototype.exitNegate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#parse.
+ExprsListener.prototype.enterParse = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#parse.
+ExprsListener.prototype.exitParse = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#multiply.
+ExprsListener.prototype.enterMultiply = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#multiply.
+ExprsListener.prototype.exitMultiply = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#evaluate.
+ExprsListener.prototype.enterEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#evaluate.
+ExprsListener.prototype.exitEvaluate = function(ctx) {
 };
 
 
@@ -44,6 +80,24 @@ ExprsListener.prototype.enterCompOp = function(ctx) {
 
 // Exit a parse tree produced by ExprsParser#compOp.
 ExprsListener.prototype.exitCompOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#multOp.
+ExprsListener.prototype.enterMultOp = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#multOp.
+ExprsListener.prototype.exitMultOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#addOp.
+ExprsListener.prototype.enterAddOp = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#addOp.
+ExprsListener.prototype.exitAddOp = function(ctx) {
 };
 
 

@@ -6,8 +6,11 @@ boolExpr
 ;
 
 numExpr
-: variable
-| number
+: SUB numExpr                 # negate
+| numExpr multOp numExpr      # multiply
+| numExpr addOp numExpr       # add
+| variable                    # evaluate
+| number                      # parse
 ;
 
 stoExpr
@@ -16,4 +19,14 @@ stoExpr
 
 compOp
 : EQUAL
+;
+
+multOp
+: MUL
+| DIV
+;
+
+addOp
+: ADD
+| SUB
 ;

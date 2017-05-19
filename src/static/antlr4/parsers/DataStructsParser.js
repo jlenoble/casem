@@ -7,12 +7,17 @@ var DataStructsVisitor = require('./DataStructsVisitor').DataStructsVisitor;
 var grammarFileName = "DataStructs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\f\u000b\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0003\u0002\u0003",
-    "\u0002\u0003\u0003\u0003\u0003\u0003\u0003\u0002\u0002\u0004\u0002\u0004",
-    "\u0002\u0002\u0002\b\u0002\u0006\u0003\u0002\u0002\u0002\u0004\b\u0003",
-    "\u0002\u0002\u0002\u0006\u0007\u0007\u0003\u0002\u0002\u0007\u0003\u0003",
-    "\u0002\u0002\u0002\b\t\u0007\u0004\u0002\u0002\t\u0005\u0003\u0002\u0002",
-    "\u0002\u0002"].join("");
+    "\u0003\u0013\u0011\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0003\u0002",
+    "\u0003\u0002\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003",
+    "\u0003\u0003\u0005\u0003\u000f\n\u0003\u0003\u0003\u0002\u0002\u0004",
+    "\u0002\u0004\u0002\u0002\u0002\u0010\u0002\u0006\u0003\u0002\u0002\u0002",
+    "\u0004\u000e\u0003\u0002\u0002\u0002\u0006\u0007\u0007\u0003\u0002\u0002",
+    "\u0007\u0003\u0003\u0002\u0002\u0002\b\u000f\u0007\u0004\u0002\u0002",
+    "\t\n\u0007\r\u0002\u0002\n\u000f\u0007\u0004\u0002\u0002\u000b\f\u0007",
+    "\u0004\u0002\u0002\f\r\u0007\r\u0002\u0002\r\u000f\u0007\u0004\u0002",
+    "\u0002\u000e\b\u0003\u0002\u0002\u0002\u000e\t\u0003\u0002\u0002\u0002",
+    "\u000e\u000b\u0003\u0002\u0002\u0002\u000f\u0005\u0003\u0002\u0002\u0002",
+    "\u0003\u000e"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -21,11 +26,13 @@ var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new a
 
 var sharedContextCache = new antlr4.PredictionContextCache();
 
-var literalNames = [ null, null, null, null, null, "'\\->'", "':'", "'\\Do'", 
-                     "'='", "'\\Getkey'", "'\\LpWhile '" ];
+var literalNames = [ null, null, null, null, null, "'+'", "'\\->'", "':'", 
+                     "','", "'/'", "'\\Do'", "'.'", "'='", "'\\Getkey'", 
+                     "'\\Locate '", "'\\LpWhile '", "'*'", "'-'" ];
 
-var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ARROW", 
-                      "COLON", "DO", "EQUAL", "GETKEY", "LOOPWHILE" ];
+var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ADD", "ARROW", 
+                      "COLON", "COMMA", "DIV", "DO", "DOT", "EQUAL", "GETKEY", 
+                      "LOCATE", "LOOPWHILE", "MUL", "SUB" ];
 
 var ruleNames =  [ "variable", "number" ];
 
@@ -52,12 +59,19 @@ DataStructsParser.ID = 1;
 DataStructsParser.UINT = 2;
 DataStructsParser.STRING = 3;
 DataStructsParser.NEWLINE = 4;
-DataStructsParser.ARROW = 5;
-DataStructsParser.COLON = 6;
-DataStructsParser.DO = 7;
-DataStructsParser.EQUAL = 8;
-DataStructsParser.GETKEY = 9;
-DataStructsParser.LOOPWHILE = 10;
+DataStructsParser.ADD = 5;
+DataStructsParser.ARROW = 6;
+DataStructsParser.COLON = 7;
+DataStructsParser.COMMA = 8;
+DataStructsParser.DIV = 9;
+DataStructsParser.DO = 10;
+DataStructsParser.DOT = 11;
+DataStructsParser.EQUAL = 12;
+DataStructsParser.GETKEY = 13;
+DataStructsParser.LOCATE = 14;
+DataStructsParser.LOOPWHILE = 15;
+DataStructsParser.MUL = 16;
+DataStructsParser.SUB = 17;
 
 DataStructsParser.RULE_variable = 0;
 DataStructsParser.RULE_number = 1;
@@ -145,8 +159,20 @@ function NumberContext(parser, parent, invokingState) {
 NumberContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 NumberContext.prototype.constructor = NumberContext;
 
-NumberContext.prototype.UINT = function() {
-    return this.getToken(DataStructsParser.UINT, 0);
+NumberContext.prototype.UINT = function(i) {
+	if(i===undefined) {
+		i = null;
+	}
+    if(i===null) {
+        return this.getTokens(DataStructsParser.UINT);
+    } else {
+        return this.getToken(DataStructsParser.UINT, i);
+    }
+};
+
+
+NumberContext.prototype.DOT = function() {
+    return this.getToken(DataStructsParser.DOT, 0);
 };
 
 NumberContext.prototype.enterRule = function(listener) {
@@ -179,9 +205,35 @@ DataStructsParser.prototype.number = function() {
     var localctx = new NumberContext(this, this._ctx, this.state);
     this.enterRule(localctx, 2, DataStructsParser.RULE_number);
     try {
-        this.enterOuterAlt(localctx, 1);
-        this.state = 6;
-        this.match(DataStructsParser.UINT);
+        this.state = 12;
+        this._errHandler.sync(this);
+        var la_ = this._interp.adaptivePredict(this._input,0,this._ctx);
+        switch(la_) {
+        case 1:
+            this.enterOuterAlt(localctx, 1);
+            this.state = 6;
+            this.match(DataStructsParser.UINT);
+            break;
+
+        case 2:
+            this.enterOuterAlt(localctx, 2);
+            this.state = 7;
+            this.match(DataStructsParser.DOT);
+            this.state = 8;
+            this.match(DataStructsParser.UINT);
+            break;
+
+        case 3:
+            this.enterOuterAlt(localctx, 3);
+            this.state = 9;
+            this.match(DataStructsParser.UINT);
+            this.state = 10;
+            this.match(DataStructsParser.DOT);
+            this.state = 11;
+            this.match(DataStructsParser.UINT);
+            break;
+
+        }
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;

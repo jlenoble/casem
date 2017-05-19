@@ -1,0 +1,4 @@
+\Locate 1,1,2+7
+\Locate 1,2,7-10
+\Locate 1,3,3*-.5
+\Locate 1,4,42/21

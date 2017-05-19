@@ -101,12 +101,48 @@ CalcListener.prototype.exitBoolExpr = function(ctx) {
 };
 
 
-// Enter a parse tree produced by CalcParser#numExpr.
-CalcListener.prototype.enterNumExpr = function(ctx) {
+// Enter a parse tree produced by CalcParser#add.
+CalcListener.prototype.enterAdd = function(ctx) {
 };
 
-// Exit a parse tree produced by CalcParser#numExpr.
-CalcListener.prototype.exitNumExpr = function(ctx) {
+// Exit a parse tree produced by CalcParser#add.
+CalcListener.prototype.exitAdd = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#negate.
+CalcListener.prototype.enterNegate = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#negate.
+CalcListener.prototype.exitNegate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#parse.
+CalcListener.prototype.enterParse = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#parse.
+CalcListener.prototype.exitParse = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#multiply.
+CalcListener.prototype.enterMultiply = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#multiply.
+CalcListener.prototype.exitMultiply = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#evaluate.
+CalcListener.prototype.enterEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#evaluate.
+CalcListener.prototype.exitEvaluate = function(ctx) {
 };
 
 
@@ -125,6 +161,24 @@ CalcListener.prototype.enterCompOp = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#compOp.
 CalcListener.prototype.exitCompOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#multOp.
+CalcListener.prototype.enterMultOp = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#multOp.
+CalcListener.prototype.exitMultOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#addOp.
+CalcListener.prototype.enterAddOp = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#addOp.
+CalcListener.prototype.exitAddOp = function(ctx) {
 };
 
 

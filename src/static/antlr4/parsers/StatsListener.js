@@ -65,12 +65,48 @@ StatsListener.prototype.exitBoolExpr = function(ctx) {
 };
 
 
-// Enter a parse tree produced by StatsParser#numExpr.
-StatsListener.prototype.enterNumExpr = function(ctx) {
+// Enter a parse tree produced by StatsParser#add.
+StatsListener.prototype.enterAdd = function(ctx) {
 };
 
-// Exit a parse tree produced by StatsParser#numExpr.
-StatsListener.prototype.exitNumExpr = function(ctx) {
+// Exit a parse tree produced by StatsParser#add.
+StatsListener.prototype.exitAdd = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#negate.
+StatsListener.prototype.enterNegate = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#negate.
+StatsListener.prototype.exitNegate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#parse.
+StatsListener.prototype.enterParse = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#parse.
+StatsListener.prototype.exitParse = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#multiply.
+StatsListener.prototype.enterMultiply = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#multiply.
+StatsListener.prototype.exitMultiply = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#evaluate.
+StatsListener.prototype.enterEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#evaluate.
+StatsListener.prototype.exitEvaluate = function(ctx) {
 };
 
 
@@ -89,6 +125,24 @@ StatsListener.prototype.enterCompOp = function(ctx) {
 
 // Exit a parse tree produced by StatsParser#compOp.
 StatsListener.prototype.exitCompOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#multOp.
+StatsListener.prototype.enterMultOp = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#multOp.
+StatsListener.prototype.exitMultOp = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#addOp.
+StatsListener.prototype.enterAddOp = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#addOp.
+StatsListener.prototype.exitAddOp = function(ctx) {
 };
 
 

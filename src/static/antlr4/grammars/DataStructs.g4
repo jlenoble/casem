@@ -7,4 +7,6 @@ variable
 
 number
 : UINT
+| DOT UINT
+| UINT DOT UINT
 ;
