@@ -1,5 +1,5 @@
 grammar Calc;
-import CommonLexerRules;
+import DataStructs;
 
 prog
 : block
@@ -48,12 +48,4 @@ numExpr
 
 compOp
 : '='
-;
-
-variable
-: ID
-;
-
-number
-: UINT
 ;
