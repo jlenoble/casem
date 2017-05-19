@@ -1,0 +1,12 @@
+ARROW=1
+COLON=2
+DO=3
+EQUAL=4
+GETKEY=5
+LOOPWHILE=6
+'\\->'=1
+':'=2
+'\\Do'=3
+'='=4
+'\\Getkey'=5
+'\\LpWhile '=6

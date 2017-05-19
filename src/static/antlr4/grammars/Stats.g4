@@ -8,7 +8,7 @@ stat
 ;
 
 assignStat
-: numExpr '\\->' variable
+: numExpr ARROW variable
 ;
 
 printStat
@@ -16,10 +16,10 @@ printStat
 ;
 
 readStat
-: '\\Getkey' '\\->' variable
+: GETKEY ARROW variable
 ;
 
 endStat
 : NEWLINE
-| ':'
+| COLON
 ;

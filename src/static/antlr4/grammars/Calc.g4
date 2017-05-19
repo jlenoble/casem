@@ -15,5 +15,5 @@ blockStat
 ;
 
 doStat
-: '\\Do' endStat block '\\LpWhile ' boolExpr
+: DO endStat block LOOPWHILE boolExpr
 ;

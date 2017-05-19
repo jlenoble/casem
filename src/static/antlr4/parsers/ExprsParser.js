@@ -7,8 +7,8 @@ var ExprsVisitor = require('./ExprsVisitor').ExprsVisitor;
 var grammarFileName = "Exprs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\u0007\u001b\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004",
-    "\t\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0003\u0002\u0003\u0002",
+    "\u0003\f\u001b\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0003\u0002\u0003\u0002",
     "\u0003\u0002\u0003\u0002\u0003\u0003\u0003\u0003\u0005\u0003\u0013\n",
     "\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0006\u0003",
     "\u0006\u0003\u0006\u0002\u0002\u0007\u0002\u0004\u0006\b\n\u0002\u0002",
@@ -19,9 +19,9 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u000f\u0003\u0003\u0002\u0002\u0002\u0010\u0013\u0005\b\u0005\u0002",
     "\u0011\u0013\u0005\n\u0006\u0002\u0012\u0010\u0003\u0002\u0002\u0002",
     "\u0012\u0011\u0003\u0002\u0002\u0002\u0013\u0005\u0003\u0002\u0002\u0002",
-    "\u0014\u0015\u0007\u0003\u0002\u0002\u0015\u0007\u0003\u0002\u0002\u0002",
-    "\u0016\u0017\u0007\u0004\u0002\u0002\u0017\t\u0003\u0002\u0002\u0002",
-    "\u0018\u0019\u0007\u0005\u0002\u0002\u0019\u000b\u0003\u0002\u0002\u0002",
+    "\u0014\u0015\u0007\n\u0002\u0002\u0015\u0007\u0003\u0002\u0002\u0002",
+    "\u0016\u0017\u0007\u0003\u0002\u0002\u0017\t\u0003\u0002\u0002\u0002",
+    "\u0018\u0019\u0007\u0004\u0002\u0002\u0019\u000b\u0003\u0002\u0002\u0002",
     "\u0003\u0012"].join("");
 
 
@@ -31,9 +31,11 @@ var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new a
 
 var sharedContextCache = new antlr4.PredictionContextCache();
 
-var literalNames = [ null, "'='" ];
+var literalNames = [ null, null, null, null, null, "'\\->'", "':'", "'\\Do'", 
+                     "'='", "'\\Getkey'", "'\\LpWhile '" ];
 
-var symbolicNames = [ null, null, "ID", "UINT", "STRING", "NEWLINE" ];
+var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ARROW", 
+                      "COLON", "DO", "EQUAL", "GETKEY", "LOOPWHILE" ];
 
 var ruleNames =  [ "boolExpr", "numExpr", "compOp", "variable", "number" ];
 
@@ -56,11 +58,16 @@ Object.defineProperty(ExprsParser.prototype, "atn", {
 });
 
 ExprsParser.EOF = antlr4.Token.EOF;
-ExprsParser.T__0 = 1;
-ExprsParser.ID = 2;
-ExprsParser.UINT = 3;
-ExprsParser.STRING = 4;
-ExprsParser.NEWLINE = 5;
+ExprsParser.ID = 1;
+ExprsParser.UINT = 2;
+ExprsParser.STRING = 3;
+ExprsParser.NEWLINE = 4;
+ExprsParser.ARROW = 5;
+ExprsParser.COLON = 6;
+ExprsParser.DO = 7;
+ExprsParser.EQUAL = 8;
+ExprsParser.GETKEY = 9;
+ExprsParser.LOOPWHILE = 10;
 
 ExprsParser.RULE_boolExpr = 0;
 ExprsParser.RULE_numExpr = 1;
@@ -250,6 +257,9 @@ function CompOpContext(parser, parent, invokingState) {
 CompOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 CompOpContext.prototype.constructor = CompOpContext;
 
+CompOpContext.prototype.EQUAL = function() {
+    return this.getToken(ExprsParser.EQUAL, 0);
+};
 
 CompOpContext.prototype.enterRule = function(listener) {
     if(listener instanceof ExprsListener ) {
@@ -283,7 +293,7 @@ ExprsParser.prototype.compOp = function() {
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 18;
-        this.match(ExprsParser.T__0);
+        this.match(ExprsParser.EQUAL);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;

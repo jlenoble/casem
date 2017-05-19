@@ -7,7 +7,7 @@ var StatsVisitor = require('./StatsVisitor').StatsVisitor;
 var grammarFileName = "Stats.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\n6\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
+    "\u0003\f6\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
     "\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004\b",
     "\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0003\u0002\u0003\u0002",
     "\u0003\u0002\u0005\u0002\u001a\n\u0002\u0003\u0003\u0003\u0003\u0003",
@@ -15,8 +15,8 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0005\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0007\u0003\u0007\u0003",
     "\u0007\u0003\u0007\u0003\b\u0003\b\u0005\b.\n\b\u0003\t\u0003\t\u0003",
     "\n\u0003\n\u0003\u000b\u0003\u000b\u0003\u000b\u0002\u0002\f\u0002\u0004",
-    "\u0006\b\n\f\u000e\u0010\u0012\u0014\u0002\u0003\u0004\u0002\u0005\u0005",
-    "\n\n\u0002.\u0002\u0019\u0003\u0002\u0002\u0002\u0004\u001b\u0003\u0002",
+    "\u0006\b\n\f\u000e\u0010\u0012\u0014\u0002\u0003\u0004\u0002\u0006\u0006",
+    "\b\b\u0002.\u0002\u0019\u0003\u0002\u0002\u0002\u0004\u001b\u0003\u0002",
     "\u0002\u0002\u0006\u001f\u0003\u0002\u0002\u0002\b!\u0003\u0002\u0002",
     "\u0002\n%\u0003\u0002\u0002\u0002\f\'\u0003\u0002\u0002\u0002\u000e",
     "-\u0003\u0002\u0002\u0002\u0010/\u0003\u0002\u0002\u0002\u00121\u0003",
@@ -25,17 +25,17 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\b\u0005\u0002\u0019\u0016\u0003\u0002\u0002\u0002\u0019\u0017\u0003",
     "\u0002\u0002\u0002\u0019\u0018\u0003\u0002\u0002\u0002\u001a\u0003\u0003",
     "\u0002\u0002\u0002\u001b\u001c\u0005\u000e\b\u0002\u001c\u001d\u0007",
-    "\u0003\u0002\u0002\u001d\u001e\u0005\u0012\n\u0002\u001e\u0005\u0003",
-    "\u0002\u0002\u0002\u001f \u0007\t\u0002\u0002 \u0007\u0003\u0002\u0002",
-    "\u0002!\"\u0007\u0004\u0002\u0002\"#\u0007\u0003\u0002\u0002#$\u0005",
-    "\u0012\n\u0002$\t\u0003\u0002\u0002\u0002%&\t\u0002\u0002\u0002&\u000b",
-    "\u0003\u0002\u0002\u0002\'(\u0005\u000e\b\u0002()\u0005\u0010\t\u0002",
-    ")*\u0005\u000e\b\u0002*\r\u0003\u0002\u0002\u0002+.\u0005\u0012\n\u0002",
-    ",.\u0005\u0014\u000b\u0002-+\u0003\u0002\u0002\u0002-,\u0003\u0002\u0002",
-    "\u0002.\u000f\u0003\u0002\u0002\u0002/0\u0007\u0006\u0002\u00020\u0011",
-    "\u0003\u0002\u0002\u000212\u0007\u0007\u0002\u00022\u0013\u0003\u0002",
-    "\u0002\u000234\u0007\b\u0002\u00024\u0015\u0003\u0002\u0002\u0002\u0004",
-    "\u0019-"].join("");
+    "\u0007\u0002\u0002\u001d\u001e\u0005\u0012\n\u0002\u001e\u0005\u0003",
+    "\u0002\u0002\u0002\u001f \u0007\u0005\u0002\u0002 \u0007\u0003\u0002",
+    "\u0002\u0002!\"\u0007\u000b\u0002\u0002\"#\u0007\u0007\u0002\u0002#",
+    "$\u0005\u0012\n\u0002$\t\u0003\u0002\u0002\u0002%&\t\u0002\u0002\u0002",
+    "&\u000b\u0003\u0002\u0002\u0002\'(\u0005\u000e\b\u0002()\u0005\u0010",
+    "\t\u0002)*\u0005\u000e\b\u0002*\r\u0003\u0002\u0002\u0002+.\u0005\u0012",
+    "\n\u0002,.\u0005\u0014\u000b\u0002-+\u0003\u0002\u0002\u0002-,\u0003",
+    "\u0002\u0002\u0002.\u000f\u0003\u0002\u0002\u0002/0\u0007\n\u0002\u0002",
+    "0\u0011\u0003\u0002\u0002\u000212\u0007\u0003\u0002\u00022\u0013\u0003",
+    "\u0002\u0002\u000234\u0007\u0004\u0002\u00024\u0015\u0003\u0002\u0002",
+    "\u0002\u0004\u0019-"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -44,10 +44,11 @@ var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new a
 
 var sharedContextCache = new antlr4.PredictionContextCache();
 
-var literalNames = [ null, "'\\->'", "'\\Getkey'", "':'", "'='" ];
+var literalNames = [ null, null, null, null, null, "'\\->'", "':'", "'\\Do'", 
+                     "'='", "'\\Getkey'", "'\\LpWhile '" ];
 
-var symbolicNames = [ null, null, null, null, null, "ID", "UINT", "STRING", 
-                      "NEWLINE" ];
+var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ARROW", 
+                      "COLON", "DO", "EQUAL", "GETKEY", "LOOPWHILE" ];
 
 var ruleNames =  [ "stat", "assignStat", "printStat", "readStat", "endStat", 
                    "boolExpr", "numExpr", "compOp", "variable", "number" ];
@@ -71,14 +72,16 @@ Object.defineProperty(StatsParser.prototype, "atn", {
 });
 
 StatsParser.EOF = antlr4.Token.EOF;
-StatsParser.T__0 = 1;
-StatsParser.T__1 = 2;
-StatsParser.T__2 = 3;
-StatsParser.T__3 = 4;
-StatsParser.ID = 5;
-StatsParser.UINT = 6;
-StatsParser.STRING = 7;
-StatsParser.NEWLINE = 8;
+StatsParser.ID = 1;
+StatsParser.UINT = 2;
+StatsParser.STRING = 3;
+StatsParser.NEWLINE = 4;
+StatsParser.ARROW = 5;
+StatsParser.COLON = 6;
+StatsParser.DO = 7;
+StatsParser.EQUAL = 8;
+StatsParser.GETKEY = 9;
+StatsParser.LOOPWHILE = 10;
 
 StatsParser.RULE_stat = 0;
 StatsParser.RULE_assignStat = 1;
@@ -163,7 +166,7 @@ StatsParser.prototype.stat = function() {
             this.state = 21;
             this.printStat();
             break;
-        case StatsParser.T__1:
+        case StatsParser.GETKEY:
             this.enterOuterAlt(localctx, 3);
             this.state = 22;
             this.readStat();
@@ -205,6 +208,10 @@ AssignStatContext.prototype.numExpr = function() {
     return this.getTypedRuleContext(NumExprContext,0);
 };
 
+AssignStatContext.prototype.ARROW = function() {
+    return this.getToken(StatsParser.ARROW, 0);
+};
+
 AssignStatContext.prototype.variable = function() {
     return this.getTypedRuleContext(VariableContext,0);
 };
@@ -243,7 +250,7 @@ StatsParser.prototype.assignStat = function() {
         this.state = 25;
         this.numExpr();
         this.state = 26;
-        this.match(StatsParser.T__0);
+        this.match(StatsParser.ARROW);
         this.state = 27;
         this.variable();
     } catch (re) {
@@ -343,6 +350,14 @@ function ReadStatContext(parser, parent, invokingState) {
 ReadStatContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 ReadStatContext.prototype.constructor = ReadStatContext;
 
+ReadStatContext.prototype.GETKEY = function() {
+    return this.getToken(StatsParser.GETKEY, 0);
+};
+
+ReadStatContext.prototype.ARROW = function() {
+    return this.getToken(StatsParser.ARROW, 0);
+};
+
 ReadStatContext.prototype.variable = function() {
     return this.getTypedRuleContext(VariableContext,0);
 };
@@ -379,9 +394,9 @@ StatsParser.prototype.readStat = function() {
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 31;
-        this.match(StatsParser.T__1);
+        this.match(StatsParser.GETKEY);
         this.state = 32;
-        this.match(StatsParser.T__0);
+        this.match(StatsParser.ARROW);
         this.state = 33;
         this.variable();
     } catch (re) {
@@ -418,6 +433,10 @@ EndStatContext.prototype.NEWLINE = function() {
     return this.getToken(StatsParser.NEWLINE, 0);
 };
 
+EndStatContext.prototype.COLON = function() {
+    return this.getToken(StatsParser.COLON, 0);
+};
+
 EndStatContext.prototype.enterRule = function(listener) {
     if(listener instanceof StatsListener ) {
         listener.enterEndStat(this);
@@ -452,7 +471,7 @@ StatsParser.prototype.endStat = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 35;
         _la = this._input.LA(1);
-        if(!(_la===StatsParser.T__2 || _la===StatsParser.NEWLINE)) {
+        if(!(_la===StatsParser.NEWLINE || _la===StatsParser.COLON)) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -655,6 +674,9 @@ function CompOpContext(parser, parent, invokingState) {
 CompOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 CompOpContext.prototype.constructor = CompOpContext;
 
+CompOpContext.prototype.EQUAL = function() {
+    return this.getToken(StatsParser.EQUAL, 0);
+};
 
 CompOpContext.prototype.enterRule = function(listener) {
     if(listener instanceof StatsListener ) {
@@ -688,7 +710,7 @@ StatsParser.prototype.compOp = function() {
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 45;
-        this.match(StatsParser.T__3);
+        this.match(StatsParser.EQUAL);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;

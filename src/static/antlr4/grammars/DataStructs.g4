@@ -1,5 +1,5 @@
 grammar DataStructs;
-import CommonLexerRules;
+import CommonLexerRules, Keywords;
 
 variable
 : ID

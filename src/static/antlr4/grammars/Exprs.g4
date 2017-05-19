@@ -11,5 +11,5 @@ numExpr
 ;
 
 compOp
-: '='
+: EQUAL
 ;

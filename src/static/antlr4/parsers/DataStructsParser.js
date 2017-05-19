@@ -7,12 +7,12 @@ var DataStructsVisitor = require('./DataStructsVisitor').DataStructsVisitor;
 var grammarFileName = "DataStructs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\u0006\u000b\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0003\u0002",
-    "\u0003\u0002\u0003\u0003\u0003\u0003\u0003\u0003\u0002\u0002\u0004\u0002",
-    "\u0004\u0002\u0002\u0002\b\u0002\u0006\u0003\u0002\u0002\u0002\u0004",
-    "\b\u0003\u0002\u0002\u0002\u0006\u0007\u0007\u0003\u0002\u0002\u0007",
-    "\u0003\u0003\u0002\u0002\u0002\b\t\u0007\u0004\u0002\u0002\t\u0005\u0003",
-    "\u0002\u0002\u0002\u0002"].join("");
+    "\u0003\f\u000b\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0003\u0002\u0003",
+    "\u0002\u0003\u0003\u0003\u0003\u0003\u0003\u0002\u0002\u0004\u0002\u0004",
+    "\u0002\u0002\u0002\b\u0002\u0006\u0003\u0002\u0002\u0002\u0004\b\u0003",
+    "\u0002\u0002\u0002\u0006\u0007\u0007\u0003\u0002\u0002\u0007\u0003\u0003",
+    "\u0002\u0002\u0002\b\t\u0007\u0004\u0002\u0002\t\u0005\u0003\u0002\u0002",
+    "\u0002\u0002"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -21,9 +21,11 @@ var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new a
 
 var sharedContextCache = new antlr4.PredictionContextCache();
 
-var literalNames = [  ];
+var literalNames = [ null, null, null, null, null, "'\\->'", "':'", "'\\Do'", 
+                     "'='", "'\\Getkey'", "'\\LpWhile '" ];
 
-var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE" ];
+var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ARROW", 
+                      "COLON", "DO", "EQUAL", "GETKEY", "LOOPWHILE" ];
 
 var ruleNames =  [ "variable", "number" ];
 
@@ -50,6 +52,12 @@ DataStructsParser.ID = 1;
 DataStructsParser.UINT = 2;
 DataStructsParser.STRING = 3;
 DataStructsParser.NEWLINE = 4;
+DataStructsParser.ARROW = 5;
+DataStructsParser.COLON = 6;
+DataStructsParser.DO = 7;
+DataStructsParser.EQUAL = 8;
+DataStructsParser.GETKEY = 9;
+DataStructsParser.LOOPWHILE = 10;
 
 DataStructsParser.RULE_variable = 0;
 DataStructsParser.RULE_number = 1;
