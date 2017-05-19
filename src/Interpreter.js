@@ -1,5 +1,7 @@
 import path from 'path';
 import readline from 'readline';
+import {mixWithExprs} from './Exprs';
+import {mixWithStats} from './Stats';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -41,30 +43,8 @@ export class Interpreter extends CalcVisitor {
     });
   }
 
-  visitAssignStat (ctx) {
-    this.setVariable(ctx.stoExpr().getText(), this.visit(ctx.numExpr()));
-  }
-
-  visitBoolExpr (ctx) {
-    return this.visit(ctx.numExpr(0)) === this.visit(ctx.numExpr(1));
-  }
-
   visitDoStat (ctx) {
     this.repeatUntil(ctx.block(), ctx.boolExpr());
-  }
-
-  visitNumExpr (ctx) {
-    if (ctx.number()) {
-      return parseFloat(ctx.number().getText(), 10);
-    }
-
-    if (ctx.variable()) {
-      return this.getVariable(ctx.variable().getText());
-    }
-  }
-
-  visitPrintStat (ctx) {
-    console.log(ctx.STRING().getText().replace(/^"(.*)"$/, '$1'));
   }
 
   visitProg (ctx) {
@@ -130,12 +110,7 @@ export class Interpreter extends CalcVisitor {
       }
     });
   }
-
-  visitReadStat (ctx) {
-    this.setVariable(ctx.stoExpr().getText(), this.getKey());
-  }
-
-  visitStat (ctx) {
-    this.queueStat(ctx);
-  }
 }
+
+mixWithExprs(Interpreter);
+mixWithStats(Interpreter);
