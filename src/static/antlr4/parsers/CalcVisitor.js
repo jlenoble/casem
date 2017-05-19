@@ -24,6 +24,12 @@ CalcVisitor.prototype.visitBlock = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#blockStat.
+CalcVisitor.prototype.visitBlockStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#stat.
 CalcVisitor.prototype.visitStat = function(ctx) {
   return this.visitChildren(ctx);

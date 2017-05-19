@@ -2,18 +2,22 @@ grammar Calc;
 import Exprs;
 
 prog
-: block
+: block*
 ;
 
 block
-: (stat endStat)*
+: (stat endStat)+
+| blockStat endStat
+;
+
+blockStat
+: doStat
 ;
 
 stat
 : assignStat
 | printStat
 | readStat
-| doStat
 ;
 
 assignStat
