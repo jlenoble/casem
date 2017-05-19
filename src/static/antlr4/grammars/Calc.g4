@@ -1,5 +1,5 @@
 grammar Calc;
-import DataStructs;
+import Exprs;
 
 prog
 : block
@@ -35,17 +35,4 @@ doStat
 endStat
 : NEWLINE
 | ':'
-;
-
-boolExpr
-: numExpr compOp numExpr
-;
-
-numExpr
-: variable
-| number
-;
-
-compOp
-: '='
 ;
