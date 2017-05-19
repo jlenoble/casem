@@ -34,7 +34,7 @@
     "babel-preset-es2016": "*",
     "babel-preset-es2017": "*",
     "chai": "*",
-    "child-process-data": "*",
+    "child-process-data": "0.5.1",
     "del": "*",
     "eslint-config-google": "*",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
