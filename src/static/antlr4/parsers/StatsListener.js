@@ -74,6 +74,15 @@ StatsListener.prototype.exitBoolExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#compute.
+StatsListener.prototype.enterCompute = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#compute.
+StatsListener.prototype.exitCompute = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#add.
 StatsListener.prototype.enterAdd = function(ctx) {
 };
@@ -83,12 +92,39 @@ StatsListener.prototype.exitAdd = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#parens.
+StatsListener.prototype.enterParens = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#parens.
+StatsListener.prototype.exitParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#scalarMult.
+StatsListener.prototype.enterScalarMult = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#scalarMult.
+StatsListener.prototype.exitScalarMult = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#negate.
 StatsListener.prototype.enterNegate = function(ctx) {
 };
 
 // Exit a parse tree produced by StatsParser#negate.
 StatsListener.prototype.exitNegate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#constEvaluate.
+StatsListener.prototype.enterConstEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#constEvaluate.
+StatsListener.prototype.exitConstEvaluate = function(ctx) {
 };
 
 
@@ -128,6 +164,42 @@ StatsListener.prototype.exitStoExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#vParens.
+StatsListener.prototype.enterVParens = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#vParens.
+StatsListener.prototype.exitVParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#vCompute.
+StatsListener.prototype.enterVCompute = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#vCompute.
+StatsListener.prototype.exitVCompute = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#vEvaluate.
+StatsListener.prototype.enterVEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#vEvaluate.
+StatsListener.prototype.exitVEvaluate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#vConstEvaluate.
+StatsListener.prototype.enterVConstEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#vConstEvaluate.
+StatsListener.prototype.exitVConstEvaluate = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#compOp.
 StatsListener.prototype.enterCompOp = function(ctx) {
 };
@@ -155,12 +227,30 @@ StatsListener.prototype.exitAddOp = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#func.
+StatsListener.prototype.enterFunc = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#func.
+StatsListener.prototype.exitFunc = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#variable.
 StatsListener.prototype.enterVariable = function(ctx) {
 };
 
 // Exit a parse tree produced by StatsParser#variable.
 StatsListener.prototype.exitVariable = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#constant.
+StatsListener.prototype.enterConstant = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#constant.
+StatsListener.prototype.exitConstant = function(ctx) {
 };
 
 

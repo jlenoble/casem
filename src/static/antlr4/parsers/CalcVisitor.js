@@ -78,14 +78,38 @@ CalcVisitor.prototype.visitBoolExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#compute.
+CalcVisitor.prototype.visitCompute = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#add.
 CalcVisitor.prototype.visitAdd = function(ctx) {
   return this.visitChildren(ctx);
 };
 
 
+// Visit a parse tree produced by CalcParser#parens.
+CalcVisitor.prototype.visitParens = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#scalarMult.
+CalcVisitor.prototype.visitScalarMult = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#negate.
 CalcVisitor.prototype.visitNegate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#constEvaluate.
+CalcVisitor.prototype.visitConstEvaluate = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -114,6 +138,30 @@ CalcVisitor.prototype.visitStoExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#vParens.
+CalcVisitor.prototype.visitVParens = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#vCompute.
+CalcVisitor.prototype.visitVCompute = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#vEvaluate.
+CalcVisitor.prototype.visitVEvaluate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#vConstEvaluate.
+CalcVisitor.prototype.visitVConstEvaluate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#compOp.
 CalcVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);
@@ -132,8 +180,20 @@ CalcVisitor.prototype.visitAddOp = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#func.
+CalcVisitor.prototype.visitFunc = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#variable.
 CalcVisitor.prototype.visitVariable = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#constant.
+CalcVisitor.prototype.visitConstant = function(ctx) {
   return this.visitChildren(ctx);
 };
 

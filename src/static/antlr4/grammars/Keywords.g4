@@ -1,15 +1,27 @@
 lexer grammar Keywords;
 
+ABS       : '\\Abs ';
+ACOS      : '\\acos ';
 ADD       : '+';
 ARROW     : '\\->';
+ASIN      : '\\asin ';
+ATAN      : '\\atan ';
 COLON     : ':';
 COMMA     : ',';
+COS       : '\\cos ';
+CPAR      : ')';
 DIV       : '/';
 DO        : '\\Do';
 DOT       : '.';
 EQUAL     : '=';
 GETKEY    : '\\Getkey';
+INT       : '\\Int ';
 LOCATE    : '\\Locate ';
 LOOPWHILE : '\\LpWhile ';
 MUL       : '*';
+OPAR      : '(';
+PI        : '\\Pi';
+SIN       : '\\sin ';
+SQRT      : '\\sqrt';
 SUB       : '-';
+TAN       : '\\tan ';

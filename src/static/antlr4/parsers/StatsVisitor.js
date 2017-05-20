@@ -54,14 +54,38 @@ StatsVisitor.prototype.visitBoolExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#compute.
+StatsVisitor.prototype.visitCompute = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#add.
 StatsVisitor.prototype.visitAdd = function(ctx) {
   return this.visitChildren(ctx);
 };
 
 
+// Visit a parse tree produced by StatsParser#parens.
+StatsVisitor.prototype.visitParens = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#scalarMult.
+StatsVisitor.prototype.visitScalarMult = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#negate.
 StatsVisitor.prototype.visitNegate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#constEvaluate.
+StatsVisitor.prototype.visitConstEvaluate = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -90,6 +114,30 @@ StatsVisitor.prototype.visitStoExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#vParens.
+StatsVisitor.prototype.visitVParens = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#vCompute.
+StatsVisitor.prototype.visitVCompute = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#vEvaluate.
+StatsVisitor.prototype.visitVEvaluate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#vConstEvaluate.
+StatsVisitor.prototype.visitVConstEvaluate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#compOp.
 StatsVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);
@@ -108,8 +156,20 @@ StatsVisitor.prototype.visitAddOp = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#func.
+StatsVisitor.prototype.visitFunc = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#variable.
 StatsVisitor.prototype.visitVariable = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#constant.
+StatsVisitor.prototype.visitConstant = function(ctx) {
   return this.visitChildren(ctx);
 };
 

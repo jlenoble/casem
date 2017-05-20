@@ -11,12 +11,30 @@ function DataStructsListener() {
 DataStructsListener.prototype = Object.create(antlr4.tree.ParseTreeListener.prototype);
 DataStructsListener.prototype.constructor = DataStructsListener;
 
+// Enter a parse tree produced by DataStructsParser#func.
+DataStructsListener.prototype.enterFunc = function(ctx) {
+};
+
+// Exit a parse tree produced by DataStructsParser#func.
+DataStructsListener.prototype.exitFunc = function(ctx) {
+};
+
+
 // Enter a parse tree produced by DataStructsParser#variable.
 DataStructsListener.prototype.enterVariable = function(ctx) {
 };
 
 // Exit a parse tree produced by DataStructsParser#variable.
 DataStructsListener.prototype.exitVariable = function(ctx) {
+};
+
+
+// Enter a parse tree produced by DataStructsParser#constant.
+DataStructsListener.prototype.enterConstant = function(ctx) {
+};
+
+// Exit a parse tree produced by DataStructsParser#constant.
+DataStructsListener.prototype.exitConstant = function(ctx) {
 };
 
 

@@ -1,5 +1,6 @@
 import path from 'path';
 import readline from 'readline';
+import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
 import Screen from './screen';
@@ -114,5 +115,6 @@ export class Interpreter extends CalcVisitor {
   }
 }
 
+mixWithDataStructs(Interpreter);
 mixWithExprs(Interpreter);
 mixWithStats(Interpreter);

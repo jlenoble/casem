@@ -7,17 +7,22 @@ var DataStructsVisitor = require('./DataStructsVisitor').DataStructsVisitor;
 var grammarFileName = "DataStructs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003\u0013\u0011\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0003\u0002",
-    "\u0003\u0002\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003",
-    "\u0003\u0003\u0005\u0003\u000f\n\u0003\u0003\u0003\u0002\u0002\u0004",
-    "\u0002\u0004\u0002\u0002\u0002\u0010\u0002\u0006\u0003\u0002\u0002\u0002",
-    "\u0004\u000e\u0003\u0002\u0002\u0002\u0006\u0007\u0007\u0003\u0002\u0002",
-    "\u0007\u0003\u0003\u0002\u0002\u0002\b\u000f\u0007\u0004\u0002\u0002",
-    "\t\n\u0007\r\u0002\u0002\n\u000f\u0007\u0004\u0002\u0002\u000b\f\u0007",
-    "\u0004\u0002\u0002\f\r\u0007\r\u0002\u0002\r\u000f\u0007\u0004\u0002",
-    "\u0002\u000e\b\u0003\u0002\u0002\u0002\u000e\t\u0003\u0002\u0002\u0002",
-    "\u000e\u000b\u0003\u0002\u0002\u0002\u000f\u0005\u0003\u0002\u0002\u0002",
-    "\u0003\u000e"].join("");
+    "\u0003\u001f\u0019\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004",
+    "\t\u0004\u0004\u0005\t\u0005\u0003\u0002\u0003\u0002\u0003\u0003\u0003",
+    "\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0005\u0003",
+    "\u0005\u0003\u0005\u0003\u0005\u0005\u0005\u0017\n\u0005\u0003\u0005",
+    "\u0002\u0002\u0006\u0002\u0004\u0006\b\u0002\u0003\b\u0002\u0007\b\u000b",
+    "\f\u000f\u000f\u0016\u0016\u001c\u001d\u001f\u001f\u0002\u0016\u0002",
+    "\n\u0003\u0002\u0002\u0002\u0004\f\u0003\u0002\u0002\u0002\u0006\u000e",
+    "\u0003\u0002\u0002\u0002\b\u0016\u0003\u0002\u0002\u0002\n\u000b\t\u0002",
+    "\u0002\u0002\u000b\u0003\u0003\u0002\u0002\u0002\f\r\u0007\u0003\u0002",
+    "\u0002\r\u0005\u0003\u0002\u0002\u0002\u000e\u000f\u0007\u001b\u0002",
+    "\u0002\u000f\u0007\u0003\u0002\u0002\u0002\u0010\u0017\u0007\u0004\u0002",
+    "\u0002\u0011\u0012\u0007\u0013\u0002\u0002\u0012\u0017\u0007\u0004\u0002",
+    "\u0002\u0013\u0014\u0007\u0004\u0002\u0002\u0014\u0015\u0007\u0013\u0002",
+    "\u0002\u0015\u0017\u0007\u0004\u0002\u0002\u0016\u0010\u0003\u0002\u0002",
+    "\u0002\u0016\u0011\u0003\u0002\u0002\u0002\u0016\u0013\u0003\u0002\u0002",
+    "\u0002\u0017\t\u0003\u0002\u0002\u0002\u0003\u0016"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -26,15 +31,19 @@ var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new a
 
 var sharedContextCache = new antlr4.PredictionContextCache();
 
-var literalNames = [ null, null, null, null, null, "'+'", "'\\->'", "':'", 
-                     "','", "'/'", "'\\Do'", "'.'", "'='", "'\\Getkey'", 
-                     "'\\Locate '", "'\\LpWhile '", "'*'", "'-'" ];
+var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '", 
+                     "'+'", "'\\->'", "'\\asin '", "'\\atan '", "':'", "','", 
+                     "'\\cos '", "')'", "'/'", "'\\Do'", "'.'", "'='", "'\\Getkey'", 
+                     "'\\Int '", "'\\Locate '", "'\\LpWhile '", "'*'", "'('", 
+                     "'\\Pi'", "'\\sin '", "'\\sqrt'", "'-'", "'\\tan '" ];
 
-var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ADD", "ARROW", 
-                      "COLON", "COMMA", "DIV", "DO", "DOT", "EQUAL", "GETKEY", 
-                      "LOCATE", "LOOPWHILE", "MUL", "SUB" ];
+var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
+                      "ADD", "ARROW", "ASIN", "ATAN", "COLON", "COMMA", 
+                      "COS", "CPAR", "DIV", "DO", "DOT", "EQUAL", "GETKEY", 
+                      "INT", "LOCATE", "LOOPWHILE", "MUL", "OPAR", "PI", 
+                      "SIN", "SQRT", "SUB", "TAN" ];
 
-var ruleNames =  [ "variable", "number" ];
+var ruleNames =  [ "func", "variable", "constant", "number" ];
 
 function DataStructsParser (input) {
 	antlr4.Parser.call(this, input);
@@ -59,22 +68,143 @@ DataStructsParser.ID = 1;
 DataStructsParser.UINT = 2;
 DataStructsParser.STRING = 3;
 DataStructsParser.NEWLINE = 4;
-DataStructsParser.ADD = 5;
-DataStructsParser.ARROW = 6;
-DataStructsParser.COLON = 7;
-DataStructsParser.COMMA = 8;
-DataStructsParser.DIV = 9;
-DataStructsParser.DO = 10;
-DataStructsParser.DOT = 11;
-DataStructsParser.EQUAL = 12;
-DataStructsParser.GETKEY = 13;
-DataStructsParser.LOCATE = 14;
-DataStructsParser.LOOPWHILE = 15;
-DataStructsParser.MUL = 16;
-DataStructsParser.SUB = 17;
+DataStructsParser.ABS = 5;
+DataStructsParser.ACOS = 6;
+DataStructsParser.ADD = 7;
+DataStructsParser.ARROW = 8;
+DataStructsParser.ASIN = 9;
+DataStructsParser.ATAN = 10;
+DataStructsParser.COLON = 11;
+DataStructsParser.COMMA = 12;
+DataStructsParser.COS = 13;
+DataStructsParser.CPAR = 14;
+DataStructsParser.DIV = 15;
+DataStructsParser.DO = 16;
+DataStructsParser.DOT = 17;
+DataStructsParser.EQUAL = 18;
+DataStructsParser.GETKEY = 19;
+DataStructsParser.INT = 20;
+DataStructsParser.LOCATE = 21;
+DataStructsParser.LOOPWHILE = 22;
+DataStructsParser.MUL = 23;
+DataStructsParser.OPAR = 24;
+DataStructsParser.PI = 25;
+DataStructsParser.SIN = 26;
+DataStructsParser.SQRT = 27;
+DataStructsParser.SUB = 28;
+DataStructsParser.TAN = 29;
 
-DataStructsParser.RULE_variable = 0;
-DataStructsParser.RULE_number = 1;
+DataStructsParser.RULE_func = 0;
+DataStructsParser.RULE_variable = 1;
+DataStructsParser.RULE_constant = 2;
+DataStructsParser.RULE_number = 3;
+
+function FuncContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = DataStructsParser.RULE_func;
+    return this;
+}
+
+FuncContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+FuncContext.prototype.constructor = FuncContext;
+
+FuncContext.prototype.SQRT = function() {
+    return this.getToken(DataStructsParser.SQRT, 0);
+};
+
+FuncContext.prototype.COS = function() {
+    return this.getToken(DataStructsParser.COS, 0);
+};
+
+FuncContext.prototype.SIN = function() {
+    return this.getToken(DataStructsParser.SIN, 0);
+};
+
+FuncContext.prototype.TAN = function() {
+    return this.getToken(DataStructsParser.TAN, 0);
+};
+
+FuncContext.prototype.ACOS = function() {
+    return this.getToken(DataStructsParser.ACOS, 0);
+};
+
+FuncContext.prototype.ASIN = function() {
+    return this.getToken(DataStructsParser.ASIN, 0);
+};
+
+FuncContext.prototype.ATAN = function() {
+    return this.getToken(DataStructsParser.ATAN, 0);
+};
+
+FuncContext.prototype.ABS = function() {
+    return this.getToken(DataStructsParser.ABS, 0);
+};
+
+FuncContext.prototype.INT = function() {
+    return this.getToken(DataStructsParser.INT, 0);
+};
+
+FuncContext.prototype.enterRule = function(listener) {
+    if(listener instanceof DataStructsListener ) {
+        listener.enterFunc(this);
+	}
+};
+
+FuncContext.prototype.exitRule = function(listener) {
+    if(listener instanceof DataStructsListener ) {
+        listener.exitFunc(this);
+	}
+};
+
+FuncContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof DataStructsVisitor ) {
+        return visitor.visitFunc(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+DataStructsParser.FuncContext = FuncContext;
+
+DataStructsParser.prototype.func = function() {
+
+    var localctx = new FuncContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 0, DataStructsParser.RULE_func);
+    var _la = 0; // Token type
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 8;
+        _la = this._input.LA(1);
+        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << DataStructsParser.ABS) | (1 << DataStructsParser.ACOS) | (1 << DataStructsParser.ASIN) | (1 << DataStructsParser.ATAN) | (1 << DataStructsParser.COS) | (1 << DataStructsParser.INT) | (1 << DataStructsParser.SIN) | (1 << DataStructsParser.SQRT) | (1 << DataStructsParser.TAN))) !== 0))) {
+        this._errHandler.recoverInline(this);
+        }
+        else {
+        	this._errHandler.reportMatch(this);
+            this.consume();
+        }
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
 
 function VariableContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -124,11 +254,78 @@ DataStructsParser.VariableContext = VariableContext;
 DataStructsParser.prototype.variable = function() {
 
     var localctx = new VariableContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 0, DataStructsParser.RULE_variable);
+    this.enterRule(localctx, 2, DataStructsParser.RULE_variable);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 4;
+        this.state = 10;
         this.match(DataStructsParser.ID);
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+function ConstantContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = DataStructsParser.RULE_constant;
+    return this;
+}
+
+ConstantContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+ConstantContext.prototype.constructor = ConstantContext;
+
+ConstantContext.prototype.PI = function() {
+    return this.getToken(DataStructsParser.PI, 0);
+};
+
+ConstantContext.prototype.enterRule = function(listener) {
+    if(listener instanceof DataStructsListener ) {
+        listener.enterConstant(this);
+	}
+};
+
+ConstantContext.prototype.exitRule = function(listener) {
+    if(listener instanceof DataStructsListener ) {
+        listener.exitConstant(this);
+	}
+};
+
+ConstantContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof DataStructsVisitor ) {
+        return visitor.visitConstant(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+DataStructsParser.ConstantContext = ConstantContext;
+
+DataStructsParser.prototype.constant = function() {
+
+    var localctx = new ConstantContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 4, DataStructsParser.RULE_constant);
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 12;
+        this.match(DataStructsParser.PI);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -203,33 +400,33 @@ DataStructsParser.NumberContext = NumberContext;
 DataStructsParser.prototype.number = function() {
 
     var localctx = new NumberContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 2, DataStructsParser.RULE_number);
+    this.enterRule(localctx, 6, DataStructsParser.RULE_number);
     try {
-        this.state = 12;
+        this.state = 20;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,0,this._ctx);
         switch(la_) {
         case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 6;
+            this.state = 14;
             this.match(DataStructsParser.UINT);
             break;
 
         case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 7;
+            this.state = 15;
             this.match(DataStructsParser.DOT);
-            this.state = 8;
+            this.state = 16;
             this.match(DataStructsParser.UINT);
             break;
 
         case 3:
             this.enterOuterAlt(localctx, 3);
-            this.state = 9;
+            this.state = 17;
             this.match(DataStructsParser.UINT);
-            this.state = 10;
+            this.state = 18;
             this.match(DataStructsParser.DOT);
-            this.state = 11;
+            this.state = 19;
             this.match(DataStructsParser.UINT);
             break;
 

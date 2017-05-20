@@ -12,8 +12,20 @@ function DataStructsVisitor() {
 DataStructsVisitor.prototype = Object.create(antlr4.tree.ParseTreeVisitor.prototype);
 DataStructsVisitor.prototype.constructor = DataStructsVisitor;
 
+// Visit a parse tree produced by DataStructsParser#func.
+DataStructsVisitor.prototype.visitFunc = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by DataStructsParser#variable.
 DataStructsVisitor.prototype.visitVariable = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by DataStructsParser#constant.
+DataStructsVisitor.prototype.visitConstant = function(ctx) {
   return this.visitChildren(ctx);
 };
 

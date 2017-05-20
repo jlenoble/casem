@@ -8,6 +8,20 @@ export const mixWithNumExprs = Interpreter => {
       }
     },
 
+    visitCompute (ctx) {
+      const f = this.visit(ctx.func())(this.visit(ctx.numExpr()));
+      const r = Math.round(f);
+      return Math.abs(f - r) < 1e-9 ? r : f;
+    },
+
+    visitConstEvaluate (ctx) {
+      const c = ctx.constant();
+
+      if (c.PI() !== null) {
+        return Math.PI;
+      }
+    },
+
     visitEvaluate (ctx) {
       return this.getVariable(ctx.variable().getText());
     },
@@ -24,9 +38,28 @@ export const mixWithNumExprs = Interpreter => {
       return -this.visit(ctx.numExpr());
     },
 
+    visitParens (ctx) {
+      return this.visit(ctx.numExpr());
+    },
+
     visitParse (ctx) {
       return parseFloat(ctx.number().getText(), 10);
     },
+
+    visitScalarMult (ctx) {
+      return this.visit(ctx.numExpr()) * this.visit(ctx.vectorExpr());
+    },
+  });
+};
+
+export const mixWithVectorExprs = Interpreter => {
+  mixWithNumExprs(Interpreter);
+
+  Object.assign(Interpreter.prototype, {
+    visitVCompute: Interpreter.prototype.visitCompute,
+    visitVConstEvaluate: Interpreter.prototype.visitConstEvaluate,
+    visitVEvaluate: Interpreter.prototype.visitVEvaluate,
+    visitVParens: Interpreter.prototype.visitVParens,
   });
 };
 
@@ -37,5 +70,5 @@ export const mixWithExprs = Interpreter => {
     },
   });
 
-  mixWithNumExprs(Interpreter);
+  mixWithVectorExprs(Interpreter);
 };

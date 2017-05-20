@@ -1,8 +1,19 @@
 grammar DataStructs;
 import CommonLexerRules, Keywords;
 
+func
+: SQRT
+| COS   | SIN   | TAN
+| ACOS  | ASIN  | ATAN
+| ABS   | INT
+;
+
 variable
 : ID
+;
+
+constant
+: PI
 ;
 
 number

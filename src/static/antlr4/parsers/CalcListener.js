@@ -110,6 +110,15 @@ CalcListener.prototype.exitBoolExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#compute.
+CalcListener.prototype.enterCompute = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#compute.
+CalcListener.prototype.exitCompute = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#add.
 CalcListener.prototype.enterAdd = function(ctx) {
 };
@@ -119,12 +128,39 @@ CalcListener.prototype.exitAdd = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#parens.
+CalcListener.prototype.enterParens = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#parens.
+CalcListener.prototype.exitParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#scalarMult.
+CalcListener.prototype.enterScalarMult = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#scalarMult.
+CalcListener.prototype.exitScalarMult = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#negate.
 CalcListener.prototype.enterNegate = function(ctx) {
 };
 
 // Exit a parse tree produced by CalcParser#negate.
 CalcListener.prototype.exitNegate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#constEvaluate.
+CalcListener.prototype.enterConstEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#constEvaluate.
+CalcListener.prototype.exitConstEvaluate = function(ctx) {
 };
 
 
@@ -164,6 +200,42 @@ CalcListener.prototype.exitStoExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#vParens.
+CalcListener.prototype.enterVParens = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#vParens.
+CalcListener.prototype.exitVParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#vCompute.
+CalcListener.prototype.enterVCompute = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#vCompute.
+CalcListener.prototype.exitVCompute = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#vEvaluate.
+CalcListener.prototype.enterVEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#vEvaluate.
+CalcListener.prototype.exitVEvaluate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#vConstEvaluate.
+CalcListener.prototype.enterVConstEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#vConstEvaluate.
+CalcListener.prototype.exitVConstEvaluate = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#compOp.
 CalcListener.prototype.enterCompOp = function(ctx) {
 };
@@ -191,12 +263,30 @@ CalcListener.prototype.exitAddOp = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#func.
+CalcListener.prototype.enterFunc = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#func.
+CalcListener.prototype.exitFunc = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#variable.
 CalcListener.prototype.enterVariable = function(ctx) {
 };
 
 // Exit a parse tree produced by CalcParser#variable.
 CalcListener.prototype.exitVariable = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#constant.
+CalcListener.prototype.enterConstant = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#constant.
+CalcListener.prototype.exitConstant = function(ctx) {
 };
 
 

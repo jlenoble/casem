@@ -18,14 +18,38 @@ ExprsVisitor.prototype.visitBoolExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by ExprsParser#compute.
+ExprsVisitor.prototype.visitCompute = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#add.
 ExprsVisitor.prototype.visitAdd = function(ctx) {
   return this.visitChildren(ctx);
 };
 
 
+// Visit a parse tree produced by ExprsParser#parens.
+ExprsVisitor.prototype.visitParens = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#scalarMult.
+ExprsVisitor.prototype.visitScalarMult = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#negate.
 ExprsVisitor.prototype.visitNegate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#constEvaluate.
+ExprsVisitor.prototype.visitConstEvaluate = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -54,6 +78,30 @@ ExprsVisitor.prototype.visitStoExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by ExprsParser#vParens.
+ExprsVisitor.prototype.visitVParens = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#vCompute.
+ExprsVisitor.prototype.visitVCompute = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#vEvaluate.
+ExprsVisitor.prototype.visitVEvaluate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#vConstEvaluate.
+ExprsVisitor.prototype.visitVConstEvaluate = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#compOp.
 ExprsVisitor.prototype.visitCompOp = function(ctx) {
   return this.visitChildren(ctx);
@@ -72,8 +120,20 @@ ExprsVisitor.prototype.visitAddOp = function(ctx) {
 };
 
 
+// Visit a parse tree produced by ExprsParser#func.
+ExprsVisitor.prototype.visitFunc = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#variable.
 ExprsVisitor.prototype.visitVariable = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#constant.
+ExprsVisitor.prototype.visitConstant = function(ctx) {
   return this.visitChildren(ctx);
 };
 

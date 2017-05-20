@@ -20,6 +20,15 @@ ExprsListener.prototype.exitBoolExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by ExprsParser#compute.
+ExprsListener.prototype.enterCompute = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#compute.
+ExprsListener.prototype.exitCompute = function(ctx) {
+};
+
+
 // Enter a parse tree produced by ExprsParser#add.
 ExprsListener.prototype.enterAdd = function(ctx) {
 };
@@ -29,12 +38,39 @@ ExprsListener.prototype.exitAdd = function(ctx) {
 };
 
 
+// Enter a parse tree produced by ExprsParser#parens.
+ExprsListener.prototype.enterParens = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#parens.
+ExprsListener.prototype.exitParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#scalarMult.
+ExprsListener.prototype.enterScalarMult = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#scalarMult.
+ExprsListener.prototype.exitScalarMult = function(ctx) {
+};
+
+
 // Enter a parse tree produced by ExprsParser#negate.
 ExprsListener.prototype.enterNegate = function(ctx) {
 };
 
 // Exit a parse tree produced by ExprsParser#negate.
 ExprsListener.prototype.exitNegate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#constEvaluate.
+ExprsListener.prototype.enterConstEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#constEvaluate.
+ExprsListener.prototype.exitConstEvaluate = function(ctx) {
 };
 
 
@@ -74,6 +110,42 @@ ExprsListener.prototype.exitStoExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by ExprsParser#vParens.
+ExprsListener.prototype.enterVParens = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#vParens.
+ExprsListener.prototype.exitVParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#vCompute.
+ExprsListener.prototype.enterVCompute = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#vCompute.
+ExprsListener.prototype.exitVCompute = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#vEvaluate.
+ExprsListener.prototype.enterVEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#vEvaluate.
+ExprsListener.prototype.exitVEvaluate = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#vConstEvaluate.
+ExprsListener.prototype.enterVConstEvaluate = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#vConstEvaluate.
+ExprsListener.prototype.exitVConstEvaluate = function(ctx) {
+};
+
+
 // Enter a parse tree produced by ExprsParser#compOp.
 ExprsListener.prototype.enterCompOp = function(ctx) {
 };
@@ -101,12 +173,30 @@ ExprsListener.prototype.exitAddOp = function(ctx) {
 };
 
 
+// Enter a parse tree produced by ExprsParser#func.
+ExprsListener.prototype.enterFunc = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#func.
+ExprsListener.prototype.exitFunc = function(ctx) {
+};
+
+
 // Enter a parse tree produced by ExprsParser#variable.
 ExprsListener.prototype.enterVariable = function(ctx) {
 };
 
 // Exit a parse tree produced by ExprsParser#variable.
 ExprsListener.prototype.exitVariable = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#constant.
+ExprsListener.prototype.enterConstant = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#constant.
+ExprsListener.prototype.exitConstant = function(ctx) {
 };
 
 
