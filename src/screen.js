@@ -19,6 +19,30 @@ class Row {
   }
 }
 
+export const toScreen = str => {
+  const rows = Array.isArray(str) ? str : str.split('\n');
+
+  let txt = '┏━━━━━━━━━━━━━━━━━━━━━┓\n';
+  let i = 0;
+
+  rows.forEach(row => {
+    txt += '┃' + (row.toString().replace(/(.*)(\n)$/, '$1') +
+      '                     ').slice(0, 21) + '┃\n';
+    i++;
+    if (i%8 === 0 && i !== rows.length) {
+      txt += '┠┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┨\n';
+    }
+  });
+
+  if (i%8 === 0) {
+    txt += '┗━━━━━━━━━━━━━━━━━━━━━┛\n';
+  } else {
+    txt += '┠┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┨\n';
+  }
+
+  return txt;
+};
+
 class Screen {
   constructor (width = 21, height = 8) {
     Object.defineProperties(this, {
@@ -45,18 +69,11 @@ class Screen {
   }
 
   clear () {
-    const r = this.rows;
-    const h = this.height;
-    const w = this.width;
-    r.length = 0;
+    this.rows.length = 0;
     this.offset = 0;
-
-    for (let i = 0; i < h; i++) {
-      r.push(new Row(w));
-    }
   }
 
-  print (txt) {
+  update (txt) {
     const r = this.rows;
     const w = this.width;
     const l = r.length;
@@ -71,14 +88,14 @@ class Screen {
       }
     }
 
-    this.printAt(1, o + 1, txt);
+    this.updateAt(1, o + 1, txt);
     o += ySpan;
   }
 
-  printAt (x, y, txt) {
+  updateAt (x, y, txt) {
     const _txt = txt.toString();
+    const w = this.width;
     const r = this.rows;
-    const s = r.length;
 
     let _x = this.preprocessCoord(x, w);
     let _y = this.preprocessCoord(y, this.height);
@@ -89,13 +106,21 @@ class Screen {
         _y += 1;
       }
 
-      if (_y >= s) {
+      if (_y >= r.length) {
         r.push(new Row(w));
       }
 
       this.set(_x + i, _y, _txt[i]);
     }
+  }
 
+  print (txt) {
+    this.update(txt);
+    console.log(this.toString());
+  }
+
+  printAt (x, y, txt) {
+    this.updateAt(x, y, txt);
     console.log(this.toString());
   }
 
@@ -118,24 +143,15 @@ class Screen {
   }
 
   toString () {
-    let txt = '┏━━━━━━━━━━━━━━━━━━━━━┓\n';
-    let i = 0;
-
-    this.rows.forEach(row => {
-      txt += '┃' + row.toString() + '┃\n';
-      i++;
-      if (i%8 === 0 && i !== this.rows.length) {
-        txt += '┠┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┨\n';
-      }
-    });
-
-    txt += '┗━━━━━━━━━━━━━━━━━━━━━┛\n';
-
-    return txt;
+    return toScreen(this.rows);
   }
 
   preprocessCoord (x, size) {
     return (x < 1 ? 1 : x > size ? size : x) - 1;
+  }
+
+  equals (txt) {
+    return this.toString() === toScreen(txt);
   }
 }
 

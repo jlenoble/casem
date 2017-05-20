@@ -29,12 +29,21 @@ StatsListener.prototype.exitAssignStat = function(ctx) {
 };
 
 
-// Enter a parse tree produced by StatsParser#printStat.
-StatsListener.prototype.enterPrintStat = function(ctx) {
+// Enter a parse tree produced by StatsParser#print.
+StatsListener.prototype.enterPrint = function(ctx) {
 };
 
-// Exit a parse tree produced by StatsParser#printStat.
-StatsListener.prototype.exitPrintStat = function(ctx) {
+// Exit a parse tree produced by StatsParser#print.
+StatsListener.prototype.exitPrint = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#printAt.
+StatsListener.prototype.enterPrintAt = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#printAt.
+StatsListener.prototype.exitPrintAt = function(ctx) {
 };
 
 

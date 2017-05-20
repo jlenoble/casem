@@ -24,8 +24,14 @@ StatsVisitor.prototype.visitAssignStat = function(ctx) {
 };
 
 
-// Visit a parse tree produced by StatsParser#printStat.
-StatsVisitor.prototype.visitPrintStat = function(ctx) {
+// Visit a parse tree produced by StatsParser#print.
+StatsVisitor.prototype.visitPrint = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#printAt.
+StatsVisitor.prototype.visitPrintAt = function(ctx) {
   return this.visitChildren(ctx);
 };
 

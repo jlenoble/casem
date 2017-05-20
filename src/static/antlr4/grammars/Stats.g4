@@ -12,8 +12,8 @@ assignStat
 ;
 
 printStat
-: STRING
-| LOCATE numExpr COMMA numExpr COMMA numExpr
+: STRING                                                # print
+| LOCATE numExpr COMMA numExpr COMMA (STRING|numExpr)   # printAt
 ;
 
 readStat

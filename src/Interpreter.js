@@ -2,6 +2,7 @@ import path from 'path';
 import readline from 'readline';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
+import Screen from './screen';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -18,6 +19,8 @@ export class Interpreter extends CalcVisitor {
     super(...args);
 
     const variables = {};
+    this.screen = new Screen();
+
     this.hasVariable = name => name in variables;
     this.getVariable = name => {
       if (!this.hasVariable(name)) {

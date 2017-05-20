@@ -1,4 +1,5 @@
 import {makeIOTest} from 'child-process-data';
+import {toScreen} from '../src/screen';
 
 describe('Testing Casem', function () {
   it('Testing Getkey loop', function () {
@@ -8,8 +9,8 @@ describe('Testing Casem', function () {
       waitForReady: 1000,
 
       messages: [
-        {o: 'Entering loop\n'},
-        {io: ['Hello', 'Leaving loop\n']},
+        {o: toScreen('Entering loop') + '\n'},
+        {io: ['Hello', toScreen('Leaving loop') + '\n']},
       ],
     });
 
@@ -22,9 +23,12 @@ describe('Testing Casem', function () {
       childProcessOptions: ['src/static/data/four-ops.txt'],
       waitForReady: 1000,
 
-      messages: [
-        {o: '9\n-3\n-1.5\n2\n'},
-      ],
+      messages: [{o:
+        toScreen('9') + '\n' +
+        toScreen('9\n-3') + '\n' +
+        toScreen('9\n-3\n-1.5') + '\n' +
+        toScreen('9\n-3\n-1.5\n2') + '\n',
+      }],
     });
 
     return test();

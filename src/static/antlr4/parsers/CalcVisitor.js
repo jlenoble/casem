@@ -48,8 +48,14 @@ CalcVisitor.prototype.visitAssignStat = function(ctx) {
 };
 
 
-// Visit a parse tree produced by CalcParser#printStat.
-CalcVisitor.prototype.visitPrintStat = function(ctx) {
+// Visit a parse tree produced by CalcParser#print.
+CalcVisitor.prototype.visitPrint = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#printAt.
+CalcVisitor.prototype.visitPrintAt = function(ctx) {
   return this.visitChildren(ctx);
 };
 
