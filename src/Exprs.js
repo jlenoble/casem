@@ -1,7 +1,7 @@
 export const mixWithNumExprs = Interpreter => {
   Object.assign(Interpreter.prototype, {
     visitAdd (ctx) {
-      if (ctx.addOp().ADD()) {
+      if (ctx.addOp().ADD() !== null) {
         return this.visit(ctx.numExpr(0)) + this.visit(ctx.numExpr(1));
       } else {
         return this.visit(ctx.numExpr(0)) - this.visit(ctx.numExpr(1));
@@ -13,7 +13,7 @@ export const mixWithNumExprs = Interpreter => {
     },
 
     visitMultiply (ctx) {
-      if (ctx.multOp().MUL()) {
+      if (ctx.multOp().MUL() !== null) {
         return this.visit(ctx.numExpr(0)) * this.visit(ctx.numExpr(1));
       } else {
         return this.visit(ctx.numExpr(0)) / this.visit(ctx.numExpr(1));
