@@ -10,7 +10,7 @@ describe('Testing Casem', function () {
 
       messages: [
         {o: toScreen('Entering loop') + '\n'},
-        {io: ['Hello', toScreen('Leaving loop') + '\n']},
+        {io: ['Hello', toScreen('Entering loop\nLeaving loop') + '\n']},
       ],
     });
 

@@ -89,7 +89,7 @@ class Screen {
     }
 
     this.updateAt(1, o + 1, txt);
-    o += ySpan;
+    this.offset += ySpan;
   }
 
   updateAt (x, y, txt) {
