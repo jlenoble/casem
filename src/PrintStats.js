@@ -1,8 +1,12 @@
+import Screen from './screen';
+
+const screen = new Screen();
+
 export const mixWithPrintStats = Interpreter => {
   Object.assign(Interpreter.prototype, {
     visitPrint (ctx) {
       let txt = ctx.STRING().getText().replace(/^"(.*)"$/, '$1');
-      this.screen.print(txt);
+      screen.print(txt);
     },
 
     visitPrintAt (ctx) {
@@ -16,7 +20,7 @@ export const mixWithPrintStats = Interpreter => {
         txt = this.visit(ctx.numExpr(2)).toString();
       }
 
-      this.screen.printAt(x, y, txt);
+      screen.printAt(x, y, txt);
     },
   });
 };

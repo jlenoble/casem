@@ -3,7 +3,6 @@ import readline from 'readline';
 import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
-import Screen from './screen';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -17,8 +16,6 @@ const {CalcVisitor} = require(path.join(base, rel, 'CalcVisitor'));
 export class Interpreter extends CalcVisitor {
   constructor (...args) {
     super(...args);
-
-    this.screen = new Screen();
 
     let currentKey = 0;
     this.getKey = () => {
