@@ -1,7 +1,11 @@
 import {mixWithPrintStats} from './PrintStats';
 
 export const mixWithStats = Interpreter => {
-  Object.assign(Interpreter.prototype, {
+  const proto = Interpreter.prototype;
+
+  proto.execStat = proto.visitChildren;
+
+  Object.assign(proto, {
     visitAssignStat (ctx) {
       this.setVariable(ctx.stoExpr().getText(), this.visit(ctx.numExpr()));
     },

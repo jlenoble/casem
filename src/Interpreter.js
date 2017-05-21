@@ -65,18 +65,11 @@ export class Interpreter extends CalcVisitor {
       setTimeout(flush, 0, resolve);
     };
 
-    // let statCounter = 0;
-    const execStat = ctx => {
-      // statCounter++;
-      // console.log(statCounter, ctx.getText());
-      this.visitChildren(ctx);
-    };
-
     this.queueStat = ctx => {
       if (statQueue.length) {
-        doQueue(() => execStat(ctx));
+        doQueue(() => this.execStat(ctx));
       } else {
-        execStat(ctx);
+        this.execStat(ctx);
       }
     };
 
