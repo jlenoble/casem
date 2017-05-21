@@ -3,6 +3,7 @@ import readline from 'readline';
 import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
+import Queue from './queue';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -36,38 +37,11 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitProg (ctx) {
-    let statQueue = [];
-
-    const doQueue = onResume => {
-      statQueue.push(onResume);
-    };
-
-    const flush = resolve => {
-       // Unqueuing may generate more postponed stats so we will use
-       // the reset main queue to register them while only flushing a copy
-      const queue = statQueue;
-      statQueue = [];
-
-      // Unqueue one postponed stat at a time until all are processed or
-      // one is newly postponed
-      while (!statQueue.length && queue.length) {
-        queue.shift()();
-      }
-
-      if (!queue.length && !statQueue.length) { // No stat left unprocessed
-        return resolve();
-      }
-
-      // **Prepend** new postponed stats to old ones
-      statQueue = statQueue.concat(queue);
-
-      // Flush again until promise is resolved
-      setTimeout(flush, 0, resolve);
-    };
+    const statQueue = new Queue();
 
     this.queueStat = ctx => {
       if (statQueue.length) {
-        doQueue(() => this.execStat(ctx));
+        statQueue.doQueue(() => this.execStat(ctx));
       } else {
         this.execStat(ctx);
       }
@@ -77,14 +51,14 @@ export class Interpreter extends CalcVisitor {
       this.visit(blockCtx);
 
       if (this.visit(boolExprCtx)) {
-        doQueue(() => this.repeatUntil(blockCtx, boolExprCtx));
+        statQueue.doQueue(() => this.repeatUntil(blockCtx, boolExprCtx));
       }
     };
 
     return new Promise((resolve, reject) => {
       try {
         super.visitProg(ctx);
-        flush(resolve);
+        statQueue.flush(resolve);
       } catch (err) {
         reject(err);
       }

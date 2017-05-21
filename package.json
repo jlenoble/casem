@@ -38,7 +38,7 @@
     "del": "*",
     "eslint-config-google": "*",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
-    "gulp-antlr4": "*",
+    "gulp-antlr4": "^0.3.2",
     "gulp-babel": "*",
     "gulp-eslint": "*",
     "gulp-mocha": "*",
