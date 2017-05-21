@@ -1,5 +1,22 @@
+const variables = {};
+
 export const mixWithNumExprs = Interpreter => {
   Object.assign(Interpreter.prototype, {
+    hasVariable (name) {
+      return name => name in variables;
+    },
+
+    getVariable (name) {
+      if (!this.hasVariable(name)) {
+        throw new ReferenceError(`Variable '${name}' is not initialized`);
+      }
+      return variables[name];
+    },
+
+    setVariable (name, value) {
+      variables[name] = value;
+    },
+
     visitAdd (ctx) {
       if (ctx.addOp().ADD() !== null) {
         return this.visit(ctx.numExpr(0)) + this.visit(ctx.numExpr(1));

@@ -18,19 +18,7 @@ export class Interpreter extends CalcVisitor {
   constructor (...args) {
     super(...args);
 
-    const variables = {};
     this.screen = new Screen();
-
-    this.hasVariable = name => name in variables;
-    this.getVariable = name => {
-      if (!this.hasVariable(name)) {
-        throw new ReferenceError(`Variable '${name}' is not initialized`);
-      }
-      return variables[name];
-    };
-    this.setVariable = (name, value) => {
-      variables[name] = value;
-    };
 
     let currentKey = 0;
     this.getKey = () => {
