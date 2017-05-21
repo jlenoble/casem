@@ -3,7 +3,7 @@ import readline from 'readline';
 import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
-import Queue from './queue';
+import File from './file';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -37,28 +37,25 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitProg (ctx) {
-    const statQueue = new Queue();
+    const main = new File('main', this);
 
-    this.queueStat = ctx => {
-      if (statQueue.length) {
-        statQueue.doQueue(() => this.execStat(ctx));
-      } else {
-        this.execStat(ctx);
-      }
+    this.getCurrentFile = function () {
+      return main;
     };
 
     this.repeatUntil = (blockCtx, boolExprCtx) => {
       this.visit(blockCtx);
 
       if (this.visit(boolExprCtx)) {
-        statQueue.doQueue(() => this.repeatUntil(blockCtx, boolExprCtx));
+        this.getCurrentFile().doQueue(() => this.repeatUntil(
+          blockCtx, boolExprCtx));
       }
     };
 
     return new Promise((resolve, reject) => {
       try {
         super.visitProg(ctx);
-        statQueue.flush(resolve);
+        this.getCurrentFile().flush(resolve);
       } catch (err) {
         reject(err);
       }
