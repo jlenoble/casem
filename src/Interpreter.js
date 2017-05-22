@@ -4,6 +4,7 @@ import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
 import File from './file';
+import {ForLoop} from './loop';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -51,13 +52,8 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitForStat (ctx) {
-    const start = this.visit(ctx.numExpr(0));
-    const end = this.visit(ctx.numExpr(1));
-    const step = ctx.numExpr(2) !== null ? this.visit(ctx.numExpr(2)) : 1;
-    const name = ctx.variable().getText();
-
-    this.setVariable(name, start);
-    this.forNext(ctx.blocks(), name, end, step);
+    const loop = new ForLoop(ctx, this);
+    loop.run();
   }
 
   visitIfStat (ctx) {
@@ -83,18 +79,6 @@ export class Interpreter extends CalcVisitor {
       if (this.visit(boolExprCtx)) {
         this.getCurrentFile().doQueue(() => this.repeatUntil(
           blocksCtx, boolExprCtx));
-      }
-    };
-
-    this.forNext = (blocksCtx, varName, end, step) => {
-      let i = this.getVariable(varName);
-
-      if (i <= end) {
-        this.visit(blocksCtx);
-        this.setVariable(varName, i + step);
-
-        this.getCurrentFile().doQueue(() => this.forNext(
-          blocksCtx, varName, end, step));
       }
     };
 
