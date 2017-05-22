@@ -1,0 +1,6 @@
+\For 1\->I \To 6
+\If I%2=0
+\Then \Locate 1,I,3*I
+\Else \Locate 1,I,-2*I
+\IfEnd
+\Next

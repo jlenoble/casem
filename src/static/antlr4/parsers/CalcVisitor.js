@@ -18,6 +18,12 @@ CalcVisitor.prototype.visitProg = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#blocks.
+CalcVisitor.prototype.visitBlocks = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#block.
 CalcVisitor.prototype.visitBlock = function(ctx) {
   return this.visitChildren(ctx);
@@ -30,8 +36,26 @@ CalcVisitor.prototype.visitBlockStat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#ifStat.
+CalcVisitor.prototype.visitIfStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#forStat.
+CalcVisitor.prototype.visitForStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#doStat.
 CalcVisitor.prototype.visitDoStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#whileStat.
+CalcVisitor.prototype.visitWhileStat = function(ctx) {
   return this.visitChildren(ctx);
 };
 

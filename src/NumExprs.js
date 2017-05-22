@@ -20,9 +20,8 @@ export const mixWithNumExprs = Interpreter => {
     visitAdd (ctx) {
       if (ctx.addOp().ADD() !== null) {
         return this.visit(ctx.numExpr(0)) + this.visit(ctx.numExpr(1));
-      } else {
-        return this.visit(ctx.numExpr(0)) - this.visit(ctx.numExpr(1));
       }
+      return this.visit(ctx.numExpr(0)) - this.visit(ctx.numExpr(1));
     },
 
     visitCompute (ctx) {
@@ -46,9 +45,11 @@ export const mixWithNumExprs = Interpreter => {
     visitMultiply (ctx) {
       if (ctx.multOp().MUL() !== null) {
         return this.visit(ctx.numExpr(0)) * this.visit(ctx.numExpr(1));
-      } else {
+      }
+      if (ctx.multOp().DIV() !== null) {
         return this.visit(ctx.numExpr(0)) / this.visit(ctx.numExpr(1));
       }
+      return this.visit(ctx.numExpr(0)) % this.visit(ctx.numExpr(1));
     },
 
     visitNegate (ctx) {

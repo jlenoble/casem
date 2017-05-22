@@ -35,6 +35,7 @@ compOp
 multOp
 : MUL
 | DIV
+| REMAIN
 ;
 
 addOp

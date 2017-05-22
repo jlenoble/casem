@@ -50,4 +50,23 @@ describe('Testing Casem', function () {
 
     return test();
   });
+
+  it('Testing If and For structures', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/if-for.txt'],
+      waitForReady: 1000,
+
+      messages: [{o:
+        toScreen('-2') + '\n' +
+        toScreen('-2\n6') + '\n' +
+        toScreen('-2\n6\n-6') + '\n' +
+        toScreen('-2\n6\n-6\n12') + '\n' +
+        toScreen('-2\n6\n-6\n12\n-10') + '\n' +
+        toScreen('-2\n6\n-6\n12\n-10\n18') + '\n',
+      }],
+    });
+
+    return test();
+  });
 });

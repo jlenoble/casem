@@ -20,6 +20,15 @@ CalcListener.prototype.exitProg = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#blocks.
+CalcListener.prototype.enterBlocks = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#blocks.
+CalcListener.prototype.exitBlocks = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#block.
 CalcListener.prototype.enterBlock = function(ctx) {
 };
@@ -38,12 +47,39 @@ CalcListener.prototype.exitBlockStat = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#ifStat.
+CalcListener.prototype.enterIfStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#ifStat.
+CalcListener.prototype.exitIfStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#forStat.
+CalcListener.prototype.enterForStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#forStat.
+CalcListener.prototype.exitForStat = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#doStat.
 CalcListener.prototype.enterDoStat = function(ctx) {
 };
 
 // Exit a parse tree produced by CalcParser#doStat.
 CalcListener.prototype.exitDoStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#whileStat.
+CalcListener.prototype.enterWhileStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#whileStat.
+CalcListener.prototype.exitWhileStat = function(ctx) {
 };
 
 

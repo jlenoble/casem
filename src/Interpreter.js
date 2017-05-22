@@ -33,7 +33,33 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitDoStat (ctx) {
-    this.repeatUntil(ctx.block(), ctx.boolExpr());
+    this.repeatUntil(ctx.blocks(), ctx.boolExpr());
+  }
+
+  visitWhileStat (ctx) {
+    console.log('WHILE');
+  }
+
+  visitForStat (ctx) {
+    const start = this.visit(ctx.numExpr(0));
+    const end = this.visit(ctx.numExpr(1));
+    const step = ctx.numExpr(2) !== null ? this.visit(ctx.numExpr(2)) : 1;
+    const name = ctx.variable().getText();
+
+    for (let i = start; i <= end; i += step) {
+      this.setVariable(name, i);
+      this.visit(ctx.blocks());
+    }
+  }
+
+  visitIfStat (ctx) {
+    if (this.visit(ctx.boolExpr())) {
+      this.visit(ctx.blocks(0));
+    } else {
+      if (ctx.ELSE()) {
+        this.visit(ctx.blocks(1));
+      }
+    }
   }
 
   visitProg (ctx) {
@@ -43,12 +69,12 @@ export class Interpreter extends CalcVisitor {
       return main;
     };
 
-    this.repeatUntil = (blockCtx, boolExprCtx) => {
-      this.visit(blockCtx);
+    this.repeatUntil = (blocksCtx, boolExprCtx) => {
+      this.visit(blocksCtx);
 
       if (this.visit(boolExprCtx)) {
         this.getCurrentFile().doQueue(() => this.repeatUntil(
-          blockCtx, boolExprCtx));
+          blocksCtx, boolExprCtx));
       }
     };
 
