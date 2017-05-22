@@ -239,7 +239,7 @@ ExprsLexer.DIV = 15;
 ExprsLexer.DO = 16;
 ExprsLexer.DOT = 17;
 ExprsLexer.ELSE = 18;
-ExprsLexer.EQUAL = 19;
+ExprsLexer.EQ = 19;
 ExprsLexer.FATARROW = 20;
 ExprsLexer.FOR = 21;
 ExprsLexer.GE = 22;
@@ -289,17 +289,17 @@ ExprsLexer.prototype.symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE",
                                        "ABS", "ACOS", "ADD", "ARROW", "ASIN", 
                                        "ATAN", "COLON", "COMMA", "COS", 
                                        "CPAR", "DIV", "DO", "DOT", "ELSE", 
-                                       "EQUAL", "FATARROW", "FOR", "GE", 
-                                       "GETKEY", "GT", "IF", "IFEND", "INT", 
-                                       "LE", "LOCATE", "LOOPWHILE", "LT", 
-                                       "REMAIN", "MUL", "NE", "NEXT", "OPAR", 
-                                       "PI", "SIN", "SQRT", "STEP", "SUB", 
-                                       "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
+                                       "EQ", "FATARROW", "FOR", "GE", "GETKEY", 
+                                       "GT", "IF", "IFEND", "INT", "LE", 
+                                       "LOCATE", "LOOPWHILE", "LT", "REMAIN", 
+                                       "MUL", "NE", "NEXT", "OPAR", "PI", 
+                                       "SIN", "SQRT", "STEP", "SUB", "TAN", 
+                                       "THEN", "TO", "WHILE", "WHILEEND" ];
 
 ExprsLexer.prototype.ruleNames = [ "ID", "UINT", "STRING", "NEWLINE", "ABS", 
                                    "ACOS", "ADD", "ARROW", "ASIN", "ATAN", 
                                    "COLON", "COMMA", "COS", "CPAR", "DIV", 
-                                   "DO", "DOT", "ELSE", "EQUAL", "FATARROW", 
+                                   "DO", "DOT", "ELSE", "EQ", "FATARROW", 
                                    "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
                                    "INT", "LE", "LOCATE", "LOOPWHILE", "LT", 
                                    "REMAIN", "MUL", "NE", "NEXT", "OPAR", 

@@ -239,7 +239,7 @@ CalcLexer.DIV = 15;
 CalcLexer.DO = 16;
 CalcLexer.DOT = 17;
 CalcLexer.ELSE = 18;
-CalcLexer.EQUAL = 19;
+CalcLexer.EQ = 19;
 CalcLexer.FATARROW = 20;
 CalcLexer.FOR = 21;
 CalcLexer.GE = 22;
@@ -288,7 +288,7 @@ CalcLexer.prototype.literalNames = [ null, null, null, null, null, "'\\Abs '",
 CalcLexer.prototype.symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", 
                                       "ABS", "ACOS", "ADD", "ARROW", "ASIN", 
                                       "ATAN", "COLON", "COMMA", "COS", "CPAR", 
-                                      "DIV", "DO", "DOT", "ELSE", "EQUAL", 
+                                      "DIV", "DO", "DOT", "ELSE", "EQ", 
                                       "FATARROW", "FOR", "GE", "GETKEY", 
                                       "GT", "IF", "IFEND", "INT", "LE", 
                                       "LOCATE", "LOOPWHILE", "LT", "REMAIN", 
@@ -299,7 +299,7 @@ CalcLexer.prototype.symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE",
 CalcLexer.prototype.ruleNames = [ "ID", "UINT", "STRING", "NEWLINE", "ABS", 
                                   "ACOS", "ADD", "ARROW", "ASIN", "ATAN", 
                                   "COLON", "COMMA", "COS", "CPAR", "DIV", 
-                                  "DO", "DOT", "ELSE", "EQUAL", "FATARROW", 
+                                  "DO", "DOT", "ELSE", "EQ", "FATARROW", 
                                   "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
                                   "INT", "LE", "LOCATE", "LOOPWHILE", "LT", 
                                   "REMAIN", "MUL", "NE", "NEXT", "OPAR", 

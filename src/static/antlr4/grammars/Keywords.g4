@@ -14,7 +14,7 @@ DIV       : '/';
 DO        : '\\Do';
 DOT       : '.';
 ELSE      : '\\Else ';
-EQUAL     : '=';
+EQ        : '=';
 FATARROW  : '\\=>';
 FOR       : '\\For ';
 GE        : '\\>=';

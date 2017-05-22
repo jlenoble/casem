@@ -43,11 +43,11 @@ var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '",
 
 var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
                       "ADD", "ARROW", "ASIN", "ATAN", "COLON", "COMMA", 
-                      "COS", "CPAR", "DIV", "DO", "DOT", "ELSE", "EQUAL", 
-                      "FATARROW", "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
-                      "INT", "LE", "LOCATE", "LOOPWHILE", "LT", "REMAIN", 
-                      "MUL", "NE", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
-                      "STEP", "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
+                      "COS", "CPAR", "DIV", "DO", "DOT", "ELSE", "EQ", "FATARROW", 
+                      "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", "INT", 
+                      "LE", "LOCATE", "LOOPWHILE", "LT", "REMAIN", "MUL", 
+                      "NE", "NEXT", "OPAR", "PI", "SIN", "SQRT", "STEP", 
+                      "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
 
 var ruleNames =  [ "func", "variable", "constant", "number" ];
 
@@ -88,7 +88,7 @@ DataStructsParser.DIV = 15;
 DataStructsParser.DO = 16;
 DataStructsParser.DOT = 17;
 DataStructsParser.ELSE = 18;
-DataStructsParser.EQUAL = 19;
+DataStructsParser.EQ = 19;
 DataStructsParser.FATARROW = 20;
 DataStructsParser.FOR = 21;
 DataStructsParser.GE = 22;

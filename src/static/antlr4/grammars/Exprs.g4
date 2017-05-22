@@ -29,7 +29,7 @@ vectorExpr
 ;
 
 compOp
-: EQUAL
+: EQ
 | NE
 | GT
 | GE

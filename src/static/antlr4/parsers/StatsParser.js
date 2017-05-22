@@ -102,11 +102,11 @@ var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '",
 
 var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
                       "ADD", "ARROW", "ASIN", "ATAN", "COLON", "COMMA", 
-                      "COS", "CPAR", "DIV", "DO", "DOT", "ELSE", "EQUAL", 
-                      "FATARROW", "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
-                      "INT", "LE", "LOCATE", "LOOPWHILE", "LT", "REMAIN", 
-                      "MUL", "NE", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
-                      "STEP", "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
+                      "COS", "CPAR", "DIV", "DO", "DOT", "ELSE", "EQ", "FATARROW", 
+                      "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", "INT", 
+                      "LE", "LOCATE", "LOOPWHILE", "LT", "REMAIN", "MUL", 
+                      "NE", "NEXT", "OPAR", "PI", "SIN", "SQRT", "STEP", 
+                      "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
 
 var ruleNames =  [ "stat", "assignStat", "printStat", "readStat", "implyStat", 
                    "endStat", "boolExpr", "numExpr", "stoExpr", "vectorExpr", 
@@ -150,7 +150,7 @@ StatsParser.DIV = 15;
 StatsParser.DO = 16;
 StatsParser.DOT = 17;
 StatsParser.ELSE = 18;
-StatsParser.EQUAL = 19;
+StatsParser.EQ = 19;
 StatsParser.FATARROW = 20;
 StatsParser.FOR = 21;
 StatsParser.GE = 22;
@@ -1750,8 +1750,8 @@ function CompOpContext(parser, parent, invokingState) {
 CompOpContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
 CompOpContext.prototype.constructor = CompOpContext;
 
-CompOpContext.prototype.EQUAL = function() {
-    return this.getToken(StatsParser.EQUAL, 0);
+CompOpContext.prototype.EQ = function() {
+    return this.getToken(StatsParser.EQ, 0);
 };
 
 CompOpContext.prototype.NE = function() {
@@ -1808,7 +1808,7 @@ StatsParser.prototype.compOp = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 113;
         _la = this._input.LA(1);
-        if(!(((((_la - 19)) & ~0x1f) == 0 && ((1 << (_la - 19)) & ((1 << (StatsParser.EQUAL - 19)) | (1 << (StatsParser.GE - 19)) | (1 << (StatsParser.GT - 19)) | (1 << (StatsParser.LE - 19)) | (1 << (StatsParser.LT - 19)) | (1 << (StatsParser.NE - 19)))) !== 0))) {
+        if(!(((((_la - 19)) & ~0x1f) == 0 && ((1 << (_la - 19)) & ((1 << (StatsParser.EQ - 19)) | (1 << (StatsParser.GE - 19)) | (1 << (StatsParser.GT - 19)) | (1 << (StatsParser.LE - 19)) | (1 << (StatsParser.LT - 19)) | (1 << (StatsParser.NE - 19)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {

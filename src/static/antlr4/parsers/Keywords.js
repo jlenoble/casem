@@ -208,7 +208,7 @@ Keywords.DIV = 11;
 Keywords.DO = 12;
 Keywords.DOT = 13;
 Keywords.ELSE = 14;
-Keywords.EQUAL = 15;
+Keywords.EQ = 15;
 Keywords.FATARROW = 16;
 Keywords.FOR = 17;
 Keywords.GE = 18;
@@ -256,7 +256,7 @@ Keywords.prototype.literalNames = [ null, "'\\Abs '", "'\\acos '", "'+'",
 Keywords.prototype.symbolicNames = [ null, "ABS", "ACOS", "ADD", "ARROW", 
                                      "ASIN", "ATAN", "COLON", "COMMA", "COS", 
                                      "CPAR", "DIV", "DO", "DOT", "ELSE", 
-                                     "EQUAL", "FATARROW", "FOR", "GE", "GETKEY", 
+                                     "EQ", "FATARROW", "FOR", "GE", "GETKEY", 
                                      "GT", "IF", "IFEND", "INT", "LE", "LOCATE", 
                                      "LOOPWHILE", "LT", "REMAIN", "MUL", 
                                      "NE", "NEXT", "OPAR", "PI", "SIN", 
@@ -265,7 +265,7 @@ Keywords.prototype.symbolicNames = [ null, "ABS", "ACOS", "ADD", "ARROW",
 
 Keywords.prototype.ruleNames = [ "ABS", "ACOS", "ADD", "ARROW", "ASIN", 
                                  "ATAN", "COLON", "COMMA", "COS", "CPAR", 
-                                 "DIV", "DO", "DOT", "ELSE", "EQUAL", "FATARROW", 
+                                 "DIV", "DO", "DOT", "ELSE", "EQ", "FATARROW", 
                                  "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
                                  "INT", "LE", "LOCATE", "LOOPWHILE", "LT", 
                                  "REMAIN", "MUL", "NE", "NEXT", "OPAR", 

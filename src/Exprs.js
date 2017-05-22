@@ -20,7 +20,7 @@ export const mixWithExprs = Interpreter => {
       const right = this.visit(ctx.numExpr(1));
       const operator = ctx.compOp();
 
-      if(operator.EQUAL() !== null) {
+      if(operator.EQ() !== null) {
         return left === right;
       }
       if(operator.NE() !== null) {

@@ -239,7 +239,7 @@ DataStructsLexer.DIV = 15;
 DataStructsLexer.DO = 16;
 DataStructsLexer.DOT = 17;
 DataStructsLexer.ELSE = 18;
-DataStructsLexer.EQUAL = 19;
+DataStructsLexer.EQ = 19;
 DataStructsLexer.FATARROW = 20;
 DataStructsLexer.FOR = 21;
 DataStructsLexer.GE = 22;
@@ -291,7 +291,7 @@ DataStructsLexer.prototype.symbolicNames = [ null, "ID", "UINT", "STRING",
                                              "NEWLINE", "ABS", "ACOS", "ADD", 
                                              "ARROW", "ASIN", "ATAN", "COLON", 
                                              "COMMA", "COS", "CPAR", "DIV", 
-                                             "DO", "DOT", "ELSE", "EQUAL", 
+                                             "DO", "DOT", "ELSE", "EQ", 
                                              "FATARROW", "FOR", "GE", "GETKEY", 
                                              "GT", "IF", "IFEND", "INT", 
                                              "LE", "LOCATE", "LOOPWHILE", 
@@ -304,7 +304,7 @@ DataStructsLexer.prototype.ruleNames = [ "ID", "UINT", "STRING", "NEWLINE",
                                          "ABS", "ACOS", "ADD", "ARROW", 
                                          "ASIN", "ATAN", "COLON", "COMMA", 
                                          "COS", "CPAR", "DIV", "DO", "DOT", 
-                                         "ELSE", "EQUAL", "FATARROW", "FOR", 
+                                         "ELSE", "EQ", "FATARROW", "FOR", 
                                          "GE", "GETKEY", "GT", "IF", "IFEND", 
                                          "INT", "LE", "LOCATE", "LOOPWHILE", 
                                          "LT", "REMAIN", "MUL", "NE", "NEXT", 
