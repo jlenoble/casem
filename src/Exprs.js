@@ -8,8 +8,8 @@ export const mixWithVectorExprs = Interpreter => {
   Object.assign(proto, {
     visitVCompute: proto.visitCompute,
     visitVConstEvaluate: proto.visitConstEvaluate,
-    visitVEvaluate: proto.visitVEvaluate,
-    visitVParens: proto.visitVParens,
+    visitVEvaluate: proto.visitEvaluate,
+    visitVParens: proto.visitParens,
   });
 };
 
