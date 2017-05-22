@@ -1,0 +1,13 @@
+\For 1\->I \To 6
+\Locate I,1,I
+\Next
+\Do
+\Locate I,1,I
+I+1\->I
+\LpWhile I<10
+I-1\->I
+I\->J
+\While J>0
+\Locate I-J+1,2,J
+J-1\->J
+\WhileEnd

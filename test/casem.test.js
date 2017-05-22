@@ -88,4 +88,35 @@ describe('Testing Casem', function () {
 
     return test();
   });
+
+  it('Successive loops', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/loops.txt'],
+      waitForReady: 1000,
+
+      messages: [{o:
+        toScreen('1') + '\n' +
+        toScreen('12') + '\n' +
+        toScreen('123') + '\n' +
+        toScreen('1234') + '\n' +
+        toScreen('12345') + '\n' +
+        toScreen('123456') + '\n' +
+        toScreen('1234567') + '\n' +
+        toScreen('12345678') + '\n' +
+        toScreen('123456789') + '\n' +
+        toScreen('123456789\n9') + '\n' +
+        toScreen('123456789\n98') + '\n' +
+        toScreen('123456789\n987') + '\n' +
+        toScreen('123456789\n9876') + '\n' +
+        toScreen('123456789\n98765') + '\n' +
+        toScreen('123456789\n987654') + '\n' +
+        toScreen('123456789\n9876543') + '\n' +
+        toScreen('123456789\n98765432') + '\n' +
+        toScreen('123456789\n987654321') + '\n',
+      }],
+    });
+
+    return test();
+  });
 });

@@ -32,12 +32,18 @@ export class Interpreter extends CalcVisitor {
     });
   }
 
+  visitBlockStat (ctx) {
+    this.getCurrentFile().queueStat(ctx);
+  }
+
   visitDoStat (ctx) {
     this.repeatUntil(ctx.blocks(), ctx.boolExpr());
   }
 
   visitWhileStat (ctx) {
-    console.log('WHILE');
+    while (this.visit(ctx.boolExpr())) {
+      this.visit(ctx.blocks());
+    }
   }
 
   visitForStat (ctx) {

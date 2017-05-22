@@ -106,7 +106,7 @@ class Screen {
         _y += 1;
       }
 
-      if (_y >= r.length) {
+      while (_y >= r.length) {
         r.push(new Row(w));
       }
 
