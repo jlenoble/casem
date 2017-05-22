@@ -56,6 +56,15 @@ StatsListener.prototype.exitReadStat = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#implyStat.
+StatsListener.prototype.enterImplyStat = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#implyStat.
+StatsListener.prototype.exitImplyStat = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#endStat.
 StatsListener.prototype.enterEndStat = function(ctx) {
 };

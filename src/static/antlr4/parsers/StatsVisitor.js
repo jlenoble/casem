@@ -42,6 +42,12 @@ StatsVisitor.prototype.visitReadStat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#implyStat.
+StatsVisitor.prototype.visitImplyStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#endStat.
 StatsVisitor.prototype.visitEndStat = function(ctx) {
   return this.visitChildren(ctx);

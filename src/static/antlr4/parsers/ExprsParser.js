@@ -7,7 +7,7 @@ var ExprsVisitor = require('./ExprsVisitor').ExprsVisitor;
 var grammarFileName = "Exprs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003*\\\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
+    "\u00030\\\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
     "\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004\b",
     "\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0003\u0002",
     "\u0003\u0002\u0003\u0002\u0003\u0002\u0003\u0003\u0003\u0003\u0003\u0003",
@@ -21,44 +21,45 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0003\u0007\u0003\u0007\u0003\b\u0003\b\u0003\t\u0003\t\u0003\n\u0003",
     "\n\u0003\u000b\u0003\u000b\u0003\f\u0003\f\u0003\f\u0003\f\u0003\f\u0003",
     "\f\u0005\fZ\n\f\u0003\f\u0002\u0003\u0004\r\u0002\u0004\u0006\b\n\f",
-    "\u000e\u0010\u0012\u0014\u0016\u0002\u0005\u0004\u0002\u0011\u0011\u001d",
-    "\u001e\u0004\u0002\t\t%%\b\u0002\u0007\b\u000b\f\u000f\u000f\u001a\u001a",
-    "\"#&&\u0002]\u0002\u0018\u0003\u0002\u0002\u0002\u0004)\u0003\u0002",
-    "\u0002\u0002\u0006:\u0003\u0002\u0002\u0002\bE\u0003\u0002\u0002\u0002",
-    "\nG\u0003\u0002\u0002\u0002\fI\u0003\u0002\u0002\u0002\u000eK\u0003",
-    "\u0002\u0002\u0002\u0010M\u0003\u0002\u0002\u0002\u0012O\u0003\u0002",
-    "\u0002\u0002\u0014Q\u0003\u0002\u0002\u0002\u0016Y\u0003\u0002\u0002",
-    "\u0002\u0018\u0019\u0005\u0004\u0003\u0002\u0019\u001a\u0005\n\u0006",
-    "\u0002\u001a\u001b\u0005\u0004\u0003\u0002\u001b\u0003\u0003\u0002\u0002",
-    "\u0002\u001c\u001d\b\u0003\u0001\u0002\u001d\u001e\u0007 \u0002\u0002",
-    "\u001e\u001f\u0005\u0004\u0003\u0002\u001f \u0007\u0010\u0002\u0002",
-    " *\u0003\u0002\u0002\u0002!\"\u0007%\u0002\u0002\"*\u0005\u0004\u0003",
-    "\n#$\u0005\u0010\t\u0002$%\u0005\u0004\u0003\t%*\u0003\u0002\u0002\u0002",
-    "&*\u0005\u0012\n\u0002\'*\u0005\u0014\u000b\u0002(*\u0005\u0016\f\u0002",
-    ")\u001c\u0003\u0002\u0002\u0002)!\u0003\u0002\u0002\u0002)#\u0003\u0002",
-    "\u0002\u0002)&\u0003\u0002\u0002\u0002)\'\u0003\u0002\u0002\u0002)(",
-    "\u0003\u0002\u0002\u0002*7\u0003\u0002\u0002\u0002+,\f\u0007\u0002\u0002",
-    ",-\u0005\f\u0007\u0002-.\u0005\u0004\u0003\b.6\u0003\u0002\u0002\u0002",
-    "/0\f\u0006\u0002\u000201\u0005\u000e\b\u000212\u0005\u0004\u0003\u0007",
-    "26\u0003\u0002\u0002\u000234\f\b\u0002\u000246\u0005\b\u0005\u00025",
-    "+\u0003\u0002\u0002\u00025/\u0003\u0002\u0002\u000253\u0003\u0002\u0002",
-    "\u000269\u0003\u0002\u0002\u000275\u0003\u0002\u0002\u000278\u0003\u0002",
-    "\u0002\u00028\u0005\u0003\u0002\u0002\u000297\u0003\u0002\u0002\u0002",
-    ":;\u0005\u0012\n\u0002;\u0007\u0003\u0002\u0002\u0002<=\u0007 \u0002",
-    "\u0002=>\u0005\u0004\u0003\u0002>?\u0007\u0010\u0002\u0002?F\u0003\u0002",
-    "\u0002\u0002@A\u0005\u0010\t\u0002AB\u0005\u0004\u0003\u0002BF\u0003",
-    "\u0002\u0002\u0002CF\u0005\u0012\n\u0002DF\u0005\u0014\u000b\u0002E",
-    "<\u0003\u0002\u0002\u0002E@\u0003\u0002\u0002\u0002EC\u0003\u0002\u0002",
-    "\u0002ED\u0003\u0002\u0002\u0002F\t\u0003\u0002\u0002\u0002GH\u0007",
-    "\u0015\u0002\u0002H\u000b\u0003\u0002\u0002\u0002IJ\t\u0002\u0002\u0002",
-    "J\r\u0003\u0002\u0002\u0002KL\t\u0003\u0002\u0002L\u000f\u0003\u0002",
-    "\u0002\u0002MN\t\u0004\u0002\u0002N\u0011\u0003\u0002\u0002\u0002OP",
-    "\u0007\u0003\u0002\u0002P\u0013\u0003\u0002\u0002\u0002QR\u0007!\u0002",
-    "\u0002R\u0015\u0003\u0002\u0002\u0002SZ\u0007\u0004\u0002\u0002TU\u0007",
-    "\u0013\u0002\u0002UZ\u0007\u0004\u0002\u0002VW\u0007\u0004\u0002\u0002",
-    "WX\u0007\u0013\u0002\u0002XZ\u0007\u0004\u0002\u0002YS\u0003\u0002\u0002",
-    "\u0002YT\u0003\u0002\u0002\u0002YV\u0003\u0002\u0002\u0002Z\u0017\u0003",
-    "\u0002\u0002\u0002\u0007)57EY"].join("");
+    "\u000e\u0010\u0012\u0014\u0016\u0002\u0006\b\u0002\u0015\u0015\u0018",
+    "\u0018\u001a\u001a\u001e\u001e!!$$\u0004\u0002\u0011\u0011\"#\u0004",
+    "\u0002\t\t++\b\u0002\u0007\b\u000b\f\u000f\u000f\u001d\u001d(),,\u0002",
+    "]\u0002\u0018\u0003\u0002\u0002\u0002\u0004)\u0003\u0002\u0002\u0002",
+    "\u0006:\u0003\u0002\u0002\u0002\bE\u0003\u0002\u0002\u0002\nG\u0003",
+    "\u0002\u0002\u0002\fI\u0003\u0002\u0002\u0002\u000eK\u0003\u0002\u0002",
+    "\u0002\u0010M\u0003\u0002\u0002\u0002\u0012O\u0003\u0002\u0002\u0002",
+    "\u0014Q\u0003\u0002\u0002\u0002\u0016Y\u0003\u0002\u0002\u0002\u0018",
+    "\u0019\u0005\u0004\u0003\u0002\u0019\u001a\u0005\n\u0006\u0002\u001a",
+    "\u001b\u0005\u0004\u0003\u0002\u001b\u0003\u0003\u0002\u0002\u0002\u001c",
+    "\u001d\b\u0003\u0001\u0002\u001d\u001e\u0007&\u0002\u0002\u001e\u001f",
+    "\u0005\u0004\u0003\u0002\u001f \u0007\u0010\u0002\u0002 *\u0003\u0002",
+    "\u0002\u0002!\"\u0007+\u0002\u0002\"*\u0005\u0004\u0003\n#$\u0005\u0010",
+    "\t\u0002$%\u0005\u0004\u0003\t%*\u0003\u0002\u0002\u0002&*\u0005\u0012",
+    "\n\u0002\'*\u0005\u0014\u000b\u0002(*\u0005\u0016\f\u0002)\u001c\u0003",
+    "\u0002\u0002\u0002)!\u0003\u0002\u0002\u0002)#\u0003\u0002\u0002\u0002",
+    ")&\u0003\u0002\u0002\u0002)\'\u0003\u0002\u0002\u0002)(\u0003\u0002",
+    "\u0002\u0002*7\u0003\u0002\u0002\u0002+,\f\u0007\u0002\u0002,-\u0005",
+    "\f\u0007\u0002-.\u0005\u0004\u0003\b.6\u0003\u0002\u0002\u0002/0\f\u0006",
+    "\u0002\u000201\u0005\u000e\b\u000212\u0005\u0004\u0003\u000726\u0003",
+    "\u0002\u0002\u000234\f\b\u0002\u000246\u0005\b\u0005\u00025+\u0003\u0002",
+    "\u0002\u00025/\u0003\u0002\u0002\u000253\u0003\u0002\u0002\u000269\u0003",
+    "\u0002\u0002\u000275\u0003\u0002\u0002\u000278\u0003\u0002\u0002\u0002",
+    "8\u0005\u0003\u0002\u0002\u000297\u0003\u0002\u0002\u0002:;\u0005\u0012",
+    "\n\u0002;\u0007\u0003\u0002\u0002\u0002<=\u0007&\u0002\u0002=>\u0005",
+    "\u0004\u0003\u0002>?\u0007\u0010\u0002\u0002?F\u0003\u0002\u0002\u0002",
+    "@A\u0005\u0010\t\u0002AB\u0005\u0004\u0003\u0002BF\u0003\u0002\u0002",
+    "\u0002CF\u0005\u0012\n\u0002DF\u0005\u0014\u000b\u0002E<\u0003\u0002",
+    "\u0002\u0002E@\u0003\u0002\u0002\u0002EC\u0003\u0002\u0002\u0002ED\u0003",
+    "\u0002\u0002\u0002F\t\u0003\u0002\u0002\u0002GH\t\u0002\u0002\u0002",
+    "H\u000b\u0003\u0002\u0002\u0002IJ\t\u0003\u0002\u0002J\r\u0003\u0002",
+    "\u0002\u0002KL\t\u0004\u0002\u0002L\u000f\u0003\u0002\u0002\u0002MN",
+    "\t\u0005\u0002\u0002N\u0011\u0003\u0002\u0002\u0002OP\u0007\u0003\u0002",
+    "\u0002P\u0013\u0003\u0002\u0002\u0002QR\u0007\'\u0002\u0002R\u0015\u0003",
+    "\u0002\u0002\u0002SZ\u0007\u0004\u0002\u0002TU\u0007\u0013\u0002\u0002",
+    "UZ\u0007\u0004\u0002\u0002VW\u0007\u0004\u0002\u0002WX\u0007\u0013\u0002",
+    "\u0002XZ\u0007\u0004\u0002\u0002YS\u0003\u0002\u0002\u0002YT\u0003\u0002",
+    "\u0002\u0002YV\u0003\u0002\u0002\u0002Z\u0017\u0003\u0002\u0002\u0002",
+    "\u0007)57EY"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -70,17 +71,19 @@ var sharedContextCache = new antlr4.PredictionContextCache();
 var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '", 
                      "'+'", "'\\->'", "'\\asin '", "'\\atan '", "':'", "','", 
                      "'\\cos '", "')'", "'/'", "'\\Do'", "'.'", "'\\Else '", 
-                     "'='", "'\\For '", "'\\Getkey'", "'\\If '", "'\\IfEnd'", 
-                     "'\\Int '", "'\\Locate '", "'\\LpWhile '", "'%'", "'*'", 
-                     "'\\Next'", "'('", "'\\Pi'", "'\\sin '", "'\\sqrt'", 
-                     "'\\Step '", "'-'", "'\\tan '", "'\\Then '", "' \\To '", 
-                     "'\\While '", "'\\WhileEnd'" ];
+                     "'='", "'\\=>'", "'\\For '", "'\\>='", "'\\Getkey'", 
+                     "'>'", "'\\If '", "'\\IfEnd'", "'\\Int '", "'\\<='", 
+                     "'\\Locate '", "'\\LpWhile '", "'<'", "'%'", "'*'", 
+                     "'\\<>'", "'\\Next'", "'('", "'\\Pi'", "'\\sin '", 
+                     "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", "'\\Then '", 
+                     "' \\To '", "'\\While '", "'\\WhileEnd'" ];
 
 var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
                       "ADD", "ARROW", "ASIN", "ATAN", "COLON", "COMMA", 
                       "COS", "CPAR", "DIV", "DO", "DOT", "ELSE", "EQUAL", 
-                      "FOR", "GETKEY", "IF", "IFEND", "INT", "LOCATE", "LOOPWHILE", 
-                      "REMAIN", "MUL", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
+                      "FATARROW", "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
+                      "INT", "LE", "LOCATE", "LOOPWHILE", "LT", "REMAIN", 
+                      "MUL", "NE", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
                       "STEP", "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
 
 var ruleNames =  [ "boolExpr", "numExpr", "stoExpr", "vectorExpr", "compOp", 
@@ -124,27 +127,33 @@ ExprsParser.DO = 16;
 ExprsParser.DOT = 17;
 ExprsParser.ELSE = 18;
 ExprsParser.EQUAL = 19;
-ExprsParser.FOR = 20;
-ExprsParser.GETKEY = 21;
-ExprsParser.IF = 22;
-ExprsParser.IFEND = 23;
-ExprsParser.INT = 24;
-ExprsParser.LOCATE = 25;
-ExprsParser.LOOPWHILE = 26;
-ExprsParser.REMAIN = 27;
-ExprsParser.MUL = 28;
-ExprsParser.NEXT = 29;
-ExprsParser.OPAR = 30;
-ExprsParser.PI = 31;
-ExprsParser.SIN = 32;
-ExprsParser.SQRT = 33;
-ExprsParser.STEP = 34;
-ExprsParser.SUB = 35;
-ExprsParser.TAN = 36;
-ExprsParser.THEN = 37;
-ExprsParser.TO = 38;
-ExprsParser.WHILE = 39;
-ExprsParser.WHILEEND = 40;
+ExprsParser.FATARROW = 20;
+ExprsParser.FOR = 21;
+ExprsParser.GE = 22;
+ExprsParser.GETKEY = 23;
+ExprsParser.GT = 24;
+ExprsParser.IF = 25;
+ExprsParser.IFEND = 26;
+ExprsParser.INT = 27;
+ExprsParser.LE = 28;
+ExprsParser.LOCATE = 29;
+ExprsParser.LOOPWHILE = 30;
+ExprsParser.LT = 31;
+ExprsParser.REMAIN = 32;
+ExprsParser.MUL = 33;
+ExprsParser.NE = 34;
+ExprsParser.NEXT = 35;
+ExprsParser.OPAR = 36;
+ExprsParser.PI = 37;
+ExprsParser.SIN = 38;
+ExprsParser.SQRT = 39;
+ExprsParser.STEP = 40;
+ExprsParser.SUB = 41;
+ExprsParser.TAN = 42;
+ExprsParser.THEN = 43;
+ExprsParser.TO = 44;
+ExprsParser.WHILE = 45;
+ExprsParser.WHILEEND = 46;
 
 ExprsParser.RULE_boolExpr = 0;
 ExprsParser.RULE_numExpr = 1;
@@ -1098,6 +1107,26 @@ CompOpContext.prototype.EQUAL = function() {
     return this.getToken(ExprsParser.EQUAL, 0);
 };
 
+CompOpContext.prototype.NE = function() {
+    return this.getToken(ExprsParser.NE, 0);
+};
+
+CompOpContext.prototype.GT = function() {
+    return this.getToken(ExprsParser.GT, 0);
+};
+
+CompOpContext.prototype.GE = function() {
+    return this.getToken(ExprsParser.GE, 0);
+};
+
+CompOpContext.prototype.LT = function() {
+    return this.getToken(ExprsParser.LT, 0);
+};
+
+CompOpContext.prototype.LE = function() {
+    return this.getToken(ExprsParser.LE, 0);
+};
+
 CompOpContext.prototype.enterRule = function(listener) {
     if(listener instanceof ExprsListener ) {
         listener.enterCompOp(this);
@@ -1127,10 +1156,18 @@ ExprsParser.prototype.compOp = function() {
 
     var localctx = new CompOpContext(this, this._ctx, this.state);
     this.enterRule(localctx, 8, ExprsParser.RULE_compOp);
+    var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
         this.state = 69;
-        this.match(ExprsParser.EQUAL);
+        _la = this._input.LA(1);
+        if(!(((((_la - 19)) & ~0x1f) == 0 && ((1 << (_la - 19)) & ((1 << (ExprsParser.EQUAL - 19)) | (1 << (ExprsParser.GE - 19)) | (1 << (ExprsParser.GT - 19)) | (1 << (ExprsParser.LE - 19)) | (1 << (ExprsParser.LT - 19)) | (1 << (ExprsParser.NE - 19)))) !== 0))) {
+        this._errHandler.recoverInline(this);
+        }
+        else {
+        	this._errHandler.reportMatch(this);
+            this.consume();
+        }
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -1207,7 +1244,7 @@ ExprsParser.prototype.multOp = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 71;
         _la = this._input.LA(1);
-        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << ExprsParser.DIV) | (1 << ExprsParser.REMAIN) | (1 << ExprsParser.MUL))) !== 0))) {
+        if(!(((((_la - 15)) & ~0x1f) == 0 && ((1 << (_la - 15)) & ((1 << (ExprsParser.DIV - 15)) | (1 << (ExprsParser.REMAIN - 15)) | (1 << (ExprsParser.MUL - 15)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -1393,7 +1430,7 @@ ExprsParser.prototype.func = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 75;
         _la = this._input.LA(1);
-        if(!(((((_la - 5)) & ~0x1f) == 0 && ((1 << (_la - 5)) & ((1 << (ExprsParser.ABS - 5)) | (1 << (ExprsParser.ACOS - 5)) | (1 << (ExprsParser.ASIN - 5)) | (1 << (ExprsParser.ATAN - 5)) | (1 << (ExprsParser.COS - 5)) | (1 << (ExprsParser.INT - 5)) | (1 << (ExprsParser.SIN - 5)) | (1 << (ExprsParser.SQRT - 5)) | (1 << (ExprsParser.TAN - 5)))) !== 0))) {
+        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << ExprsParser.ABS) | (1 << ExprsParser.ACOS) | (1 << ExprsParser.ASIN) | (1 << ExprsParser.ATAN) | (1 << ExprsParser.COS) | (1 << ExprsParser.INT))) !== 0) || ((((_la - 38)) & ~0x1f) == 0 && ((1 << (_la - 38)) & ((1 << (ExprsParser.SIN - 38)) | (1 << (ExprsParser.SQRT - 38)) | (1 << (ExprsParser.TAN - 38)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {

@@ -30,6 +30,11 @@ vectorExpr
 
 compOp
 : EQUAL
+| NE
+| GT
+| GE
+| LT
+| LE
 ;
 
 multOp

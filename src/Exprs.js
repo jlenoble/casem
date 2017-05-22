@@ -16,7 +16,26 @@ export const mixWithVectorExprs = Interpreter => {
 export const mixWithExprs = Interpreter => {
   Object.assign(Interpreter.prototype, {
     visitBoolExpr (ctx) {
-      return this.visit(ctx.numExpr(0)) === this.visit(ctx.numExpr(1));
+      const left = this.visit(ctx.numExpr(0));
+      const right = this.visit(ctx.numExpr(1));
+      const operator = ctx.compOp();
+
+      if(operator.EQUAL() !== null) {
+        return left === right;
+      }
+      if(operator.NE() !== null) {
+        return left !== right;
+      }
+      if(operator.GT() !== null) {
+        return left > right;
+      }
+      if(operator.GE() !== null) {
+        return left >= right;
+      }
+      if(operator.LT() !== null) {
+        return left < right;
+      }
+      return left <= right;
     },
   });
 

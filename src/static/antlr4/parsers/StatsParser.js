@@ -7,75 +7,81 @@ var StatsVisitor = require('./StatsVisitor').StatsVisitor;
 var grammarFileName = "Stats.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003*\u0081\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u00030\u0088\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004",
     "\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0004",
     "\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010\t\u0010\u0004",
-    "\u0011\t\u0011\u0003\u0002\u0003\u0002\u0003\u0002\u0005\u0002&\n\u0002",
-    "\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0004\u0003\u0004",
-    "\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004",
-    "\u0005\u00044\n\u0004\u0005\u00046\n\u0004\u0003\u0005\u0003\u0005\u0003",
-    "\u0005\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0007\u0003\u0007\u0003",
-    "\u0007\u0003\u0007\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003",
-    "\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0005\bO\n\b\u0003",
-    "\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003\b\u0003",
-    "\b\u0007\b[\n\b\f\b\u000e\b^\u000b\b\u0003\t\u0003\t\u0003\n\u0003\n",
-    "\u0003\n\u0003\n\u0003\n\u0003\n\u0003\n\u0003\n\u0003\n\u0005\nk\n",
-    "\n\u0003\u000b\u0003\u000b\u0003\f\u0003\f\u0003\r\u0003\r\u0003\u000e",
-    "\u0003\u000e\u0003\u000f\u0003\u000f\u0003\u0010\u0003\u0010\u0003\u0011",
-    "\u0003\u0011\u0003\u0011\u0003\u0011\u0003\u0011\u0003\u0011\u0005\u0011",
-    "\u007f\n\u0011\u0003\u0011\u0002\u0003\u000e\u0012\u0002\u0004\u0006",
-    "\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a\u001c\u001e \u0002",
-    "\u0006\u0004\u0002\u0006\u0006\r\r\u0004\u0002\u0011\u0011\u001d\u001e",
-    "\u0004\u0002\t\t%%\b\u0002\u0007\b\u000b\f\u000f\u000f\u001a\u001a\"",
-    "#&&\u0002\u0081\u0002%\u0003\u0002\u0002\u0002\u0004\'\u0003\u0002\u0002",
-    "\u0002\u00065\u0003\u0002\u0002\u0002\b7\u0003\u0002\u0002\u0002\n;",
-    "\u0003\u0002\u0002\u0002\f=\u0003\u0002\u0002\u0002\u000eN\u0003\u0002",
-    "\u0002\u0002\u0010_\u0003\u0002\u0002\u0002\u0012j\u0003\u0002\u0002",
-    "\u0002\u0014l\u0003\u0002\u0002\u0002\u0016n\u0003\u0002\u0002\u0002",
-    "\u0018p\u0003\u0002\u0002\u0002\u001ar\u0003\u0002\u0002\u0002\u001c",
-    "t\u0003\u0002\u0002\u0002\u001ev\u0003\u0002\u0002\u0002 ~\u0003\u0002",
-    "\u0002\u0002\"&\u0005\u0004\u0003\u0002#&\u0005\u0006\u0004\u0002$&",
-    "\u0005\b\u0005\u0002%\"\u0003\u0002\u0002\u0002%#\u0003\u0002\u0002",
-    "\u0002%$\u0003\u0002\u0002\u0002&\u0003\u0003\u0002\u0002\u0002\'(\u0005",
-    "\u000e\b\u0002()\u0007\n\u0002\u0002)*\u0005\u0010\t\u0002*\u0005\u0003",
-    "\u0002\u0002\u0002+6\u0007\u0005\u0002\u0002,-\u0007\u001b\u0002\u0002",
-    "-.\u0005\u000e\b\u0002./\u0007\u000e\u0002\u0002/0\u0005\u000e\b\u0002",
-    "03\u0007\u000e\u0002\u000214\u0007\u0005\u0002\u000224\u0005\u000e\b",
-    "\u000231\u0003\u0002\u0002\u000232\u0003\u0002\u0002\u000246\u0003\u0002",
-    "\u0002\u00025+\u0003\u0002\u0002\u00025,\u0003\u0002\u0002\u00026\u0007",
-    "\u0003\u0002\u0002\u000278\u0007\u0017\u0002\u000289\u0007\n\u0002\u0002",
-    "9:\u0005\u0010\t\u0002:\t\u0003\u0002\u0002\u0002;<\t\u0002\u0002\u0002",
-    "<\u000b\u0003\u0002\u0002\u0002=>\u0005\u000e\b\u0002>?\u0005\u0014",
-    "\u000b\u0002?@\u0005\u000e\b\u0002@\r\u0003\u0002\u0002\u0002AB\b\b",
-    "\u0001\u0002BC\u0007 \u0002\u0002CD\u0005\u000e\b\u0002DE\u0007\u0010",
-    "\u0002\u0002EO\u0003\u0002\u0002\u0002FG\u0007%\u0002\u0002GO\u0005",
-    "\u000e\b\nHI\u0005\u001a\u000e\u0002IJ\u0005\u000e\b\tJO\u0003\u0002",
-    "\u0002\u0002KO\u0005\u001c\u000f\u0002LO\u0005\u001e\u0010\u0002MO\u0005",
-    " \u0011\u0002NA\u0003\u0002\u0002\u0002NF\u0003\u0002\u0002\u0002NH",
-    "\u0003\u0002\u0002\u0002NK\u0003\u0002\u0002\u0002NL\u0003\u0002\u0002",
-    "\u0002NM\u0003\u0002\u0002\u0002O\\\u0003\u0002\u0002\u0002PQ\f\u0007",
-    "\u0002\u0002QR\u0005\u0016\f\u0002RS\u0005\u000e\b\bS[\u0003\u0002\u0002",
-    "\u0002TU\f\u0006\u0002\u0002UV\u0005\u0018\r\u0002VW\u0005\u000e\b\u0007",
-    "W[\u0003\u0002\u0002\u0002XY\f\b\u0002\u0002Y[\u0005\u0012\n\u0002Z",
-    "P\u0003\u0002\u0002\u0002ZT\u0003\u0002\u0002\u0002ZX\u0003\u0002\u0002",
-    "\u0002[^\u0003\u0002\u0002\u0002\\Z\u0003\u0002\u0002\u0002\\]\u0003",
-    "\u0002\u0002\u0002]\u000f\u0003\u0002\u0002\u0002^\\\u0003\u0002\u0002",
-    "\u0002_`\u0005\u001c\u000f\u0002`\u0011\u0003\u0002\u0002\u0002ab\u0007",
-    " \u0002\u0002bc\u0005\u000e\b\u0002cd\u0007\u0010\u0002\u0002dk\u0003",
-    "\u0002\u0002\u0002ef\u0005\u001a\u000e\u0002fg\u0005\u000e\b\u0002g",
-    "k\u0003\u0002\u0002\u0002hk\u0005\u001c\u000f\u0002ik\u0005\u001e\u0010",
-    "\u0002ja\u0003\u0002\u0002\u0002je\u0003\u0002\u0002\u0002jh\u0003\u0002",
-    "\u0002\u0002ji\u0003\u0002\u0002\u0002k\u0013\u0003\u0002\u0002\u0002",
-    "lm\u0007\u0015\u0002\u0002m\u0015\u0003\u0002\u0002\u0002no\t\u0003",
-    "\u0002\u0002o\u0017\u0003\u0002\u0002\u0002pq\t\u0004\u0002\u0002q\u0019",
-    "\u0003\u0002\u0002\u0002rs\t\u0005\u0002\u0002s\u001b\u0003\u0002\u0002",
-    "\u0002tu\u0007\u0003\u0002\u0002u\u001d\u0003\u0002\u0002\u0002vw\u0007",
-    "!\u0002\u0002w\u001f\u0003\u0002\u0002\u0002x\u007f\u0007\u0004\u0002",
-    "\u0002yz\u0007\u0013\u0002\u0002z\u007f\u0007\u0004\u0002\u0002{|\u0007",
-    "\u0004\u0002\u0002|}\u0007\u0013\u0002\u0002}\u007f\u0007\u0004\u0002",
-    "\u0002~x\u0003\u0002\u0002\u0002~y\u0003\u0002\u0002\u0002~{\u0003\u0002",
-    "\u0002\u0002\u007f!\u0003\u0002\u0002\u0002\n%35NZ\\j~"].join("");
+    "\u0011\t\u0011\u0004\u0012\t\u0012\u0003\u0002\u0003\u0002\u0003\u0002",
+    "\u0003\u0002\u0005\u0002)\n\u0002\u0003\u0003\u0003\u0003\u0003\u0003",
+    "\u0003\u0003\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004\u0003\u0004",
+    "\u0003\u0004\u0003\u0004\u0003\u0004\u0005\u00047\n\u0004\u0005\u0004",
+    "9\n\u0004\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0005\u0003\u0006",
+    "\u0003\u0006\u0003\u0006\u0003\u0006\u0003\u0007\u0003\u0007\u0003\b",
+    "\u0003\b\u0003\b\u0003\b\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003",
+    "\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0005\tV",
+    "\n\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t\u0003\t",
+    "\u0003\t\u0003\t\u0007\tb\n\t\f\t\u000e\te\u000b\t\u0003\n\u0003\n\u0003",
+    "\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003\u000b\u0003",
+    "\u000b\u0003\u000b\u0003\u000b\u0005\u000br\n\u000b\u0003\f\u0003\f",
+    "\u0003\r\u0003\r\u0003\u000e\u0003\u000e\u0003\u000f\u0003\u000f\u0003",
+    "\u0010\u0003\u0010\u0003\u0011\u0003\u0011\u0003\u0012\u0003\u0012\u0003",
+    "\u0012\u0003\u0012\u0003\u0012\u0003\u0012\u0005\u0012\u0086\n\u0012",
+    "\u0003\u0012\u0002\u0003\u0010\u0013\u0002\u0004\u0006\b\n\f\u000e\u0010",
+    "\u0012\u0014\u0016\u0018\u001a\u001c\u001e \"\u0002\u0007\u0004\u0002",
+    "\u0006\u0006\r\r\b\u0002\u0015\u0015\u0018\u0018\u001a\u001a\u001e\u001e",
+    "!!$$\u0004\u0002\u0011\u0011\"#\u0004\u0002\t\t++\b\u0002\u0007\b\u000b",
+    "\f\u000f\u000f\u001d\u001d(),,\u0002\u0088\u0002(\u0003\u0002\u0002",
+    "\u0002\u0004*\u0003\u0002\u0002\u0002\u00068\u0003\u0002\u0002\u0002",
+    "\b:\u0003\u0002\u0002\u0002\n>\u0003\u0002\u0002\u0002\fB\u0003\u0002",
+    "\u0002\u0002\u000eD\u0003\u0002\u0002\u0002\u0010U\u0003\u0002\u0002",
+    "\u0002\u0012f\u0003\u0002\u0002\u0002\u0014q\u0003\u0002\u0002\u0002",
+    "\u0016s\u0003\u0002\u0002\u0002\u0018u\u0003\u0002\u0002\u0002\u001a",
+    "w\u0003\u0002\u0002\u0002\u001cy\u0003\u0002\u0002\u0002\u001e{\u0003",
+    "\u0002\u0002\u0002 }\u0003\u0002\u0002\u0002\"\u0085\u0003\u0002\u0002",
+    "\u0002$)\u0005\u0004\u0003\u0002%)\u0005\u0006\u0004\u0002&)\u0005\b",
+    "\u0005\u0002\')\u0005\n\u0006\u0002($\u0003\u0002\u0002\u0002(%\u0003",
+    "\u0002\u0002\u0002(&\u0003\u0002\u0002\u0002(\'\u0003\u0002\u0002\u0002",
+    ")\u0003\u0003\u0002\u0002\u0002*+\u0005\u0010\t\u0002+,\u0007\n\u0002",
+    "\u0002,-\u0005\u0012\n\u0002-\u0005\u0003\u0002\u0002\u0002.9\u0007",
+    "\u0005\u0002\u0002/0\u0007\u001f\u0002\u000201\u0005\u0010\t\u00021",
+    "2\u0007\u000e\u0002\u000223\u0005\u0010\t\u000236\u0007\u000e\u0002",
+    "\u000247\u0007\u0005\u0002\u000257\u0005\u0010\t\u000264\u0003\u0002",
+    "\u0002\u000265\u0003\u0002\u0002\u000279\u0003\u0002\u0002\u00028.\u0003",
+    "\u0002\u0002\u00028/\u0003\u0002\u0002\u00029\u0007\u0003\u0002\u0002",
+    "\u0002:;\u0007\u0019\u0002\u0002;<\u0007\n\u0002\u0002<=\u0005\u0012",
+    "\n\u0002=\t\u0003\u0002\u0002\u0002>?\u0005\u000e\b\u0002?@\u0007\u0016",
+    "\u0002\u0002@A\u0005\u0002\u0002\u0002A\u000b\u0003\u0002\u0002\u0002",
+    "BC\t\u0002\u0002\u0002C\r\u0003\u0002\u0002\u0002DE\u0005\u0010\t\u0002",
+    "EF\u0005\u0016\f\u0002FG\u0005\u0010\t\u0002G\u000f\u0003\u0002\u0002",
+    "\u0002HI\b\t\u0001\u0002IJ\u0007&\u0002\u0002JK\u0005\u0010\t\u0002",
+    "KL\u0007\u0010\u0002\u0002LV\u0003\u0002\u0002\u0002MN\u0007+\u0002",
+    "\u0002NV\u0005\u0010\t\nOP\u0005\u001c\u000f\u0002PQ\u0005\u0010\t\t",
+    "QV\u0003\u0002\u0002\u0002RV\u0005\u001e\u0010\u0002SV\u0005 \u0011",
+    "\u0002TV\u0005\"\u0012\u0002UH\u0003\u0002\u0002\u0002UM\u0003\u0002",
+    "\u0002\u0002UO\u0003\u0002\u0002\u0002UR\u0003\u0002\u0002\u0002US\u0003",
+    "\u0002\u0002\u0002UT\u0003\u0002\u0002\u0002Vc\u0003\u0002\u0002\u0002",
+    "WX\f\u0007\u0002\u0002XY\u0005\u0018\r\u0002YZ\u0005\u0010\t\bZb\u0003",
+    "\u0002\u0002\u0002[\\\f\u0006\u0002\u0002\\]\u0005\u001a\u000e\u0002",
+    "]^\u0005\u0010\t\u0007^b\u0003\u0002\u0002\u0002_`\f\b\u0002\u0002`",
+    "b\u0005\u0014\u000b\u0002aW\u0003\u0002\u0002\u0002a[\u0003\u0002\u0002",
+    "\u0002a_\u0003\u0002\u0002\u0002be\u0003\u0002\u0002\u0002ca\u0003\u0002",
+    "\u0002\u0002cd\u0003\u0002\u0002\u0002d\u0011\u0003\u0002\u0002\u0002",
+    "ec\u0003\u0002\u0002\u0002fg\u0005\u001e\u0010\u0002g\u0013\u0003\u0002",
+    "\u0002\u0002hi\u0007&\u0002\u0002ij\u0005\u0010\t\u0002jk\u0007\u0010",
+    "\u0002\u0002kr\u0003\u0002\u0002\u0002lm\u0005\u001c\u000f\u0002mn\u0005",
+    "\u0010\t\u0002nr\u0003\u0002\u0002\u0002or\u0005\u001e\u0010\u0002p",
+    "r\u0005 \u0011\u0002qh\u0003\u0002\u0002\u0002ql\u0003\u0002\u0002\u0002",
+    "qo\u0003\u0002\u0002\u0002qp\u0003\u0002\u0002\u0002r\u0015\u0003\u0002",
+    "\u0002\u0002st\t\u0003\u0002\u0002t\u0017\u0003\u0002\u0002\u0002uv",
+    "\t\u0004\u0002\u0002v\u0019\u0003\u0002\u0002\u0002wx\t\u0005\u0002",
+    "\u0002x\u001b\u0003\u0002\u0002\u0002yz\t\u0006\u0002\u0002z\u001d\u0003",
+    "\u0002\u0002\u0002{|\u0007\u0003\u0002\u0002|\u001f\u0003\u0002\u0002",
+    "\u0002}~\u0007\'\u0002\u0002~!\u0003\u0002\u0002\u0002\u007f\u0086\u0007",
+    "\u0004\u0002\u0002\u0080\u0081\u0007\u0013\u0002\u0002\u0081\u0086\u0007",
+    "\u0004\u0002\u0002\u0082\u0083\u0007\u0004\u0002\u0002\u0083\u0084\u0007",
+    "\u0013\u0002\u0002\u0084\u0086\u0007\u0004\u0002\u0002\u0085\u007f\u0003",
+    "\u0002\u0002\u0002\u0085\u0080\u0003\u0002\u0002\u0002\u0085\u0082\u0003",
+    "\u0002\u0002\u0002\u0086#\u0003\u0002\u0002\u0002\n(68Uacq\u0085"].join("");
 
 
 var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
@@ -87,22 +93,25 @@ var sharedContextCache = new antlr4.PredictionContextCache();
 var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '", 
                      "'+'", "'\\->'", "'\\asin '", "'\\atan '", "':'", "','", 
                      "'\\cos '", "')'", "'/'", "'\\Do'", "'.'", "'\\Else '", 
-                     "'='", "'\\For '", "'\\Getkey'", "'\\If '", "'\\IfEnd'", 
-                     "'\\Int '", "'\\Locate '", "'\\LpWhile '", "'%'", "'*'", 
-                     "'\\Next'", "'('", "'\\Pi'", "'\\sin '", "'\\sqrt'", 
-                     "'\\Step '", "'-'", "'\\tan '", "'\\Then '", "' \\To '", 
-                     "'\\While '", "'\\WhileEnd'" ];
+                     "'='", "'\\=>'", "'\\For '", "'\\>='", "'\\Getkey'", 
+                     "'>'", "'\\If '", "'\\IfEnd'", "'\\Int '", "'\\<='", 
+                     "'\\Locate '", "'\\LpWhile '", "'<'", "'%'", "'*'", 
+                     "'\\<>'", "'\\Next'", "'('", "'\\Pi'", "'\\sin '", 
+                     "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", "'\\Then '", 
+                     "' \\To '", "'\\While '", "'\\WhileEnd'" ];
 
 var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
                       "ADD", "ARROW", "ASIN", "ATAN", "COLON", "COMMA", 
                       "COS", "CPAR", "DIV", "DO", "DOT", "ELSE", "EQUAL", 
-                      "FOR", "GETKEY", "IF", "IFEND", "INT", "LOCATE", "LOOPWHILE", 
-                      "REMAIN", "MUL", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
+                      "FATARROW", "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
+                      "INT", "LE", "LOCATE", "LOOPWHILE", "LT", "REMAIN", 
+                      "MUL", "NE", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
                       "STEP", "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
 
-var ruleNames =  [ "stat", "assignStat", "printStat", "readStat", "endStat", 
-                   "boolExpr", "numExpr", "stoExpr", "vectorExpr", "compOp", 
-                   "multOp", "addOp", "func", "variable", "constant", "number" ];
+var ruleNames =  [ "stat", "assignStat", "printStat", "readStat", "implyStat", 
+                   "endStat", "boolExpr", "numExpr", "stoExpr", "vectorExpr", 
+                   "compOp", "multOp", "addOp", "func", "variable", "constant", 
+                   "number" ];
 
 function StatsParser (input) {
 	antlr4.Parser.call(this, input);
@@ -142,44 +151,51 @@ StatsParser.DO = 16;
 StatsParser.DOT = 17;
 StatsParser.ELSE = 18;
 StatsParser.EQUAL = 19;
-StatsParser.FOR = 20;
-StatsParser.GETKEY = 21;
-StatsParser.IF = 22;
-StatsParser.IFEND = 23;
-StatsParser.INT = 24;
-StatsParser.LOCATE = 25;
-StatsParser.LOOPWHILE = 26;
-StatsParser.REMAIN = 27;
-StatsParser.MUL = 28;
-StatsParser.NEXT = 29;
-StatsParser.OPAR = 30;
-StatsParser.PI = 31;
-StatsParser.SIN = 32;
-StatsParser.SQRT = 33;
-StatsParser.STEP = 34;
-StatsParser.SUB = 35;
-StatsParser.TAN = 36;
-StatsParser.THEN = 37;
-StatsParser.TO = 38;
-StatsParser.WHILE = 39;
-StatsParser.WHILEEND = 40;
+StatsParser.FATARROW = 20;
+StatsParser.FOR = 21;
+StatsParser.GE = 22;
+StatsParser.GETKEY = 23;
+StatsParser.GT = 24;
+StatsParser.IF = 25;
+StatsParser.IFEND = 26;
+StatsParser.INT = 27;
+StatsParser.LE = 28;
+StatsParser.LOCATE = 29;
+StatsParser.LOOPWHILE = 30;
+StatsParser.LT = 31;
+StatsParser.REMAIN = 32;
+StatsParser.MUL = 33;
+StatsParser.NE = 34;
+StatsParser.NEXT = 35;
+StatsParser.OPAR = 36;
+StatsParser.PI = 37;
+StatsParser.SIN = 38;
+StatsParser.SQRT = 39;
+StatsParser.STEP = 40;
+StatsParser.SUB = 41;
+StatsParser.TAN = 42;
+StatsParser.THEN = 43;
+StatsParser.TO = 44;
+StatsParser.WHILE = 45;
+StatsParser.WHILEEND = 46;
 
 StatsParser.RULE_stat = 0;
 StatsParser.RULE_assignStat = 1;
 StatsParser.RULE_printStat = 2;
 StatsParser.RULE_readStat = 3;
-StatsParser.RULE_endStat = 4;
-StatsParser.RULE_boolExpr = 5;
-StatsParser.RULE_numExpr = 6;
-StatsParser.RULE_stoExpr = 7;
-StatsParser.RULE_vectorExpr = 8;
-StatsParser.RULE_compOp = 9;
-StatsParser.RULE_multOp = 10;
-StatsParser.RULE_addOp = 11;
-StatsParser.RULE_func = 12;
-StatsParser.RULE_variable = 13;
-StatsParser.RULE_constant = 14;
-StatsParser.RULE_number = 15;
+StatsParser.RULE_implyStat = 4;
+StatsParser.RULE_endStat = 5;
+StatsParser.RULE_boolExpr = 6;
+StatsParser.RULE_numExpr = 7;
+StatsParser.RULE_stoExpr = 8;
+StatsParser.RULE_vectorExpr = 9;
+StatsParser.RULE_compOp = 10;
+StatsParser.RULE_multOp = 11;
+StatsParser.RULE_addOp = 12;
+StatsParser.RULE_func = 13;
+StatsParser.RULE_variable = 14;
+StatsParser.RULE_constant = 15;
+StatsParser.RULE_number = 16;
 
 function StatContext(parser, parent, invokingState) {
 	if(parent===undefined) {
@@ -207,6 +223,10 @@ StatContext.prototype.printStat = function() {
 
 StatContext.prototype.readStat = function() {
     return this.getTypedRuleContext(ReadStatContext,0);
+};
+
+StatContext.prototype.implyStat = function() {
+    return this.getTypedRuleContext(ImplyStatContext,0);
 };
 
 StatContext.prototype.enterRule = function(listener) {
@@ -239,41 +259,34 @@ StatsParser.prototype.stat = function() {
     var localctx = new StatContext(this, this._ctx, this.state);
     this.enterRule(localctx, 0, StatsParser.RULE_stat);
     try {
-        this.state = 35;
+        this.state = 38;
         this._errHandler.sync(this);
-        switch(this._input.LA(1)) {
-        case StatsParser.ID:
-        case StatsParser.UINT:
-        case StatsParser.ABS:
-        case StatsParser.ACOS:
-        case StatsParser.ASIN:
-        case StatsParser.ATAN:
-        case StatsParser.COS:
-        case StatsParser.DOT:
-        case StatsParser.INT:
-        case StatsParser.OPAR:
-        case StatsParser.PI:
-        case StatsParser.SIN:
-        case StatsParser.SQRT:
-        case StatsParser.SUB:
-        case StatsParser.TAN:
+        var la_ = this._interp.adaptivePredict(this._input,0,this._ctx);
+        switch(la_) {
+        case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 32;
+            this.state = 34;
             this.assignStat();
             break;
-        case StatsParser.STRING:
-        case StatsParser.LOCATE:
+
+        case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 33;
+            this.state = 35;
             this.printStat();
             break;
-        case StatsParser.GETKEY:
+
+        case 3:
             this.enterOuterAlt(localctx, 3);
-            this.state = 34;
+            this.state = 36;
             this.readStat();
             break;
-        default:
-            throw new antlr4.error.NoViableAltException(this);
+
+        case 4:
+            this.enterOuterAlt(localctx, 4);
+            this.state = 37;
+            this.implyStat();
+            break;
+
         }
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -348,11 +361,11 @@ StatsParser.prototype.assignStat = function() {
     this.enterRule(localctx, 2, StatsParser.RULE_assignStat);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 37;
+        this.state = 40;
         this.numExpr(0);
-        this.state = 38;
+        this.state = 41;
         this.match(StatsParser.ARROW);
-        this.state = 39;
+        this.state = 42;
         this.stoExpr();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -496,33 +509,33 @@ StatsParser.prototype.printStat = function() {
     var localctx = new PrintStatContext(this, this._ctx, this.state);
     this.enterRule(localctx, 4, StatsParser.RULE_printStat);
     try {
-        this.state = 51;
+        this.state = 54;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case StatsParser.STRING:
             localctx = new PrintContext(this, localctx);
             this.enterOuterAlt(localctx, 1);
-            this.state = 41;
+            this.state = 44;
             this.match(StatsParser.STRING);
             break;
         case StatsParser.LOCATE:
             localctx = new PrintAtContext(this, localctx);
             this.enterOuterAlt(localctx, 2);
-            this.state = 42;
-            this.match(StatsParser.LOCATE);
-            this.state = 43;
-            this.numExpr(0);
-            this.state = 44;
-            this.match(StatsParser.COMMA);
             this.state = 45;
-            this.numExpr(0);
+            this.match(StatsParser.LOCATE);
             this.state = 46;
+            this.numExpr(0);
+            this.state = 47;
             this.match(StatsParser.COMMA);
+            this.state = 48;
+            this.numExpr(0);
             this.state = 49;
+            this.match(StatsParser.COMMA);
+            this.state = 52;
             this._errHandler.sync(this);
             switch(this._input.LA(1)) {
             case StatsParser.STRING:
-                this.state = 47;
+                this.state = 50;
                 this.match(StatsParser.STRING);
                 break;
             case StatsParser.ID:
@@ -540,7 +553,7 @@ StatsParser.prototype.printStat = function() {
             case StatsParser.SQRT:
             case StatsParser.SUB:
             case StatsParser.TAN:
-                this.state = 48;
+                this.state = 51;
                 this.numExpr(0);
                 break;
             default:
@@ -623,12 +636,91 @@ StatsParser.prototype.readStat = function() {
     this.enterRule(localctx, 6, StatsParser.RULE_readStat);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 53;
+        this.state = 56;
         this.match(StatsParser.GETKEY);
-        this.state = 54;
+        this.state = 57;
         this.match(StatsParser.ARROW);
-        this.state = 55;
+        this.state = 58;
         this.stoExpr();
+    } catch (re) {
+    	if(re instanceof antlr4.error.RecognitionException) {
+	        localctx.exception = re;
+	        this._errHandler.reportError(this, re);
+	        this._errHandler.recover(this, re);
+	    } else {
+	    	throw re;
+	    }
+    } finally {
+        this.exitRule();
+    }
+    return localctx;
+};
+
+function ImplyStatContext(parser, parent, invokingState) {
+	if(parent===undefined) {
+	    parent = null;
+	}
+	if(invokingState===undefined || invokingState===null) {
+		invokingState = -1;
+	}
+	antlr4.ParserRuleContext.call(this, parent, invokingState);
+    this.parser = parser;
+    this.ruleIndex = StatsParser.RULE_implyStat;
+    return this;
+}
+
+ImplyStatContext.prototype = Object.create(antlr4.ParserRuleContext.prototype);
+ImplyStatContext.prototype.constructor = ImplyStatContext;
+
+ImplyStatContext.prototype.boolExpr = function() {
+    return this.getTypedRuleContext(BoolExprContext,0);
+};
+
+ImplyStatContext.prototype.FATARROW = function() {
+    return this.getToken(StatsParser.FATARROW, 0);
+};
+
+ImplyStatContext.prototype.stat = function() {
+    return this.getTypedRuleContext(StatContext,0);
+};
+
+ImplyStatContext.prototype.enterRule = function(listener) {
+    if(listener instanceof StatsListener ) {
+        listener.enterImplyStat(this);
+	}
+};
+
+ImplyStatContext.prototype.exitRule = function(listener) {
+    if(listener instanceof StatsListener ) {
+        listener.exitImplyStat(this);
+	}
+};
+
+ImplyStatContext.prototype.accept = function(visitor) {
+    if ( visitor instanceof StatsVisitor ) {
+        return visitor.visitImplyStat(this);
+    } else {
+        return visitor.visitChildren(this);
+    }
+};
+
+
+
+
+StatsParser.ImplyStatContext = ImplyStatContext;
+
+StatsParser.prototype.implyStat = function() {
+
+    var localctx = new ImplyStatContext(this, this._ctx, this.state);
+    this.enterRule(localctx, 8, StatsParser.RULE_implyStat);
+    try {
+        this.enterOuterAlt(localctx, 1);
+        this.state = 60;
+        this.boolExpr();
+        this.state = 61;
+        this.match(StatsParser.FATARROW);
+        this.state = 62;
+        this.stat();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -695,11 +787,11 @@ StatsParser.EndStatContext = EndStatContext;
 StatsParser.prototype.endStat = function() {
 
     var localctx = new EndStatContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 8, StatsParser.RULE_endStat);
+    this.enterRule(localctx, 10, StatsParser.RULE_endStat);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 57;
+        this.state = 64;
         _la = this._input.LA(1);
         if(!(_la===StatsParser.NEWLINE || _la===StatsParser.COLON)) {
         this._errHandler.recoverInline(this);
@@ -781,14 +873,14 @@ StatsParser.BoolExprContext = BoolExprContext;
 StatsParser.prototype.boolExpr = function() {
 
     var localctx = new BoolExprContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 10, StatsParser.RULE_boolExpr);
+    this.enterRule(localctx, 12, StatsParser.RULE_boolExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 59;
+        this.state = 66;
         this.numExpr(0);
-        this.state = 60;
+        this.state = 67;
         this.compOp();
-        this.state = 61;
+        this.state = 68;
         this.numExpr(0);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1192,11 +1284,11 @@ StatsParser.prototype.numExpr = function(_p) {
     var _parentState = this.state;
     var localctx = new NumExprContext(this, this._ctx, _parentState);
     var _prevctx = localctx;
-    var _startState = 12;
-    this.enterRecursionRule(localctx, 12, StatsParser.RULE_numExpr, _p);
+    var _startState = 14;
+    this.enterRecursionRule(localctx, 14, StatsParser.RULE_numExpr, _p);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 76;
+        this.state = 83;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case StatsParser.OPAR:
@@ -1204,20 +1296,20 @@ StatsParser.prototype.numExpr = function(_p) {
             this._ctx = localctx;
             _prevctx = localctx;
 
-            this.state = 64;
+            this.state = 71;
             this.match(StatsParser.OPAR);
-            this.state = 65;
+            this.state = 72;
             this.numExpr(0);
-            this.state = 66;
+            this.state = 73;
             this.match(StatsParser.CPAR);
             break;
         case StatsParser.SUB:
             localctx = new NegateContext(this, localctx);
             this._ctx = localctx;
             _prevctx = localctx;
-            this.state = 68;
+            this.state = 75;
             this.match(StatsParser.SUB);
-            this.state = 69;
+            this.state = 76;
             this.numExpr(8);
             break;
         case StatsParser.ABS:
@@ -1232,23 +1324,23 @@ StatsParser.prototype.numExpr = function(_p) {
             localctx = new ComputeContext(this, localctx);
             this._ctx = localctx;
             _prevctx = localctx;
-            this.state = 70;
+            this.state = 77;
             this.func();
-            this.state = 71;
+            this.state = 78;
             this.numExpr(7);
             break;
         case StatsParser.ID:
             localctx = new EvaluateContext(this, localctx);
             this._ctx = localctx;
             _prevctx = localctx;
-            this.state = 73;
+            this.state = 80;
             this.variable();
             break;
         case StatsParser.PI:
             localctx = new ConstEvaluateContext(this, localctx);
             this._ctx = localctx;
             _prevctx = localctx;
-            this.state = 74;
+            this.state = 81;
             this.constant();
             break;
         case StatsParser.UINT:
@@ -1256,14 +1348,14 @@ StatsParser.prototype.numExpr = function(_p) {
             localctx = new ParseContext(this, localctx);
             this._ctx = localctx;
             _prevctx = localctx;
-            this.state = 75;
+            this.state = 82;
             this.number();
             break;
         default:
             throw new antlr4.error.NoViableAltException(this);
         }
         this._ctx.stop = this._input.LT(-1);
-        this.state = 90;
+        this.state = 97;
         this._errHandler.sync(this);
         var _alt = this._interp.adaptivePredict(this._input,5,this._ctx)
         while(_alt!=2 && _alt!=antlr4.atn.ATN.INVALID_ALT_NUMBER) {
@@ -1272,50 +1364,50 @@ StatsParser.prototype.numExpr = function(_p) {
                     this.triggerExitRuleEvent();
                 }
                 _prevctx = localctx;
-                this.state = 88;
+                this.state = 95;
                 this._errHandler.sync(this);
                 var la_ = this._interp.adaptivePredict(this._input,4,this._ctx);
                 switch(la_) {
                 case 1:
                     localctx = new MultiplyContext(this, new NumExprContext(this, _parentctx, _parentState));
                     this.pushNewRecursionContext(localctx, _startState, StatsParser.RULE_numExpr);
-                    this.state = 78;
+                    this.state = 85;
                     if (!( this.precpred(this._ctx, 5))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 5)");
                     }
-                    this.state = 79;
+                    this.state = 86;
                     this.multOp();
-                    this.state = 80;
+                    this.state = 87;
                     this.numExpr(6);
                     break;
 
                 case 2:
                     localctx = new AddContext(this, new NumExprContext(this, _parentctx, _parentState));
                     this.pushNewRecursionContext(localctx, _startState, StatsParser.RULE_numExpr);
-                    this.state = 82;
+                    this.state = 89;
                     if (!( this.precpred(this._ctx, 4))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 4)");
                     }
-                    this.state = 83;
+                    this.state = 90;
                     this.addOp();
-                    this.state = 84;
+                    this.state = 91;
                     this.numExpr(5);
                     break;
 
                 case 3:
                     localctx = new ScalarMultContext(this, new NumExprContext(this, _parentctx, _parentState));
                     this.pushNewRecursionContext(localctx, _startState, StatsParser.RULE_numExpr);
-                    this.state = 86;
+                    this.state = 93;
                     if (!( this.precpred(this._ctx, 6))) {
                         throw new antlr4.error.FailedPredicateException(this, "this.precpred(this._ctx, 6)");
                     }
-                    this.state = 87;
+                    this.state = 94;
                     this.vectorExpr();
                     break;
 
                 } 
             }
-            this.state = 92;
+            this.state = 99;
             this._errHandler.sync(this);
             _alt = this._interp.adaptivePredict(this._input,5,this._ctx);
         }
@@ -1382,10 +1474,10 @@ StatsParser.StoExprContext = StoExprContext;
 StatsParser.prototype.stoExpr = function() {
 
     var localctx = new StoExprContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 14, StatsParser.RULE_stoExpr);
+    this.enterRule(localctx, 16, StatsParser.RULE_stoExpr);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 93;
+        this.state = 100;
         this.variable();
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -1582,19 +1674,19 @@ StatsParser.VectorExprContext = VectorExprContext;
 StatsParser.prototype.vectorExpr = function() {
 
     var localctx = new VectorExprContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 16, StatsParser.RULE_vectorExpr);
+    this.enterRule(localctx, 18, StatsParser.RULE_vectorExpr);
     try {
-        this.state = 104;
+        this.state = 111;
         this._errHandler.sync(this);
         switch(this._input.LA(1)) {
         case StatsParser.OPAR:
             localctx = new VParensContext(this, localctx);
             this.enterOuterAlt(localctx, 1);
-            this.state = 95;
+            this.state = 102;
             this.match(StatsParser.OPAR);
-            this.state = 96;
+            this.state = 103;
             this.numExpr(0);
-            this.state = 97;
+            this.state = 104;
             this.match(StatsParser.CPAR);
             break;
         case StatsParser.ABS:
@@ -1608,21 +1700,21 @@ StatsParser.prototype.vectorExpr = function() {
         case StatsParser.TAN:
             localctx = new VComputeContext(this, localctx);
             this.enterOuterAlt(localctx, 2);
-            this.state = 99;
+            this.state = 106;
             this.func();
-            this.state = 100;
+            this.state = 107;
             this.numExpr(0);
             break;
         case StatsParser.ID:
             localctx = new VEvaluateContext(this, localctx);
             this.enterOuterAlt(localctx, 3);
-            this.state = 102;
+            this.state = 109;
             this.variable();
             break;
         case StatsParser.PI:
             localctx = new VConstEvaluateContext(this, localctx);
             this.enterOuterAlt(localctx, 4);
-            this.state = 103;
+            this.state = 110;
             this.constant();
             break;
         default:
@@ -1662,6 +1754,26 @@ CompOpContext.prototype.EQUAL = function() {
     return this.getToken(StatsParser.EQUAL, 0);
 };
 
+CompOpContext.prototype.NE = function() {
+    return this.getToken(StatsParser.NE, 0);
+};
+
+CompOpContext.prototype.GT = function() {
+    return this.getToken(StatsParser.GT, 0);
+};
+
+CompOpContext.prototype.GE = function() {
+    return this.getToken(StatsParser.GE, 0);
+};
+
+CompOpContext.prototype.LT = function() {
+    return this.getToken(StatsParser.LT, 0);
+};
+
+CompOpContext.prototype.LE = function() {
+    return this.getToken(StatsParser.LE, 0);
+};
+
 CompOpContext.prototype.enterRule = function(listener) {
     if(listener instanceof StatsListener ) {
         listener.enterCompOp(this);
@@ -1690,11 +1802,19 @@ StatsParser.CompOpContext = CompOpContext;
 StatsParser.prototype.compOp = function() {
 
     var localctx = new CompOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 18, StatsParser.RULE_compOp);
+    this.enterRule(localctx, 20, StatsParser.RULE_compOp);
+    var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 106;
-        this.match(StatsParser.EQUAL);
+        this.state = 113;
+        _la = this._input.LA(1);
+        if(!(((((_la - 19)) & ~0x1f) == 0 && ((1 << (_la - 19)) & ((1 << (StatsParser.EQUAL - 19)) | (1 << (StatsParser.GE - 19)) | (1 << (StatsParser.GT - 19)) | (1 << (StatsParser.LE - 19)) | (1 << (StatsParser.LT - 19)) | (1 << (StatsParser.NE - 19)))) !== 0))) {
+        this._errHandler.recoverInline(this);
+        }
+        else {
+        	this._errHandler.reportMatch(this);
+            this.consume();
+        }
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
 	        localctx.exception = re;
@@ -1765,13 +1885,13 @@ StatsParser.MultOpContext = MultOpContext;
 StatsParser.prototype.multOp = function() {
 
     var localctx = new MultOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 20, StatsParser.RULE_multOp);
+    this.enterRule(localctx, 22, StatsParser.RULE_multOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 108;
+        this.state = 115;
         _la = this._input.LA(1);
-        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << StatsParser.DIV) | (1 << StatsParser.REMAIN) | (1 << StatsParser.MUL))) !== 0))) {
+        if(!(((((_la - 15)) & ~0x1f) == 0 && ((1 << (_la - 15)) & ((1 << (StatsParser.DIV - 15)) | (1 << (StatsParser.REMAIN - 15)) | (1 << (StatsParser.MUL - 15)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -1844,11 +1964,11 @@ StatsParser.AddOpContext = AddOpContext;
 StatsParser.prototype.addOp = function() {
 
     var localctx = new AddOpContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 22, StatsParser.RULE_addOp);
+    this.enterRule(localctx, 24, StatsParser.RULE_addOp);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 110;
+        this.state = 117;
         _la = this._input.LA(1);
         if(!(_la===StatsParser.ADD || _la===StatsParser.SUB)) {
         this._errHandler.recoverInline(this);
@@ -1951,13 +2071,13 @@ StatsParser.FuncContext = FuncContext;
 StatsParser.prototype.func = function() {
 
     var localctx = new FuncContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 24, StatsParser.RULE_func);
+    this.enterRule(localctx, 26, StatsParser.RULE_func);
     var _la = 0; // Token type
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 112;
+        this.state = 119;
         _la = this._input.LA(1);
-        if(!(((((_la - 5)) & ~0x1f) == 0 && ((1 << (_la - 5)) & ((1 << (StatsParser.ABS - 5)) | (1 << (StatsParser.ACOS - 5)) | (1 << (StatsParser.ASIN - 5)) | (1 << (StatsParser.ATAN - 5)) | (1 << (StatsParser.COS - 5)) | (1 << (StatsParser.INT - 5)) | (1 << (StatsParser.SIN - 5)) | (1 << (StatsParser.SQRT - 5)) | (1 << (StatsParser.TAN - 5)))) !== 0))) {
+        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << StatsParser.ABS) | (1 << StatsParser.ACOS) | (1 << StatsParser.ASIN) | (1 << StatsParser.ATAN) | (1 << StatsParser.COS) | (1 << StatsParser.INT))) !== 0) || ((((_la - 38)) & ~0x1f) == 0 && ((1 << (_la - 38)) & ((1 << (StatsParser.SIN - 38)) | (1 << (StatsParser.SQRT - 38)) | (1 << (StatsParser.TAN - 38)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -2026,10 +2146,10 @@ StatsParser.VariableContext = VariableContext;
 StatsParser.prototype.variable = function() {
 
     var localctx = new VariableContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 26, StatsParser.RULE_variable);
+    this.enterRule(localctx, 28, StatsParser.RULE_variable);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 114;
+        this.state = 121;
         this.match(StatsParser.ID);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -2093,10 +2213,10 @@ StatsParser.ConstantContext = ConstantContext;
 StatsParser.prototype.constant = function() {
 
     var localctx = new ConstantContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 28, StatsParser.RULE_constant);
+    this.enterRule(localctx, 30, StatsParser.RULE_constant);
     try {
         this.enterOuterAlt(localctx, 1);
-        this.state = 116;
+        this.state = 123;
         this.match(StatsParser.PI);
     } catch (re) {
     	if(re instanceof antlr4.error.RecognitionException) {
@@ -2172,33 +2292,33 @@ StatsParser.NumberContext = NumberContext;
 StatsParser.prototype.number = function() {
 
     var localctx = new NumberContext(this, this._ctx, this.state);
-    this.enterRule(localctx, 30, StatsParser.RULE_number);
+    this.enterRule(localctx, 32, StatsParser.RULE_number);
     try {
-        this.state = 124;
+        this.state = 131;
         this._errHandler.sync(this);
         var la_ = this._interp.adaptivePredict(this._input,7,this._ctx);
         switch(la_) {
         case 1:
             this.enterOuterAlt(localctx, 1);
-            this.state = 118;
+            this.state = 125;
             this.match(StatsParser.UINT);
             break;
 
         case 2:
             this.enterOuterAlt(localctx, 2);
-            this.state = 119;
+            this.state = 126;
             this.match(StatsParser.DOT);
-            this.state = 120;
+            this.state = 127;
             this.match(StatsParser.UINT);
             break;
 
         case 3:
             this.enterOuterAlt(localctx, 3);
-            this.state = 121;
+            this.state = 128;
             this.match(StatsParser.UINT);
-            this.state = 122;
+            this.state = 129;
             this.match(StatsParser.DOT);
-            this.state = 123;
+            this.state = 130;
             this.match(StatsParser.UINT);
             break;
 
@@ -2220,7 +2340,7 @@ StatsParser.prototype.number = function() {
 
 StatsParser.prototype.sempred = function(localctx, ruleIndex, predIndex) {
 	switch(ruleIndex) {
-	case 6:
+	case 7:
 			return this.numExpr_sempred(localctx, predIndex);
     default:
         throw "No predicate with index:" + ruleIndex;

@@ -5,6 +5,7 @@ stat
 : assignStat
 | printStat
 | readStat
+| implyStat
 ;
 
 assignStat
@@ -18,6 +19,10 @@ printStat
 
 readStat
 : GETKEY ARROW stoExpr
+;
+
+implyStat
+: boolExpr FATARROW stat
 ;
 
 endStat

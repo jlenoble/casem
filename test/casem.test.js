@@ -69,4 +69,23 @@ describe('Testing Casem', function () {
 
     return test();
   });
+
+  it('Testing comparison operators', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/comparison.txt'],
+      waitForReady: 1000,
+
+      messages: [{o:
+        toScreen('1') + '\n' +
+        toScreen('12') + '\n' +
+        toScreen('123') + '\n' +
+        toScreen('1234') + '\n' +
+        toScreen('12345') + '\n' +
+        toScreen('123456') + '\n',
+      }],
+    });
+
+    return test();
+  });
 });

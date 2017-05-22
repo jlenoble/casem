@@ -90,6 +90,12 @@ CalcVisitor.prototype.visitReadStat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#implyStat.
+CalcVisitor.prototype.visitImplyStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#endStat.
 CalcVisitor.prototype.visitEndStat = function(ctx) {
   return this.visitChildren(ctx);

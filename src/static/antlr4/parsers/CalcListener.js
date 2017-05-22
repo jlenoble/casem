@@ -128,6 +128,15 @@ CalcListener.prototype.exitReadStat = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#implyStat.
+CalcListener.prototype.enterImplyStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#implyStat.
+CalcListener.prototype.exitImplyStat = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#endStat.
 CalcListener.prototype.enterEndStat = function(ctx) {
 };

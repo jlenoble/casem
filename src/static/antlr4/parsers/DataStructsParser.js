@@ -7,16 +7,16 @@ var DataStructsVisitor = require('./DataStructsVisitor').DataStructsVisitor;
 var grammarFileName = "DataStructs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003*\u0019\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u00030\u0019\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0003\u0002\u0003\u0002\u0003\u0003\u0003",
     "\u0003\u0003\u0004\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0005\u0003",
     "\u0005\u0003\u0005\u0003\u0005\u0005\u0005\u0017\n\u0005\u0003\u0005",
     "\u0002\u0002\u0006\u0002\u0004\u0006\b\u0002\u0003\b\u0002\u0007\b\u000b",
-    "\f\u000f\u000f\u001a\u001a\"#&&\u0002\u0016\u0002\n\u0003\u0002\u0002",
+    "\f\u000f\u000f\u001d\u001d(),,\u0002\u0016\u0002\n\u0003\u0002\u0002",
     "\u0002\u0004\f\u0003\u0002\u0002\u0002\u0006\u000e\u0003\u0002\u0002",
     "\u0002\b\u0016\u0003\u0002\u0002\u0002\n\u000b\t\u0002\u0002\u0002\u000b",
     "\u0003\u0003\u0002\u0002\u0002\f\r\u0007\u0003\u0002\u0002\r\u0005\u0003",
-    "\u0002\u0002\u0002\u000e\u000f\u0007!\u0002\u0002\u000f\u0007\u0003",
+    "\u0002\u0002\u0002\u000e\u000f\u0007\'\u0002\u0002\u000f\u0007\u0003",
     "\u0002\u0002\u0002\u0010\u0017\u0007\u0004\u0002\u0002\u0011\u0012\u0007",
     "\u0013\u0002\u0002\u0012\u0017\u0007\u0004\u0002\u0002\u0013\u0014\u0007",
     "\u0004\u0002\u0002\u0014\u0015\u0007\u0013\u0002\u0002\u0015\u0017\u0007",
@@ -34,17 +34,19 @@ var sharedContextCache = new antlr4.PredictionContextCache();
 var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '", 
                      "'+'", "'\\->'", "'\\asin '", "'\\atan '", "':'", "','", 
                      "'\\cos '", "')'", "'/'", "'\\Do'", "'.'", "'\\Else '", 
-                     "'='", "'\\For '", "'\\Getkey'", "'\\If '", "'\\IfEnd'", 
-                     "'\\Int '", "'\\Locate '", "'\\LpWhile '", "'%'", "'*'", 
-                     "'\\Next'", "'('", "'\\Pi'", "'\\sin '", "'\\sqrt'", 
-                     "'\\Step '", "'-'", "'\\tan '", "'\\Then '", "' \\To '", 
-                     "'\\While '", "'\\WhileEnd'" ];
+                     "'='", "'\\=>'", "'\\For '", "'\\>='", "'\\Getkey'", 
+                     "'>'", "'\\If '", "'\\IfEnd'", "'\\Int '", "'\\<='", 
+                     "'\\Locate '", "'\\LpWhile '", "'<'", "'%'", "'*'", 
+                     "'\\<>'", "'\\Next'", "'('", "'\\Pi'", "'\\sin '", 
+                     "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", "'\\Then '", 
+                     "' \\To '", "'\\While '", "'\\WhileEnd'" ];
 
 var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
                       "ADD", "ARROW", "ASIN", "ATAN", "COLON", "COMMA", 
                       "COS", "CPAR", "DIV", "DO", "DOT", "ELSE", "EQUAL", 
-                      "FOR", "GETKEY", "IF", "IFEND", "INT", "LOCATE", "LOOPWHILE", 
-                      "REMAIN", "MUL", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
+                      "FATARROW", "FOR", "GE", "GETKEY", "GT", "IF", "IFEND", 
+                      "INT", "LE", "LOCATE", "LOOPWHILE", "LT", "REMAIN", 
+                      "MUL", "NE", "NEXT", "OPAR", "PI", "SIN", "SQRT", 
                       "STEP", "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
 
 var ruleNames =  [ "func", "variable", "constant", "number" ];
@@ -87,27 +89,33 @@ DataStructsParser.DO = 16;
 DataStructsParser.DOT = 17;
 DataStructsParser.ELSE = 18;
 DataStructsParser.EQUAL = 19;
-DataStructsParser.FOR = 20;
-DataStructsParser.GETKEY = 21;
-DataStructsParser.IF = 22;
-DataStructsParser.IFEND = 23;
-DataStructsParser.INT = 24;
-DataStructsParser.LOCATE = 25;
-DataStructsParser.LOOPWHILE = 26;
-DataStructsParser.REMAIN = 27;
-DataStructsParser.MUL = 28;
-DataStructsParser.NEXT = 29;
-DataStructsParser.OPAR = 30;
-DataStructsParser.PI = 31;
-DataStructsParser.SIN = 32;
-DataStructsParser.SQRT = 33;
-DataStructsParser.STEP = 34;
-DataStructsParser.SUB = 35;
-DataStructsParser.TAN = 36;
-DataStructsParser.THEN = 37;
-DataStructsParser.TO = 38;
-DataStructsParser.WHILE = 39;
-DataStructsParser.WHILEEND = 40;
+DataStructsParser.FATARROW = 20;
+DataStructsParser.FOR = 21;
+DataStructsParser.GE = 22;
+DataStructsParser.GETKEY = 23;
+DataStructsParser.GT = 24;
+DataStructsParser.IF = 25;
+DataStructsParser.IFEND = 26;
+DataStructsParser.INT = 27;
+DataStructsParser.LE = 28;
+DataStructsParser.LOCATE = 29;
+DataStructsParser.LOOPWHILE = 30;
+DataStructsParser.LT = 31;
+DataStructsParser.REMAIN = 32;
+DataStructsParser.MUL = 33;
+DataStructsParser.NE = 34;
+DataStructsParser.NEXT = 35;
+DataStructsParser.OPAR = 36;
+DataStructsParser.PI = 37;
+DataStructsParser.SIN = 38;
+DataStructsParser.SQRT = 39;
+DataStructsParser.STEP = 40;
+DataStructsParser.SUB = 41;
+DataStructsParser.TAN = 42;
+DataStructsParser.THEN = 43;
+DataStructsParser.TO = 44;
+DataStructsParser.WHILE = 45;
+DataStructsParser.WHILEEND = 46;
 
 DataStructsParser.RULE_func = 0;
 DataStructsParser.RULE_variable = 1;
@@ -200,7 +208,7 @@ DataStructsParser.prototype.func = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 8;
         _la = this._input.LA(1);
-        if(!(((((_la - 5)) & ~0x1f) == 0 && ((1 << (_la - 5)) & ((1 << (DataStructsParser.ABS - 5)) | (1 << (DataStructsParser.ACOS - 5)) | (1 << (DataStructsParser.ASIN - 5)) | (1 << (DataStructsParser.ATAN - 5)) | (1 << (DataStructsParser.COS - 5)) | (1 << (DataStructsParser.INT - 5)) | (1 << (DataStructsParser.SIN - 5)) | (1 << (DataStructsParser.SQRT - 5)) | (1 << (DataStructsParser.TAN - 5)))) !== 0))) {
+        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << DataStructsParser.ABS) | (1 << DataStructsParser.ACOS) | (1 << DataStructsParser.ASIN) | (1 << DataStructsParser.ATAN) | (1 << DataStructsParser.COS) | (1 << DataStructsParser.INT))) !== 0) || ((((_la - 38)) & ~0x1f) == 0 && ((1 << (_la - 38)) & ((1 << (DataStructsParser.SIN - 38)) | (1 << (DataStructsParser.SQRT - 38)) | (1 << (DataStructsParser.TAN - 38)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
