@@ -3,50 +3,93 @@ import Block from './block';
 class Loop extends Block {
   constructor (ctx, visitor) {
     super(visitor);
+
+    Object.defineProperties(this, {
+      execBeforeCondition: {
+        value: function () {},
+        writable: true,
+      },
+
+      execBlock: {
+        value: function () {
+          visitor.visit(ctx.blocks());
+        },
+      },
+
+      execWithinCondition: {
+        value: function () {
+          this.execBlock();
+        },
+        writable: true,
+      },
+
+      init: {
+        value: function () {},
+        writable: true,
+      },
+
+      mustExec: {
+        value: function () {
+          return visitor.visit(ctx.boolExpr());
+        },
+        writable: true,
+      },
+
+      runOnceAndRepeat: {
+        value: function () {
+          this.execBeforeCondition();
+
+          if (this.mustExec()) {
+            this.execWithinCondition();
+
+            visitor.getCurrentFile().doQueue(() => this.runOnceAndRepeat());
+          }
+        },
+        writable: true,
+      },
+    });
+  }
+
+  run () {
+    this.init();
+    this.runOnceAndRepeat();
   }
 }
 
 export default Loop;
+export class WhileLoop extends Loop {}
 
 export class ForLoop extends Loop {
   constructor (ctx, visitor) {
     super(ctx, visitor);
 
     Object.defineProperties(this, {
-      start: {
-        value: visitor.visit(ctx.numExpr(0)),
-      },
-
-      end: {
-        value: visitor.visit(ctx.numExpr(1)),
-      },
-
-      step: {
-        value: ctx.numExpr(2) !== null ? visitor.visit(ctx.numExpr(2)) : 1,
-      },
-
-      varName: {
-        value: ctx.variable().getText(),
-      },
-
-      forNext: {
+      execWithinCondition: {
         value: function () {
-          let i = visitor.getVariable(this.varName);
+          this.execBlock();
+          visitor.setVariable(this.varName,
+            visitor.getVariable(this.varName) + this.step);
+        },
+      },
 
-          if (i <= this.end) {
-            visitor.visit(ctx.blocks());
-            visitor.setVariable(this.varName, i + this.step);
+      init: {
+        value: function () {
+          this.start = visitor.visit(ctx.numExpr(0));
+          this.end = visitor.visit(ctx.numExpr(1));
+          this.step = ctx.numExpr(2) !== null ?
+            visitor.visit(ctx.numExpr(2)) : 1;
+          this.varName = ctx.variable().getText();
 
-            visitor.getCurrentFile().doQueue(() => this.forNext());
-          }
+          visitor.setVariable(this.varName, this.start);
+        },
+      },
+
+      mustExec: {
+        value: function () {
+          return visitor.getVariable(this.varName) <= this.end;
         },
       },
     });
-  }
-
-  run () {
-    this.visitor.setVariable(this.varName, this.start);
-    this.forNext();
   }
 }
 
@@ -55,40 +98,15 @@ export class DoLoop extends Loop {
     super(ctx, visitor);
 
     Object.defineProperties(this, {
-      repeatUntil: {
+      execBeforeCondition: {
         value: function () {
-          visitor.visit(ctx.blocks());
-
-          if (visitor.visit(ctx.boolExpr())) {
-            visitor.getCurrentFile().doQueue(() => this.repeatUntil());
-          }
+          this.execBlock();
         },
       },
-    });
-  }
 
-  run () {
-    this.repeatUntil();
-  }
-}
-
-export class WhileLoop extends Loop {
-  constructor (ctx, visitor) {
-    super(ctx, visitor);
-
-    Object.defineProperties(this, {
-      whileLoop: {
-        value: function () {
-          if (visitor.visit(ctx.boolExpr())) {
-            visitor.visit(ctx.blocks());
-            visitor.getCurrentFile().doQueue(() => this.whileLoop());
-          }
-        },
+      execWithinCondition: {
+        value: function () {},
       },
     });
-  }
-
-  run () {
-    this.whileLoop();
   }
 }
