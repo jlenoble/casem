@@ -17,10 +17,6 @@ export const mixWithStats = Interpreter => {
     visitReadStat (ctx) {
       this.setVariable(ctx.stoExpr().getText(), this.getKey());
     },
-
-    visitStat (ctx) {
-      this.getCurrentFile().queueStat(ctx);
-    },
   });
 
   mixWithPrintStats(Interpreter);
