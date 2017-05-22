@@ -46,10 +46,8 @@ export class Interpreter extends CalcVisitor {
     const step = ctx.numExpr(2) !== null ? this.visit(ctx.numExpr(2)) : 1;
     const name = ctx.variable().getText();
 
-    for (let i = start; i <= end; i += step) {
-      this.setVariable(name, i);
-      this.visit(ctx.blocks());
-    }
+    this.setVariable(name, start);
+    this.forNext(ctx.blocks(), name, end, step);
   }
 
   visitIfStat (ctx) {
@@ -75,6 +73,18 @@ export class Interpreter extends CalcVisitor {
       if (this.visit(boolExprCtx)) {
         this.getCurrentFile().doQueue(() => this.repeatUntil(
           blocksCtx, boolExprCtx));
+      }
+    };
+
+    this.forNext = (blocksCtx, varName, end, step) => {
+      let i = this.getVariable(varName);
+
+      if (i <= end) {
+        this.visit(blocksCtx);
+        this.setVariable(varName, i + step);
+
+        this.getCurrentFile().doQueue(() => this.forNext(
+          blocksCtx, varName, end, step));
       }
     };
 
