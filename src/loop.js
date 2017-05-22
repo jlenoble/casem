@@ -49,3 +49,25 @@ export class ForLoop extends Loop {
     this.forNext();
   }
 }
+
+export class DoLoop extends Loop {
+  constructor (ctx, visitor) {
+    super(ctx, visitor);
+
+    Object.defineProperties(this, {
+      repeatUntil: {
+        value: function () {
+          visitor.visit(ctx.blocks());
+
+          if (visitor.visit(ctx.boolExpr())) {
+            visitor.getCurrentFile().doQueue(() => this.repeatUntil());
+          }
+        },
+      },
+    });
+  }
+
+  run () {
+    this.repeatUntil();
+  }
+}

@@ -4,7 +4,7 @@ import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
 import File from './file';
-import {ForLoop} from './loop';
+import {ForLoop, DoLoop} from './loop';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -42,7 +42,8 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitDoStat (ctx) {
-    this.repeatUntil(ctx.blocks(), ctx.boolExpr());
+    const loop = new DoLoop(ctx, this);
+    loop.run();
   }
 
   visitWhileStat (ctx) {
@@ -71,15 +72,6 @@ export class Interpreter extends CalcVisitor {
 
     this.getCurrentFile = function () {
       return main;
-    };
-
-    this.repeatUntil = (blocksCtx, boolExprCtx) => {
-      this.visit(blocksCtx);
-
-      if (this.visit(boolExprCtx)) {
-        this.getCurrentFile().doQueue(() => this.repeatUntil(
-          blocksCtx, boolExprCtx));
-      }
     };
 
     return new Promise((resolve, reject) => {
