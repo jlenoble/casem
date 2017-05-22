@@ -71,3 +71,24 @@ export class DoLoop extends Loop {
     this.repeatUntil();
   }
 }
+
+export class WhileLoop extends Loop {
+  constructor (ctx, visitor) {
+    super(ctx, visitor);
+
+    Object.defineProperties(this, {
+      whileLoop: {
+        value: function () {
+          if (visitor.visit(ctx.boolExpr())) {
+            visitor.visit(ctx.blocks());
+            visitor.getCurrentFile().doQueue(() => this.whileLoop());
+          }
+        },
+      },
+    });
+  }
+
+  run () {
+    this.whileLoop();
+  }
+}

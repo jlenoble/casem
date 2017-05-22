@@ -4,7 +4,7 @@ import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
 import File from './file';
-import {ForLoop, DoLoop} from './loop';
+import {ForLoop, DoLoop, WhileLoop} from './loop';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -47,9 +47,8 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitWhileStat (ctx) {
-    while (this.visit(ctx.boolExpr())) {
-      this.visit(ctx.blocks());
-    }
+    const loop = new WhileLoop(ctx, this);
+    loop.run();
   }
 
   visitForStat (ctx) {
