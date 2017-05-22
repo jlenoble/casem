@@ -3,8 +3,8 @@ import readline from 'readline';
 import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
+import {mixWithBlockStats} from './BlockStats';
 import File from './file';
-import {ForLoop, DoLoop, WhileLoop} from './loop';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -41,31 +41,6 @@ export class Interpreter extends CalcVisitor {
     this.getCurrentFile().queueStat(ctx);
   }
 
-  visitDoStat (ctx) {
-    const loop = new DoLoop(ctx, this);
-    loop.run();
-  }
-
-  visitWhileStat (ctx) {
-    const loop = new WhileLoop(ctx, this);
-    loop.run();
-  }
-
-  visitForStat (ctx) {
-    const loop = new ForLoop(ctx, this);
-    loop.run();
-  }
-
-  visitIfStat (ctx) {
-    if (this.visit(ctx.boolExpr())) {
-      this.visit(ctx.blocks(0));
-    } else {
-      if (ctx.ELSE()) {
-        this.visit(ctx.blocks(1));
-      }
-    }
-  }
-
   visitProg (ctx) {
     const main = new File('main', this);
 
@@ -87,3 +62,4 @@ export class Interpreter extends CalcVisitor {
 mixWithDataStructs(Interpreter);
 mixWithExprs(Interpreter);
 mixWithStats(Interpreter);
+mixWithBlockStats(Interpreter);
