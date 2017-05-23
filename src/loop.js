@@ -1,4 +1,4 @@
-import Block from './block';
+import Block, {getParentBlock} from './block';
 
 class Loop extends Block {
   constructor (ctx, visitor) {
@@ -37,13 +37,16 @@ class Loop extends Block {
 
       runOnceAndRepeat: {
         value: function () {
+          this.register();
           this.execBeforeCondition();
 
           if (this.mustExec()) {
             this.execWithinCondition();
 
-            visitor.getCurrentFile().doQueue(() => this.runOnceAndRepeat());
+            getParentBlock().doQueue(() => this.runOnceAndRepeat());
           }
+
+          this.unregister();
         },
         writable: true,
       },

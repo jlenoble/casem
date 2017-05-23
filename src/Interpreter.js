@@ -5,6 +5,7 @@ import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
 import {mixWithBlockStats} from './BlockStats';
 import File from './file';
+import {getCurrentBlock, flush} from './block';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -34,24 +35,21 @@ export class Interpreter extends CalcVisitor {
   }
 
   visitBlockStat (ctx) {
-    this.getCurrentFile().queueStat(ctx);
+    getCurrentBlock().queueStat(ctx);
   }
 
   visitStat (ctx) {
-    this.getCurrentFile().queueStat(ctx);
+    getCurrentBlock().queueStat(ctx);
   }
 
   visitProg (ctx) {
     const main = new File('main', this);
 
-    this.getCurrentFile = function () {
-      return main;
-    };
-
     return new Promise((resolve, reject) => {
       try {
+        main.register();
         super.visitProg(ctx);
-        this.getCurrentFile().flush(resolve);
+        flush(resolve);
       } catch (err) {
         reject(err);
       }
