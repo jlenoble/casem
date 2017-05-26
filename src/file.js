@@ -1,9 +1,5 @@
 import Block from './block';
 
-class File extends Block {
-  constructor (filename, visitor) {
-    super(visitor);
-  }
-}
+class File extends Block {}
 
 export default File;
