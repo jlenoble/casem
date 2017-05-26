@@ -4,7 +4,7 @@ import {toScreen} from '../src/screen';
 const waitForReady = 1000;
 
 describe('Testing Casem', function () {
-  it('Testing Getkey loop', function () {
+  /* it('Testing Getkey loop', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/getkey.txt'],
@@ -17,7 +17,7 @@ describe('Testing Casem', function () {
     });
 
     return test();
-  });
+  });*/
 
   it('Testing the four operations', function () {
     const test = makeIOTest({
@@ -53,7 +53,7 @@ describe('Testing Casem', function () {
     return test();
   });
 
-  it('Testing If and For structures', function () {
+  /* it('Testing If and For structures', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/if-for.txt'],
@@ -120,5 +120,5 @@ describe('Testing Casem', function () {
     });
 
     return test();
-  });
+  });*/
 });

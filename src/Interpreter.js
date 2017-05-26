@@ -34,14 +34,6 @@ export class Interpreter extends CalcVisitor {
     });
   }
 
-  visitBlockStat (ctx) {
-    getCurrentBlock().queueStat(ctx);
-  }
-
-  visitStat (ctx) {
-    getCurrentBlock().queueStat(ctx);
-  }
-
   visitProg (ctx) {
     const main = new File('main', this);
 
