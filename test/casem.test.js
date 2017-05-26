@@ -1,15 +1,17 @@
 import {makeIOTest} from 'child-process-data';
 import {toScreen} from '../src/screen';
 
+const waitForReady = 1000;
+
 describe('Testing Casem', function () {
   it('Testing Getkey loop', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/getkey.txt'],
-      waitForReady: 1000,
+      waitForReady,
 
       messages: [
-        {o: toScreen('Entering loop') + '\n'},
+        {o: '\n' + toScreen('Entering loop') + '\n'},
         {io: ['Hello', toScreen('Entering loop\nLeaving loop') + '\n']},
       ],
     });
@@ -21,10 +23,10 @@ describe('Testing Casem', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/four-ops.txt'],
-      waitForReady: 1000,
+      waitForReady,
 
       messages: [{o:
-        toScreen('9') + '\n' +
+        '\n' + toScreen('9') + '\n' +
         toScreen('9\n-3') + '\n' +
         toScreen('9\n-3\n-1.5') + '\n' +
         toScreen('9\n-3\n-1.5\n2') + '\n',
@@ -38,10 +40,10 @@ describe('Testing Casem', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/functions.txt'],
-      waitForReady: 1000,
+      waitForReady,
 
       messages: [{o:
-        toScreen('0') + '\n' +
+        '\n' + toScreen('0') + '\n' +
         toScreen('0\n18') + '\n' +
         toScreen('0\n18\n-4') + '\n' +
         toScreen('0\n18\n-4\n-2') + '\n',
@@ -55,10 +57,10 @@ describe('Testing Casem', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/if-for.txt'],
-      waitForReady: 1000,
+      waitForReady,
 
       messages: [{o:
-        toScreen('-2') + '\n' +
+        '\n' + toScreen('-2') + '\n' +
         toScreen('-2\n6') + '\n' +
         toScreen('-2\n6\n-6') + '\n' +
         toScreen('-2\n6\n-6\n12') + '\n' +
@@ -74,10 +76,10 @@ describe('Testing Casem', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/comparison.txt'],
-      waitForReady: 1000,
+      waitForReady,
 
       messages: [{o:
-        toScreen('1') + '\n' +
+        '\n' + toScreen('1') + '\n' +
         toScreen('12') + '\n' +
         toScreen('123') + '\n' +
         toScreen('1234') + '\n' +
@@ -93,10 +95,10 @@ describe('Testing Casem', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/loops.txt'],
-      waitForReady: 1000,
+      waitForReady,
 
       messages: [{o:
-        toScreen('1') + '\n' +
+        '\n' + toScreen('1') + '\n' +
         toScreen('12') + '\n' +
         toScreen('123') + '\n' +
         toScreen('1234') + '\n' +
