@@ -70,7 +70,7 @@ describe('Testing Casem', function () {
     });
 
     return test();
-  });
+  });*/
 
   it('Testing comparison operators', function () {
     const test = makeIOTest({
@@ -91,7 +91,7 @@ describe('Testing Casem', function () {
     return test();
   });
 
-  it('Successive loops', function () {
+  /* it('Successive loops', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/loops.txt'],

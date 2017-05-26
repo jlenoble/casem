@@ -10,3 +10,5 @@ I\>=4\=>\Locate 4,1,I
 I<6\=>\Locate 5,1,I
 6\->I
 I\<=6\=>\Locate 6,1,I
+7\->I
+I\<>7\=>\Locate 7,1,I

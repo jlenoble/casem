@@ -10,6 +10,14 @@ const visitor = new Interpreter();
 const stats = [];
 
 export class Translator extends CalcListener {
+  enterImplyStat (ctx) {
+
+  }
+
+  exitImplyStat (ctx) {
+
+  }
+
   exitProg (ctx) {
     setTimeout(() => {
       // Translator prints a random '\n'; This setTimeout makes sure it always
@@ -21,6 +29,15 @@ export class Translator extends CalcListener {
   }
 
   enterStat (ctx) {
-    stats.push(new Stat(ctx, visitor));
+    if (!this.isImplyStat) {
+      // Makes sure implied Stat won't be cached
+      stats.push(new Stat(ctx, visitor));
+    }
+
+    this.isImplyStat = ctx.implyStat() !== null;
+  }
+
+  exitStat (ctx) {
+    this.isImplyStat = false;
   }
 }
