@@ -1,7 +1,9 @@
 import path from 'path';
 import {Interpreter} from './Interpreter';
+import Block from './block';
 import File from './file';
 import Stat from './stat';
+import {ForStat, IfStat} from './block-stats';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
@@ -10,6 +12,30 @@ const {CalcListener} = require(path.join(base, rel, 'CalcListener'));
 const visitor = new Interpreter();
 
 export class Translator extends CalcListener {
+  enterBlock (ctx) {
+    this.currentBlock = new Block(ctx, visitor, this.currentBlock);
+  }
+
+  exitBlock (ctx) {
+    this.currentBlock = this.currentBlock.parent;
+  }
+
+  enterForStat (ctx) {
+    this.currentBlock = new ForStat(ctx, visitor, this.currentBlock);
+  }
+
+  exitForstat (ctx) {
+    this.currentBlock = this.currentBlock.parent;
+  }
+
+  enterIfStat (ctx) {
+    this.currentBlock = new IfStat(ctx, visitor, this.currentBlock);
+  }
+
+  exitIfstat (ctx) {
+    this.currentBlock = this.currentBlock.parent;
+  }
+
   enterProg (ctx) {
     this.currentBlock = new File(ctx, visitor);
   }

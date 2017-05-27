@@ -53,7 +53,7 @@ describe('Testing Casem', function () {
     return test();
   });
 
-  /* it('Testing If and For structures', function () {
+  it('Testing If and For structures', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/if-for.txt'],
@@ -70,7 +70,7 @@ describe('Testing Casem', function () {
     });
 
     return test();
-  });*/
+  });
 
   it('Testing comparison operators', function () {
     const test = makeIOTest({
