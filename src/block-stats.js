@@ -1,5 +1,13 @@
 import Block from './block';
 
+export class DoStat extends Block {
+  reduce () {
+    do {
+      super.reduce();
+    } while (this.visitor.visit(this.ctx.boolExpr()));
+  }
+}
+
 export class ForStat extends Block {
   constructor (ctx, visitor, parent) {
     super(ctx, visitor, parent);
@@ -46,6 +54,14 @@ export class IfStat extends Block {
       if (b2 !== undefined) {
         b2.reduce();
       }
+    }
+  }
+}
+
+export class WhileStat extends Block {
+  reduce () {
+    while (this.visitor.visit(this.ctx.boolExpr())) {
+      super.reduce();
     }
   }
 }

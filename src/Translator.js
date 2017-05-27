@@ -3,7 +3,7 @@ import {Interpreter} from './Interpreter';
 import Block from './block';
 import File from './file';
 import Stat from './stat';
-import {ForStat, IfStat} from './block-stats';
+import {DoStat, ForStat, IfStat, WhileStat} from './block-stats';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
@@ -20,11 +20,19 @@ export class Translator extends CalcListener {
     this.currentBlock = this.currentBlock.parent;
   }
 
+  enterDoStat (ctx) {
+    this.currentBlock = new DoStat(ctx, visitor, this.currentBlock);
+  }
+
+  exitDoStat (ctx) {
+    this.currentBlock = this.currentBlock.parent;
+  }
+
   enterForStat (ctx) {
     this.currentBlock = new ForStat(ctx, visitor, this.currentBlock);
   }
 
-  exitForstat (ctx) {
+  exitForStat (ctx) {
     this.currentBlock = this.currentBlock.parent;
   }
 
@@ -32,7 +40,7 @@ export class Translator extends CalcListener {
     this.currentBlock = new IfStat(ctx, visitor, this.currentBlock);
   }
 
-  exitIfstat (ctx) {
+  exitIfStat (ctx) {
     this.currentBlock = this.currentBlock.parent;
   }
 
@@ -58,5 +66,13 @@ export class Translator extends CalcListener {
 
   exitStat (ctx) {
     this.isImplyStat = false;
+  }
+
+  enterWhileStat (ctx) {
+    this.currentBlock = new WhileStat(ctx, visitor, this.currentBlock);
+  }
+
+  exitWhileStat (ctx) {
+    this.currentBlock = this.currentBlock.parent;
   }
 }
