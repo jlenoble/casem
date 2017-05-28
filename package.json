@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/jlenoble/casem#readme",
   "dependencies": {
-    "antlr4": "*"
+    "antlr4": "*",
+    "gulp-antlr4": "^0.3.3"
   },
   "devDependencies": {
     "autoreload-gulp": "*",
