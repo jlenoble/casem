@@ -25,7 +25,15 @@ class Block extends Stat {
   }
 
   reduce () {
-    this.queue.reduce();
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          resolve(this.queue.reduce());
+        } catch (err) {
+          reject(err);
+        }
+      });
+    });
   }
 }
 

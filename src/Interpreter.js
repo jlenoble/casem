@@ -3,9 +3,6 @@ import readline from 'readline';
 import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
-import {mixWithBlockStats} from './BlockStats';
-import File from './file';
-import {getCurrentBlock, flush} from './block';
 
 readline.emitKeypressEvents(process.stdin);
 if (process.stdin.isTTY) {
@@ -33,23 +30,8 @@ export class Interpreter extends CalcVisitor {
       }
     });
   }
-
-  visitProg (ctx) {
-    const main = new File('main', this);
-
-    return new Promise((resolve, reject) => {
-      try {
-        main.register();
-        super.visitProg(ctx);
-        flush(resolve);
-      } catch (err) {
-        reject(err);
-      }
-    });
-  }
 }
 
 mixWithDataStructs(Interpreter);
 mixWithExprs(Interpreter);
 mixWithStats(Interpreter);
-mixWithBlockStats(Interpreter);

@@ -2,9 +2,19 @@ import Block from './block';
 
 export class DoStat extends Block {
   reduce () {
-    do {
-      super.reduce();
-    } while (this.visitor.visit(this.ctx.boolExpr()));
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          resolve(super.reduce());
+        } catch(err) {
+          reject(err);
+        }
+      });
+    }).then(() => {
+      if (this.visitor.visit(this.ctx.boolExpr())) {
+        return this.reduce();
+      }
+    });
   }
 }
 
@@ -29,39 +39,73 @@ export class ForStat extends Block {
         value: ctx.variable().getText(),
       },
     });
+
+    this.i = this.start;
   }
 
   reduce () {
-    const {start, end, step, varName} = this;
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          this.visitor.setVariable(this.varName, this.i);
+          this.i += this.step;
+          resolve(super.reduce());
+        } catch(err) {
+          reject(err);
+        }
+      });
+    });
 
-    for (let i = start; i <= end; i += step) {
-      this.visitor.setVariable(varName, i);
-      super.reduce();
+    if (this.i !== this.end) {
+      return promise.then(() => {
+        return this.reduce();
+      });
+    } else {
+      this.visitor.setVariable(this.varName, this.i);
+      return promise.then(() => {
+        this.visitor.setVariable(this.varName, this.i);
+        this.i = this.start;
+      });
     }
-
-    this.visitor.setVariable(varName, this.visitor.getVariable(varName) +
-      step);
   }
 }
 
 export class IfStat extends Block {
   reduce () {
-    const [b1, b2] = this.queue.queue;
+    return new Promise((resolve, reject) => {
+      try {
+        const [b1, b2] = this.queue.queue;
 
-    if (this.visitor.visit(this.ctx.boolExpr())) {
-      b1.reduce();
-    } else {
-      if (b2 !== undefined) {
-        b2.reduce();
+        if (this.visitor.visit(this.ctx.boolExpr())) {
+          resolve(b1.reduce());
+        } else {
+          if (b2 !== undefined) {
+            resolve(b2.reduce());
+          }
+        }
+      } catch (err) {
+        reject(err);
       }
-    }
+    });
   }
 }
 
 export class WhileStat extends Block {
   reduce () {
-    while (this.visitor.visit(this.ctx.boolExpr())) {
-      super.reduce();
-    }
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        try {
+          if (this.visitor.visit(this.ctx.boolExpr())) {
+            resolve(super.reduce());
+          } else {
+            resolve();
+          }
+        } catch(err) {
+          reject(err);
+        }
+      });
+    }).then(res => {
+      return res !== undefined ? this.reduce() : Promise.resolve();
+    });
   }
 }

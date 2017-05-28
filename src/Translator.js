@@ -12,6 +12,20 @@ const {CalcListener} = require(path.join(base, rel, 'CalcListener'));
 const visitor = new Interpreter();
 
 export class Translator extends CalcListener {
+  constructor (resolve, reject) {
+    super();
+
+    Object.defineProperties(this, {
+      resolve: {
+        value: resolve || Promise.resolve,
+      },
+
+      reject: {
+        value: reject || Promise.reject,
+      },
+    });
+  }
+
   enterBlock (ctx) {
     this.currentBlock = new Block(ctx, visitor, this.currentBlock);
   }
@@ -52,7 +66,11 @@ export class Translator extends CalcListener {
     setTimeout(() => {
       // Translator prints a random '\n'; This setTimeout makes sure it always
       // appears before visitor starts printing, for reproducibility
-      this.currentBlock.reduce();
+      try {
+        this.resolve(this.currentBlock.reduce());
+      } catch (err) {
+        this.reject(err);
+      }
     });
   }
 

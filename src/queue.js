@@ -23,9 +23,19 @@ class Queue {
   }
 
   reduce () {
-    this.queue.forEach(stat => {
-      stat.reduce();
-    });
+    return this.queue.reduce((promise, stat) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          promise.then(() => {
+            try {
+              resolve(stat.reduce());
+            } catch (err) {
+              reject(err);
+            }
+          });
+        });
+      });
+    }, Promise.resolve());
   }
 }
 

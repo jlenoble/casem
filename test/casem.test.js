@@ -4,20 +4,20 @@ import {toScreen} from '../src/screen';
 const waitForReady = 1000;
 
 describe('Testing Casem', function () {
-  /* it('Testing Getkey loop', function () {
+  it('Testing Getkey loop', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/getkey.txt'],
       waitForReady,
 
       messages: [
-        {o: '\n' + toScreen('Entering loop') + '\n'},
+        {o: toScreen('Entering loop') + '\n'},
         {io: ['Hello', toScreen('Entering loop\nLeaving loop') + '\n']},
       ],
     });
 
     return test();
-  });*/
+  });
 
   it('Testing the four operations', function () {
     const test = makeIOTest({
@@ -26,7 +26,7 @@ describe('Testing Casem', function () {
       waitForReady,
 
       messages: [{o:
-        '\n' + toScreen('9') + '\n' +
+        toScreen('9') + '\n' +
         toScreen('9\n-3') + '\n' +
         toScreen('9\n-3\n-1.5') + '\n' +
         toScreen('9\n-3\n-1.5\n2') + '\n',
@@ -43,7 +43,7 @@ describe('Testing Casem', function () {
       waitForReady,
 
       messages: [{o:
-        '\n' + toScreen('0') + '\n' +
+        toScreen('0') + '\n' +
         toScreen('0\n18') + '\n' +
         toScreen('0\n18\n-4') + '\n' +
         toScreen('0\n18\n-4\n-2') + '\n',
@@ -60,7 +60,7 @@ describe('Testing Casem', function () {
       waitForReady,
 
       messages: [{o:
-        '\n' + toScreen('-2') + '\n' +
+        toScreen('-2') + '\n' +
         toScreen('-2\n6') + '\n' +
         toScreen('-2\n6\n-6') + '\n' +
         toScreen('-2\n6\n-6\n12') + '\n' +
@@ -79,7 +79,7 @@ describe('Testing Casem', function () {
       waitForReady,
 
       messages: [{o:
-        '\n' + toScreen('1') + '\n' +
+        toScreen('1') + '\n' +
         toScreen('12') + '\n' +
         toScreen('123') + '\n' +
         toScreen('1234') + '\n' +
@@ -98,7 +98,7 @@ describe('Testing Casem', function () {
       waitForReady,
 
       messages: [{o:
-        '\n' + toScreen('1') + '\n' +
+        toScreen('1') + '\n' +
         toScreen('12') + '\n' +
         toScreen('123') + '\n' +
         toScreen('1234') + '\n' +
