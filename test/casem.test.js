@@ -121,4 +121,29 @@ describe('Testing Casem', function () {
 
     return test();
   });
+
+  it('Nested loops', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/nested-loops.txt'],
+      waitForReady: 1000,
+
+      messages: [{o:
+        toScreen('111') + '\n' +
+        toScreen('111\n211') + '\n' +
+        toScreen('111\n211\n121') + '\n' +
+        toScreen('111\n211\n121\n221') + '\n' +
+        toScreen('111 112\n211\n121\n221') + '\n' +
+        toScreen('111 112\n211 212\n121\n221') + '\n' +
+        toScreen('111 112\n211 212\n121 122\n221') + '\n' +
+        toScreen('111 112\n211 212\n121 122\n221 222') + '\n' +
+        toScreen('111 112 113\n211 212\n121 122\n221 222') + '\n' +
+        toScreen('111 112 113\n211 212 213\n121 122\n221 222') + '\n' +
+        toScreen('111 112 113\n211 212 213\n121 122 123\n221 222') + '\n' +
+        toScreen('111 112 113\n211 212 213\n121 122 123\n221 222 223') + '\n',
+      }],
+    });
+
+    return test();
+  });
 });

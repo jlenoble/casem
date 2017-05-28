@@ -1,0 +1,13 @@
+\For 1\->I \To 3
+1\->A
+10\->J
+\Do
+100\->K
+\While K<300
+\Locate 4I-3,A,I+J+K
+A+1\->A
+K+100\->K
+\WhileEnd
+J+10\->J
+\LpWhile J<30
+\Next
