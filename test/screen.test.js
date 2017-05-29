@@ -1,6 +1,6 @@
 import Muter, {muted} from 'muter';
 import {expect} from 'chai';
-import Screen from '../src/screen';
+import Screen from '../src/helpers/screen';
 
 describe('Testing class Screen', function () {
   const muter = Muter(process);

@@ -1,4 +1,4 @@
-import Screen from './screen';
+import Screen from '../helpers/screen';
 
 const screen = new Screen();
 

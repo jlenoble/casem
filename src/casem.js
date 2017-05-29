@@ -6,7 +6,7 @@ const grammar = 'Calc';
 const rule = 'prog';
 const parserDir = 'src/static/antlr4/parsers';
 const listener = 'Translator';
-const listenerDir = 'build/src';
+const listenerDir = 'build/src/custom';
 
 const interprete = dataFile => {
   return new Promise((resolve, reject) => {

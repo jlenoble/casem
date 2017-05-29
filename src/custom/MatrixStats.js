@@ -1,4 +1,4 @@
-import Matrix from './matrix';
+import Matrix from '../helpers/matrix';
 
 export const mixWithMatrixStats = Interpreter => {
   Object.assign(Interpreter.prototype, {

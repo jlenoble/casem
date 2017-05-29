@@ -1,9 +1,9 @@
 import path from 'path';
 import {Interpreter} from './Interpreter';
-import Block from './block';
-import File from './file';
-import Stat from './stat';
-import {DoStat, ForStat, IfStat, WhileStat} from './block-stats';
+import Block from '../helpers/block';
+import File from '../helpers/file';
+import Stat from '../helpers/stat';
+import {DoStat, ForStat, IfStat, WhileStat} from '../helpers/block-stats';
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');

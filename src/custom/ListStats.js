@@ -1,4 +1,4 @@
-import List from './list';
+import List from '../helpers/list';
 
 export const mixWithListStats = Interpreter => {
   Object.assign(Interpreter.prototype, {

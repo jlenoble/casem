@@ -1,10 +1,10 @@
 import {makeIOTest} from 'child-process-data';
-import {toScreen} from '../src/screen';
+import {toScreen} from '../src/helpers/screen';
 
 const waitForReady = 1000;
 
 describe('Testing Casem', function () {
-  /* it('Testing Getkey loop', function () {
+  it('Testing Getkey loop', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/getkey.txt'],
@@ -173,7 +173,7 @@ describe('Testing Casem', function () {
     });
 
     return test();
-  });*/
+  });
 
   it('Testing prog', function () {
     const test = makeIOTest({

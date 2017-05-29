@@ -1,6 +1,6 @@
 import Muter, {muted} from 'muter';
 import {expect} from 'chai';
-import List from '../src/list';
+import List from '../src/helpers/list';
 
 describe('Testing class List', function () {
   const muter = Muter(process);

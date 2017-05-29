@@ -1,6 +1,6 @@
 import Muter, {muted} from 'muter';
 import {expect} from 'chai';
-import Matrix from '../src/matrix';
+import Matrix from '../src/helpers/matrix';
 
 describe('Testing class Matrix', function () {
   const muter = Muter(process);
