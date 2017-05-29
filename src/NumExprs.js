@@ -42,6 +42,10 @@ export const mixWithNumExprs = Interpreter => {
       return this.getVariable(ctx.variable().getText());
     },
 
+    visitMatrixElement (ctx) {
+      return this.visit(ctx.matrixElementExpr());
+    },
+
     visitMultiply (ctx) {
       if (ctx.multOp().MUL() !== null) {
         return this.visit(ctx.numExpr(0)) * this.visit(ctx.numExpr(1));

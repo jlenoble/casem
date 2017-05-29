@@ -18,6 +18,12 @@ DataStructsVisitor.prototype.visitFunc = function(ctx) {
 };
 
 
+// Visit a parse tree produced by DataStructsParser#matrix.
+DataStructsVisitor.prototype.visitMatrix = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by DataStructsParser#variable.
 DataStructsVisitor.prototype.visitVariable = function(ctx) {
   return this.visitChildren(ctx);

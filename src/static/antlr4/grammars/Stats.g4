@@ -10,6 +10,7 @@ stat
 
 assignStat
 : numExpr ARROW stoExpr
+| matrixExpr ARROW matrixStoExpr
 ;
 
 printStat

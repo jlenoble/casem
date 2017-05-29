@@ -15,7 +15,7 @@ export const mixWithVectorExprs = Interpreter => {
 
 export const mixWithExprs = Interpreter => {
   Object.assign(Interpreter.prototype, {
-    visitBoolExpr (ctx) {
+    visitCompare (ctx) {
       const left = this.visit(ctx.numExpr(0));
       const right = this.visit(ctx.numExpr(1));
       const operator = ctx.compOp();
@@ -36,6 +36,17 @@ export const mixWithExprs = Interpreter => {
         return left < right;
       }
       return left <= right;
+    },
+
+    visitReduceBoolExpr (ctx) {
+      const left = this.visit(ctx.boolExpr(0));
+      const right = this.visit(ctx.boolExpr(1));
+      const operator = ctx.logicOp();
+
+      if(operator.AND() !== null) {
+        return left && right;
+      }
+      return left || right;
     },
   });
 

@@ -8,6 +8,10 @@ func
 | ABS   | INT
 ;
 
+matrix
+: MATRIX ID
+;
+
 variable
 : ID
 ;

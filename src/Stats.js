@@ -1,11 +1,21 @@
 import {mixWithPrintStats} from './PrintStats';
+import {mixWithMatrixStats} from './MatrixStats';
 
 export const mixWithStats = Interpreter => {
   const proto = Interpreter.prototype;
 
   Object.assign(proto, {
     visitAssignStat (ctx) {
-      this.setVariable(ctx.stoExpr().getText(), this.visit(ctx.numExpr()));
+      if (ctx.stoExpr() !== null) {
+        this.setVariable(ctx.stoExpr().getText(), this.visit(ctx.numExpr()));
+        return;
+      }
+
+      if (ctx.matrixStoExpr() !== null) {
+        this.setMatrix(ctx.matrixStoExpr().getText(),
+          this.visit(ctx.matrixExpr()));
+        return;
+      }
     },
 
     visitImplyStat (ctx) {
@@ -20,4 +30,5 @@ export const mixWithStats = Interpreter => {
   });
 
   mixWithPrintStats(Interpreter);
+  mixWithMatrixStats(Interpreter);
 };

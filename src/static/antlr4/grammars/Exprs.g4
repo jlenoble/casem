@@ -2,7 +2,8 @@ grammar Exprs;
 import DataStructs;
 
 boolExpr
-: numExpr compOp numExpr
+: numExpr compOp numExpr      # compare
+| boolExpr logicOp boolExpr   # reduceBoolExpr
 ;
 
 numExpr
@@ -12,13 +13,37 @@ numExpr
 | numExpr vectorExpr          # scalarMult
 | numExpr multOp numExpr      # multiply
 | numExpr addOp numExpr       # add
+| matrixElementExpr           # matrixElement
 | variable                    # evaluate
 | constant                    # constEvaluate
 | number                      # parse
 ;
 
+matrixExpr
+: matrixExpr addOp matrixExpr   # addMatrices
+| matrix                        # evaluateMatrix
+| matrixInitializerExpr         # evaluateMatrixInitializerExpr
+;
+
 stoExpr
-: variable
+: matrixElementExpr
+| variable
+;
+
+matrixStoExpr
+: matrix
+;
+
+matrixInitializerExpr
+: OBRA matrixRowExpr+ CBRA
+;
+
+matrixRowExpr
+: OBRA numExpr (COMMA numExpr)* CBRA
+;
+
+matrixElementExpr
+: matrix OBRA numExpr COMMA numExpr CBRA
 ;
 
 vectorExpr
@@ -35,6 +60,11 @@ compOp
 | GE
 | LT
 | LE
+;
+
+logicOp
+: AND
+| OR
 ;
 
 multOp

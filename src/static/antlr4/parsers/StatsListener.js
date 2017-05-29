@@ -74,12 +74,21 @@ StatsListener.prototype.exitEndStat = function(ctx) {
 };
 
 
-// Enter a parse tree produced by StatsParser#boolExpr.
-StatsListener.prototype.enterBoolExpr = function(ctx) {
+// Enter a parse tree produced by StatsParser#reduceBoolExpr.
+StatsListener.prototype.enterReduceBoolExpr = function(ctx) {
 };
 
-// Exit a parse tree produced by StatsParser#boolExpr.
-StatsListener.prototype.exitBoolExpr = function(ctx) {
+// Exit a parse tree produced by StatsParser#reduceBoolExpr.
+StatsListener.prototype.exitReduceBoolExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#compare.
+StatsListener.prototype.enterCompare = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#compare.
+StatsListener.prototype.exitCompare = function(ctx) {
 };
 
 
@@ -107,6 +116,15 @@ StatsListener.prototype.enterParens = function(ctx) {
 
 // Exit a parse tree produced by StatsParser#parens.
 StatsListener.prototype.exitParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#matrixElement.
+StatsListener.prototype.enterMatrixElement = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#matrixElement.
+StatsListener.prototype.exitMatrixElement = function(ctx) {
 };
 
 
@@ -164,12 +182,75 @@ StatsListener.prototype.exitEvaluate = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#evaluateMatrix.
+StatsListener.prototype.enterEvaluateMatrix = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#evaluateMatrix.
+StatsListener.prototype.exitEvaluateMatrix = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#evaluateMatrixInitializerExpr.
+StatsListener.prototype.enterEvaluateMatrixInitializerExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#evaluateMatrixInitializerExpr.
+StatsListener.prototype.exitEvaluateMatrixInitializerExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#addMatrices.
+StatsListener.prototype.enterAddMatrices = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#addMatrices.
+StatsListener.prototype.exitAddMatrices = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#stoExpr.
 StatsListener.prototype.enterStoExpr = function(ctx) {
 };
 
 // Exit a parse tree produced by StatsParser#stoExpr.
 StatsListener.prototype.exitStoExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#matrixStoExpr.
+StatsListener.prototype.enterMatrixStoExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#matrixStoExpr.
+StatsListener.prototype.exitMatrixStoExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#matrixInitializerExpr.
+StatsListener.prototype.enterMatrixInitializerExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#matrixInitializerExpr.
+StatsListener.prototype.exitMatrixInitializerExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#matrixRowExpr.
+StatsListener.prototype.enterMatrixRowExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#matrixRowExpr.
+StatsListener.prototype.exitMatrixRowExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#matrixElementExpr.
+StatsListener.prototype.enterMatrixElementExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#matrixElementExpr.
+StatsListener.prototype.exitMatrixElementExpr = function(ctx) {
 };
 
 
@@ -218,6 +299,15 @@ StatsListener.prototype.exitCompOp = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#logicOp.
+StatsListener.prototype.enterLogicOp = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#logicOp.
+StatsListener.prototype.exitLogicOp = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#multOp.
 StatsListener.prototype.enterMultOp = function(ctx) {
 };
@@ -242,6 +332,15 @@ StatsListener.prototype.enterFunc = function(ctx) {
 
 // Exit a parse tree produced by StatsParser#func.
 StatsListener.prototype.exitFunc = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#matrix.
+StatsListener.prototype.enterMatrix = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#matrix.
+StatsListener.prototype.exitMatrix = function(ctx) {
 };
 
 

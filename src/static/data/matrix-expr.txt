@@ -1,0 +1,6 @@
+[[0,0][0,0]]\->\Mat Z
+[[1,0][0,1]]\->\Mat I
+[[1,2][3,4]]+\Mat I\->\Mat A
+\If \Mat A[1,1]=2\ And \Mat A[1,2]=2\ And \Mat A[2,1]=3\ And \Mat A[2,2]=5
+\Then "Calculation Ok"
+\IfEnd

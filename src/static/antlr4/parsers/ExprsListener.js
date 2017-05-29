@@ -11,12 +11,21 @@ function ExprsListener() {
 ExprsListener.prototype = Object.create(antlr4.tree.ParseTreeListener.prototype);
 ExprsListener.prototype.constructor = ExprsListener;
 
-// Enter a parse tree produced by ExprsParser#boolExpr.
-ExprsListener.prototype.enterBoolExpr = function(ctx) {
+// Enter a parse tree produced by ExprsParser#reduceBoolExpr.
+ExprsListener.prototype.enterReduceBoolExpr = function(ctx) {
 };
 
-// Exit a parse tree produced by ExprsParser#boolExpr.
-ExprsListener.prototype.exitBoolExpr = function(ctx) {
+// Exit a parse tree produced by ExprsParser#reduceBoolExpr.
+ExprsListener.prototype.exitReduceBoolExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#compare.
+ExprsListener.prototype.enterCompare = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#compare.
+ExprsListener.prototype.exitCompare = function(ctx) {
 };
 
 
@@ -44,6 +53,15 @@ ExprsListener.prototype.enterParens = function(ctx) {
 
 // Exit a parse tree produced by ExprsParser#parens.
 ExprsListener.prototype.exitParens = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#matrixElement.
+ExprsListener.prototype.enterMatrixElement = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#matrixElement.
+ExprsListener.prototype.exitMatrixElement = function(ctx) {
 };
 
 
@@ -101,12 +119,75 @@ ExprsListener.prototype.exitEvaluate = function(ctx) {
 };
 
 
+// Enter a parse tree produced by ExprsParser#evaluateMatrix.
+ExprsListener.prototype.enterEvaluateMatrix = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#evaluateMatrix.
+ExprsListener.prototype.exitEvaluateMatrix = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#evaluateMatrixInitializerExpr.
+ExprsListener.prototype.enterEvaluateMatrixInitializerExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#evaluateMatrixInitializerExpr.
+ExprsListener.prototype.exitEvaluateMatrixInitializerExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#addMatrices.
+ExprsListener.prototype.enterAddMatrices = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#addMatrices.
+ExprsListener.prototype.exitAddMatrices = function(ctx) {
+};
+
+
 // Enter a parse tree produced by ExprsParser#stoExpr.
 ExprsListener.prototype.enterStoExpr = function(ctx) {
 };
 
 // Exit a parse tree produced by ExprsParser#stoExpr.
 ExprsListener.prototype.exitStoExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#matrixStoExpr.
+ExprsListener.prototype.enterMatrixStoExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#matrixStoExpr.
+ExprsListener.prototype.exitMatrixStoExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#matrixInitializerExpr.
+ExprsListener.prototype.enterMatrixInitializerExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#matrixInitializerExpr.
+ExprsListener.prototype.exitMatrixInitializerExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#matrixRowExpr.
+ExprsListener.prototype.enterMatrixRowExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#matrixRowExpr.
+ExprsListener.prototype.exitMatrixRowExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#matrixElementExpr.
+ExprsListener.prototype.enterMatrixElementExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#matrixElementExpr.
+ExprsListener.prototype.exitMatrixElementExpr = function(ctx) {
 };
 
 
@@ -155,6 +236,15 @@ ExprsListener.prototype.exitCompOp = function(ctx) {
 };
 
 
+// Enter a parse tree produced by ExprsParser#logicOp.
+ExprsListener.prototype.enterLogicOp = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#logicOp.
+ExprsListener.prototype.exitLogicOp = function(ctx) {
+};
+
+
 // Enter a parse tree produced by ExprsParser#multOp.
 ExprsListener.prototype.enterMultOp = function(ctx) {
 };
@@ -179,6 +269,15 @@ ExprsListener.prototype.enterFunc = function(ctx) {
 
 // Exit a parse tree produced by ExprsParser#func.
 ExprsListener.prototype.exitFunc = function(ctx) {
+};
+
+
+// Enter a parse tree produced by ExprsParser#matrix.
+ExprsListener.prototype.enterMatrix = function(ctx) {
+};
+
+// Exit a parse tree produced by ExprsParser#matrix.
+ExprsListener.prototype.exitMatrix = function(ctx) {
 };
 
 

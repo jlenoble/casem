@@ -4,7 +4,7 @@ import {toScreen} from '../src/screen';
 const waitForReady = 1000;
 
 describe('Testing Casem', function () {
-  it('Testing Getkey loop', function () {
+  /* it('Testing Getkey loop', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/getkey.txt'],
@@ -145,5 +145,33 @@ describe('Testing Casem', function () {
     });
 
     return test();
+  });*/
+
+  it('Testing matrices', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/matrix-expr.txt'],
+      waitForReady,
+
+      messages: [{o:
+        toScreen('Calculation Ok') + '\n',
+      }],
+    });
+
+    return test();
   });
+
+  /* it('Testing lists', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/list-expr.txt'],
+      waitForReady,
+
+      messages: [{o:
+        toScreen('Calculation Ok') + '\n',
+      }],
+    });
+
+    return test();
+  });*/
 });

@@ -20,6 +20,15 @@ DataStructsListener.prototype.exitFunc = function(ctx) {
 };
 
 
+// Enter a parse tree produced by DataStructsParser#matrix.
+DataStructsListener.prototype.enterMatrix = function(ctx) {
+};
+
+// Exit a parse tree produced by DataStructsParser#matrix.
+DataStructsListener.prototype.exitMatrix = function(ctx) {
+};
+
+
 // Enter a parse tree produced by DataStructsParser#variable.
 DataStructsListener.prototype.enterVariable = function(ctx) {
 };
