@@ -4,6 +4,10 @@ const screen = new Screen();
 
 export const mixWithPrintStats = Interpreter => {
   Object.assign(Interpreter.prototype, {
+    visitClearText () {
+      screen.clear();
+    },
+
     visitPrint (ctx) {
       let txt = ctx.STRING().getText().replace(/^"(.*)"$/, '$1');
       screen.print(txt);

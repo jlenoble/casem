@@ -6,6 +6,8 @@ stat
 | printStat
 | readStat
 | implyStat
+| jumpStat
+| labelStat
 ;
 
 assignStat
@@ -17,6 +19,7 @@ assignStat
 printStat
 : STRING                                                # print
 | LOCATE numExpr COMMA numExpr COMMA (STRING|numExpr)   # printAt
+| CLRTEXT                                               # clearText
 ;
 
 readStat
@@ -25,6 +28,15 @@ readStat
 
 implyStat
 : boolExpr FATARROW stat
+;
+
+jumpStat
+: GOTO ID
+| PROG STRING
+;
+
+labelStat
+: LBL ID
 ;
 
 endStat

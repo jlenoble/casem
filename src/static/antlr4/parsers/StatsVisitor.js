@@ -36,6 +36,12 @@ StatsVisitor.prototype.visitPrintAt = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#clearText.
+StatsVisitor.prototype.visitClearText = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#readStat.
 StatsVisitor.prototype.visitReadStat = function(ctx) {
   return this.visitChildren(ctx);
@@ -44,6 +50,18 @@ StatsVisitor.prototype.visitReadStat = function(ctx) {
 
 // Visit a parse tree produced by StatsParser#implyStat.
 StatsVisitor.prototype.visitImplyStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#jumpStat.
+StatsVisitor.prototype.visitJumpStat = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#labelStat.
+StatsVisitor.prototype.visitLabelStat = function(ctx) {
   return this.visitChildren(ctx);
 };
 

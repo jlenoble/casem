@@ -7,7 +7,7 @@ var ExprsVisitor = require('./ExprsVisitor').ExprsVisitor;
 var grammarFileName = "Exprs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u00038\u00d4\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
+    "\u0003<\u00d4\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t",
     "\u0004\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0004",
     "\b\t\b\u0004\t\t\t\u0004\n\t\n\u0004\u000b\t\u000b\u0004\f\t\f\u0004",
     "\r\t\r\u0004\u000e\t\u000e\u0004\u000f\t\u000f\u0004\u0010\t\u0010\u0004",
@@ -41,9 +41,9 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0003\u0018\u0003\u0018\u0003\u0018\u0005\u0018\u00d2\n\u0018\u0003",
     "\u0018\u0002\u0006\u0002\u0004\u0006\b\u0019\u0002\u0004\u0006\b\n\f",
     "\u000e\u0010\u0012\u0014\u0016\u0018\u001a\u001c\u001e \"$&(*,.\u0002",
-    "\u0007\b\u0002\u0018\u0018\u001b\u001b\u001d\u001d!!%%))\u0004\u0002",
-    "\n\n..\u0004\u0002\u0014\u0014\'(\u0004\u0002\t\t33\b\u0002\u0007\b",
-    "\f\r\u0012\u0012  0144\u0002\u00d4\u00020\u0003\u0002\u0002\u0002\u0004",
+    "\u0007\b\u0002\u0019\u0019\u001c\u001c\u001f\u001f$$((,,\u0004\u0002",
+    "\n\n11\u0004\u0002\u0015\u0015*+\u0004\u0002\t\t77\b\u0002\u0007\b\f",
+    "\r\u0013\u0013\"\"4588\u0002\u00d4\u00020\u0003\u0002\u0002\u0002\u0004",
     "M\u0003\u0002\u0002\u0002\u0006a\u0003\u0002\u0002\u0002\bo\u0003\u0002",
     "\u0002\u0002\n|\u0003\u0002\u0002\u0002\f~\u0003\u0002\u0002\u0002\u000e",
     "\u0080\u0003\u0002\u0002\u0002\u0010\u0082\u0003\u0002\u0002\u0002\u0012",
@@ -60,8 +60,8 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "8:\u0003\u0002\u0002\u000295\u0003\u0002\u0002\u0002:=\u0003\u0002\u0002",
     "\u0002;9\u0003\u0002\u0002\u0002;<\u0003\u0002\u0002\u0002<\u0003\u0003",
     "\u0002\u0002\u0002=;\u0003\u0002\u0002\u0002>?\b\u0003\u0001\u0002?",
-    "@\u0007-\u0002\u0002@A\u0005\u0004\u0003\u0002AB\u0007\u0013\u0002\u0002",
-    "BN\u0003\u0002\u0002\u0002CD\u00073\u0002\u0002DN\u0005\u0004\u0003",
+    "@\u00070\u0002\u0002@A\u0005\u0004\u0003\u0002AB\u0007\u0014\u0002\u0002",
+    "BN\u0003\u0002\u0002\u0002CD\u00077\u0002\u0002DN\u0005\u0004\u0003",
     "\fEF\u0005$\u0013\u0002FG\u0005\u0004\u0003\u000bGN\u0003\u0002\u0002",
     "\u0002HN\u0005\u0016\f\u0002IN\u0005\u0018\r\u0002JN\u0005*\u0016\u0002",
     "KN\u0005,\u0017\u0002LN\u0005.\u0018\u0002M>\u0003\u0002\u0002\u0002",
@@ -89,30 +89,30 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "|z\u0003\u0002\u0002\u0002|{\u0003\u0002\u0002\u0002}\u000b\u0003\u0002",
     "\u0002\u0002~\u007f\u0005&\u0014\u0002\u007f\r\u0003\u0002\u0002\u0002",
     "\u0080\u0081\u0005(\u0015\u0002\u0081\u000f\u0003\u0002\u0002\u0002",
-    "\u0082\u0084\u0007+\u0002\u0002\u0083\u0085\u0005\u0014\u000b\u0002",
+    "\u0082\u0084\u0007.\u0002\u0002\u0083\u0085\u0005\u0014\u000b\u0002",
     "\u0084\u0083\u0003\u0002\u0002\u0002\u0085\u0086\u0003\u0002\u0002\u0002",
     "\u0086\u0084\u0003\u0002\u0002\u0002\u0086\u0087\u0003\u0002\u0002\u0002",
     "\u0087\u0088\u0003\u0002\u0002\u0002\u0088\u0089\u0007\u000e\u0002\u0002",
-    "\u0089\u0011\u0003\u0002\u0002\u0002\u008a\u008b\u0007,\u0002\u0002",
-    "\u008b\u0090\u0005\u0004\u0003\u0002\u008c\u008d\u0007\u0011\u0002\u0002",
+    "\u0089\u0011\u0003\u0002\u0002\u0002\u008a\u008b\u0007/\u0002\u0002",
+    "\u008b\u0090\u0005\u0004\u0003\u0002\u008c\u008d\u0007\u0012\u0002\u0002",
     "\u008d\u008f\u0005\u0004\u0003\u0002\u008e\u008c\u0003\u0002\u0002\u0002",
     "\u008f\u0092\u0003\u0002\u0002\u0002\u0090\u008e\u0003\u0002\u0002\u0002",
     "\u0090\u0091\u0003\u0002\u0002\u0002\u0091\u0093\u0003\u0002\u0002\u0002",
     "\u0092\u0090\u0003\u0002\u0002\u0002\u0093\u0094\u0007\u000f\u0002\u0002",
-    "\u0094\u0013\u0003\u0002\u0002\u0002\u0095\u0096\u0007+\u0002\u0002",
-    "\u0096\u009b\u0005\u0004\u0003\u0002\u0097\u0098\u0007\u0011\u0002\u0002",
+    "\u0094\u0013\u0003\u0002\u0002\u0002\u0095\u0096\u0007.\u0002\u0002",
+    "\u0096\u009b\u0005\u0004\u0003\u0002\u0097\u0098\u0007\u0012\u0002\u0002",
     "\u0098\u009a\u0005\u0004\u0003\u0002\u0099\u0097\u0003\u0002\u0002\u0002",
     "\u009a\u009d\u0003\u0002\u0002\u0002\u009b\u0099\u0003\u0002\u0002\u0002",
     "\u009b\u009c\u0003\u0002\u0002\u0002\u009c\u009e\u0003\u0002\u0002\u0002",
     "\u009d\u009b\u0003\u0002\u0002\u0002\u009e\u009f\u0007\u000e\u0002\u0002",
     "\u009f\u0015\u0003\u0002\u0002\u0002\u00a0\u00a1\u0005&\u0014\u0002",
-    "\u00a1\u00a2\u0007+\u0002\u0002\u00a2\u00a3\u0005\u0004\u0003\u0002",
-    "\u00a3\u00a4\u0007\u0011\u0002\u0002\u00a4\u00a5\u0005\u0004\u0003\u0002",
+    "\u00a1\u00a2\u0007.\u0002\u0002\u00a2\u00a3\u0005\u0004\u0003\u0002",
+    "\u00a3\u00a4\u0007\u0012\u0002\u0002\u00a4\u00a5\u0005\u0004\u0003\u0002",
     "\u00a5\u00a6\u0007\u000e\u0002\u0002\u00a6\u0017\u0003\u0002\u0002\u0002",
-    "\u00a7\u00a8\u0005(\u0015\u0002\u00a8\u00a9\u0007+\u0002\u0002\u00a9",
+    "\u00a7\u00a8\u0005(\u0015\u0002\u00a8\u00a9\u0007.\u0002\u0002\u00a9",
     "\u00aa\u0005\u0004\u0003\u0002\u00aa\u00ab\u0007\u000e\u0002\u0002\u00ab",
-    "\u0019\u0003\u0002\u0002\u0002\u00ac\u00ad\u0007-\u0002\u0002\u00ad",
-    "\u00ae\u0005\u0004\u0003\u0002\u00ae\u00af\u0007\u0013\u0002\u0002\u00af",
+    "\u0019\u0003\u0002\u0002\u0002\u00ac\u00ad\u00070\u0002\u0002\u00ad",
+    "\u00ae\u0005\u0004\u0003\u0002\u00ae\u00af\u0007\u0014\u0002\u0002\u00af",
     "\u00b6\u0003\u0002\u0002\u0002\u00b0\u00b1\u0005$\u0013\u0002\u00b1",
     "\u00b2\u0005\u0004\u0003\u0002\u00b2\u00b6\u0003\u0002\u0002\u0002\u00b3",
     "\u00b6\u0005*\u0016\u0002\u00b4\u00b6\u0005,\u0017\u0002\u00b5\u00ac",
@@ -123,14 +123,14 @@ var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
     "\u0003\u0002\u0002\u0002\u00bb\u00bc\t\u0004\u0002\u0002\u00bc!\u0003",
     "\u0002\u0002\u0002\u00bd\u00be\t\u0005\u0002\u0002\u00be#\u0003\u0002",
     "\u0002\u0002\u00bf\u00c0\t\u0006\u0002\u0002\u00c0%\u0003\u0002\u0002",
-    "\u0002\u00c1\u00c2\u0007&\u0002\u0002\u00c2\u00c3\u0007\u0003\u0002",
-    "\u0002\u00c3\'\u0003\u0002\u0002\u0002\u00c4\u00c5\u0007\"\u0002\u0002",
+    "\u0002\u00c1\u00c2\u0007)\u0002\u0002\u00c2\u00c3\u0007\u0003\u0002",
+    "\u0002\u00c3\'\u0003\u0002\u0002\u0002\u00c4\u00c5\u0007%\u0002\u0002",
     "\u00c5\u00c6\u0007\u0004\u0002\u0002\u00c6)\u0003\u0002\u0002\u0002",
     "\u00c7\u00c8\u0007\u0003\u0002\u0002\u00c8+\u0003\u0002\u0002\u0002",
-    "\u00c9\u00ca\u0007/\u0002\u0002\u00ca-\u0003\u0002\u0002\u0002\u00cb",
-    "\u00d2\u0007\u0004\u0002\u0002\u00cc\u00cd\u0007\u0016\u0002\u0002\u00cd",
+    "\u00c9\u00ca\u00072\u0002\u0002\u00ca-\u0003\u0002\u0002\u0002\u00cb",
+    "\u00d2\u0007\u0004\u0002\u0002\u00cc\u00cd\u0007\u0017\u0002\u0002\u00cd",
     "\u00d2\u0007\u0004\u0002\u0002\u00ce\u00cf\u0007\u0004\u0002\u0002\u00cf",
-    "\u00d0\u0007\u0016\u0002\u0002\u00d0\u00d2\u0007\u0004\u0002\u0002\u00d1",
+    "\u00d0\u0007\u0017\u0002\u0002\u00d0\u00d2\u0007\u0004\u0002\u0002\u00d1",
     "\u00cb\u0003\u0002\u0002\u0002\u00d1\u00cc\u0003\u0002\u0002\u0002\u00d1",
     "\u00ce\u0003\u0002\u0002\u0002\u00d2/\u0003\u0002\u0002\u0002\u0010",
     ";MY[aiow|\u0086\u0090\u009b\u00b5\u00d1"].join("");
@@ -144,23 +144,25 @@ var sharedContextCache = new antlr4.PredictionContextCache();
 
 var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '", 
                      "'+'", "'\\ And '", "'\\->'", "'\\asin '", "'\\atan '", 
-                     "']'", "'}'", "':'", "','", "'\\cos '", "')'", "'/'", 
-                     "'\\Do'", "'.'", "'\\Else '", "'='", "'\\=>'", "'\\For '", 
-                     "'\\>='", "'\\Getkey'", "'>'", "'\\If '", "'\\IfEnd'", 
-                     "'\\Int '", "'\\<='", "'\\List '", "'\\Locate '", "'\\LpWhile '", 
+                     "']'", "'}'", "'\\ClrText'", "':'", "','", "'\\cos '", 
+                     "')'", "'/'", "'\\Do'", "'.'", "'\\Else '", "'='", 
+                     "'\\=>'", "'\\For '", "'\\>='", "'\\Getkey'", "'\\Goto'", 
+                     "'>'", "'\\If '", "'\\IfEnd'", "'\\Int '", "'\\Lbl '", 
+                     "'\\<='", "'\\List '", "'\\Locate '", "'\\LpWhile '", 
                      "'<'", "'\\Mat '", "'%'", "'*'", "'\\<>'", "'\\Next'", 
-                     "'['", "'{'", "'('", "'\\ Or '", "'\\Pi'", "'\\sin '", 
-                     "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", "'\\Then '", 
-                     "' \\To '", "'\\While '", "'\\WhileEnd'" ];
+                     "'['", "'{'", "'('", "'\\ Or '", "'\\Pi'", "'\\Prog '", 
+                     "'\\sin '", "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", 
+                     "'\\Then '", "' \\To '", "'\\While '", "'\\WhileEnd'" ];
 
 var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
                       "ADD", "AND", "ARROW", "ASIN", "ATAN", "CBRA", "CCUR", 
-                      "COLON", "COMMA", "COS", "CPAR", "DIV", "DO", "DOT", 
-                      "ELSE", "EQ", "FATARROW", "FOR", "GE", "GETKEY", "GT", 
-                      "IF", "IFEND", "INT", "LE", "LIST", "LOCATE", "LOOPWHILE", 
-                      "LT", "MATRIX", "REMAIN", "MUL", "NE", "NEXT", "OBRA", 
-                      "OCUR", "OPAR", "OR", "PI", "SIN", "SQRT", "STEP", 
-                      "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
+                      "CLRTEXT", "COLON", "COMMA", "COS", "CPAR", "DIV", 
+                      "DO", "DOT", "ELSE", "EQ", "FATARROW", "FOR", "GE", 
+                      "GETKEY", "GOTO", "GT", "IF", "IFEND", "INT", "LBL", 
+                      "LE", "LIST", "LOCATE", "LOOPWHILE", "LT", "MATRIX", 
+                      "REMAIN", "MUL", "NE", "NEXT", "OBRA", "OCUR", "OPAR", 
+                      "OR", "PI", "PROG", "SIN", "SQRT", "STEP", "SUB", 
+                      "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
 
 var ruleNames =  [ "boolExpr", "numExpr", "matrixExpr", "listExpr", "stoExpr", 
                    "matrixStoExpr", "listStoExpr", "matrixInitializerExpr", 
@@ -201,47 +203,51 @@ ExprsParser.ASIN = 10;
 ExprsParser.ATAN = 11;
 ExprsParser.CBRA = 12;
 ExprsParser.CCUR = 13;
-ExprsParser.COLON = 14;
-ExprsParser.COMMA = 15;
-ExprsParser.COS = 16;
-ExprsParser.CPAR = 17;
-ExprsParser.DIV = 18;
-ExprsParser.DO = 19;
-ExprsParser.DOT = 20;
-ExprsParser.ELSE = 21;
-ExprsParser.EQ = 22;
-ExprsParser.FATARROW = 23;
-ExprsParser.FOR = 24;
-ExprsParser.GE = 25;
-ExprsParser.GETKEY = 26;
-ExprsParser.GT = 27;
-ExprsParser.IF = 28;
-ExprsParser.IFEND = 29;
-ExprsParser.INT = 30;
-ExprsParser.LE = 31;
-ExprsParser.LIST = 32;
-ExprsParser.LOCATE = 33;
-ExprsParser.LOOPWHILE = 34;
-ExprsParser.LT = 35;
-ExprsParser.MATRIX = 36;
-ExprsParser.REMAIN = 37;
-ExprsParser.MUL = 38;
-ExprsParser.NE = 39;
-ExprsParser.NEXT = 40;
-ExprsParser.OBRA = 41;
-ExprsParser.OCUR = 42;
-ExprsParser.OPAR = 43;
-ExprsParser.OR = 44;
-ExprsParser.PI = 45;
-ExprsParser.SIN = 46;
-ExprsParser.SQRT = 47;
-ExprsParser.STEP = 48;
-ExprsParser.SUB = 49;
-ExprsParser.TAN = 50;
-ExprsParser.THEN = 51;
-ExprsParser.TO = 52;
-ExprsParser.WHILE = 53;
-ExprsParser.WHILEEND = 54;
+ExprsParser.CLRTEXT = 14;
+ExprsParser.COLON = 15;
+ExprsParser.COMMA = 16;
+ExprsParser.COS = 17;
+ExprsParser.CPAR = 18;
+ExprsParser.DIV = 19;
+ExprsParser.DO = 20;
+ExprsParser.DOT = 21;
+ExprsParser.ELSE = 22;
+ExprsParser.EQ = 23;
+ExprsParser.FATARROW = 24;
+ExprsParser.FOR = 25;
+ExprsParser.GE = 26;
+ExprsParser.GETKEY = 27;
+ExprsParser.GOTO = 28;
+ExprsParser.GT = 29;
+ExprsParser.IF = 30;
+ExprsParser.IFEND = 31;
+ExprsParser.INT = 32;
+ExprsParser.LBL = 33;
+ExprsParser.LE = 34;
+ExprsParser.LIST = 35;
+ExprsParser.LOCATE = 36;
+ExprsParser.LOOPWHILE = 37;
+ExprsParser.LT = 38;
+ExprsParser.MATRIX = 39;
+ExprsParser.REMAIN = 40;
+ExprsParser.MUL = 41;
+ExprsParser.NE = 42;
+ExprsParser.NEXT = 43;
+ExprsParser.OBRA = 44;
+ExprsParser.OCUR = 45;
+ExprsParser.OPAR = 46;
+ExprsParser.OR = 47;
+ExprsParser.PI = 48;
+ExprsParser.PROG = 49;
+ExprsParser.SIN = 50;
+ExprsParser.SQRT = 51;
+ExprsParser.STEP = 52;
+ExprsParser.SUB = 53;
+ExprsParser.TAN = 54;
+ExprsParser.THEN = 55;
+ExprsParser.TO = 56;
+ExprsParser.WHILE = 57;
+ExprsParser.WHILEEND = 58;
 
 ExprsParser.RULE_boolExpr = 0;
 ExprsParser.RULE_numExpr = 1;
@@ -2517,7 +2523,7 @@ ExprsParser.prototype.compOp = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 181;
         _la = this._input.LA(1);
-        if(!(((((_la - 22)) & ~0x1f) == 0 && ((1 << (_la - 22)) & ((1 << (ExprsParser.EQ - 22)) | (1 << (ExprsParser.GE - 22)) | (1 << (ExprsParser.GT - 22)) | (1 << (ExprsParser.LE - 22)) | (1 << (ExprsParser.LT - 22)) | (1 << (ExprsParser.NE - 22)))) !== 0))) {
+        if(!(((((_la - 23)) & ~0x1f) == 0 && ((1 << (_la - 23)) & ((1 << (ExprsParser.EQ - 23)) | (1 << (ExprsParser.GE - 23)) | (1 << (ExprsParser.GT - 23)) | (1 << (ExprsParser.LE - 23)) | (1 << (ExprsParser.LT - 23)) | (1 << (ExprsParser.NE - 23)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -2679,7 +2685,7 @@ ExprsParser.prototype.multOp = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 185;
         _la = this._input.LA(1);
-        if(!(((((_la - 18)) & ~0x1f) == 0 && ((1 << (_la - 18)) & ((1 << (ExprsParser.DIV - 18)) | (1 << (ExprsParser.REMAIN - 18)) | (1 << (ExprsParser.MUL - 18)))) !== 0))) {
+        if(!(((((_la - 19)) & ~0x1f) == 0 && ((1 << (_la - 19)) & ((1 << (ExprsParser.DIV - 19)) | (1 << (ExprsParser.REMAIN - 19)) | (1 << (ExprsParser.MUL - 19)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {
@@ -2865,7 +2871,7 @@ ExprsParser.prototype.func = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 189;
         _la = this._input.LA(1);
-        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << ExprsParser.ABS) | (1 << ExprsParser.ACOS) | (1 << ExprsParser.ASIN) | (1 << ExprsParser.ATAN) | (1 << ExprsParser.COS) | (1 << ExprsParser.INT))) !== 0) || ((((_la - 46)) & ~0x1f) == 0 && ((1 << (_la - 46)) & ((1 << (ExprsParser.SIN - 46)) | (1 << (ExprsParser.SQRT - 46)) | (1 << (ExprsParser.TAN - 46)))) !== 0))) {
+        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << ExprsParser.ABS) | (1 << ExprsParser.ACOS) | (1 << ExprsParser.ASIN) | (1 << ExprsParser.ATAN) | (1 << ExprsParser.COS))) !== 0) || ((((_la - 32)) & ~0x1f) == 0 && ((1 << (_la - 32)) & ((1 << (ExprsParser.INT - 32)) | (1 << (ExprsParser.SIN - 32)) | (1 << (ExprsParser.SQRT - 32)) | (1 << (ExprsParser.TAN - 32)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {

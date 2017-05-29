@@ -47,6 +47,15 @@ StatsListener.prototype.exitPrintAt = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#clearText.
+StatsListener.prototype.enterClearText = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#clearText.
+StatsListener.prototype.exitClearText = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#readStat.
 StatsListener.prototype.enterReadStat = function(ctx) {
 };
@@ -62,6 +71,24 @@ StatsListener.prototype.enterImplyStat = function(ctx) {
 
 // Exit a parse tree produced by StatsParser#implyStat.
 StatsListener.prototype.exitImplyStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#jumpStat.
+StatsListener.prototype.enterJumpStat = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#jumpStat.
+StatsListener.prototype.exitJumpStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#labelStat.
+StatsListener.prototype.enterLabelStat = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#labelStat.
+StatsListener.prototype.exitLabelStat = function(ctx) {
 };
 
 

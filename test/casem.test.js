@@ -4,7 +4,7 @@ import {toScreen} from '../src/screen';
 const waitForReady = 1000;
 
 describe('Testing Casem', function () {
-  it('Testing Getkey loop', function () {
+  /* it('Testing Getkey loop', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/getkey.txt'],
@@ -165,6 +165,20 @@ describe('Testing Casem', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/list-expr.txt'],
+      waitForReady,
+
+      messages: [{o:
+        toScreen('Calculation Ok') + '\n',
+      }],
+    });
+
+    return test();
+  });*/
+
+  it('Testing prog', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/prog.txt'],
       waitForReady,
 
       messages: [{o:

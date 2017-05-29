@@ -119,6 +119,15 @@ CalcListener.prototype.exitPrintAt = function(ctx) {
 };
 
 
+// Enter a parse tree produced by CalcParser#clearText.
+CalcListener.prototype.enterClearText = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#clearText.
+CalcListener.prototype.exitClearText = function(ctx) {
+};
+
+
 // Enter a parse tree produced by CalcParser#readStat.
 CalcListener.prototype.enterReadStat = function(ctx) {
 };
@@ -134,6 +143,24 @@ CalcListener.prototype.enterImplyStat = function(ctx) {
 
 // Exit a parse tree produced by CalcParser#implyStat.
 CalcListener.prototype.exitImplyStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#jumpStat.
+CalcListener.prototype.enterJumpStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#jumpStat.
+CalcListener.prototype.exitJumpStat = function(ctx) {
+};
+
+
+// Enter a parse tree produced by CalcParser#labelStat.
+CalcListener.prototype.enterLabelStat = function(ctx) {
+};
+
+// Exit a parse tree produced by CalcParser#labelStat.
+CalcListener.prototype.exitLabelStat = function(ctx) {
 };
 
 
