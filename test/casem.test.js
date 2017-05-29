@@ -126,7 +126,7 @@ describe('Testing Casem', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/nested-loops.txt'],
-      waitForReady: 1000,
+      waitForReady,
 
       messages: [{o:
         toScreen('111') + '\n' +
