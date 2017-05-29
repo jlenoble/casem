@@ -175,14 +175,13 @@ describe('Testing Casem', function () {
     return test();
   });
 
-  it('Testing prog', function () {
+  it('Calling a program', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/prog.txt'],
       waitForReady,
 
-      messages: [{o:
-        toScreen('Calculation Ok') + '\n',
+      messages: [{o: toScreen('In ROOT') + '\n',
       }],
     });
 

@@ -1,24 +1,9 @@
-\Prog "S-MENU"
+\Prog "ROOT"
 
 %Header Record
 Format:TXT
 Data Type:PG
-File Name:S-MENU
+File Name:ROOT
 %Data Record
-\Lbl A
-\ClrText
-"F1: Nouveau point"
-"F2: Voir point"
-"F3: Corriger point"
-"F6: Fin"
-\Lbl B
-\Prog "S-GETKEY"
-T=79\=>\Prog "S-CREAT"
-T=69\=>\Prog "S-VOIR"
-T=59\=>\Prog "S-CORREC"
-T=29\=>\GotoZ
-\GotoB
-\Lbl Z
-\ClrText
-\Locate 7,4,"Au revoir"
+"In ROOT"
 %End

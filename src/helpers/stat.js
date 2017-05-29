@@ -1,4 +1,4 @@
-class Ctx {
+class Stat {
   constructor (ctx, visitor) {
     Object.defineProperties(this, {
       ctx: {
@@ -15,7 +15,5 @@ class Ctx {
     return this.visitor.visit(this.ctx);
   }
 }
-
-class Stat extends Ctx {}
 
 export default Stat;

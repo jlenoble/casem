@@ -1,3 +1,4 @@
+import {mixWithJumpStats} from './JumpStats';
 import {mixWithPrintStats} from './PrintStats';
 import {mixWithMatrixStats} from './MatrixStats';
 import {mixWithListStats} from './ListStats';
@@ -36,6 +37,7 @@ export const mixWithStats = Interpreter => {
     },
   });
 
+  mixWithJumpStats(Interpreter);
   mixWithPrintStats(Interpreter);
   mixWithMatrixStats(Interpreter);
   mixWithListStats(Interpreter);
