@@ -1,3 +1,10 @@
+\Prog "S-MENU"
+
+%Header Record
+Format:TXT
+Data Type:PG
+File Name:S-MENU
+%Data Record
 \Lbl A
 \ClrText
 "F1: Nouveau point"
@@ -14,3 +21,4 @@ T=29\=>\GotoZ
 \Lbl Z
 \ClrText
 \Locate 7,4,"Au revoir"
+%End

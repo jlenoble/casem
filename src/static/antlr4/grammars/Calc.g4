@@ -1,9 +1,15 @@
 grammar Calc;
-import Stats;
+import Files, Stats;
 
 prog
 : blocks
+| blocks file+
 ;
+
+file
+: header blocks endFile
+;
+
 
 blocks
 : block*
@@ -12,6 +18,7 @@ blocks
 block
 : (stat endStat)+
 | blockStat endStat
+| NEWLINE+
 ;
 
 blockStat

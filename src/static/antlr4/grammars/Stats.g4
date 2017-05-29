@@ -33,6 +33,7 @@ implyStat
 jumpStat
 : GOTO ID
 | PROG STRING
+| endProg
 ;
 
 labelStat
@@ -42,4 +43,8 @@ labelStat
 endStat
 : NEWLINE
 | COLON
+;
+
+endProg
+: RETURN
 ;

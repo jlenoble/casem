@@ -72,6 +72,12 @@ StatsVisitor.prototype.visitEndStat = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#endProg.
+StatsVisitor.prototype.visitEndProg = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#reduceBoolExpr.
 StatsVisitor.prototype.visitReduceBoolExpr = function(ctx) {
   return this.visitChildren(ctx);

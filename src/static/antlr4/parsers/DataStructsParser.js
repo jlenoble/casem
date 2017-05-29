@@ -7,24 +7,24 @@ var DataStructsVisitor = require('./DataStructsVisitor').DataStructsVisitor;
 var grammarFileName = "DataStructs.g4";
 
 var serializedATN = ["\u0003\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964",
-    "\u0003<#\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
+    "\u0003>#\u0004\u0002\t\u0002\u0004\u0003\t\u0003\u0004\u0004\t\u0004",
     "\u0004\u0005\t\u0005\u0004\u0006\t\u0006\u0004\u0007\t\u0007\u0003\u0002",
     "\u0003\u0002\u0003\u0003\u0003\u0003\u0003\u0003\u0003\u0004\u0003\u0004",
     "\u0003\u0004\u0003\u0005\u0003\u0005\u0003\u0006\u0003\u0006\u0003\u0007",
     "\u0003\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0003\u0007\u0005\u0007",
     "!\n\u0007\u0003\u0007\u0002\u0002\b\u0002\u0004\u0006\b\n\f\u0002\u0003",
-    "\b\u0002\u0007\b\f\r\u0013\u0013\"\"4588\u0002\u001e\u0002\u000e\u0003",
+    "\b\u0002\b\t\r\u000e\u0014\u0014##67::\u0002\u001e\u0002\u000e\u0003",
     "\u0002\u0002\u0002\u0004\u0010\u0003\u0002\u0002\u0002\u0006\u0013\u0003",
     "\u0002\u0002\u0002\b\u0016\u0003\u0002\u0002\u0002\n\u0018\u0003\u0002",
     "\u0002\u0002\f \u0003\u0002\u0002\u0002\u000e\u000f\t\u0002\u0002\u0002",
-    "\u000f\u0003\u0003\u0002\u0002\u0002\u0010\u0011\u0007)\u0002\u0002",
+    "\u000f\u0003\u0003\u0002\u0002\u0002\u0010\u0011\u0007*\u0002\u0002",
     "\u0011\u0012\u0007\u0003\u0002\u0002\u0012\u0005\u0003\u0002\u0002\u0002",
-    "\u0013\u0014\u0007%\u0002\u0002\u0014\u0015\u0007\u0004\u0002\u0002",
+    "\u0013\u0014\u0007&\u0002\u0002\u0014\u0015\u0007\u0004\u0002\u0002",
     "\u0015\u0007\u0003\u0002\u0002\u0002\u0016\u0017\u0007\u0003\u0002\u0002",
-    "\u0017\t\u0003\u0002\u0002\u0002\u0018\u0019\u00072\u0002\u0002\u0019",
+    "\u0017\t\u0003\u0002\u0002\u0002\u0018\u0019\u00073\u0002\u0002\u0019",
     "\u000b\u0003\u0002\u0002\u0002\u001a!\u0007\u0004\u0002\u0002\u001b",
-    "\u001c\u0007\u0017\u0002\u0002\u001c!\u0007\u0004\u0002\u0002\u001d",
-    "\u001e\u0007\u0004\u0002\u0002\u001e\u001f\u0007\u0017\u0002\u0002\u001f",
+    "\u001c\u0007\u0018\u0002\u0002\u001c!\u0007\u0004\u0002\u0002\u001d",
+    "\u001e\u0007\u0004\u0002\u0002\u001e\u001f\u0007\u0018\u0002\u0002\u001f",
     "!\u0007\u0004\u0002\u0002 \u001a\u0003\u0002\u0002\u0002 \u001b\u0003",
     "\u0002\u0002\u0002 \u001d\u0003\u0002\u0002\u0002!\r\u0003\u0002\u0002",
     "\u0002\u0003 "].join("");
@@ -36,7 +36,7 @@ var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new a
 
 var sharedContextCache = new antlr4.PredictionContextCache();
 
-var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '", 
+var literalNames = [ null, null, null, null, null, null, "'\\Abs '", "'\\acos '", 
                      "'+'", "'\\ And '", "'\\->'", "'\\asin '", "'\\atan '", 
                      "']'", "'}'", "'\\ClrText'", "':'", "','", "'\\cos '", 
                      "')'", "'/'", "'\\Do'", "'.'", "'\\Else '", "'='", 
@@ -45,18 +45,19 @@ var literalNames = [ null, null, null, null, null, "'\\Abs '", "'\\acos '",
                      "'\\<='", "'\\List '", "'\\Locate '", "'\\LpWhile '", 
                      "'<'", "'\\Mat '", "'%'", "'*'", "'\\<>'", "'\\Next'", 
                      "'['", "'{'", "'('", "'\\ Or '", "'\\Pi'", "'\\Prog '", 
-                     "'\\sin '", "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", 
-                     "'\\Then '", "' \\To '", "'\\While '", "'\\WhileEnd'" ];
+                     "'\\Return'", "'\\sin '", "'\\sqrt'", "'\\Step '", 
+                     "'-'", "'\\tan '", "'\\Then '", "' \\To '", "'\\While '", 
+                     "'\\WhileEnd'" ];
 
-var symbolicNames = [ null, "ID", "UINT", "STRING", "NEWLINE", "ABS", "ACOS", 
-                      "ADD", "AND", "ARROW", "ASIN", "ATAN", "CBRA", "CCUR", 
-                      "CLRTEXT", "COLON", "COMMA", "COS", "CPAR", "DIV", 
-                      "DO", "DOT", "ELSE", "EQ", "FATARROW", "FOR", "GE", 
-                      "GETKEY", "GOTO", "GT", "IF", "IFEND", "INT", "LBL", 
-                      "LE", "LIST", "LOCATE", "LOOPWHILE", "LT", "MATRIX", 
-                      "REMAIN", "MUL", "NE", "NEXT", "OBRA", "OCUR", "OPAR", 
-                      "OR", "PI", "PROG", "SIN", "SQRT", "STEP", "SUB", 
-                      "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
+var symbolicNames = [ null, "ID", "UINT", "STRING", "WS", "NEWLINE", "ABS", 
+                      "ACOS", "ADD", "AND", "ARROW", "ASIN", "ATAN", "CBRA", 
+                      "CCUR", "CLRTEXT", "COLON", "COMMA", "COS", "CPAR", 
+                      "DIV", "DO", "DOT", "ELSE", "EQ", "FATARROW", "FOR", 
+                      "GE", "GETKEY", "GOTO", "GT", "IF", "IFEND", "INT", 
+                      "LBL", "LE", "LIST", "LOCATE", "LOOPWHILE", "LT", 
+                      "MATRIX", "REMAIN", "MUL", "NE", "NEXT", "OBRA", "OCUR", 
+                      "OPAR", "OR", "PI", "PROG", "RETURN", "SIN", "SQRT", 
+                      "STEP", "SUB", "TAN", "THEN", "TO", "WHILE", "WHILEEND" ];
 
 var ruleNames =  [ "func", "matrix", "list", "variable", "constant", "number" ];
 
@@ -82,61 +83,63 @@ DataStructsParser.EOF = antlr4.Token.EOF;
 DataStructsParser.ID = 1;
 DataStructsParser.UINT = 2;
 DataStructsParser.STRING = 3;
-DataStructsParser.NEWLINE = 4;
-DataStructsParser.ABS = 5;
-DataStructsParser.ACOS = 6;
-DataStructsParser.ADD = 7;
-DataStructsParser.AND = 8;
-DataStructsParser.ARROW = 9;
-DataStructsParser.ASIN = 10;
-DataStructsParser.ATAN = 11;
-DataStructsParser.CBRA = 12;
-DataStructsParser.CCUR = 13;
-DataStructsParser.CLRTEXT = 14;
-DataStructsParser.COLON = 15;
-DataStructsParser.COMMA = 16;
-DataStructsParser.COS = 17;
-DataStructsParser.CPAR = 18;
-DataStructsParser.DIV = 19;
-DataStructsParser.DO = 20;
-DataStructsParser.DOT = 21;
-DataStructsParser.ELSE = 22;
-DataStructsParser.EQ = 23;
-DataStructsParser.FATARROW = 24;
-DataStructsParser.FOR = 25;
-DataStructsParser.GE = 26;
-DataStructsParser.GETKEY = 27;
-DataStructsParser.GOTO = 28;
-DataStructsParser.GT = 29;
-DataStructsParser.IF = 30;
-DataStructsParser.IFEND = 31;
-DataStructsParser.INT = 32;
-DataStructsParser.LBL = 33;
-DataStructsParser.LE = 34;
-DataStructsParser.LIST = 35;
-DataStructsParser.LOCATE = 36;
-DataStructsParser.LOOPWHILE = 37;
-DataStructsParser.LT = 38;
-DataStructsParser.MATRIX = 39;
-DataStructsParser.REMAIN = 40;
-DataStructsParser.MUL = 41;
-DataStructsParser.NE = 42;
-DataStructsParser.NEXT = 43;
-DataStructsParser.OBRA = 44;
-DataStructsParser.OCUR = 45;
-DataStructsParser.OPAR = 46;
-DataStructsParser.OR = 47;
-DataStructsParser.PI = 48;
-DataStructsParser.PROG = 49;
-DataStructsParser.SIN = 50;
-DataStructsParser.SQRT = 51;
-DataStructsParser.STEP = 52;
-DataStructsParser.SUB = 53;
-DataStructsParser.TAN = 54;
-DataStructsParser.THEN = 55;
-DataStructsParser.TO = 56;
-DataStructsParser.WHILE = 57;
-DataStructsParser.WHILEEND = 58;
+DataStructsParser.WS = 4;
+DataStructsParser.NEWLINE = 5;
+DataStructsParser.ABS = 6;
+DataStructsParser.ACOS = 7;
+DataStructsParser.ADD = 8;
+DataStructsParser.AND = 9;
+DataStructsParser.ARROW = 10;
+DataStructsParser.ASIN = 11;
+DataStructsParser.ATAN = 12;
+DataStructsParser.CBRA = 13;
+DataStructsParser.CCUR = 14;
+DataStructsParser.CLRTEXT = 15;
+DataStructsParser.COLON = 16;
+DataStructsParser.COMMA = 17;
+DataStructsParser.COS = 18;
+DataStructsParser.CPAR = 19;
+DataStructsParser.DIV = 20;
+DataStructsParser.DO = 21;
+DataStructsParser.DOT = 22;
+DataStructsParser.ELSE = 23;
+DataStructsParser.EQ = 24;
+DataStructsParser.FATARROW = 25;
+DataStructsParser.FOR = 26;
+DataStructsParser.GE = 27;
+DataStructsParser.GETKEY = 28;
+DataStructsParser.GOTO = 29;
+DataStructsParser.GT = 30;
+DataStructsParser.IF = 31;
+DataStructsParser.IFEND = 32;
+DataStructsParser.INT = 33;
+DataStructsParser.LBL = 34;
+DataStructsParser.LE = 35;
+DataStructsParser.LIST = 36;
+DataStructsParser.LOCATE = 37;
+DataStructsParser.LOOPWHILE = 38;
+DataStructsParser.LT = 39;
+DataStructsParser.MATRIX = 40;
+DataStructsParser.REMAIN = 41;
+DataStructsParser.MUL = 42;
+DataStructsParser.NE = 43;
+DataStructsParser.NEXT = 44;
+DataStructsParser.OBRA = 45;
+DataStructsParser.OCUR = 46;
+DataStructsParser.OPAR = 47;
+DataStructsParser.OR = 48;
+DataStructsParser.PI = 49;
+DataStructsParser.PROG = 50;
+DataStructsParser.RETURN = 51;
+DataStructsParser.SIN = 52;
+DataStructsParser.SQRT = 53;
+DataStructsParser.STEP = 54;
+DataStructsParser.SUB = 55;
+DataStructsParser.TAN = 56;
+DataStructsParser.THEN = 57;
+DataStructsParser.TO = 58;
+DataStructsParser.WHILE = 59;
+DataStructsParser.WHILEEND = 60;
 
 DataStructsParser.RULE_func = 0;
 DataStructsParser.RULE_matrix = 1;
@@ -231,7 +234,7 @@ DataStructsParser.prototype.func = function() {
         this.enterOuterAlt(localctx, 1);
         this.state = 12;
         _la = this._input.LA(1);
-        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << DataStructsParser.ABS) | (1 << DataStructsParser.ACOS) | (1 << DataStructsParser.ASIN) | (1 << DataStructsParser.ATAN) | (1 << DataStructsParser.COS))) !== 0) || ((((_la - 32)) & ~0x1f) == 0 && ((1 << (_la - 32)) & ((1 << (DataStructsParser.INT - 32)) | (1 << (DataStructsParser.SIN - 32)) | (1 << (DataStructsParser.SQRT - 32)) | (1 << (DataStructsParser.TAN - 32)))) !== 0))) {
+        if(!((((_la) & ~0x1f) == 0 && ((1 << _la) & ((1 << DataStructsParser.ABS) | (1 << DataStructsParser.ACOS) | (1 << DataStructsParser.ASIN) | (1 << DataStructsParser.ATAN) | (1 << DataStructsParser.COS))) !== 0) || ((((_la - 33)) & ~0x1f) == 0 && ((1 << (_la - 33)) & ((1 << (DataStructsParser.INT - 33)) | (1 << (DataStructsParser.SIN - 33)) | (1 << (DataStructsParser.SQRT - 33)) | (1 << (DataStructsParser.TAN - 33)))) !== 0))) {
         this._errHandler.recoverInline(this);
         }
         else {

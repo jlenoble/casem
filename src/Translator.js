@@ -42,6 +42,14 @@ export class Translator extends CalcListener {
     this.currentBlock = this.currentBlock.parent;
   }
 
+  enterFile (ctx) {
+    this.currentBlock = new File(ctx, visitor);
+  }
+
+  exitFile (ctx) {
+    this.currentBlock = this.main;
+  }
+
   enterForStat (ctx) {
     this.currentBlock = new ForStat(ctx, visitor, this.currentBlock);
   }
@@ -59,7 +67,8 @@ export class Translator extends CalcListener {
   }
 
   enterProg (ctx) {
-    this.currentBlock = new File(ctx, visitor);
+    this.main = new File(ctx, visitor);
+    this.currentBlock = this.main;
   }
 
   exitProg (ctx) {

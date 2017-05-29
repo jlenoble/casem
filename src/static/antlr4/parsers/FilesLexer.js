@@ -1,4 +1,4 @@
-// Generated from /home/jason/Projets/casem/src/static/antlr4/grammars/Calc.g4 by ANTLR 4.7
+// Generated from /home/jason/Projets/casem/src/static/antlr4/grammars/Files.g4 by ANTLR 4.7
 // jshint ignore: start
 var antlr4 = require('antlr4/index');
 
@@ -302,135 +302,135 @@ var atn = new antlr4.atn.ATNDeserializer().deserialize(serializedATN);
 
 var decisionsToDFA = atn.decisionToState.map( function(ds, index) { return new antlr4.dfa.DFA(ds, index); });
 
-function CalcLexer(input) {
+function FilesLexer(input) {
 	antlr4.Lexer.call(this, input);
     this._interp = new antlr4.atn.LexerATNSimulator(this, atn, decisionsToDFA, new antlr4.PredictionContextCache());
     return this;
 }
 
-CalcLexer.prototype = Object.create(antlr4.Lexer.prototype);
-CalcLexer.prototype.constructor = CalcLexer;
+FilesLexer.prototype = Object.create(antlr4.Lexer.prototype);
+FilesLexer.prototype.constructor = FilesLexer;
 
-CalcLexer.EOF = antlr4.Token.EOF;
-CalcLexer.T__0 = 1;
-CalcLexer.T__1 = 2;
-CalcLexer.T__2 = 3;
-CalcLexer.T__3 = 4;
-CalcLexer.ABS = 5;
-CalcLexer.ACOS = 6;
-CalcLexer.ADD = 7;
-CalcLexer.AND = 8;
-CalcLexer.ARROW = 9;
-CalcLexer.ASIN = 10;
-CalcLexer.ATAN = 11;
-CalcLexer.CBRA = 12;
-CalcLexer.CCUR = 13;
-CalcLexer.CLRTEXT = 14;
-CalcLexer.COLON = 15;
-CalcLexer.COMMA = 16;
-CalcLexer.COS = 17;
-CalcLexer.CPAR = 18;
-CalcLexer.DIV = 19;
-CalcLexer.DO = 20;
-CalcLexer.DOT = 21;
-CalcLexer.ELSE = 22;
-CalcLexer.EQ = 23;
-CalcLexer.FATARROW = 24;
-CalcLexer.FOR = 25;
-CalcLexer.GE = 26;
-CalcLexer.GETKEY = 27;
-CalcLexer.GOTO = 28;
-CalcLexer.GT = 29;
-CalcLexer.IF = 30;
-CalcLexer.IFEND = 31;
-CalcLexer.INT = 32;
-CalcLexer.LBL = 33;
-CalcLexer.LE = 34;
-CalcLexer.LIST = 35;
-CalcLexer.LOCATE = 36;
-CalcLexer.LOOPWHILE = 37;
-CalcLexer.LT = 38;
-CalcLexer.MATRIX = 39;
-CalcLexer.REMAIN = 40;
-CalcLexer.MUL = 41;
-CalcLexer.NE = 42;
-CalcLexer.NEXT = 43;
-CalcLexer.OBRA = 44;
-CalcLexer.OCUR = 45;
-CalcLexer.OPAR = 46;
-CalcLexer.OR = 47;
-CalcLexer.PI = 48;
-CalcLexer.PROG = 49;
-CalcLexer.RETURN = 50;
-CalcLexer.SIN = 51;
-CalcLexer.SQRT = 52;
-CalcLexer.STEP = 53;
-CalcLexer.SUB = 54;
-CalcLexer.TAN = 55;
-CalcLexer.THEN = 56;
-CalcLexer.TO = 57;
-CalcLexer.WHILE = 58;
-CalcLexer.WHILEEND = 59;
-CalcLexer.ID = 60;
-CalcLexer.UINT = 61;
-CalcLexer.STRING = 62;
-CalcLexer.WS = 63;
-CalcLexer.NEWLINE = 64;
+FilesLexer.EOF = antlr4.Token.EOF;
+FilesLexer.T__0 = 1;
+FilesLexer.T__1 = 2;
+FilesLexer.T__2 = 3;
+FilesLexer.T__3 = 4;
+FilesLexer.ABS = 5;
+FilesLexer.ACOS = 6;
+FilesLexer.ADD = 7;
+FilesLexer.AND = 8;
+FilesLexer.ARROW = 9;
+FilesLexer.ASIN = 10;
+FilesLexer.ATAN = 11;
+FilesLexer.CBRA = 12;
+FilesLexer.CCUR = 13;
+FilesLexer.CLRTEXT = 14;
+FilesLexer.COLON = 15;
+FilesLexer.COMMA = 16;
+FilesLexer.COS = 17;
+FilesLexer.CPAR = 18;
+FilesLexer.DIV = 19;
+FilesLexer.DO = 20;
+FilesLexer.DOT = 21;
+FilesLexer.ELSE = 22;
+FilesLexer.EQ = 23;
+FilesLexer.FATARROW = 24;
+FilesLexer.FOR = 25;
+FilesLexer.GE = 26;
+FilesLexer.GETKEY = 27;
+FilesLexer.GOTO = 28;
+FilesLexer.GT = 29;
+FilesLexer.IF = 30;
+FilesLexer.IFEND = 31;
+FilesLexer.INT = 32;
+FilesLexer.LBL = 33;
+FilesLexer.LE = 34;
+FilesLexer.LIST = 35;
+FilesLexer.LOCATE = 36;
+FilesLexer.LOOPWHILE = 37;
+FilesLexer.LT = 38;
+FilesLexer.MATRIX = 39;
+FilesLexer.REMAIN = 40;
+FilesLexer.MUL = 41;
+FilesLexer.NE = 42;
+FilesLexer.NEXT = 43;
+FilesLexer.OBRA = 44;
+FilesLexer.OCUR = 45;
+FilesLexer.OPAR = 46;
+FilesLexer.OR = 47;
+FilesLexer.PI = 48;
+FilesLexer.PROG = 49;
+FilesLexer.RETURN = 50;
+FilesLexer.SIN = 51;
+FilesLexer.SQRT = 52;
+FilesLexer.STEP = 53;
+FilesLexer.SUB = 54;
+FilesLexer.TAN = 55;
+FilesLexer.THEN = 56;
+FilesLexer.TO = 57;
+FilesLexer.WHILE = 58;
+FilesLexer.WHILEEND = 59;
+FilesLexer.ID = 60;
+FilesLexer.UINT = 61;
+FilesLexer.STRING = 62;
+FilesLexer.WS = 63;
+FilesLexer.NEWLINE = 64;
 
-CalcLexer.prototype.channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
+FilesLexer.prototype.channelNames = [ "DEFAULT_TOKEN_CHANNEL", "HIDDEN" ];
 
-CalcLexer.prototype.modeNames = [ "DEFAULT_MODE" ];
+FilesLexer.prototype.modeNames = [ "DEFAULT_MODE" ];
 
-CalcLexer.prototype.literalNames = [ null, "'File Name'", "'%Header Record'", 
-                                     "'%Data Record'", "'%End'", "'\\Abs '", 
-                                     "'\\acos '", "'+'", "'\\ And '", "'\\->'", 
-                                     "'\\asin '", "'\\atan '", "']'", "'}'", 
-                                     "'\\ClrText'", "':'", "','", "'\\cos '", 
-                                     "')'", "'/'", "'\\Do'", "'.'", "'\\Else '", 
-                                     "'='", "'\\=>'", "'\\For '", "'\\>='", 
-                                     "'\\Getkey'", "'\\Goto'", "'>'", "'\\If '", 
-                                     "'\\IfEnd'", "'\\Int '", "'\\Lbl '", 
-                                     "'\\<='", "'\\List '", "'\\Locate '", 
-                                     "'\\LpWhile '", "'<'", "'\\Mat '", 
-                                     "'%'", "'*'", "'\\<>'", "'\\Next'", 
-                                     "'['", "'{'", "'('", "'\\ Or '", "'\\Pi'", 
-                                     "'\\Prog '", "'\\Return'", "'\\sin '", 
-                                     "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", 
-                                     "'\\Then '", "' \\To '", "'\\While '", 
-                                     "'\\WhileEnd'" ];
+FilesLexer.prototype.literalNames = [ null, "'File Name'", "'%Header Record'", 
+                                      "'%Data Record'", "'%End'", "'\\Abs '", 
+                                      "'\\acos '", "'+'", "'\\ And '", "'\\->'", 
+                                      "'\\asin '", "'\\atan '", "']'", "'}'", 
+                                      "'\\ClrText'", "':'", "','", "'\\cos '", 
+                                      "')'", "'/'", "'\\Do'", "'.'", "'\\Else '", 
+                                      "'='", "'\\=>'", "'\\For '", "'\\>='", 
+                                      "'\\Getkey'", "'\\Goto'", "'>'", "'\\If '", 
+                                      "'\\IfEnd'", "'\\Int '", "'\\Lbl '", 
+                                      "'\\<='", "'\\List '", "'\\Locate '", 
+                                      "'\\LpWhile '", "'<'", "'\\Mat '", 
+                                      "'%'", "'*'", "'\\<>'", "'\\Next'", 
+                                      "'['", "'{'", "'('", "'\\ Or '", "'\\Pi'", 
+                                      "'\\Prog '", "'\\Return'", "'\\sin '", 
+                                      "'\\sqrt'", "'\\Step '", "'-'", "'\\tan '", 
+                                      "'\\Then '", "' \\To '", "'\\While '", 
+                                      "'\\WhileEnd'" ];
 
-CalcLexer.prototype.symbolicNames = [ null, null, null, null, null, "ABS", 
-                                      "ACOS", "ADD", "AND", "ARROW", "ASIN", 
-                                      "ATAN", "CBRA", "CCUR", "CLRTEXT", 
-                                      "COLON", "COMMA", "COS", "CPAR", "DIV", 
-                                      "DO", "DOT", "ELSE", "EQ", "FATARROW", 
-                                      "FOR", "GE", "GETKEY", "GOTO", "GT", 
-                                      "IF", "IFEND", "INT", "LBL", "LE", 
-                                      "LIST", "LOCATE", "LOOPWHILE", "LT", 
-                                      "MATRIX", "REMAIN", "MUL", "NE", "NEXT", 
-                                      "OBRA", "OCUR", "OPAR", "OR", "PI", 
-                                      "PROG", "RETURN", "SIN", "SQRT", "STEP", 
-                                      "SUB", "TAN", "THEN", "TO", "WHILE", 
-                                      "WHILEEND", "ID", "UINT", "STRING", 
-                                      "WS", "NEWLINE" ];
+FilesLexer.prototype.symbolicNames = [ null, null, null, null, null, "ABS", 
+                                       "ACOS", "ADD", "AND", "ARROW", "ASIN", 
+                                       "ATAN", "CBRA", "CCUR", "CLRTEXT", 
+                                       "COLON", "COMMA", "COS", "CPAR", 
+                                       "DIV", "DO", "DOT", "ELSE", "EQ", 
+                                       "FATARROW", "FOR", "GE", "GETKEY", 
+                                       "GOTO", "GT", "IF", "IFEND", "INT", 
+                                       "LBL", "LE", "LIST", "LOCATE", "LOOPWHILE", 
+                                       "LT", "MATRIX", "REMAIN", "MUL", 
+                                       "NE", "NEXT", "OBRA", "OCUR", "OPAR", 
+                                       "OR", "PI", "PROG", "RETURN", "SIN", 
+                                       "SQRT", "STEP", "SUB", "TAN", "THEN", 
+                                       "TO", "WHILE", "WHILEEND", "ID", 
+                                       "UINT", "STRING", "WS", "NEWLINE" ];
 
-CalcLexer.prototype.ruleNames = [ "T__0", "T__1", "T__2", "T__3", "ABS", 
-                                  "ACOS", "ADD", "AND", "ARROW", "ASIN", 
-                                  "ATAN", "CBRA", "CCUR", "CLRTEXT", "COLON", 
-                                  "COMMA", "COS", "CPAR", "DIV", "DO", "DOT", 
-                                  "ELSE", "EQ", "FATARROW", "FOR", "GE", 
-                                  "GETKEY", "GOTO", "GT", "IF", "IFEND", 
-                                  "INT", "LBL", "LE", "LIST", "LOCATE", 
-                                  "LOOPWHILE", "LT", "MATRIX", "REMAIN", 
-                                  "MUL", "NE", "NEXT", "OBRA", "OCUR", "OPAR", 
-                                  "OR", "PI", "PROG", "RETURN", "SIN", "SQRT", 
-                                  "STEP", "SUB", "TAN", "THEN", "TO", "WHILE", 
-                                  "WHILEEND", "ID", "UINT", "STRING", "WS", 
-                                  "NEWLINE" ];
+FilesLexer.prototype.ruleNames = [ "T__0", "T__1", "T__2", "T__3", "ABS", 
+                                   "ACOS", "ADD", "AND", "ARROW", "ASIN", 
+                                   "ATAN", "CBRA", "CCUR", "CLRTEXT", "COLON", 
+                                   "COMMA", "COS", "CPAR", "DIV", "DO", 
+                                   "DOT", "ELSE", "EQ", "FATARROW", "FOR", 
+                                   "GE", "GETKEY", "GOTO", "GT", "IF", "IFEND", 
+                                   "INT", "LBL", "LE", "LIST", "LOCATE", 
+                                   "LOOPWHILE", "LT", "MATRIX", "REMAIN", 
+                                   "MUL", "NE", "NEXT", "OBRA", "OCUR", 
+                                   "OPAR", "OR", "PI", "PROG", "RETURN", 
+                                   "SIN", "SQRT", "STEP", "SUB", "TAN", 
+                                   "THEN", "TO", "WHILE", "WHILEEND", "ID", 
+                                   "UINT", "STRING", "WS", "NEWLINE" ];
 
-CalcLexer.prototype.grammarFileName = "Calc.g4";
+FilesLexer.prototype.grammarFileName = "Files.g4";
 
 
 
-exports.CalcLexer = CalcLexer;
+exports.FilesLexer = FilesLexer;
 

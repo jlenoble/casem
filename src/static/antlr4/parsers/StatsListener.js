@@ -101,6 +101,15 @@ StatsListener.prototype.exitEndStat = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#endProg.
+StatsListener.prototype.enterEndProg = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#endProg.
+StatsListener.prototype.exitEndProg = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#reduceBoolExpr.
 StatsListener.prototype.enterReduceBoolExpr = function(ctx) {
 };

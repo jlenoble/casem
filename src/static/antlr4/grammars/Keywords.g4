@@ -45,6 +45,7 @@ OPAR      : '(';
 OR        : '\\ Or ';
 PI        : '\\Pi';
 PROG      : '\\Prog ';
+RETURN    : '\\Return';
 SIN       : '\\sin ';
 SQRT      : '\\sqrt';
 STEP      : '\\Step ';
