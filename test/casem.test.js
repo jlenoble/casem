@@ -182,9 +182,16 @@ describe('Testing Casem', function () {
       waitForReady,
 
       messages: [{o:
-        toScreen('In ROOT') + '\n' +
-        toScreen('In ROOT\nIn ONE') + '\n' +
-        toScreen('In ROOT\nIn ONE\nIn TWO') + '\n',
+        toScreen('In ONE') + '\n' +
+        toScreen('In ONE\nIn TWO') + '\n' +
+        toScreen('In ONE\nIn TWO\nIn THREE') + '\n' +
+        toScreen('In ONE\nIn TWO\nIn THREE\nIn TWO') + '\n' +
+        toScreen('In ONE\nIn TWO\nIn THREE\nIn TWO\nback to main') + '\n' +
+        toScreen('In ONE\nIn TWO\nIn THREE\nIn TWO\nback to main\nIn ONE') +
+          '\n' +
+        toScreen(
+          'In ONE\nIn TWO\nIn THREE\nIn TWO\nback to main\nIn ONE\nIn TWO') +
+          '\n',
       }],
     });
 

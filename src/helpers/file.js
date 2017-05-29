@@ -22,6 +22,14 @@ class File extends Block {
       files.set('"main"', this);
     }
   }
+
+  reduce () {
+    return super.reduce().catch(err => {
+      if (err.message !== 'RETURN') {
+        throw err;
+      }
+    });
+  }
 }
 
 export default File;

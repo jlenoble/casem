@@ -1,5 +1,15 @@
 \Prog "ROOT"
-\Prog "TWO"
+"back to main"
+\Prog "ONE"
+
+%Header Record
+Format:TXT
+Data Type:PG
+File Name:ROOT
+%Data Record
+\Prog "ONE"
+\Prog "THREE"
+%End
 
 %Header Record
 Format:TXT
@@ -7,6 +17,7 @@ Data Type:PG
 File Name:ONE
 %Data Record
 "In ONE"
+\Prog "TWO"
 %End
 
 %Header Record
@@ -15,13 +26,17 @@ Data Type:PG
 File Name:TWO
 %Data Record
 "In TWO"
+\Return
+"Inaccessible in TWO"
 %End
 
 %Header Record
 Format:TXT
 Data Type:PG
-File Name:ROOT
+File Name:THREE
 %Data Record
-"In ROOT"
-\Prog "ONE"
+"In THREE"
+\Prog "TWO"
+\Return
+"Inaccesible in THREE"
 %End
