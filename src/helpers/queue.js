@@ -24,17 +24,7 @@ class Queue {
 
   reduce () {
     return this.queue.reduce((promise, stat) => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          promise.then(() => {
-            try {
-              resolve(stat.reduce());
-            } catch (err) {
-              reject(err);
-            }
-          });
-        });
-      });
+      return promise.then(() => stat.reduce());
     }, Promise.resolve());
   }
 }

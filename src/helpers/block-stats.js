@@ -1,5 +1,7 @@
 import Block from './block';
 
+const BREAK = {};
+
 export class DoStat extends Block {
   reduce () {
     return new Promise((resolve, reject) => {
@@ -98,14 +100,14 @@ export class WhileStat extends Block {
           if (this.visitor.visit(this.ctx.boolExpr())) {
             resolve(super.reduce());
           } else {
-            resolve();
+            resolve(BREAK);
           }
         } catch(err) {
           reject(err);
         }
       });
     }).then(res => {
-      return res !== undefined ? this.reduce() : Promise.resolve();
+      return res !== BREAK ? this.reduce() : Promise.resolve();
     });
   }
 }

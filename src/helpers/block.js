@@ -24,8 +24,8 @@ class Block extends Stat {
     this.queue.push(arg);
   }
 
-  reduce (p = Promise.resolve()) {
-    return this.queue.reduce(p);
+  reduce () {
+    return this.queue.reduce();
   }
 }
 

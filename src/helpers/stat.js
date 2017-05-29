@@ -12,7 +12,16 @@ class Stat {
   }
 
   reduce () {
-    return this.visitor.visit(this.ctx);
+    const p = this.visitor.visit(this.ctx);
+
+    if (Array.isArray(p)) {
+      if (p.length !== 1) {
+        throw new Error('Length should always be 1; Was', p.length);
+      }
+      return p[0];
+    }
+
+    return p;
   }
 }
 

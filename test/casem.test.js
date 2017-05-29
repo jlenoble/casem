@@ -181,7 +181,10 @@ describe('Testing Casem', function () {
       childProcessOptions: ['src/static/data/prog.txt'],
       waitForReady,
 
-      messages: [{o: toScreen('In ROOT') + '\n',
+      messages: [{o:
+        toScreen('In ROOT') + '\n' +
+        toScreen('In ROOT\nIn ONE') + '\n' +
+        toScreen('In ROOT\nIn ONE\nIn TWO') + '\n',
       }],
     });
 

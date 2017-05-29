@@ -1,4 +1,21 @@
 \Prog "ROOT"
+\Prog "TWO"
+
+%Header Record
+Format:TXT
+Data Type:PG
+File Name:ONE
+%Data Record
+"In ONE"
+%End
+
+%Header Record
+Format:TXT
+Data Type:PG
+File Name:TWO
+%Data Record
+"In TWO"
+%End
 
 %Header Record
 Format:TXT
@@ -6,4 +23,5 @@ Data Type:PG
 File Name:ROOT
 %Data Record
 "In ROOT"
+\Prog "ONE"
 %End
