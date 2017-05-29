@@ -11,6 +11,7 @@ stat
 assignStat
 : numExpr ARROW stoExpr
 | matrixExpr ARROW matrixStoExpr
+| listExpr ARROW listStoExpr
 ;
 
 printStat

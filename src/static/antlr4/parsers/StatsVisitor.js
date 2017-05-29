@@ -90,6 +90,12 @@ StatsVisitor.prototype.visitMatrixElement = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#listElement.
+StatsVisitor.prototype.visitListElement = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#scalarMult.
 StatsVisitor.prototype.visitScalarMult = function(ctx) {
   return this.visitChildren(ctx);
@@ -144,6 +150,24 @@ StatsVisitor.prototype.visitAddMatrices = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#addLists.
+StatsVisitor.prototype.visitAddLists = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#evaluateList.
+StatsVisitor.prototype.visitEvaluateList = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#evaluateListInitializerExpr.
+StatsVisitor.prototype.visitEvaluateListInitializerExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#stoExpr.
 StatsVisitor.prototype.visitStoExpr = function(ctx) {
   return this.visitChildren(ctx);
@@ -156,8 +180,20 @@ StatsVisitor.prototype.visitMatrixStoExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by StatsParser#listStoExpr.
+StatsVisitor.prototype.visitListStoExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by StatsParser#matrixInitializerExpr.
 StatsVisitor.prototype.visitMatrixInitializerExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#listInitializerExpr.
+StatsVisitor.prototype.visitListInitializerExpr = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -170,6 +206,12 @@ StatsVisitor.prototype.visitMatrixRowExpr = function(ctx) {
 
 // Visit a parse tree produced by StatsParser#matrixElementExpr.
 StatsVisitor.prototype.visitMatrixElementExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#listElementExpr.
+StatsVisitor.prototype.visitListElementExpr = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -230,6 +272,12 @@ StatsVisitor.prototype.visitFunc = function(ctx) {
 
 // Visit a parse tree produced by StatsParser#matrix.
 StatsVisitor.prototype.visitMatrix = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by StatsParser#list.
+StatsVisitor.prototype.visitList = function(ctx) {
   return this.visitChildren(ctx);
 };
 

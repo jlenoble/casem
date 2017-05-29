@@ -14,6 +14,7 @@ numExpr
 | numExpr multOp numExpr      # multiply
 | numExpr addOp numExpr       # add
 | matrixElementExpr           # matrixElement
+| listElementExpr             # listElement
 | variable                    # evaluate
 | constant                    # constEvaluate
 | number                      # parse
@@ -25,6 +26,12 @@ matrixExpr
 | matrixInitializerExpr         # evaluateMatrixInitializerExpr
 ;
 
+listExpr
+: listExpr addOp listExpr       # addLists
+| list                          # evaluateList
+| listInitializerExpr           # evaluateListInitializerExpr
+;
+
 stoExpr
 : matrixElementExpr
 | variable
@@ -34,8 +41,16 @@ matrixStoExpr
 : matrix
 ;
 
+listStoExpr
+: list
+;
+
 matrixInitializerExpr
 : OBRA matrixRowExpr+ CBRA
+;
+
+listInitializerExpr
+: OCUR numExpr (COMMA numExpr)* CCUR
 ;
 
 matrixRowExpr
@@ -44,6 +59,10 @@ matrixRowExpr
 
 matrixElementExpr
 : matrix OBRA numExpr COMMA numExpr CBRA
+;
+
+listElementExpr
+: list OBRA numExpr CBRA
 ;
 
 vectorExpr

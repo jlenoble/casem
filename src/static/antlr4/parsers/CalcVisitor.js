@@ -138,6 +138,12 @@ CalcVisitor.prototype.visitMatrixElement = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#listElement.
+CalcVisitor.prototype.visitListElement = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#scalarMult.
 CalcVisitor.prototype.visitScalarMult = function(ctx) {
   return this.visitChildren(ctx);
@@ -192,6 +198,24 @@ CalcVisitor.prototype.visitAddMatrices = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#addLists.
+CalcVisitor.prototype.visitAddLists = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#evaluateList.
+CalcVisitor.prototype.visitEvaluateList = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#evaluateListInitializerExpr.
+CalcVisitor.prototype.visitEvaluateListInitializerExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#stoExpr.
 CalcVisitor.prototype.visitStoExpr = function(ctx) {
   return this.visitChildren(ctx);
@@ -204,8 +228,20 @@ CalcVisitor.prototype.visitMatrixStoExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by CalcParser#listStoExpr.
+CalcVisitor.prototype.visitListStoExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by CalcParser#matrixInitializerExpr.
 CalcVisitor.prototype.visitMatrixInitializerExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#listInitializerExpr.
+CalcVisitor.prototype.visitListInitializerExpr = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -218,6 +254,12 @@ CalcVisitor.prototype.visitMatrixRowExpr = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#matrixElementExpr.
 CalcVisitor.prototype.visitMatrixElementExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#listElementExpr.
+CalcVisitor.prototype.visitListElementExpr = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -278,6 +320,12 @@ CalcVisitor.prototype.visitFunc = function(ctx) {
 
 // Visit a parse tree produced by CalcParser#matrix.
 CalcVisitor.prototype.visitMatrix = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by CalcParser#list.
+CalcVisitor.prototype.visitList = function(ctx) {
   return this.visitChildren(ctx);
 };
 

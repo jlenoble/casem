@@ -1,5 +1,6 @@
 import {mixWithPrintStats} from './PrintStats';
 import {mixWithMatrixStats} from './MatrixStats';
+import {mixWithListStats} from './ListStats';
 
 export const mixWithStats = Interpreter => {
   const proto = Interpreter.prototype;
@@ -14,6 +15,12 @@ export const mixWithStats = Interpreter => {
       if (ctx.matrixStoExpr() !== null) {
         this.setMatrix(ctx.matrixStoExpr().getText(),
           this.visit(ctx.matrixExpr()));
+        return;
+      }
+
+      if (ctx.listStoExpr() !== null) {
+        this.setList(ctx.listStoExpr().getText(),
+          this.visit(ctx.listExpr()));
         return;
       }
     },
@@ -31,4 +38,5 @@ export const mixWithStats = Interpreter => {
 
   mixWithPrintStats(Interpreter);
   mixWithMatrixStats(Interpreter);
+  mixWithListStats(Interpreter);
 };

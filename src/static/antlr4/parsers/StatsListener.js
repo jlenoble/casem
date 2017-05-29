@@ -128,6 +128,15 @@ StatsListener.prototype.exitMatrixElement = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#listElement.
+StatsListener.prototype.enterListElement = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#listElement.
+StatsListener.prototype.exitListElement = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#scalarMult.
 StatsListener.prototype.enterScalarMult = function(ctx) {
 };
@@ -209,6 +218,33 @@ StatsListener.prototype.exitAddMatrices = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#addLists.
+StatsListener.prototype.enterAddLists = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#addLists.
+StatsListener.prototype.exitAddLists = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#evaluateList.
+StatsListener.prototype.enterEvaluateList = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#evaluateList.
+StatsListener.prototype.exitEvaluateList = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#evaluateListInitializerExpr.
+StatsListener.prototype.enterEvaluateListInitializerExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#evaluateListInitializerExpr.
+StatsListener.prototype.exitEvaluateListInitializerExpr = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#stoExpr.
 StatsListener.prototype.enterStoExpr = function(ctx) {
 };
@@ -227,12 +263,30 @@ StatsListener.prototype.exitMatrixStoExpr = function(ctx) {
 };
 
 
+// Enter a parse tree produced by StatsParser#listStoExpr.
+StatsListener.prototype.enterListStoExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#listStoExpr.
+StatsListener.prototype.exitListStoExpr = function(ctx) {
+};
+
+
 // Enter a parse tree produced by StatsParser#matrixInitializerExpr.
 StatsListener.prototype.enterMatrixInitializerExpr = function(ctx) {
 };
 
 // Exit a parse tree produced by StatsParser#matrixInitializerExpr.
 StatsListener.prototype.exitMatrixInitializerExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#listInitializerExpr.
+StatsListener.prototype.enterListInitializerExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#listInitializerExpr.
+StatsListener.prototype.exitListInitializerExpr = function(ctx) {
 };
 
 
@@ -251,6 +305,15 @@ StatsListener.prototype.enterMatrixElementExpr = function(ctx) {
 
 // Exit a parse tree produced by StatsParser#matrixElementExpr.
 StatsListener.prototype.exitMatrixElementExpr = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#listElementExpr.
+StatsListener.prototype.enterListElementExpr = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#listElementExpr.
+StatsListener.prototype.exitListElementExpr = function(ctx) {
 };
 
 
@@ -341,6 +404,15 @@ StatsListener.prototype.enterMatrix = function(ctx) {
 
 // Exit a parse tree produced by StatsParser#matrix.
 StatsListener.prototype.exitMatrix = function(ctx) {
+};
+
+
+// Enter a parse tree produced by StatsParser#list.
+StatsListener.prototype.enterList = function(ctx) {
+};
+
+// Exit a parse tree produced by StatsParser#list.
+StatsListener.prototype.exitList = function(ctx) {
 };
 
 

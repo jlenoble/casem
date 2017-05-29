@@ -29,6 +29,15 @@ DataStructsListener.prototype.exitMatrix = function(ctx) {
 };
 
 
+// Enter a parse tree produced by DataStructsParser#list.
+DataStructsListener.prototype.enterList = function(ctx) {
+};
+
+// Exit a parse tree produced by DataStructsParser#list.
+DataStructsListener.prototype.exitList = function(ctx) {
+};
+
+
 // Enter a parse tree produced by DataStructsParser#variable.
 DataStructsListener.prototype.enterVariable = function(ctx) {
 };

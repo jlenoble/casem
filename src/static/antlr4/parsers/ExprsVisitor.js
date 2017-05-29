@@ -48,6 +48,12 @@ ExprsVisitor.prototype.visitMatrixElement = function(ctx) {
 };
 
 
+// Visit a parse tree produced by ExprsParser#listElement.
+ExprsVisitor.prototype.visitListElement = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#scalarMult.
 ExprsVisitor.prototype.visitScalarMult = function(ctx) {
   return this.visitChildren(ctx);
@@ -102,6 +108,24 @@ ExprsVisitor.prototype.visitAddMatrices = function(ctx) {
 };
 
 
+// Visit a parse tree produced by ExprsParser#addLists.
+ExprsVisitor.prototype.visitAddLists = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#evaluateList.
+ExprsVisitor.prototype.visitEvaluateList = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#evaluateListInitializerExpr.
+ExprsVisitor.prototype.visitEvaluateListInitializerExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#stoExpr.
 ExprsVisitor.prototype.visitStoExpr = function(ctx) {
   return this.visitChildren(ctx);
@@ -114,8 +138,20 @@ ExprsVisitor.prototype.visitMatrixStoExpr = function(ctx) {
 };
 
 
+// Visit a parse tree produced by ExprsParser#listStoExpr.
+ExprsVisitor.prototype.visitListStoExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
 // Visit a parse tree produced by ExprsParser#matrixInitializerExpr.
 ExprsVisitor.prototype.visitMatrixInitializerExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#listInitializerExpr.
+ExprsVisitor.prototype.visitListInitializerExpr = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -128,6 +164,12 @@ ExprsVisitor.prototype.visitMatrixRowExpr = function(ctx) {
 
 // Visit a parse tree produced by ExprsParser#matrixElementExpr.
 ExprsVisitor.prototype.visitMatrixElementExpr = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#listElementExpr.
+ExprsVisitor.prototype.visitListElementExpr = function(ctx) {
   return this.visitChildren(ctx);
 };
 
@@ -188,6 +230,12 @@ ExprsVisitor.prototype.visitFunc = function(ctx) {
 
 // Visit a parse tree produced by ExprsParser#matrix.
 ExprsVisitor.prototype.visitMatrix = function(ctx) {
+  return this.visitChildren(ctx);
+};
+
+
+// Visit a parse tree produced by ExprsParser#list.
+ExprsVisitor.prototype.visitList = function(ctx) {
   return this.visitChildren(ctx);
 };
 
