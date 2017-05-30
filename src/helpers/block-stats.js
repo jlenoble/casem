@@ -85,17 +85,13 @@ export class IfStat extends Block {
 }
 
 export class WhileStat extends Block {
-  reduce () {
+  reduce (label) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        try {
-          if (this.visitor.visit(this.ctx.boolExpr())) {
-            resolve(super.reduce());
-          } else {
-            resolve(BREAK);
-          }
-        } catch(err) {
-          reject(err);
+        if (this.visitor.visit(this.ctx.boolExpr())) {
+          super.reduce(label).then(resolve, reject);
+        } else {
+          resolve(BREAK);
         }
       });
     }).then(res => {
