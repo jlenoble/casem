@@ -214,10 +214,52 @@ describe('Testing Casem', function () {
     return test();
   });
 
-  it('Block stats within prog', function () {
+  it('Goto within For loop', function () {
     const test = makeIOTest({
       childProcessFile: 'build/src/casem.js',
       childProcessOptions: ['src/static/data/goto-for.txt'],
+      waitForReady,
+
+      messages: [{o:
+        toScreen('F') + '\n' +
+        toScreen('F\nA') + '\n' +
+        toScreen('F\nA\nG') + '\n' +
+        toScreen('F\nA\nG\nH') + '\n' +
+        toScreen('F\nA\nG\nH\nI') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC\nI') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC\nI\nD') +
+          '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC\nI\nD\nF') +
+          '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC\nI\nD\nF\nG') +
+          '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC\nI\nD\nF\nG' +
+          '\nH') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC\nI\nD\nF\nG' +
+          '\nH\nI') + '\n' +
+        toScreen('F\nA\nG\nH\nI\nD\nF\nG\nB\nH\nI\nD\nF\nG\nH\nC\nI\nD\nF\nG' +
+          '\nH\nI\nD') + '\n',
+      }],
+    });
+
+    return test();
+  });
+
+  it('Goto within Do loop', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/goto-do.txt'],
       waitForReady,
 
       messages: [{o:

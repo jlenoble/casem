@@ -1,0 +1,27 @@
+1\->A
+\Do
+\Lbl F
+"F"
+A=1\=>\GotoA
+\Lbl G
+"G"
+A=2\=>\GotoB
+\Lbl H
+"H"
+A=3\=>\GotoC
+\Lbl I
+"I"
+\GotoD
+\Lbl A
+"A"
+\GotoG
+\Lbl B
+"B"
+\GotoH
+\Lbl C
+"C"
+\GotoI
+\Lbl D
+"D"
+A+1\->A
+\LpWhile A<5

@@ -3,14 +3,10 @@ import Block from './block';
 const BREAK = {};
 
 export class DoStat extends Block {
-  reduce () {
+  reduce (label) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        try {
-          resolve(super.reduce());
-        } catch(err) {
-          reject(err);
-        }
+        super.reduce(label).then(resolve, reject);
       });
     }).then(() => {
       if (this.visitor.visit(this.ctx.boolExpr())) {
