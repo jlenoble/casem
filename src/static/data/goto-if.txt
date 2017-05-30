@@ -1,0 +1,24 @@
+0\->A
+\GotoB
+\Lbl A
+A+1\->A
+\Locate A,1,"A"
+\If A>9
+\Then A+1\->A
+\Locate A,1,"D"
+\GotoC
+\Else \Lbl E
+A+1\->A
+\Locate A,1,"E"
+A<6\=>\GotoE
+\GotoB
+\IfEnd
+\Lbl C
+A+1\->A
+\Locate A,1,"C"
+\Return
+\Lbl B
+A+1\->A
+\Locate A,1,"B"
+\GotoA
+"F"

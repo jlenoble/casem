@@ -339,4 +339,30 @@ describe('Testing Casem', function () {
 
     return test();
   });
+
+  it('Goto with IfStat', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/goto-if.txt'],
+      waitForReady,
+
+      messages: [{o:
+        toScreen('B') + '\n' +
+        toScreen('BA') + '\n' +
+        toScreen('BAE') + '\n' +
+        toScreen('BAEE') + '\n' +
+        toScreen('BAEEE') + '\n' +
+        toScreen('BAEEEE') + '\n' +
+        toScreen('BAEEEEB') + '\n' +
+        toScreen('BAEEEEBA') + '\n' +
+        toScreen('BAEEEEBAE') + '\n' +
+        toScreen('BAEEEEBAEB') + '\n' +
+        toScreen('BAEEEEBAEBA') + '\n' +
+        toScreen('BAEEEEBAEBAD') + '\n' +
+        toScreen('BAEEEEBAEBADC') + '\n',
+      }],
+    });
+
+    return test();
+  });
 });
