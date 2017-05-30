@@ -98,7 +98,7 @@ class Screen {
     const r = this.rows;
 
     let _x = this.preprocessCoord(x, w);
-    let _y = this.preprocessCoord(y, this.height);
+    let _y = this.preprocessCoord(y, Math.max(this.height, this.rows.length));
 
     for (let i = 0, l = _txt.length; i < l; i++) {
       if (_x + i >= w) {
