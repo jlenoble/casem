@@ -11,7 +11,11 @@ class Stat {
     });
   }
 
-  reduce () {
+  reduce (label) {
+    if (label !== undefined) {
+      return;
+    }
+
     const p = this.visitor.visit(this.ctx);
 
     if (Array.isArray(p)) {

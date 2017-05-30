@@ -23,11 +23,17 @@ class File extends Block {
     }
   }
 
-  reduce () {
-    return super.reduce().catch(err => {
-      if (err.message !== 'RETURN') {
-        throw err;
+  reduce (label) {
+    return super.reduce(label).catch(err => {
+      if (err.message === 'RETURN') {
+        return;
       }
+
+      if (('' + err.message).match(/^\\Lbl [A-Z0-9]$/)) {
+        return this.reduce(err.message);
+      }
+
+      throw err;
     });
   }
 }

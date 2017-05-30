@@ -197,4 +197,20 @@ describe('Testing Casem', function () {
 
     return test();
   });
+
+  it('Jumping to label', function () {
+    const test = makeIOTest({
+      childProcessFile: 'build/src/casem.js',
+      childProcessOptions: ['src/static/data/goto.txt'],
+      waitForReady,
+
+      messages: [{o:
+        toScreen('B') + '\n' +
+        toScreen('B\nE') + '\n' +
+        toScreen('B\nE\nF') + '\n',
+      }],
+    });
+
+    return test();
+  });
 });

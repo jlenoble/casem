@@ -21,11 +21,11 @@ class Block extends Stat {
   }
 
   push (arg) {
-    this.queue.push(arg);
+    return this.queue.push(arg);
   }
 
-  reduce () {
-    return this.queue.reduce();
+  reduce (label) {
+    return this.queue.reduce(label);
   }
 }
 

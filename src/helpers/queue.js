@@ -7,7 +7,7 @@ class Queue {
 
       push: {
         value: function (arg) {
-          this.queue.push(arg);
+          return this.queue.push(arg);
         },
       },
 
@@ -22,9 +22,22 @@ class Queue {
     });
   }
 
-  reduce () {
+  reduce (label) {
+    let searchForLabel = label !== undefined;
+
     return this.queue.reduce((promise, stat) => {
-      return promise.then(() => stat.reduce());
+      return promise.then(() => {
+        if (!searchForLabel) {
+          return stat.reduce();
+        }
+
+        if (stat.ctx.getText() === label) {
+          searchForLabel = false;
+          return Promise.resolve();
+        }
+
+        return stat.reduce(label);
+      });
     }, Promise.resolve());
   }
 }

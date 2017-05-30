@@ -10,6 +10,10 @@ export const mixWithJumpStats = Interpreter => {
       if (ctx.endProg() !== null) {
         throw new Error('RETURN'); // Must be caught to stop reducing file
       }
+
+      if (ctx.GOTO() !== null) {
+        throw new Error('\\Lbl ' + ctx.ID().getText());
+      }
     },
   });
 };
