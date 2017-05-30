@@ -45,27 +45,23 @@ export class ForStat extends Block {
     this.i = this.start;
   }
 
-  reduce () {
+  reduce (label) {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        try {
-          this.visitor.setVariable(this.varName, this.i);
-          this.i += this.step;
-          resolve(super.reduce());
-        } catch(err) {
-          reject(err);
-        }
+        this.visitor.setVariable(this.varName, this.i);
+        super.reduce(label).then(resolve, reject);
       });
     });
 
     if (this.i !== this.end) {
       return promise.then(() => {
+        this.i += this.step;
         return this.reduce();
       });
     } else {
       this.visitor.setVariable(this.varName, this.i);
       return promise.then(() => {
-        this.visitor.setVariable(this.varName, this.i);
+        this.visitor.setVariable(this.varName, this.i + 1);
         this.i = this.start;
       });
     }
