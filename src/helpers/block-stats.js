@@ -67,18 +67,14 @@ export class ForStat extends Block {
 export class IfStat extends Block {
   reduce () {
     return new Promise((resolve, reject) => {
-      try {
-        const [b1, b2] = this.queue.queue;
+      const [b1, b2] = this.queue.queue;
 
-        if (this.visitor.visit(this.ctx.boolExpr())) {
-          resolve(b1.reduce());
-        } else {
-          if (b2 !== undefined) {
-            resolve(b2.reduce());
-          }
+      if (this.visitor.visit(this.ctx.boolExpr())) {
+        b1.reduce().then(resolve, reject);
+      } else {
+        if (b2 !== undefined) {
+          b2.reduce().then(resolve, reject);
         }
-      } catch (err) {
-        reject(err);
       }
     });
   }
