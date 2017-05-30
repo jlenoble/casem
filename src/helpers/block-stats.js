@@ -3,10 +3,10 @@ import Block from './block';
 const BREAK = {};
 
 export class DoStat extends Block {
-  reduce (label) {
+  reduce () {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        super.reduce(label).then(resolve, reject);
+        super.reduce().then(resolve, reject);
       });
     }).then(() => {
       if (this.visitor.visit(this.ctx.boolExpr())) {
@@ -17,8 +17,8 @@ export class DoStat extends Block {
 }
 
 export class ForStat extends Block {
-  constructor (ctx, visitor, parent) {
-    super(ctx, visitor, parent);
+  constructor (ctx, visitor, options) {
+    super(ctx, visitor, options);
 
     Object.defineProperties(this, {
       start: {
@@ -41,11 +41,11 @@ export class ForStat extends Block {
     this.i = this.start;
   }
 
-  reduce (label) {
+  reduce () {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         this.visitor.setVariable(this.varName, this.i);
-        super.reduce(label).then(resolve, reject);
+        super.reduce().then(resolve, reject);
       });
     });
 
@@ -81,11 +81,11 @@ export class IfStat extends Block {
 }
 
 export class WhileStat extends Block {
-  reduce (label) {
+  reduce () {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (this.visitor.visit(this.ctx.boolExpr())) {
-          super.reduce(label).then(resolve, reject);
+          super.reduce().then(resolve, reject);
         } else {
           resolve(BREAK);
         }

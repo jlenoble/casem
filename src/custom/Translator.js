@@ -27,7 +27,10 @@ export class Translator extends CalcListener {
   }
 
   enterBlock (ctx) {
-    this.currentBlock = new Block(ctx, visitor, this.currentBlock);
+    this.currentBlock = new Block(ctx, visitor, {
+      parent: this.currentBlock,
+      file: this.currentFile,
+    });
   }
 
   exitBlock (ctx) {
@@ -35,7 +38,10 @@ export class Translator extends CalcListener {
   }
 
   enterDoStat (ctx) {
-    this.currentBlock = new DoStat(ctx, visitor, this.currentBlock);
+    this.currentBlock = new DoStat(ctx, visitor, {
+      parent: this.currentBlock,
+      file: this.currentFile,
+    });
   }
 
   exitDoStat (ctx) {
@@ -44,14 +50,19 @@ export class Translator extends CalcListener {
 
   enterFile (ctx) {
     this.currentBlock = new File(ctx, visitor);
+    this.currentFile = this.currentBlock;
   }
 
   exitFile (ctx) {
     this.currentBlock = this.main;
+    this.currentFile = this.currentBlock;
   }
 
   enterForStat (ctx) {
-    this.currentBlock = new ForStat(ctx, visitor, this.currentBlock);
+    this.currentBlock = new ForStat(ctx, visitor, {
+      parent: this.currentBlock,
+      file: this.currentFile,
+    });
   }
 
   exitForStat (ctx) {
@@ -59,7 +70,10 @@ export class Translator extends CalcListener {
   }
 
   enterIfStat (ctx) {
-    this.currentBlock = new IfStat(ctx, visitor, this.currentBlock);
+    this.currentBlock = new IfStat(ctx, visitor, {
+      parent: this.currentBlock,
+      file: this.currentFile,
+    });
   }
 
   exitIfStat (ctx) {
@@ -69,6 +83,7 @@ export class Translator extends CalcListener {
   enterProg (ctx) {
     this.main = new File(ctx, visitor);
     this.currentBlock = this.main;
+    this.currentFile = this.currentBlock;
   }
 
   exitProg (ctx) {
@@ -85,7 +100,7 @@ export class Translator extends CalcListener {
 
   enterStat (ctx) {
     if (!this.isImplyStat) { // Makes sure implied Stat won't be cached
-      this.currentBlock.push(new Stat(ctx, visitor));
+      this.currentBlock.push(new Stat(ctx, visitor, this.currentFile));
     }
 
     this.isImplyStat = ctx.implyStat() !== null;
@@ -96,7 +111,10 @@ export class Translator extends CalcListener {
   }
 
   enterWhileStat (ctx) {
-    this.currentBlock = new WhileStat(ctx, visitor, this.currentBlock);
+    this.currentBlock = new WhileStat(ctx, visitor, {
+      parent: this.currentBlock,
+      file: this.currentFile,
+    });
   }
 
   exitWhileStat (ctx) {

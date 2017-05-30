@@ -22,21 +22,18 @@ class Queue {
     });
   }
 
-  reduce (label) {
-    let searchForLabel = label !== undefined;
-
+  reduce () {
     return this.queue.reduce((promise, stat) => {
       return promise.then(() => {
-        if (!searchForLabel) {
-          return stat.reduce();
+        if (stat.isJumping()) {
+          const label = stat.ctx.getText();
+          if (stat.isJumpingTo(label)) {
+            stat.stopJumping(label);
+            return Promise.resolve();
+          }
         }
 
-        if (stat.ctx.getText() === label) {
-          searchForLabel = false;
-          return Promise.resolve();
-        }
-
-        return stat.reduce(label);
+        return stat.reduce();
       });
     }, Promise.resolve());
   }

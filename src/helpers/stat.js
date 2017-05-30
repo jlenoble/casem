@@ -1,5 +1,5 @@
 class Stat {
-  constructor (ctx, visitor) {
+  constructor (ctx, visitor, file) {
     Object.defineProperties(this, {
       ctx: {
         value: ctx,
@@ -8,11 +8,15 @@ class Stat {
       visitor: {
         value: visitor,
       },
+
+      file: {
+        value: file,
+      },
     });
   }
 
-  reduce (label) {
-    if (label !== undefined) {
+  reduce () {
+    if (this.isJumping()) {
       return;
     }
 
@@ -26,6 +30,22 @@ class Stat {
     }
 
     return p;
+  }
+
+  isJumping () {
+    return this.file.isJumping();
+  }
+
+  isJumpingTo (label) {
+    return this.file.isJumpingTo(label);
+  }
+
+  startJumping (label) {
+    return this.file.startJumping(label);
+  }
+
+  stopJumping (label) {
+    return this.file.stopJumping(label);
   }
 }
 
