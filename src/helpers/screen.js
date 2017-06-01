@@ -9,6 +9,9 @@ export const makeBottom = len => {
 export const makeSeparator = len => {
   return '┠' + Array(len + 1).join('┄') + '┨\n';
 };
+export const makeBlank = len => {
+  return Array(len + 1).join(' ');
+};
 
 class Row {
   constructor (width = 21) {
@@ -35,6 +38,7 @@ export const makeToScreen = width => {
   const top = makeTop(width);
   const bottom = makeBottom(width);
   const separator = makeSeparator(width);
+  const blank = makeBlank(width);
 
   return str => {
     const rows = Array.isArray(str) ? str : str.split('\n');
@@ -43,8 +47,8 @@ export const makeToScreen = width => {
     let i = 0;
 
     rows.forEach(row => {
-      txt += '┃' + (row.toString().replace(/(.*)(\n)$/, '$1') +
-        '                     ').slice(0, width) + '┃\n';
+      txt += '┃' + (row.toString().replace(/(.*)(\n)$/, '$1') + blank)
+        .slice(0, width) + '┃\n';
       i++;
       if (i%8 === 0 && i !== rows.length) {
         txt += separator;

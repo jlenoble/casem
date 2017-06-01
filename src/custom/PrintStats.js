@@ -1,6 +1,6 @@
 import Screen from '../helpers/screen';
 
-const screen = new Screen();
+const screen = new Screen(21);
 
 export const mixWithPrintStats = Interpreter => {
   Object.assign(Interpreter.prototype, {
