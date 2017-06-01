@@ -1,6 +1,12 @@
+import readline from 'readline';
 import gulp from 'gulp';
 import antlr4 from 'gulp-antlr4';
 import {argv} from 'yargs';
+
+readline.emitKeypressEvents(process.stdin);
+if (process.stdin.isTTY) {
+  process.stdin.setRawMode(true);
+}
 
 const grammar = 'Calc';
 const rule = 'prog';

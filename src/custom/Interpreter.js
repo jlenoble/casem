@@ -1,13 +1,7 @@
 import path from 'path';
-import readline from 'readline';
 import {mixWithDataStructs} from './DataStructs';
 import {mixWithExprs} from './Exprs';
 import {mixWithStats} from './Stats';
-
-readline.emitKeypressEvents(process.stdin);
-if (process.stdin.isTTY) {
-  process.stdin.setRawMode(true);
-}
 
 const base = process.cwd();
 const rel = path.relative(base, 'src/static/antlr4/parsers');
