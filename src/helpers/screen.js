@@ -1,3 +1,15 @@
+export const makeTop = len => {
+  return '┏' + Array(len + 1).join('━') + '┓\n';
+};
+
+export const makeBottom = len => {
+  return '┗' + Array(len + 1).join('━') + '┛\n';
+};
+
+export const makeSeparator = len => {
+  return '┠' + Array(len + 1).join('┄') + '┨\n';
+};
+
 class Row {
   constructor (width = 21) {
     Object.defineProperties(this, {
@@ -19,28 +31,34 @@ class Row {
   }
 }
 
-export const toScreen = str => {
-  const rows = Array.isArray(str) ? str : str.split('\n');
+export const makeToScreen = width => {
+  const top = makeTop(width);
+  const bottom = makeBottom(width);
+  const separator = makeSeparator(width);
 
-  let txt = '┏━━━━━━━━━━━━━━━━━━━━━┓\n';
-  let i = 0;
+  return str => {
+    const rows = Array.isArray(str) ? str : str.split('\n');
 
-  rows.forEach(row => {
-    txt += '┃' + (row.toString().replace(/(.*)(\n)$/, '$1') +
-      '                     ').slice(0, 21) + '┃\n';
-    i++;
-    if (i%8 === 0 && i !== rows.length) {
-      txt += '┠┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┨\n';
+    let txt = top;
+    let i = 0;
+
+    rows.forEach(row => {
+      txt += '┃' + (row.toString().replace(/(.*)(\n)$/, '$1') +
+        '                     ').slice(0, width) + '┃\n';
+      i++;
+      if (i%8 === 0 && i !== rows.length) {
+        txt += separator;
+      }
+    });
+
+    if (i%8 === 0) {
+      txt += bottom;
+    } else {
+      txt += separator;
     }
-  });
 
-  if (i%8 === 0) {
-    txt += '┗━━━━━━━━━━━━━━━━━━━━━┛\n';
-  } else {
-    txt += '┠┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┨\n';
-  }
-
-  return txt;
+    return txt;
+  };
 };
 
 class Screen {
@@ -58,6 +76,9 @@ class Screen {
       offset: {
         value: 0,
         writable: true,
+      },
+      toScreen: {
+        value: makeToScreen(width),
       },
     });
 
@@ -143,7 +164,7 @@ class Screen {
   }
 
   toString () {
-    return toScreen(this.rows);
+    return this.toScreen(this.rows);
   }
 
   preprocessCoord (x, size) {
@@ -151,7 +172,7 @@ class Screen {
   }
 
   equals (txt) {
-    return this.toString() === toScreen(txt);
+    return this.toString() === this.toScreen(txt);
   }
 }
 

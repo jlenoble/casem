@@ -1,7 +1,8 @@
 import {makeIOTest} from 'child-process-data';
-import {toScreen} from '../src/helpers/screen';
+import {makeToScreen} from '../src/helpers/screen';
 
 const waitForReady = 1000;
+const toScreen = makeToScreen(21);
 
 describe('Testing Casem', function () {
   it('Testing Getkey loop', function () {
