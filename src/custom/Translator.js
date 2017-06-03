@@ -10,18 +10,10 @@ const rel = path.relative(base, 'src/static/antlr4/parsers');
 const {CalcListener} = require(path.join(base, rel, 'CalcListener'));
 
 export class Translator extends CalcListener {
-  constructor (resolve, reject, readStdin = true) {
+  constructor (readStdin = true) {
     super();
 
     Object.defineProperties(this, {
-      resolve: {
-        value: resolve || Promise.resolve,
-      },
-
-      reject: {
-        value: reject || Promise.reject,
-      },
-
       visitor: {
         value: new Interpreter(readStdin),
       },
@@ -90,13 +82,7 @@ export class Translator extends CalcListener {
 
   exitProg (ctx) {
     setTimeout(() => {
-      // Translator prints a random '\n'; This setTimeout makes sure it always
-      // appears before visitor starts printing, for reproducibility
-      try {
-        this.resolve(this.currentBlock.reduce());
-      } catch (err) {
-        this.reject(err);
-      }
+      return this.currentBlock.reduce();
     });
   }
 
